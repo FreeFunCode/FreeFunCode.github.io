@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Android 源码分析（三） Service 启动分析 | 网记本</title>
+  <meta name="keywords" content=" 安卓源码 ">
+  <meta name="description" content="Android 源码分析（三） Service 启动分析 | 网记本">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="https://freefuncode.github.io/about/index.html">
+<meta property="og:site_name" content="网记本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://freefuncode.github.io/about/avatar.jpg">
+<meta property="og:updated_time" content="2019-09-05T14:03:30.331Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于">
+<meta name="twitter:image" content="https://freefuncode.github.io/about/avatar.jpg">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>网记本</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/FreeFunCode" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="oschina" href="https://www.cnblogs.com/bugzone" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ba21180e6aab" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:940286175@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=940286175&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(81)</small></div></li>
+    
+        
+            
+            <li><div data-rel="知识点">知识点<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="CSharp后端">CSharp后端<small>(12)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="开源框架">开源框架<small>(17)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="安卓源码">安卓源码<small>(15)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android">Android<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Hexo">Hexo<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JAVA">JAVA<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="心情">心情<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端知识">前端知识<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="PHP后端">PHP后端<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="微信">微信<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="GitHub">GitHub<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="81">
+<input type="hidden" id="yelog_site_word_count" value="155.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/FreeFunCode">我的GitHub</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/bugzone">我的博客园</a></li>
+            
+            <li><a target="_blank" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts">我的掘金</a></li>
+            
+            <li><a target="_blank" href="https://www.jianshu.com/u/ba21180e6aab">我的简书</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">日期格式化</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Linq</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">visualStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">开源框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">安卓源码</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">地图</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">IIS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">SqlServer</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">ViewPager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">XMLHttpRequest</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">fiddler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">BroadcastReceiver</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">职业发展</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">跳槽</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">图片保存</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">c#</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">easyui</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">php</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">序列化</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">mongodb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">评论插件</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">正则表达式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">公众号</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">ContentProvider</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Android7.0</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Excel操作</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Service</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">GitHub</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">nodejs</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">LNMP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">C#文件上传</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">mono_for_Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">新浪SAE</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">京东云擎</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">MAMP</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="知识点 "
+           href="/2014/05/08/002-DateFormat/"
+           data-tag="日期格式化"
+           data-author="" >
+            <span class="post-title" title="C#/JavaScript/SqlServer 对日期时间的操作整理汇总">C#/JavaScript/SqlServer 对日期时间的操作整理汇总</span>
+            <span class="post-date" title="2014-05-08 14:17:15">2014/05/08</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/05/27/003-c-Linq/"
+           data-tag="Linq"
+           data-author="" >
+            <span class="post-title" title="Linq中int转String（解决LINQ to Entities 不识别方法&#34;System.String ToString()&#34;,因此该方法无法转换为存储表达式.）">Linq中int转String（解决LINQ to Entities 不识别方法&#34;System.String ToString()&#34;,因此该方法无法转换为存储表达式.）</span>
+            <span class="post-date" title="2014-05-27 17:03:35">2014/05/27</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/07/25/005-“VS无法连接远程数据库”解决方案/"
+           data-tag="visualStudio"
+           data-author="" >
+            <span class="post-title" title="“VS无法连接远程数据库”解决方案">“VS无法连接远程数据库”解决方案</span>
+            <span class="post-date" title="2014-07-25 09:28:00">2014/07/25</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2019/09/04/Android开源框架八注解框架-ButterKnife/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 八 ) 注解框架---ButterKnife">Android 开源框架 ( 八 ) 注解框架---ButterKnife</span>
+            <span class="post-date" title="2019-09-04 20:03:06">2019/09/04</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/05/Android开源框架十一图片加载框架-Glide/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十一 ) 图片加载框架---Glide">Android 开源框架 ( 十一 ) 图片加载框架---Glide</span>
+            <span class="post-date" title="2018-08-05 14:07:01">2018/08/05</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/12/Android开源框架十六视频播放器-JiaoZiVideoPlayer-JieCaoVideoPlayer/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十六 ) 视频播放器 --- JiaoZiVideoPlayer(JieCaoVideoPlayer)">Android 开源框架 ( 十六 ) 视频播放器 --- JiaoZiVideoPlayer(JieCaoVideoPlayer)</span>
+            <span class="post-date" title="2018-08-12 16:07:37">2018/08/12</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/05/Android开源框架十图片加载框架-Picasso/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十 ) 图片加载框架---Picasso">Android 开源框架 ( 十 ) 图片加载框架---Picasso</span>
+            <span class="post-date" title="2018-08-05 13:56:31">2018/08/05</span>
+        </a>
+        
+        <a id="top" class="开源框架 "
+           href="/2018/08/05/Android开源框架系列导读/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 系列 导读">Android 开源框架 系列 导读</span>
+            <span class="post-date" title="2018-08-05 22:15:29">2018/08/05</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/06/18/Android源码分析一开篇介绍/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（一） 开篇介绍">Android 源码分析（一） 开篇介绍</span>
+            <span class="post-date" title="2018-06-18 19:47:55">2018/06/18</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2019/08/25/Android面试题/"
+           data-tag="面试"
+           data-author="" >
+            <span class="post-title" title="Android面试题">Android面试题</span>
+            <span class="post-date" title="2019-08-25 22:31:56">2019/08/25</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/11/08/Arcgis-地图-服务器安装配置/"
+           data-tag="地图"
+           data-author="" >
+            <span class="post-title" title="Arcgis-地图-服务器安装配置">Arcgis-地图-服务器安装配置</span>
+            <span class="post-date" title="2014-11-08 04:00:13">2014/11/08</span>
+        </a>
+        
+        <a  class="Hexo "
+           href="/2014/04/27/Hello-Hexo/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hello Hexo">Hello Hexo</span>
+            <span class="post-date" title="2014-04-27 19:20:47">2014/04/27</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/09/15/IIS网站应用偶尔出现服务不可用解决办法/"
+           data-tag="IIS"
+           data-author="" >
+            <span class="post-title" title="IIS网站应用偶尔出现服务不可用解决办法">IIS网站应用偶尔出现服务不可用解决办法</span>
+            <span class="post-date" title="2014-09-15 13:40:05">2014/09/15</span>
+        </a>
+        
+        <a  class="JAVA "
+           href="/2018/07/01/Java基础面试题汇总/"
+           data-tag="面试"
+           data-author="" >
+            <span class="post-title" title="Java基础面试题汇总">Java基础面试题汇总</span>
+            <span class="post-date" title="2018-07-01 04:16:31">2018/07/01</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2014/12/02/SqlServer数据库添加角色，角色授权/"
+           data-tag="SqlServer"
+           data-author="" >
+            <span class="post-title" title="SqlServer数据库添加角色，角色授权">SqlServer数据库添加角色，角色授权</span>
+            <span class="post-date" title="2014-12-02 17:15:01">2014/12/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/09/04/VS2013修改模板-增加类文件的头注释/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="VS2013修改模板,增加类文件的头注释">VS2013修改模板,增加类文件的头注释</span>
+            <span class="post-date" title="2019-09-04 15:24:54">2019/09/04</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2015/06/01/VS发布报错未能将文件……复制到……/"
+           data-tag="visualStudio"
+           data-author="" >
+            <span class="post-title" title="VS发布报错未能将文件……复制到……">VS发布报错未能将文件……复制到……</span>
+            <span class="post-date" title="2015-06-01 21:25:08">2015/06/01</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/07/21/ViewPager相关使用/"
+           data-tag="ViewPager"
+           data-author="" >
+            <span class="post-title" title="ViewPager相关使用">ViewPager相关使用</span>
+            <span class="post-date" title="2018-07-21 23:59:41">2018/07/21</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/09/28/XMLHttpRequest异步方式和同步方式/"
+           data-tag="XMLHttpRequest"
+           data-author="" >
+            <span class="post-title" title="XMLHttpRequest异步方式和同步方式">XMLHttpRequest异步方式和同步方式</span>
+            <span class="post-date" title="2014-09-28 20:19:04">2014/09/28</span>
+        </a>
+        
+        <a  class="Hexo "
+           href="/2014/04/26/hello-world/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2014-04-26 19:10:17">2014/04/26</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/05/06/使用fiddler抓手机端http数据包/"
+           data-tag="fiddler"
+           data-author="" >
+            <span class="post-title" title="使用fiddler抓手机端http数据包">使用fiddler抓手机端http数据包</span>
+            <span class="post-date" title="2018-05-06 19:48:10">2018/05/06</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/04/11/四大组件-一-Activity生命周期/"
+           data-tag="Activity"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (一) Activity 生命周期">Android 四大组件 (一) Activity 生命周期</span>
+            <span class="post-date" title="2018-04-11 20:00:39">2018/04/11</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/05/16/四大组件-三-BroadcastReceiver介绍/"
+           data-tag="BroadcastReceiver"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (三) BroadcastReceiver 介绍">Android 四大组件 (三) BroadcastReceiver 介绍</span>
+            <span class="post-date" title="2018-05-16 12:33:39">2018/05/16</span>
+        </a>
+        
+        <a  class="Hexo "
+           href="/2014/11/23/在GitHub上搭建hexo博客/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="在GitHub上搭建hexo博客">在GitHub上搭建hexo博客</span>
+            <span class="post-date" title="2014-11-23 14:06:58">2014/11/23</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/07/开源框架十五下拉刷新框架-SwipeRefreshLayout/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十五 ) 下拉刷新框架 --- SwipeRefreshLayout">Android 开源框架 ( 十五 ) 下拉刷新框架 --- SwipeRefreshLayout</span>
+            <span class="post-date" title="2018-08-07 20:28:54">2018/08/07</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2015/11/14/最近的一些感想（关于移动客户端开发android-ios）/"
+           data-tag="职业发展"
+           data-author="" >
+            <span class="post-title" title="最近的一些感想（关于移动客户端开发android,ios）">最近的一些感想（关于移动客户端开发android,ios）</span>
+            <span class="post-date" title="2015-11-14 22:39:55">2015/11/14</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2016/08/27/第二次裸辞-潜伏期-一些感想/"
+           data-tag="跳槽"
+           data-author="" >
+            <span class="post-title" title="第二次裸辞_潜伏期_一些感想">第二次裸辞_潜伏期_一些感想</span>
+            <span class="post-date" title="2016-08-27 16:12:25">2016/08/27</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/"
+           data-tag="图片保存"
+           data-author="" >
+            <span class="post-title" title="解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。">解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。</span>
+            <span class="post-date" title="2018-04-13 20:26:54">2018/04/13</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2015/06/07/错误：类型System-Object未定义或者不能引入项目/"
+           data-tag="c#"
+           data-author="" >
+            <span class="post-title" title="错误：类型System.Object未定义或者不能引入项目">错误：类型System.Object未定义或者不能引入项目</span>
+            <span class="post-date" title="2015-06-07 14:33:14">2015/06/07</span>
+        </a>
+        
+        <a  class="前端知识 "
+           href="/2014/07/14/004-easyui的-getSelections-与-getSelected-对比区别/"
+           data-tag="easyui"
+           data-author="" >
+            <span class="post-title" title="easyui的 getSelections 与 getSelected 对比区别">easyui的 getSelections 与 getSelected 对比区别</span>
+            <span class="post-date" title="2014-07-14 14:11:27">2014/07/14</span>
+        </a>
+        
+        <a  class="PHP后端 "
+           href="/2014/08/21/00Windows下搭建PHP开发环境，整合Apache-PHP-MySQL（举例软件为32位）/"
+           data-tag="php"
+           data-author="" >
+            <span class="post-title" title="Windows下搭建PHP开发环境，整合Apache+PHP+MySQL（举例软件为32位）">Windows下搭建PHP开发环境，整合Apache+PHP+MySQL（举例软件为32位）</span>
+            <span class="post-date" title="2014-08-21 15:42:28">2014/08/21</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/07/14/Android8-0新特性介绍以及注意事项/"
+           data-tag="Android"
+           data-author="" >
+            <span class="post-title" title="Android8.0新特性介绍以及注意事项">Android8.0新特性介绍以及注意事项</span>
+            <span class="post-date" title="2018-07-14 13:13:38">2018/07/14</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/07/28/Android开源框架一OkHttp网络框架的基本使用/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用">Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用</span>
+            <span class="post-date" title="2018-07-28 14:21:25">2018/07/28</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/05/Android开源框架九图片加载框架-ImageLoader/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 九 ) 图片加载框架---ImageLoader">Android 开源框架 ( 九 ) 图片加载框架---ImageLoader</span>
+            <span class="post-date" title="2018-08-05 13:00:34">2018/08/05</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/07/Android源码分析八Launcher桌面启动App过程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（八） Launcher 桌面启动App过程">Android 源码分析（八） Launcher 桌面启动App过程</span>
+            <span class="post-date" title="2018-07-07 20:13:12">2018/07/07</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/22/Android源码分析十三ActivityManagerService服务分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android源码分析（十三）ActivityManagerService服务分析">Android源码分析（十三）ActivityManagerService服务分析</span>
+            <span class="post-date" title="2018-07-22 13:33:13">2018/07/22</span>
+        </a>
+        
+        <a id="top" class="安卓源码 "
+           href="/2018/07/22/Android进阶学习笔记整理/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android进阶学习笔记整理">Android进阶学习笔记整理</span>
+            <span class="post-date" title="2018-07-22 16:27:43">2018/07/22</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/07/22/Serializable和Parcelable之序列化/"
+           data-tag="序列化"
+           data-author="" >
+            <span class="post-title" title="Serializable和Parcelable之序列化">Serializable和Parcelable之序列化</span>
+            <span class="post-date" title="2018-07-22 00:28:23">2018/07/22</span>
+        </a>
+        
+        <a  class="前端知识 "
+           href="/2014/08/24/mongodb在windows下安装教程/"
+           data-tag="mongodb"
+           data-author="" >
+            <span class="post-title" title="mongodb在windows下安装教程">mongodb在windows下安装教程</span>
+            <span class="post-date" title="2014-08-24 02:10:01">2014/08/24</span>
+        </a>
+        
+        <a  class="前端知识 "
+           href="/2014/11/20/推荐三款使用社会化评论插件/"
+           data-tag="评论插件"
+           data-author="" >
+            <span class="post-title" title="推荐三款使用社会化评论插件">推荐三款使用社会化评论插件</span>
+            <span class="post-date" title="2014-11-20 23:24:39">2014/11/20</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2015/04/27/跳槽穷半年-转行穷三年-死守会穷一辈子/"
+           data-tag="跳槽"
+           data-author="" >
+            <span class="post-title" title="跳槽穷半年,转行穷三年,死守会穷一辈子">跳槽穷半年,转行穷三年,死守会穷一辈子</span>
+            <span class="post-date" title="2015-04-27 20:49:33">2015/04/27</span>
+        </a>
+        
+        <a  class="知识点 "
+           href="/2014/05/07/001-RegEx/"
+           data-tag="正则表达式"
+           data-author="" >
+            <span class="post-title" title="《正则表达式》知识点汇总摘录">《正则表达式》知识点汇总摘录</span>
+            <span class="post-date" title="2014-05-07 16:17:16">2014/05/07</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/07/21/AIDL介绍以及简单使用/"
+           data-tag="AIDL"
+           data-author="" >
+            <span class="post-title" title="AIDL介绍以及简单使用">AIDL介绍以及简单使用</span>
+            <span class="post-date" title="2018-07-21 13:05:21">2018/07/21</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/02/Android开源框架七事件总线-EventBus/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 七 ) 事件总线---EventBus">Android 开源框架 ( 七 ) 事件总线---EventBus</span>
+            <span class="post-date" title="2018-08-02 22:54:14">2018/08/02</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/07/29/Android开源框架二基于OkHttp进一步封装的okhttp-utils介绍/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</span>
+            <span class="post-date" title="2018-07-29 11:24:14">2018/07/29</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/07/30/Android开源框架五xUtils-Android里的ORM-IOC聚合型框架/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架">Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架</span>
+            <span class="post-date" title="2018-07-30 23:55:54">2018/07/30</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/05/Android开源框架十三RecyclerView/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十三 ) RecyclerView">Android 开源框架 ( 十三 ) RecyclerView</span>
+            <span class="post-date" title="2018-08-05 21:19:57">2018/08/05</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/07/30/Android开源框架四Afinal-Android里的ORM-IOC聚合型框架/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架">Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架</span>
+            <span class="post-date" title="2018-07-30 23:07:12">2018/07/30</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/07/Android源码分析五Zygote进程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（五） Zygote 进程">Android 源码分析（五） Zygote 进程</span>
+            <span class="post-date" title="2018-07-07 14:14:54">2018/07/07</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（十） Dalvik 虚拟机创建过程">Android 源码分析（十） Dalvik 虚拟机创建过程</span>
+            <span class="post-date" title="2018-07-09 21:04:17">2018/07/09</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/22/Android源码分析十四PackageManagerService服务分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android源码分析（十四）PackageManagerService服务分析">Android源码分析（十四）PackageManagerService服务分析</span>
+            <span class="post-date" title="2018-07-22 14:59:30">2018/07/22</span>
+        </a>
+        
+        <a  class="前端知识 "
+           href="/2015/06/02/easyui换主题，并记录在cookie-以及cookie作用域介绍/"
+           data-tag="easyui"
+           data-author="" >
+            <span class="post-title" title="easyui换主题，并记录在cookie.以及cookie作用域介绍">easyui换主题，并记录在cookie.以及cookie作用域介绍</span>
+            <span class="post-date" title="2015-06-02 21:22:20">2015/06/02</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/07/开源框架十四列表下拉刷新框架-SmartRefreshLayout/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十四 ) 列表下拉刷新框架 --- SmartRefreshLayout">Android 开源框架 ( 十四 ) 列表下拉刷新框架 --- SmartRefreshLayout</span>
+            <span class="post-date" title="2018-08-07 20:23:00">2018/08/07</span>
+        </a>
+        
+        <a  class="微信 "
+           href="/2014/11/28/超简单微信公众帐号自动回复和天气播报功能应用/"
+           data-tag="公众号"
+           data-author="" >
+            <span class="post-title" title="超简单微信公众帐号自动回复和天气播报功能应用">超简单微信公众帐号自动回复和天气播报功能应用</span>
+            <span class="post-date" title="2014-11-28 14:30:13">2014/11/28</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/2018/07/06/23种设计模式在Android中的应用/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="23种设计模式在Android中的应用">23种设计模式在Android中的应用</span>
+            <span class="post-date" title="2018-07-06 23:37:49">2018/07/06</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/07/19/Android四大组件-五-第五大组件Fragment使用/"
+           data-tag="Android"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (五) 第五大组件 - Fragment 使用">Android 四大组件 (五) 第五大组件 - Fragment 使用</span>
+            <span class="post-date" title="2018-07-19 09:20:09">2018/07/19</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/06/18/Android四大组件-四-ContentProvider介绍/"
+           data-tag="ContentProvider"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (四) ContentProvider介绍">Android 四大组件 (四) ContentProvider介绍</span>
+            <span class="post-date" title="2018-06-18 03:29:27">2018/06/18</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/01/Android开源框架六Volley-Google的轻量级网络通信框架/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架">Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架</span>
+            <span class="post-date" title="2018-08-01 07:36:18">2018/08/01</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/08/Android源码分析九Init启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（九） Init 启动分析">Android 源码分析（九） Init 启动分析</span>
+            <span class="post-date" title="2018-07-08 23:05:42">2018/07/08</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/07/28/Android7-0下载APK后自动安装/"
+           data-tag="Android7.0"
+           data-author="" >
+            <span class="post-title" title="Android7.0下载APK后自动安装">Android7.0下载APK后自动安装</span>
+            <span class="post-date" title="2018-07-28 18:57:46">2018/07/28</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/07/29/Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍">Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍</span>
+            <span class="post-date" title="2018-07-29 22:51:43">2018/07/29</span>
+        </a>
+        
+        <a  class="开源框架 "
+           href="/2018/08/05/Android开源框架十二图片加载框架-Fresco/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十二 ) 图片加载框架---Fresco">Android 开源框架 ( 十二 ) 图片加载框架---Fresco</span>
+            <span class="post-date" title="2018-08-05 18:43:27">2018/08/05</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/15/Android源码分析十一事件传递机制/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（十一） 事件传递机制">Android 源码分析（十一） 事件传递机制</span>
+            <span class="post-date" title="2018-07-15 13:18:25">2018/07/15</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/22/Android源码分析十二ServiceManager服务分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android源码分析（十二）ServiceManager服务分析">Android源码分析（十二）ServiceManager服务分析</span>
+            <span class="post-date" title="2018-07-22 11:44:46">2018/07/22</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/07/Android源码分析四Handler异步消息机制/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（四） Handler 异步消息机制">Android 源码分析（四） Handler 异步消息机制</span>
+            <span class="post-date" title="2018-07-07 12:40:19">2018/07/07</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/"
+           data-tag="地图"
+           data-author="" >
+            <span class="post-title" title="使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。">使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。</span>
+            <span class="post-date" title="2014-11-09 17:10:29">2014/11/09</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/07/Android源码分析七Launcher桌面程序启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（七） Launcher 桌面程序启动分析">Android 源码分析（七） Launcher 桌面程序启动分析</span>
+            <span class="post-date" title="2018-07-07 19:51:44">2018/07/07</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/07/07/Android源码分析六SystemServer进程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（六） SystemServer 进程">Android 源码分析（六） SystemServer 进程</span>
+            <span class="post-date" title="2018-07-07 15:14:19">2018/07/07</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/12/02/使用SqlBulkCopy实现Excel批量导入数据库/"
+           data-tag="Excel操作"
+           data-author="" >
+            <span class="post-title" title="使用SqlBulkCopy实现Excel批量导入数据库">使用SqlBulkCopy实现Excel批量导入数据库</span>
+            <span class="post-date" title="2014-12-02 18:05:14">2014/12/02</span>
+        </a>
+        
+        <a  class="Android "
+           href="/2018/05/13/四大组件-二-Service使用/"
+           data-tag="Service"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (二) Service 使用">Android 四大组件 (二) Service 使用</span>
+            <span class="post-date" title="2018-05-13 23:46:47">2018/05/13</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/06/24/Android源码分析三Service启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（三） Service 启动分析">Android 源码分析（三） Service 启动分析</span>
+            <span class="post-date" title="2018-06-24 14:24:40">2018/06/24</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/08/20/006-IIS7发布-EF-MVC项目提示404-0页面错误解决方案/"
+           data-tag="IIS"
+           data-author="" >
+            <span class="post-title" title="IIS7发布 EF MVC项目提示404.0页面错误解决方案">IIS7发布 EF MVC项目提示404.0页面错误解决方案</span>
+            <span class="post-date" title="2014-08-20 09:29:00">2014/08/20</span>
+        </a>
+        
+        <a  class="GitHub "
+           href="/2014/08/24/GitHub在windows上代码管理教程/"
+           data-tag="GitHub"
+           data-author="" >
+            <span class="post-title" title="GitHub在windows上代码管理教程">GitHub在windows上代码管理教程</span>
+            <span class="post-date" title="2014-08-24 04:03:23">2014/08/24</span>
+        </a>
+        
+        <a  class="前端知识 "
+           href="/2014/08/24/nodejs在windows平台下搭建部署环境教程/"
+           data-tag="nodejs"
+           data-author="" >
+            <span class="post-title" title="nodejs在windows平台下搭建部署环境教程">nodejs在windows平台下搭建部署环境教程</span>
+            <span class="post-date" title="2014-08-24 01:30:43">2014/08/24</span>
+        </a>
+        
+        <a  class="PHP后端 "
+           href="/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/"
+           data-tag="LNMP"
+           data-author="" >
+            <span class="post-title" title="在vmware虚拟机中安装centos系统并使用LNMP安装部署环境">在vmware虚拟机中安装centos系统并使用LNMP安装部署环境</span>
+            <span class="post-date" title="2014-09-06 11:32:34">2014/09/06</span>
+        </a>
+        
+        <a  class="安卓源码 "
+           href="/2018/06/24/Android源码分析二Activity启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（二） Activity 启动分析">Android 源码分析（二） Activity 启动分析</span>
+            <span class="post-date" title="2018-06-24 03:26:17">2018/06/24</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/09/03/使用uploadify上传大文件报IOerror-2038错误的解决方案/"
+           data-tag="C#文件上传"
+           data-author="" >
+            <span class="post-title" title="使用uploadify上传大文件报IOerror#2038错误的解决方案">使用uploadify上传大文件报IOerror#2038错误的解决方案</span>
+            <span class="post-date" title="2014-09-03 16:42:58">2014/09/03</span>
+        </a>
+        
+        <a  class="CSharp后端 "
+           href="/2014/09/12/mono-for-Android环境配置-环境搭建-破解方法-运行一个小程序/"
+           data-tag="mono_for_Android"
+           data-author="" >
+            <span class="post-title" title="mono_for_Android环境配置-环境搭建+破解方法+运行一个小程序-">mono_for_Android环境配置-环境搭建+破解方法+运行一个小程序-</span>
+            <span class="post-date" title="2014-09-12 13:50:06">2014/09/12</span>
+        </a>
+        
+        <a  class="PHP后端 "
+           href="/2014/08/24/在新浪SAE上搭建自己的网站！/"
+           data-tag="新浪SAE"
+           data-author="" >
+            <span class="post-title" title="在新浪SAE上搭建自己的网站！">在新浪SAE上搭建自己的网站！</span>
+            <span class="post-date" title="2014-08-24 21:45:51">2014/08/24</span>
+        </a>
+        
+        <a  class="PHP后端 "
+           href="/2014/08/26/在京东云擎上搭建自己的网站/"
+           data-tag="京东云擎"
+           data-author="" >
+            <span class="post-title" title="在京东云擎上搭建自己的网站">在京东云擎上搭建自己的网站</span>
+            <span class="post-date" title="2014-08-26 19:51:03">2014/08/26</span>
+        </a>
+        
+        <a  class="PHP后端 "
+           href="/2014/09/06/在vmware虚拟机中安装MacOSXMountainLion10-8-2系统并使用MAMP安装部署环境/"
+           data-tag="MAMP"
+           data-author="" >
+            <span class="post-title" title="在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境">在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境</span>
+            <span class="post-date" title="2014-09-06 12:41:21">2014/09/06</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Android源码分析三Service启动分析" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Android 源码分析（三） Service 启动分析</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="安卓源码">安卓源码</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">安卓源码</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-09-05 22:03:30'>2018-06-24 14:24</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:9.8k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.cnblogs.com/bugzone/p/startService.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p><img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180624141726420-1470284606.png" alt></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\content\Context.java</span>
+
+<p><span style="color: #008000;">/**</span><span style="color: #008000;"></span></p>
+<ul>
+<li>startService是Context的抽象方法。</li>
+<li>调用startService时，会先调用到ContextWrapper的startService方法<br><span style="color: #008000;">*/</span><span style="color: #000000;"><br>  @Nullable<br>  </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">abstract</span> ComponentName startService(Intent service);</li></ul></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\content\ContextWrapper.java</span>
+
+
+
+<p><span style="color: #008000;">/**</span><span style="color: #008000;"></span></p>
+<ul>
+<li><p>mBase是ContextImpl的实例，</p>
+</li>
+<li><p>ContextWrapper类的startService方法最终通过ContextImpl类的startService方法来实现<br><span style="color: #008000;">*/</span><span style="color: #000000;"><br>  @Override<br>  </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ComponentName startService(Intent service) {</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mBase.startService(service);</code></pre><p>  }</p></li></ul></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\app\ContextImpl.java</span>
+<span style="color: #000000;">
+  @Override
+  </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ComponentName startService(Intent service) {
+      warnIfCallingFromSystemProcess();
+      </span><span style="color: #0000ff;">return</span> startServiceCommon(service, <span style="color: #0000ff;">false</span><span style="color: #000000;">, mUser);
+  }
+
+<p>  </p></span><span style="color: #0000ff;">private</span> ComponentName startServiceCommon(Intent service, <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> requireForeground,<p></p>
+<pre><code>    UserHandle user) {
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;验证intent的有效性&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            validateServiceIntent(service);</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;准备离开应用程序进程，进入ActivityManagerService进程（意味着bundle的数据要在进程间传递）&lt;/span&gt;
+service.prepareToLeaveProcess(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;调用ActivityManagerProxy类的startService来实现启动服务的操作&amp;nbsp;&amp;nbsp;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    </p></span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;ActivityManagerProxy是一个Binder对象的远程接口，而这个Binder对象就是ActivityManagerService。</span><p></p>
+<pre><code>    ComponentName cn =&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.getService().startService(
+        mMainThread.getApplicationThread(), service, service.resolveTypeIfNeeded(
+                    getContentResolver()), requireForeground,
+                    getOpPackageName(), user.getIdentifier());
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn.getPackageName().equals(&quot;!&quot;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SecurityException(
+                    &lt;/span&gt;&quot;Not allowed to start service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service
+                    &lt;/span&gt;+ &quot; without permission &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; cn.getClassName());
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn.getPackageName().equals(&quot;!!&quot;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SecurityException(
+                    &lt;/span&gt;&quot;Unable to start service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service
+                    &lt;/span&gt;+ &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; cn.getClassName());
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn.getPackageName().equals(&quot;?&quot;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; IllegalStateException(
+                    &lt;/span&gt;&quot;Not allowed to start service &quot; + service + &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; cn.getClassName());
+        }
+    }
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; cn;
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (RemoteException e) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; e.rethrowFromSystemServer();
+}</code></pre><p>  }</p>
+<p>  <span style="color: #008000;">/**</span><span style="color: #008000;"></span></p>
+<ul>
+<li><p>验证intent的有效性&nbsp;</p>
+</li>
+<li><p><span style="color: #008000;">*/</span><br><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> validateServiceIntent(Intent service) {<br>  </span><span style="color: #0000ff;">if</span> (service.getComponent() == <span style="color: #0000ff;">null</span> &amp;&amp; service.getPackage() == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;隐式启动判断，5.1之后不允许隐式启动服务&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (getApplicationInfo().targetSdkVersion &amp;gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Build.VERSION_CODES.LOLLIPOP) {
+    IllegalArgumentException ex &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; IllegalArgumentException(
+            &lt;/span&gt;&quot;Service Intent must be explicit: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ex;
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    Log.w(TAG, &lt;/span&gt;&quot;Implicit intents with startService are not safe: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service
+            &lt;/span&gt;+ &quot; &quot; + Debug.getCallers(2, 3&lt;span style=&quot;color: #000000;&quot;&gt;));
+}</code></pre><p>  }<br>}</p></li></ul></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\app\ActivityManager.java</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span><span style="color: #000000;"> IActivityManager getService() {
+  </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> IActivityManagerSingleton.get();
+}
+</span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">final</span> Singleton&lt;IActivityManager&gt; IActivityManagerSingleton =
+      <span style="color: #0000ff;">new</span> Singleton&lt;IActivityManager&gt;<span style="color: #000000;">() {
+          @Override
+          </span><span style="color: #0000ff;">protected</span><span style="color: #000000;"> IActivityManager create() {
+              </span><span style="color: #0000ff;">final</span> IBinder b =<span style="color: #000000;"> ServiceManager.getService(Context.ACTIVITY_SERVICE);
+              </span><span style="color: #0000ff;">final</span> IActivityManager am =<span style="color: #000000;"> IActivityManager.Stub.asInterface(b);
+              </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> am;
+          }
+      };</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\services\core\java\com\android\server\am\ActivityManagerService.java</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> ActivityManagerService <span style="color: #0000ff;">extends</span><span style="color: #000000;"> IActivityManager.Stub
+  </span><span style="color: #0000ff;">implements</span> Watchdog.Monitor, BatteryStatsImpl.BatteryCallback {}</pre>
+</div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\services\core\java\com\android\server\am\ActivityManagerService.java</span>
+<span style="color: #000000;">    @Override
+</span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ComponentName startService(IApplicationThread caller, Intent service,
+      String resolvedType, </span><span style="color: #0000ff;">boolean</span> requireForeground, String callingPackage, <span style="color: #0000ff;">int</span><span style="color: #000000;"> userId)
+      </span><span style="color: #0000ff;">throws</span><span style="color: #000000;"> TransactionTooLargeException {
+  enforceNotIsolatedCaller(</span>"startService"<span style="color: #000000;">);
+  </span><span style="color: #008000;">//</span><span style="color: #008000;"> Refuse possible leaked file descriptors</span>
+  <span style="color: #0000ff;">if</span> (service != <span style="color: #0000ff;">null</span> &amp;&amp; service.hasFileDescriptors() == <span style="color: #0000ff;">true</span><span style="color: #000000;">) {
+      </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> IllegalArgumentException("File descriptors passed in Intent"<span style="color: #000000;">);
+  }
+
+<p>  </p></span><span style="color: #0000ff;">if</span> (callingPackage == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalArgumentException(&quot;callingPackage cannot be null&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);</code></pre><p>  }</p>
+<p>  </p></span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (DEBUG_SERVICE) Slog.v(TAG_SERVICE,<p></p>
+<pre><code>&lt;/span&gt;&quot;*** startService: &quot; + service + &quot; type=&quot; + resolvedType + &quot; fg=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; requireForeground);</code></pre><p>  </p></span><span style="color: #0000ff;">synchronized</span>(<span style="color: #0000ff;">this</span><span style="color: #000000;">) {<p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; callingPid =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.getCallingPid();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; callingUid =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.getCallingUid();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; origId =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.clearCallingIdentity();
+ComponentName res;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    res &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mServices.startServiceLocked(caller, service,
+            resolvedType, callingPid, callingUid,
+            requireForeground, callingPackage, userId);
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;finally&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    Binder.restoreCallingIdentity(origId);
+}
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; res;</code></pre><p>  }<br>}</p></span></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\services\core\java\com\android\server\am\ActiveServices.java</span>
+<span style="color: #000000;">
+ComponentName startServiceLocked(IApplicationThread caller, Intent service, String resolvedType,
+      </span><span style="color: #0000ff;">int</span> callingPid, <span style="color: #0000ff;">int</span> callingUid, <span style="color: #0000ff;">boolean</span> fgRequired, String callingPackage, <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> userId)
+      </span><span style="color: #0000ff;">throws</span><span style="color: #000000;"> TransactionTooLargeException {
+  </span><span style="color: #0000ff;">if</span> (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, "startService: " +<span style="color: #000000;"> service
+          </span>+ " type=" + resolvedType + " args=" +<span style="color: #000000;"> service.getExtras());
+
+<p>  </p></span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> callerFg;<br>  </span><span style="color: #0000ff;">if</span> (caller != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; ProcessRecord callerApp =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.getRecordForAppLocked(caller);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (callerApp == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SecurityException(
+            &lt;/span&gt;&quot;Unable to find app for caller &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; caller
+            &lt;/span&gt;+ &quot; (pid=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; callingPid
+            &lt;/span&gt;+ &quot;) when starting service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service);
+}
+callerFg &lt;/span&gt;= callerApp.setSchedGroup !=&lt;span style=&quot;color: #000000;&quot;&gt; ProcessList.SCHED_GROUP_BACKGROUND;</code></pre><p>  } </p></span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<p></p>
+<pre><code>callerFg &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>  }</p>
+
+
+
+
+<pre><code>&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;调用retrieveServiceLocked方法解析service这个Intent，然后将解析结果放在res.record中。&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;调用该方法后，为被调用者构造了对应的ServiceRecord对象，并保存到ActivityManagerService的成员变量mServiceMap中。&amp;nbsp;&lt;/span&gt;
+    ServiceLookupResult res =&lt;span style=&quot;color: #000000;&quot;&gt;
+        retrieveServiceLocked(service, resolvedType, callingPackage,
+                callingPid, callingUid, userId, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;, callerFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res.record == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ComponentName(&quot;!&quot;, res.permission != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;
+                ? res.permission : &quot;private to package&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    }
+
+    ServiceRecord r &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; res.record;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mAm.mUserController.exists(r.userId)) {
+        Slog.w(TAG, &lt;/span&gt;&quot;Trying to start service with non-existent user! &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.userId);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If this isn&apos;t a direct-to-foreground start, check our ability to kick off an
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; arbitrary service&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!r.startRequested &amp;amp;&amp;amp; !&lt;span style=&quot;color: #000000;&quot;&gt;fgRequired) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Before going further -- if this app is not allowed to start services in the
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; background, then at this point we aren&apos;t going to let it period.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; allowed =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.getAppStartModeLocked(r.appInfo.uid, r.packageName,
+                r.appInfo.targetSdkVersion, callingPid, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (allowed !=&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.APP_START_MODE_NORMAL) {
+            Slog.w(TAG, &lt;/span&gt;&quot;Background start not allowed: service &quot;
+                    + service + &quot; to &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.name.flattenToShortString()
+                    &lt;/span&gt;+ &quot; from pid=&quot; + callingPid + &quot; uid=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; callingUid
+                    &lt;/span&gt;+ &quot; pkg=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; callingPackage);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (allowed ==&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.APP_START_MODE_DELAYED) {
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; In this case we are silently disabling the app, to disrupt as
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; little as possible existing apps.&lt;/span&gt;
+                &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            }
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This app knows it is in the new model where this operation is not
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; allowed, so tell it what has happened.&lt;/span&gt;
+            UidRecord uidRec =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.mActiveUids.get(r.appInfo.uid);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ComponentName(&quot;?&quot;, &quot;app is in background uid &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; uidRec);
+        }
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;权限检查&amp;nbsp;&lt;/span&gt;
+    NeededUriGrants neededGrants =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.checkGrantUriPermissionFromIntentLocked(
+            callingUid, r.packageName, service, service.getFlags(), &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.userId);
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If permissions need a review before any of the app components can run,
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; we do not start the service and launch a review activity if the calling app
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; is in the foreground passing it a pending intent to start the service when
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; review is completed.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mAm.mPermissionReviewRequired) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;requestStartTargetPermissionsReviewIfNeededLocked(r, callingPackage,
+                callingUid, service, callerFg, userId)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        }
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (unscheduleServiceRestartLocked(r, callingUid, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_SERVICE) Slog.v(TAG_SERVICE, &quot;START SERVICE WHILE RESTART PENDING: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+    }
+    r.lastActivity &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; SystemClock.uptimeMillis();
+    r.startRequested &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    r.delayedStop &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    r.fgRequired &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; fgRequired;
+    r.pendingStarts.add(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ServiceRecord.StartItem(r, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.makeNextStartId(),
+            service, neededGrants, callingUid));
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; ServiceMap smap =&lt;span style=&quot;color: #000000;&quot;&gt; getServiceMapLocked(r.userId);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; addToStarting = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!callerFg &amp;amp;&amp;amp; !fgRequired &amp;amp;&amp;amp; r.app == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;
+            &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; mAm.mUserController.hasStartedUserState(r.userId)) {
+        ProcessRecord proc &lt;/span&gt;= mAm.getProcessRecordLocked(r.processName, r.appInfo.uid, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (proc == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; || proc.curProcState &amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.PROCESS_STATE_RECEIVER) {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If this is not coming from a foreground caller, then we may want
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; to delay the start if there are already other background services
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; that are starting.  This is to avoid process start spam when lots
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; of applications are all handling things like connectivity broadcasts.
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We only do this for cached processes, because otherwise an application
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; can have assumptions about calling startService() for a service to run
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; in its own process, and for that process to not be killed before the
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; service is started.  This is especially the case for receivers, which
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; may start a service in onReceive() to do some additional work and have
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; initialized some global state as part of that.&lt;/span&gt;
+            &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_SERVICE) Slog.v(TAG_SERVICE, &quot;Potential start delay of &quot;
+                    + r + &quot; in &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; proc);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayed) {
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This service is already scheduled for a delayed start; just leave
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; it still waiting.&lt;/span&gt;
+                &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;Continuing to delay: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; r.name;
+            }
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (smap.mStartingBackground.size() &amp;gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mMaxStartingBackground) {
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Something else is starting, delay!&lt;/span&gt;
+                Slog.i(TAG_SERVICE, &quot;Delaying start of: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+                smap.mDelayedStartList.add(r);
+                r.delayed &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; r.name;
+            }
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;Not delaying: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+            addToStarting &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (proc.curProcState &amp;gt;=&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.PROCESS_STATE_SERVICE) {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We slightly loosen when we will enqueue this new service as a background
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; starting service we are waiting for, to also include processes that are
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; currently running other services or receivers.&lt;/span&gt;
+            addToStarting = &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Not delaying, but counting as bg: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) {
+            StringBuilder sb &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; StringBuilder(128&lt;span style=&quot;color: #000000;&quot;&gt;);
+            sb.append(&lt;/span&gt;&quot;Not potential delay (state=&quot;&lt;span style=&quot;color: #000000;&quot;&gt;).append(proc.curProcState)
+                    .append(&lt;/span&gt;&apos; &apos;&lt;span style=&quot;color: #000000;&quot;&gt;).append(proc.adjType);
+            String reason &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; proc.makeAdjReason();
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (reason != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+                sb.append(&lt;/span&gt;&apos; &apos;&lt;span style=&quot;color: #000000;&quot;&gt;);
+                sb.append(reason);
+            }
+            sb.append(&lt;/span&gt;&quot;): &quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            sb.append(r.toString());
+            Slog.v(TAG_SERVICE, sb.toString());
+        }
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (callerFg ||&lt;span style=&quot;color: #000000;&quot;&gt; fgRequired) {
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Not potential delay (callerFg=&quot; + callerFg + &quot; uid=&quot;
+                    + callingUid + &quot; pid=&quot; + callingPid + &quot; fgRequired=&quot; + fgRequired + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.app != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Not potential delay (cur app=&quot; + r.app + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+            Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Not potential delay (user &quot; + r.userId + &quot; not started): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        }
+    }
+
+    ComponentName cmp &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; startServiceInnerLocked(smap, service, r, callerFg, addToStarting);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; cmp;
+}
+
+ComponentName startServiceInnerLocked(ServiceMap smap, Intent service, ServiceRecord r,
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; callerFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; addToStarting) &lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; TransactionTooLargeException {
+    ServiceState stracker &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; r.getTracker();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (stracker != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        stracker.setStarted(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, mAm.mProcessStats.getMemFactorLocked(), r.lastActivity);
+    }
+    r.callStart &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;synchronized&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.stats.getBatteryStats()) {
+        r.stats.startRunningLocked();
+    }
+    String error &lt;/span&gt;= bringUpServiceLocked(r, service.getFlags(), callerFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (error != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ComponentName(&quot;!!&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, error);
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.startRequested &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; addToStarting) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; first = smap.mStartingBackground.size() == 0&lt;span style=&quot;color: #000000;&quot;&gt;;
+        smap.mStartingBackground.add(r);
+        r.startingBgTimeout &lt;/span&gt;= SystemClock.uptimeMillis() +&lt;span style=&quot;color: #000000;&quot;&gt; mAm.mConstants.BG_START_TIMEOUT;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_SERVICE) {
+            RuntimeException here &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;here&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            here.fillInStackTrace();
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Starting background (first=&quot; + first + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r, here);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) {
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Starting background (first=&quot; + first + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (first) {
+            smap.rescheduleDelayedStartsLocked();
+        }
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (callerFg ||&lt;span style=&quot;color: #000000;&quot;&gt; r.fgRequired) {
+        smap.ensureNotStartingBackgroundLocked(r);
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; r.name;
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+*1.创建进程：startProcessLocked
+*2.第一次启动Service：realStartServiceLocked
+*3.启动已有的Service：sendServiceArgsLocked
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; String bringUpServiceLocked(ServiceRecord r, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; intentFlags, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; execInFg,
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; whileRestarting, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; permissionsReviewRequired)
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; TransactionTooLargeException {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Slog.i(TAG, &quot;Bring up service:&quot;);
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;r.dump(&quot;  &quot;);&lt;/span&gt;
+
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.app != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; r.app.thread != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;启动Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+        sendServiceArgsLocked(r, execInFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!whileRestarting &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; mRestartingServices.contains(r)) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If waiting for a restart, then do nothing.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_SERVICE) {
+        Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Bringing up &quot; + r + &quot; &quot; + r.intent + &quot; fg=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.fgRequired);
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We are now bringing the service up, so no longer in the
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; restarting state.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mRestartingServices.remove(r)) {
+        clearRestartingIfNeededLocked(r);
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure this service is no longer considered delayed, we are starting it now.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayed) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;REM FR DELAY LIST (bring up): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        getServiceMapLocked(r.userId).mDelayedStartList.remove(r);
+        r.delayed &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure that the user who owns this service is started.  If not,
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; we don&apos;t want to allow it to run.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mAm.mUserController.hasStartedUserState(r.userId)) {
+        String msg &lt;/span&gt;= &quot;Unable to launch app &quot;
+                + r.appInfo.packageName + &quot;/&quot;
+                + r.appInfo.uid + &quot; for service &quot;
+                + r.intent.getIntent() + &quot;: user &quot; + r.userId + &quot; is stopped&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        Slog.w(TAG, msg);
+        bringDownServiceLocked(r);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; msg;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Service is now being launched, its package can&apos;t be stopped.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+        AppGlobals.getPackageManager().setPackageStoppedState(
+                r.packageName, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.userId);
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (RemoteException e) {
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (IllegalArgumentException e) {
+        Slog.w(TAG, &lt;/span&gt;&quot;Failed trying to unstop package &quot;
+                + r.packageName + &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; e);
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; isolated = (r.serviceInfo.flags&amp;amp;ServiceInfo.FLAG_ISOLATED_PROCESS) != 0&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; String procName =&lt;span style=&quot;color: #000000;&quot;&gt; r.processName;
+    String hostingType &lt;/span&gt;= &quot;service&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    ProcessRecord app;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;isolated) {
+        app &lt;/span&gt;= mAm.getProcessRecordLocked(procName, r.appInfo.uid, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_MU) Slog.v(TAG_MU, &quot;bringUpServiceLocked: appInfo.uid=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.appInfo.uid
+                    &lt;/span&gt;+ &quot; app=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; app);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (app != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; app.thread != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+                app.addPackage(r.appInfo.packageName, r.appInfo.versionCode, mAm.mProcessStats);
+                realStartServiceLocked(r, app, execInFg);
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (TransactionTooLargeException e) {
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; e;
+            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (RemoteException e) {
+                Slog.w(TAG, &lt;/span&gt;&quot;Exception when starting service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.shortName, e);
+            }
+
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If a dead object exception was thrown -- fall through to
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; restart the application.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            }<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> If this service runs in an isolated process, then each time<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> we call startProcessLocked() we will get a new isolated<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> process, starting another process if we are currently waiting<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> for a previous process to come up.  To deal with this, we store<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> in the service any current isolated process it is running in or<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> waiting to have come up.</span><br>            app =<span style="color: #000000;"> r.isolatedProc;<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (WebViewZygote.isMultiprocessEnabled()<br>                    </span>&amp;&amp;<span style="color: #000000;"> r.serviceInfo.packageName.equals(WebViewZygote.getPackageName())) {<br>                hostingType </span>= “webview_service”<span style="color: #000000;">;<br>            }<br>        }</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Not running -- get it started, and enqueue this service record
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; to be executed when the app comes up.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (app == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; !&lt;span style=&quot;color: #000000;&quot;&gt;permissionsReviewRequired) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ((app=mAm.startProcessLocked(procName, r.appInfo, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, intentFlags,
+                hostingType, r.name, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, isolated, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;)) == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            String msg &lt;/span&gt;= &quot;Unable to launch app &quot;
+                    + r.appInfo.packageName + &quot;/&quot;
+                    + r.appInfo.uid + &quot; for service &quot;
+                    + r.intent.getIntent() + &quot;: process is bad&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            Slog.w(TAG, msg);
+            bringDownServiceLocked(r);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; msg;
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (isolated) {
+            r.isolatedProc &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; app;
+        }
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mPendingServices.contains(r)) {
+        mPendingServices.add(r);
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayedStop) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Oh and hey we&apos;ve already been asked to stop!&lt;/span&gt;
+        r.delayedStop = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.startRequested) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Applying delayed stop (in bring up): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+            stopServiceLocked(r);
+        }
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+* 完成了Service的创建、绑定、启动的调用
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; realStartServiceLocked(ServiceRecord r,
+        ProcessRecord app, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; execInFg) &lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RemoteException {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (app.thread == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RemoteException();
+    }
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_MU)
+        Slog.v(TAG_MU, &lt;/span&gt;&quot;realStartServiceLocked, ServiceRecord.uid = &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.appInfo.uid
+                &lt;/span&gt;+ &quot;, ProcessRecord.uid = &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; app.uid);
+    r.app &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; app;
+    r.restartTime &lt;/span&gt;= r.lastActivity =&lt;span style=&quot;color: #000000;&quot;&gt; SystemClock.uptimeMillis();
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; newService =&lt;span style=&quot;color: #000000;&quot;&gt; app.services.add(r);
+    bumpServiceExecutingLocked(r, execInFg, &lt;/span&gt;&quot;create&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    mAm.updateLruProcessLocked(app, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    updateServiceForegroundLocked(r.app, &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; oomAdj= &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    mAm.updateOomAdjLocked();
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; created = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (LOG_SERVICE_START_STOP) {
+            String nameTerm;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; lastPeriod = r.shortName.lastIndexOf(&apos;.&apos;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            nameTerm &lt;/span&gt;= lastPeriod &amp;gt;= 0 ?&lt;span style=&quot;color: #000000;&quot;&gt; r.shortName.substring(lastPeriod) : r.shortName;
+            EventLogTags.writeAmCreateService(
+                    r.userId, System.identityHashCode(r), nameTerm, r.app.uid, r.app.pid);
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;synchronized&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.stats.getBatteryStats()) {
+            r.stats.startLaunchedLocked();
+        }
+        mAm.notifyPackageUse(r.serviceInfo.packageName,
+                             PackageManager.NOTIFY_PACKAGE_USE_SERVICE);
+        app.forceProcessStateUpTo(ActivityManager.PROCESS_STATE_SERVICE);
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;RPC调用ActivityThread类中的方法创建Service&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            app.thread.scheduleCreateService(r, r.serviceInfo,<br>                    mAm.compatibilityInfoForPackageLocked(r.serviceInfo.applicationInfo),<br>                    app.repProcState);<br>            r.postNotification();<br>            created </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (DeadObjectException e) {<br>            Slog.w(TAG, </span>“Application dead when creating service “ +<span style="color: #000000;"> r);<br>            mAm.appDiedLocked(app);<br>            </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> e;<br>        } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">created) {<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;"> Keep the executeNesting count accurate.</span><br>                <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">boolean</span> inDestroying =<span style="color: #000000;"> mDestroyingServices.contains(r);<br>                serviceDoneExecutingLocked(r, inDestroying, inDestroying);</span></p>
+<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Cleanup.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (newService) {
+            app.services.remove(r);
+            r.app &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        }
+
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Retry.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;inDestroying) {
+            scheduleServiceRestartLocked(r, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        }
+    }
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.whitelistManager) {
+    app.whitelistManager &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+}
+
+&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;绑定该Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">        requestServiceBindingsLocked(r, execInFg);</span></p>
+<pre><code>    updateServiceClientActivitiesLocked(app, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If the service is in the started state, and there are no
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; pending arguments, then fake up one so its onStartCommand() will
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; be called.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.startRequested &amp;amp;&amp;amp; r.callStart &amp;amp;&amp;amp; r.pendingStarts.size() == 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        r.pendingStarts.add(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ServiceRecord.StartItem(r, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.makeNextStartId(),
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, 0&lt;span style=&quot;color: #000000;&quot;&gt;));
+    }
+
+    &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;启动该Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+    sendServiceArgsLocked(r, execInFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayed) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;REM FR DELAY LIST (new proc): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        getServiceMapLocked(r.userId).mDelayedStartList.remove(r);
+        r.delayed &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayedStop) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Oh and hey we&apos;ve already been asked to stop!&lt;/span&gt;
+        r.delayedStop = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.startRequested) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Applying delayed stop (from start): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+            stopServiceLocked(r);
+        }
+    }
+}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\app\ActivityThread.java</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> scheduleCreateService(IBinder token,
+                ServiceInfo info, CompatibilityInfo compatInfo, </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> processState) {
+            updateProcessState(processState, </span><span style="color: #0000ff;">false</span><span style="color: #000000;">);
+            CreateServiceData s </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> CreateServiceData();
+            s.token </span>=<span style="color: #000000;"> token;
+            s.info </span>=<span style="color: #000000;"> info;
+            s.compatInfo </span>=<span style="color: #000000;"> compatInfo;
+
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;通过sendMessage方法向应用程序主线程MessageQueue中发送一个CREATE_SERVICE消息&lt;/span&gt;</code></pre><p><span style="color: #000000;">            sendMessage(H.CREATE_SERVICE, s);<br>        }</span></p>
+<p> </p></span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> handleMessage(Message msg) {<br>            </span><span style="color: #0000ff;">if</span> (DEBUG_MESSAGES) Slog.v(TAG, “&gt;&gt;&gt; handling: “ +<span style="color: #000000;"> codeToString(msg.what));<br>            </span><span style="color: #0000ff;">switch</span><span style="color: #000000;"> (msg.what) {<br>                ……..<p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; CREATE_SERVICE:
+        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, (&lt;/span&gt;&quot;serviceCreate: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; String.valueOf(msg.obj)));</code></pre><p></p></span><span style="color: #008000;">//</span><span style="color: #008000;">    将Service的创建工作交给ActivityThread类的handleCreateService方法来完成</span><br><span style="color: #000000;">                    handleCreateService((CreateServiceData)msg.obj);<br>                    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;<p></p>
+<pre><code>               ........
+           }
+}</code></pre><p></p></span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> handleCreateService(CreateServiceData data) {<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;"> If we are getting ready to gc after going to the background, well<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;"> we are back active so skip it.</span><br><span style="color: #000000;">        unscheduleGcIdler();<p></p>
+<pre><code>LoadedApk packageInfo &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getPackageInfoNoCheck(
+        data.info.applicationInfo, data.compatInfo);
+Service service &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    java.lang.ClassLoader cl &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; packageInfo.getClassLoader();
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;data.info.name就是Service是类名，通过类加载器根据类名创建一个实例后强转为Service类的实例&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+    service =&lt;span style=&quot;color: #000000;&quot;&gt; (Service) cl.loadClass(data.info.name).newInstance();
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Exception e) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mInstrumentation.onException(service, e)) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RuntimeException(
+            &lt;/span&gt;&quot;Unable to instantiate service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; data.info.name
+            &lt;/span&gt;+ &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; e.toString(), e);
+    }
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (localLOGV) Slog.v(TAG, &quot;Creating service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; data.info.name);
+
+    ContextImpl context &lt;/span&gt;= ContextImpl.createAppContext(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, packageInfo);
+    context.setOuterContext(service);
+
+    Application app &lt;/span&gt;= packageInfo.makeApplication(&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, mInstrumentation);
+    service.attach(context, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, data.info.name, data.token, app,
+            ActivityManager.getService());
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;回调Service的onCreate()方法&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            service.onCreate();<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;mServices保存了应用程序进程中所有的Service，把Service添加到该变量中&nbsp;&nbsp;</span><br><span style="color: #000000;">            mServices.put(data.token, service);<br>            </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;通知ActivityManagerService，当前Service创建完成&nbsp;&nbsp;</span><br><span style="color: #000000;">                ActivityManager.getService().serviceDoneExecuting(<br>                        data.token, SERVICE_DONE_EXECUTING_ANON, </span>0, 0<span style="color: #000000;">);<br>            } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (RemoteException e) {<br>                </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> e.rethrowFromSystemServer();<br>            }<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Exception e) {<br>            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">mInstrumentation.onException(service, e)) {<br>                </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> RuntimeException(<br>                    </span>“Unable to create service “ +<span style="color: #000000;"> data.info.name<br>                    </span>+ “: “ +<span style="color: #000000;"> e.toString(), e);<br>            }<br>        }<br>    }</span></p></span></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180624170737100-200403851.png" alt></p>
+</div>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以扫描左上角二维码头像,关注公众号。 </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Android 源码分析（三） Service 启动分析</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">9.8k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="网记本">网记本</a></p>
+    <p><span class="copy-title">发布时间:</span>2018-06-24, 14:24:40</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-05, 22:03:30</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/06/24/Android源码分析三Service启动分析/" title="Android 源码分析（三） Service 启动分析">https://freefuncode.github.io/2018/06/24/Android源码分析三Service启动分析/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'f59edbb15c434fe50f63',
+            clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b',
+            repo: 'FreeFunCode.github.io',
+            owner: 'FreeFunCode',
+            admin: ['FreeFunCode'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2019 网记本</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#日期格式化','#Linq','#visualStudio','#开源框架','#安卓源码','#面试','#地图','#hexo','#IIS','#SqlServer','#ViewPager','#XMLHttpRequest','#fiddler','#Activity','#BroadcastReceiver','#职业发展','#跳槽','#图片保存','#c#','#easyui','#php','#Android','#序列化','#mongodb','#评论插件','#正则表达式','#AIDL','#公众号','#设计模式','#ContentProvider','#Android7.0','#Excel操作','#Service','#GitHub','#nodejs','#LNMP','#C#文件上传','#mono_for_Android','#新浪SAE','#京东云擎','#MAMP',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/img/article-list-background.jpeg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
