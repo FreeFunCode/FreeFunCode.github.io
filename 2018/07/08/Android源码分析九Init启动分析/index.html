@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -135,129 +133,129 @@
 <p>&nbsp;&nbsp;&nbsp; SystemService进程：主要是在这个进程中启动系统的各项服务，比如ActivityManagerService，PackageManagerService，WindowManagerService服务等等；<br>&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp; &nbsp;Launcher桌面程序:就是我们平时看到的桌面程序，它其实也是一个android应用程序，只不过这个应用程序是系统默认第一个启动的应用程序.</p>
 <h2><br>二. init 进程分析</h2>
 <p>&nbsp;linux的根进程,同样也是守护进程，usb连接电脑后，cmd窗口，输入：adb shell ps 命令，能看到手机系统中当前跑的所有进程，有一个init进程。<br>&nbsp;init进程主要任务：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180708230407266-1488130940.png" alt></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180708230407266-1488130940.png" alt=""></p>
 <p>&nbsp;</p>
 <p>源码：</p>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">system/core/init/init.cpp
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;1.创建目录
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;2.将log重定向
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;3.初始化环境变量
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;4.得到硬件信息和版本
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;5.解析内核启动参数
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;6.导入默认环境变量
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;7.得到系统分区&lt;/span&gt;</code></pre><p><span style="color: #0000ff;">int</span> main(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span>**<span style="color: #000000;"> argv) {<br>    </span><span style="color: #0000ff;">if</span> (!strcmp(basename(argv[<span style="color: #800080;">0</span>]), <span style="color: #800000;">“</span><span style="color: #800000;">ueventd</span><span style="color: #800000;">“</span><span style="color: #000000;">)) {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> ueventd_main(argc, argv);<br>    }</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!strcmp(basename(argv[&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;]), &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;watchdogd&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; watchdogd_main(argc, argv);
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;1.创建目录
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;2.将log重定向
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;3.初始化环境变量
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;4.得到硬件信息和版本
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;5.解析内核启动参数
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;6.导入默认环境变量
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;7.得到系统分区&lt;/span&gt;</code></pre><p><span style="color: #0000ff;">int</span> main(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span>**<span style="color: #000000;"> argv) {<br>    </span><span style="color: #0000ff;">if</span> (!strcmp(basename(argv[<span style="color: #800080;">0</span>]), <span style="color: #800000;">“</span><span style="color: #800000;">ueventd</span><span style="color: #800000;">“</span><span style="color: #000000;">)) {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> ueventd_main(argc, argv);<br>    }</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!strcmp(basename(argv[&lt;span style="color: #800080;"&gt;0&lt;/span&gt;]), &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;watchdogd&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;)) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; watchdogd_main(argc, argv);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (REBOOT_BOOTLOADER_ON_PANIC) {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (REBOOT_BOOTLOADER_ON_PANIC) {
     install_reboot_signal_handlers();
 }
 
-add_environment(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;PATH&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, _PATH_DEFPATH);
+add_environment(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;PATH&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, _PATH_DEFPATH);
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;bool&lt;/span&gt; is_first_stage = (getenv(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_SECOND_STAGE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;) ==&lt;span style=&quot;color: #000000;&quot;&gt; nullptr);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;bool&lt;/span&gt; is_first_stage = (getenv(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_SECOND_STAGE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;) ==&lt;span style="color: #000000;"&gt; nullptr);
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (is_first_stage) {
-    boot_clock::time_point start_time &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; boot_clock::now();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (is_first_stage) {
+    boot_clock::time_point start_time &lt;/span&gt;=&lt;span style="color: #000000;"&gt; boot_clock::now();
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Clear the umask.&lt;/span&gt;
-    umask(&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Clear the umask.&lt;/span&gt;
+    umask(&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Get the basic filesystem setup we need put together in the initramdisk
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; on / and then we&apos;ll let the rc file figure out the rest.&lt;/span&gt;
-    mount(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;tmpfs&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;tmpfs&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, MS_NOSUID, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;mode=0755&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    mkdir(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/pts&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0755&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    mkdir(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/socket&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0755&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    mount(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;devpts&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/pts&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;devpts&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, NULL);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;#define&lt;/span&gt; MAKE_STR(x) __STRING(x)&lt;span style=&quot;color: #000000;&quot;&gt;
-    mount(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;proc&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/proc&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;proc&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;hidepid=2,gid=&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; MAKE_STR(AID_READPROC));
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Don&apos;t expose the raw commandline to unprivileged processes.&lt;/span&gt;
-    chmod(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/proc/cmdline&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0440&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    gid_t groups[] &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; { AID_READPROC };
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Get the basic filesystem setup we need put together in the initramdisk
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; on / and then we'll let the rc file figure out the rest.&lt;/span&gt;
+    mount(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;tmpfs&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;tmpfs&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, MS_NOSUID, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;mode=0755&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    mkdir(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/pts&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0755&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    mkdir(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/socket&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0755&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    mount(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;devpts&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/pts&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;devpts&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;, NULL);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;#define&lt;/span&gt; MAKE_STR(x) __STRING(x)&lt;span style="color: #000000;"&gt;
+    mount(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;proc&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/proc&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;proc&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;hidepid=2,gid=&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt; MAKE_STR(AID_READPROC));
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Don't expose the raw commandline to unprivileged processes.&lt;/span&gt;
+    chmod(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/proc/cmdline&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0440&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    gid_t groups[] &lt;/span&gt;=&lt;span style="color: #000000;"&gt; { AID_READPROC };
     setgroups(arraysize(groups), groups);
-    mount(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;sysfs&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/sys&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;sysfs&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, NULL);
-    mount(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;selinuxfs&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/sys/fs/selinux&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;selinuxfs&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, NULL);
-    mknod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/kmsg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, S_IFCHR | &lt;span style=&quot;color: #800080;&quot;&gt;0600&lt;/span&gt;, makedev(&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;11&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-    mknod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/random&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, S_IFCHR | &lt;span style=&quot;color: #800080;&quot;&gt;0666&lt;/span&gt;, makedev(&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;8&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-    mknod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/urandom&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, S_IFCHR | &lt;span style=&quot;color: #800080;&quot;&gt;0666&lt;/span&gt;, makedev(&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;9&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
+    mount(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;sysfs&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/sys&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;sysfs&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;, NULL);
+    mount(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;selinuxfs&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/sys/fs/selinux&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;selinuxfs&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;, NULL);
+    mknod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/kmsg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, S_IFCHR | &lt;span style="color: #800080;"&gt;0600&lt;/span&gt;, makedev(&lt;span style="color: #800080;"&gt;1&lt;/span&gt;, &lt;span style="color: #800080;"&gt;11&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+    mknod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/random&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, S_IFCHR | &lt;span style="color: #800080;"&gt;0666&lt;/span&gt;, makedev(&lt;span style="color: #800080;"&gt;1&lt;/span&gt;, &lt;span style="color: #800080;"&gt;8&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+    mknod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/urandom&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, S_IFCHR | &lt;span style="color: #800080;"&gt;0666&lt;/span&gt;, makedev(&lt;span style="color: #800080;"&gt;1&lt;/span&gt;, &lt;span style="color: #800080;"&gt;9&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Now that tmpfs is mounted on /dev and we have /dev/kmsg, we can actually
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; talk to the outside world...&lt;/span&gt;</code></pre><p><span style="color: #000000;">        InitKernelLogging(argv);</span></p>
-<pre><code>    LOG(INFO) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;init first stage started!&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Now that tmpfs is mounted on /dev and we have /dev/kmsg, we can actually
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; talk to the outside world...&lt;/span&gt;</code></pre><p><span style="color: #000000;">        InitKernelLogging(argv);</span></p>
+<pre><code>    LOG(INFO) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;init first stage started!&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;DoFirstStageMount()) {
-        LOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Failed to mount required partitions early ...&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;DoFirstStageMount()) {
+        LOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Failed to mount required partitions early ...&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
         panic();
     }
 
     SetInitAvbVersionInRecovery();
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Set up SELinux, loading the SELinux policy.&lt;/span&gt;
-    selinux_initialize(&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set up SELinux, loading the SELinux policy.&lt;/span&gt;
+    selinux_initialize(&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We&apos;re in the kernel domain, so re-exec init to transition to the init domain now
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; that the SELinux policy has been loaded.&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (restorecon(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;) == -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        PLOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;restorecon failed&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; We're in the kernel domain, so re-exec init to transition to the init domain now
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; that the SELinux policy has been loaded.&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (restorecon(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;) == -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        PLOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;restorecon failed&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
         security_failure();
     }
 
-    setenv(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_SECOND_STAGE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    setenv(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_SECOND_STAGE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;true&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; constexpr uint32_t kNanosecondsPerMillisecond =&lt;span style=&quot;color: #000000;&quot;&gt; 1e6;
-    uint64_t start_ms &lt;/span&gt;= start_time.time_since_epoch().count() /&lt;span style=&quot;color: #000000;&quot;&gt; kNanosecondsPerMillisecond;
-    setenv(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_STARTED_AT&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, StringPrintf(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;%&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; PRIu64, start_ms).c_str(), &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; constexpr uint32_t kNanosecondsPerMillisecond =&lt;span style="color: #000000;"&gt; 1e6;
+    uint64_t start_ms &lt;/span&gt;= start_time.time_since_epoch().count() /&lt;span style="color: #000000;"&gt; kNanosecondsPerMillisecond;
+    setenv(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_STARTED_AT&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, StringPrintf(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;%&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; PRIu64, start_ms).c_str(), &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;* path = argv[&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;];
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;* args[] =&lt;span style=&quot;color: #000000;&quot;&gt; { path, nullptr };
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;char&lt;/span&gt;* path = argv[&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;];
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;char&lt;/span&gt;* args[] =&lt;span style="color: #000000;"&gt; { path, nullptr };
     execv(path, args);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; execv() only returns if an error happened, in which case we
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; panic and never fall through this conditional.&lt;/span&gt;
-    PLOG(ERROR) &amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;execv(\&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; &amp;lt;&amp;lt; path &amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\&quot;) failed&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; execv() only returns if an error happened, in which case we
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; panic and never fall through this conditional.&lt;/span&gt;
+    PLOG(ERROR) &amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;execv(\"&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; &amp;lt;&amp;lt; path &amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;\") failed&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
     security_failure();
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; At this point we&apos;re in the second stage of init.&lt;/span&gt;</code></pre><p><span style="color: #000000;">    InitKernelLogging(argv);<br>    LOG(INFO) </span>&lt;&lt; <span style="color: #800000;">“</span><span style="color: #800000;">init second stage started!</span><span style="color: #800000;">“</span><span style="color: #000000;">;</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Set up a session keyring that all processes will have access to. It
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; will hold things like FBE encryption keys. No process should override
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; its session keyring.&lt;/span&gt;
-keyctl(KEYCTL_GET_KEYRING_ID, KEY_SPEC_SESSION_KEYRING, &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; At this point we're in the second stage of init.&lt;/span&gt;</code></pre><p><span style="color: #000000;">    InitKernelLogging(argv);<br>    LOG(INFO) </span>&lt;&lt; <span style="color: #800000;">“</span><span style="color: #800000;">init second stage started!</span><span style="color: #800000;">“</span><span style="color: #000000;">;</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set up a session keyring that all processes will have access to. It
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; will hold things like FBE encryption keys. No process should override
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; its session keyring.&lt;/span&gt;
+keyctl(KEYCTL_GET_KEYRING_ID, KEY_SPEC_SESSION_KEYRING, &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Indicate that booting is in progress to background fw loaders, etc.&lt;/span&gt;
-close(open(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/.booting&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, O_WRONLY | O_CREAT | O_CLOEXEC, &lt;span style=&quot;color: #800080;&quot;&gt;0000&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Indicate that booting is in progress to background fw loaders, etc.&lt;/span&gt;
+close(open(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/.booting&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, O_WRONLY | O_CREAT | O_CLOEXEC, &lt;span style="color: #800080;"&gt;0000&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
 
 property_init();
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If arguments are passed both on the command line and in DT,
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; properties set in DT always have priority over the command-line ones.&lt;/span&gt;</code></pre><p><span style="color: #000000;">    process_kernel_dt();<br>    process_kernel_cmdline();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Propagate the kernel variables to internal variables
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; used by init as well as the current required properties.&lt;/span&gt;</code></pre><p><span style="color: #000000;">    export_kernel_boot_props();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make the time that init started available for bootstat to log.&lt;/span&gt;
-property_set(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;ro.boottime.init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, getenv(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_STARTED_AT&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-property_set(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;ro.boottime.init.selinux&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, getenv(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_SELINUX_TOOK&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If arguments are passed both on the command line and in DT,
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; properties set in DT always have priority over the command-line ones.&lt;/span&gt;</code></pre><p><span style="color: #000000;">    process_kernel_dt();<br>    process_kernel_cmdline();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Propagate the kernel variables to internal variables
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; used by init as well as the current required properties.&lt;/span&gt;</code></pre><p><span style="color: #000000;">    export_kernel_boot_props();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make the time that init started available for bootstat to log.&lt;/span&gt;
+property_set(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;ro.boottime.init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, getenv(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_STARTED_AT&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+property_set(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;ro.boottime.init.selinux&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, getenv(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_SELINUX_TOOK&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Set libavb version for Framework-only OTA match in Treble build.&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;* avb_version = getenv(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_AVB_VERSION&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (avb_version) property_set(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;ro.boot.avb_version&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, avb_version);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set libavb version for Framework-only OTA match in Treble build.&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;const&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;char&lt;/span&gt;* avb_version = getenv(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_AVB_VERSION&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (avb_version) property_set(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;ro.boot.avb_version&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, avb_version);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Clean up our environment.&lt;/span&gt;
-unsetenv(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_SECOND_STAGE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-unsetenv(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_STARTED_AT&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-unsetenv(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_SELINUX_TOOK&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-unsetenv(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;INIT_AVB_VERSION&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Clean up our environment.&lt;/span&gt;
+unsetenv(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_SECOND_STAGE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+unsetenv(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_STARTED_AT&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+unsetenv(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_SELINUX_TOOK&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+unsetenv(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;INIT_AVB_VERSION&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Now set up SELinux for second stage.&lt;/span&gt;
-selinux_initialize(&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Now set up SELinux for second stage.&lt;/span&gt;
+selinux_initialize(&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 selinux_restore_context();
 
-epoll_fd &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; epoll_create1(EPOLL_CLOEXEC);
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (epoll_fd == -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    PLOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;epoll_create1 failed&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-    exit(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+epoll_fd &lt;/span&gt;=&lt;span style="color: #000000;"&gt; epoll_create1(EPOLL_CLOEXEC);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (epoll_fd == -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    PLOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;epoll_create1 failed&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    exit(&lt;/span&gt;&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 }
 
 signal_handler_init();
@@ -267,93 +265,93 @@ export_oem_lock_status();
 start_property_service();
 set_usb_controller();
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; BuiltinFunctionMap function_map;
-Action::set_function_map(&lt;/span&gt;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;function_map);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;const&lt;/span&gt;&lt;span style="color: #000000;"&gt; BuiltinFunctionMap function_map;
+Action::set_function_map(&lt;/span&gt;&amp;amp;&lt;span style="color: #000000;"&gt;function_map);
 
-Parser&lt;/span&gt;&amp;amp; parser =&lt;span style=&quot;color: #000000;&quot;&gt; Parser::GetInstance();
-parser.AddSectionParser(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;service&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;,std::make_unique&amp;lt;ServiceParser&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;());
-parser.AddSectionParser(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;on&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, std::make_unique&amp;lt;ActionParser&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;());
-parser.AddSectionParser(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;import&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, std::make_unique&amp;lt;ImportParser&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;());
-std::&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;string&lt;/span&gt; bootscript = GetProperty(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;ro.boot.init_rc&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (bootscript.empty()) {
-    parser.ParseConfig(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/init.rc&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+Parser&lt;/span&gt;&amp;amp; parser =&lt;span style="color: #000000;"&gt; Parser::GetInstance();
+parser.AddSectionParser(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;service&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;,std::make_unique&amp;lt;ServiceParser&amp;gt;&lt;span style="color: #000000;"&gt;());
+parser.AddSectionParser(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;on&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, std::make_unique&amp;lt;ActionParser&amp;gt;&lt;span style="color: #000000;"&gt;());
+parser.AddSectionParser(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;import&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, std::make_unique&amp;lt;ImportParser&amp;gt;&lt;span style="color: #000000;"&gt;());
+std::&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;string&lt;/span&gt; bootscript = GetProperty(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;ro.boot.init_rc&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;""&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (bootscript.empty()) {
+    parser.ParseConfig(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/init.rc&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     parser.set_is_system_etc_init_loaded(
-            parser.ParseConfig(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/system/etc/init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
+            parser.ParseConfig(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/system/etc/init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
     parser.set_is_vendor_etc_init_loaded(
-            parser.ParseConfig(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/vendor/etc/init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-    parser.set_is_odm_etc_init_loaded(parser.ParseConfig(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/odm/etc/init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+            parser.ParseConfig(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/vendor/etc/init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+    parser.set_is_odm_etc_init_loaded(parser.ParseConfig(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/odm/etc/init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
     parser.ParseConfig(bootscript);
-    parser.set_is_system_etc_init_loaded(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    parser.set_is_vendor_etc_init_loaded(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    parser.set_is_odm_etc_init_loaded(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    parser.set_is_system_etc_init_loaded(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    parser.set_is_vendor_etc_init_loaded(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    parser.set_is_odm_etc_init_loaded(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Turning this on and letting the INFO logging be discarded adds 0.2s to
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Nexus 9 boot time, so it&apos;s disabled by default.&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) parser.DumpState();
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Turning this on and letting the INFO logging be discarded adds 0.2s to
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Nexus 9 boot time, so it's disabled by default.&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;) parser.DumpState();
 
-ActionManager&lt;/span&gt;&amp;amp; am =&lt;span style=&quot;color: #000000;&quot;&gt; ActionManager::GetInstance();
+ActionManager&lt;/span&gt;&amp;amp; am =&lt;span style="color: #000000;"&gt; ActionManager::GetInstance();
 
-am.QueueEventTrigger(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;early-init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+am.QueueEventTrigger(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;early-init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Queue an action that waits for coldboot done so we know ueventd has set up all of /dev...&lt;/span&gt;
-am.QueueBuiltinAction(wait_for_coldboot_done_action, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;wait_for_coldboot_done&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; ... so that we can start queuing up actions that require stuff from /dev.&lt;/span&gt;
-am.QueueBuiltinAction(mix_hwrng_into_linux_rng_action, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;mix_hwrng_into_linux_rng&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-am.QueueBuiltinAction(set_mmap_rnd_bits_action, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;set_mmap_rnd_bits&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-am.QueueBuiltinAction(set_kptr_restrict_action, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;set_kptr_restrict&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-am.QueueBuiltinAction(keychord_init_action, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;keychord_init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-am.QueueBuiltinAction(console_init_action, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;console_init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Queue an action that waits for coldboot done so we know ueventd has set up all of /dev...&lt;/span&gt;
+am.QueueBuiltinAction(wait_for_coldboot_done_action, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;wait_for_coldboot_done&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; ... so that we can start queuing up actions that require stuff from /dev.&lt;/span&gt;
+am.QueueBuiltinAction(mix_hwrng_into_linux_rng_action, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;mix_hwrng_into_linux_rng&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+am.QueueBuiltinAction(set_mmap_rnd_bits_action, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;set_mmap_rnd_bits&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+am.QueueBuiltinAction(set_kptr_restrict_action, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;set_kptr_restrict&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+am.QueueBuiltinAction(keychord_init_action, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;keychord_init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+am.QueueBuiltinAction(console_init_action, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;console_init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Trigger all the boot actions to get us started.&lt;/span&gt;
-am.QueueEventTrigger(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Trigger all the boot actions to get us started.&lt;/span&gt;
+am.QueueEventTrigger(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Repeat mix_hwrng_into_linux_rng in case /dev/hw_random or /dev/random
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; wasn&apos;t ready immediately after wait_for_coldboot_done&lt;/span&gt;
-am.QueueBuiltinAction(mix_hwrng_into_linux_rng_action, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;mix_hwrng_into_linux_rng&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Repeat mix_hwrng_into_linux_rng in case /dev/hw_random or /dev/random
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; wasn't ready immediately after wait_for_coldboot_done&lt;/span&gt;
+am.QueueBuiltinAction(mix_hwrng_into_linux_rng_action, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;mix_hwrng_into_linux_rng&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Don&apos;t mount filesystems or start core system services in charger mode.&lt;/span&gt;
-std::&lt;span style=&quot;color: #0000ff;&quot;&gt;string&lt;/span&gt; bootmode = GetProperty(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;ro.bootmode&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (bootmode == &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;charger&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    am.QueueEventTrigger(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;charger&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    am.QueueEventTrigger(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;late-init&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Don't mount filesystems or start core system services in charger mode.&lt;/span&gt;
+std::&lt;span style="color: #0000ff;"&gt;string&lt;/span&gt; bootmode = GetProperty(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;ro.bootmode&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;""&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (bootmode == &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;charger&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    am.QueueEventTrigger(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;charger&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    am.QueueEventTrigger(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;late-init&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Run all property triggers based on current state of the properties.&lt;/span&gt;
-am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;queue_property_triggers&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Run all property triggers based on current state of the properties.&lt;/span&gt;
+am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;queue_property_triggers&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;while&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; By default, sleep until something happens.&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; epoll_timeout_ms = -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;while&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; By default, sleep until something happens.&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; epoll_timeout_ms = -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!(waiting_for_prop ||&lt;span style=&quot;color: #000000;&quot;&gt; ServiceManager::GetInstance().IsWaitingForExec())) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!(waiting_for_prop ||&lt;span style="color: #000000;"&gt; ServiceManager::GetInstance().IsWaitingForExec())) {
         am.ExecuteOneCommand();
     }
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!(waiting_for_prop ||&lt;span style=&quot;color: #000000;&quot;&gt; ServiceManager::GetInstance().IsWaitingForExec())) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!(waiting_for_prop ||&lt;span style="color: #000000;"&gt; ServiceManager::GetInstance().IsWaitingForExec())) {
         restart_processes();
 
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If there&apos;s a process that needs restarting, wake up in time for that.&lt;/span&gt;
-        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (process_needs_restart_at != &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-            epoll_timeout_ms &lt;/span&gt;= (process_needs_restart_at - time(nullptr)) * &lt;span style=&quot;color: #800080;&quot;&gt;1000&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (epoll_timeout_ms &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;) epoll_timeout_ms = &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If there's a process that needs restarting, wake up in time for that.&lt;/span&gt;
+        &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (process_needs_restart_at != &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+            epoll_timeout_ms &lt;/span&gt;= (process_needs_restart_at - time(nullptr)) * &lt;span style="color: #800080;"&gt;1000&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (epoll_timeout_ms &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;) epoll_timeout_ms = &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
         }
 
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If there&apos;s more work to do, wake up again immediately.&lt;/span&gt;
-        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (am.HasMoreCommands()) epoll_timeout_ms = &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If there's more work to do, wake up again immediately.&lt;/span&gt;
+        &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (am.HasMoreCommands()) epoll_timeout_ms = &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
     }
 
     epoll_event ev;
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; nr = TEMP_FAILURE_RETRY(epoll_wait(epoll_fd, &amp;amp;ev, &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, epoll_timeout_ms));
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (nr == -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        PLOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;epoll_wait failed&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (nr == &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        ((&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; (*&lt;span style=&quot;color: #000000;&quot;&gt;)()) ev.data.ptr)();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; nr = TEMP_FAILURE_RETRY(epoll_wait(epoll_fd, &amp;amp;ev, &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;, epoll_timeout_ms));
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (nr == -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        PLOG(ERROR) &lt;/span&gt;&amp;lt;&amp;lt; &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;epoll_wait failed&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (nr == &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        ((&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; (*&lt;span style="color: #000000;"&gt;)()) ev.data.ptr)();
     }
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>}</p></span></pre><p></p>
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>&nbsp;</p>
 </div>
@@ -377,11 +375,11 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -391,7 +389,7 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/">
             
                 Android 源码分析（十） Dalvik 虚拟机创建过程
@@ -402,7 +400,7 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/07/Android源码分析八Launcher桌面启动App过程/">
             
                 Android 源码分析（八） Launcher 桌面启动App过程
@@ -414,7 +412,7 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -479,16 +477,7 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析九Init启动分析' || '2018/07/08/Android源码分析九Init启动分析/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -621,16 +610,6 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -643,15 +622,25 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -699,7 +688,7 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -710,6 +699,13 @@ am.QueueBuiltinAction(queue_property_triggers_action, &lt;span style=&quot;color
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析九Init启动分析' || '2018/07/08/Android源码分析九Init启动分析/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

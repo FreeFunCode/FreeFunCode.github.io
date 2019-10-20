@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -163,7 +161,7 @@
 </blockquote>
 <h4 id="首先区分下几个概念"><a href="#首先区分下几个概念" class="headerlink" title="首先区分下几个概念"></a>首先区分下几个概念</h4><p><strong>组件化</strong> ： 把常用的模块代码,抽取lib工程或者jar达到复用的效果。<br><strong>插件化</strong>：目的是把需要实现的模块或功能当做一个独立的提取出来，减少宿主的规模，当需要使用到相应的功能时再去加载相应的模块。涉及动态代理，ClassLoader，以及另一个apk资源的加载。例如：360的DroidPlugin (推荐)<br><strong>热修复</strong>：往往是从修复bug的角度出发，强调的是在不需要二次安装应用的前提下修复已知的bug(涉及关键词：Hook技术、动态代理等)。例如：阿里 AndFix。<br><strong>增量更新</strong>：APK增量更新是很多大厂APP采用的技术。bsdiff库生成补丁文件方式下载跟旧版本APK合成生成新版APK的原理(ligbspatch.so)。手机游戏app增量更新使用较多。例如：<a href="https://github.com/cundong/SmartAppUpdates" target="_blank" rel="noopener">SmartAppUpdates</a></p>
 <hr>
-<p><img src="/images/bsdiff&bspatch.jpg" alt="bsdiff&amp;bspatch"></p>
+<p><img src="/images/bsdiff&amp;bspatch.jpg" alt="bsdiff&amp;bspatch"></p>
 <p><strong>bsdiff生成patch -&gt; bzip2压缩 -&gt; android下载patch -&gt; bzip2解压patch -&gt; bspatch合并patch -&gt; 新的apk</strong></p>
 <blockquote>
 <p>bsdiff并不是专门为apk增量更新设计的，它可以对任何二进制文件进行差分和合并。bzip2的功能是利用哈夫曼编码对文件进行无损压缩(将差分包进行压缩便于网络传输)和解压。</p>
@@ -194,7 +192,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2019/10/07/bsdiff和bspatch增量更新概念介绍/" title="bsdiff&amp;bspatch增量更新概念介绍">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -340,16 +338,6 @@
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -362,15 +350,25 @@
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -418,7 +416,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -429,6 +427,6 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -165,7 +163,7 @@
 <p>简单粗暴。</p>
 <p>分两块来熟悉activity生命周期：<strong>一.典型生命周期过程;二.异常情况下的生命周期过程。</strong></p>
 <p>&nbsp;</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411190609661-2068970253.png" alt></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411190609661-2068970253.png" alt=""></p>
 <p><span style="text-decoration: underline;"><em><strong>一. 典型生命周期过程</strong></em></span></p>
 <p style="text-align: left;">Activitiy的生命周期方法主要有七个：onCreate()、onRestart()、onStart()、onResume()、onPause()、onStop()、onDestory()。</p>
 <p style="text-align: left;">&nbsp;1. onCreate()</p>
@@ -188,7 +186,7 @@
 <p style="text-align: left;">异常生命周期产生原因一般有这两种：</p>
 <p style="text-align: left;"><strong>1.横竖屏切换；</strong></p>
 <p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity处于竖屏状态，如果突然旋转屏幕，由于系统配置发生了变化，在默认的情况下，Activity会被销毁并重新创建。</p>
-<p style="text-align: left;">&nbsp;&nbsp; <img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411194802808-1639713916.png" alt></p>
+<p style="text-align: left;">&nbsp;&nbsp; <img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411194802808-1639713916.png" alt=""></p>
 <p style="text-align: left;">&nbsp;&nbsp; 可以在onSaveInstanceState方法中存储一些数据以便Activity重建之后可以恢复这些数据。onSaveInstanceState和onRestoreInstanceState只有在Activity异常终止时才会被调用的，正常情况是不会调用这两个方法的。</p>
 <p style="text-align: left;">&nbsp; 当我们不想Activity在屏幕旋转后导致销毁重建时，可以设置configChange=“orientation”；当SDK版本大于13时，我们还需额外添加一个“screenSize”的值，对于这两个值含义如下：<br>orientation：屏幕方向发生变化，配置该参数可以解决横竖屏切换时，Activity重建问题（API&lt;13）<br>screenSize：当设备旋转时，屏幕尺寸发生变化，API&gt;13后必须配置该参数才可以保证横竖切换不会导致Activity重建。<br>设置了这两个参数后，当横竖屏切换时，Activity不会再重建并且也不会调用之前相关的方法，取而代之的是回调onConfigurationChanged方法.</p>
 <p style="text-align: left;"><strong>2.内存不足的时候killed优先级低的activity.</strong></p>
@@ -202,7 +200,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/04/11/四大组件-一-Activity生命周期/" title="Android 四大组件 (一) Activity 生命周期">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -264,7 +262,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2016/08/27/第二次裸辞-潜伏期-一些感想/" title="第二次裸辞_潜伏期_一些感想">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -333,7 +331,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2015/11/14/最近的一些感想（关于移动客户端开发android-ios）/" title="最近的一些感想（关于移动客户端开发android,ios）">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -391,7 +389,7 @@
 <div class="cnblogs_Highlighter sh-gutter">
 <div><div id="highlighter_841013" class="syntaxhighlighter  csharp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="csharp plain">&lt;Reference Include=</code><code class="csharp string">"mscorlib"</code> <code class="csharp plain">/&gt;</code></div><div class="line number2 index1 alt1"><code class="csharp plain">&lt;Reference Include=</code><code class="csharp string">"System.Core"</code> <code class="csharp plain">/&gt;</code></div></div></td></tr></tbody></table></div></div>
 </div>
-<p>&nbsp;<img src="https://images0.cnblogs.com/blog2015/612293/201506/071431161292531.png" alt></p>
+<p>&nbsp;<img src="https://images0.cnblogs.com/blog2015/612293/201506/071431161292531.png" alt=""></p>
 </div>
             
             <p class="more">
@@ -401,7 +399,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2015/06/07/错误：类型System-Object未定义或者不能引入项目/" title="错误：类型System.Object未定义或者不能引入项目">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -501,7 +499,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2015/06/02/easyui换主题，并记录在cookie-以及cookie作用域介绍/" title="easyui换主题，并记录在cookie.以及cookie作用域介绍">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -566,7 +564,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2015/06/01/VS发布报错未能将文件……复制到……/" title="VS发布报错未能将文件……复制到……">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -629,7 +627,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2015/04/27/跳槽穷半年-转行穷三年-死守会穷一辈子/" title="跳槽穷半年,转行穷三年,死守会穷一辈子">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -694,7 +692,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2014/12/02/使用SqlBulkCopy实现Excel批量导入数据库/" title="使用SqlBulkCopy实现Excel批量导入数据库">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -755,7 +753,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2014/12/02/SqlServer数据库添加角色，角色授权/" title="SqlServer数据库添加角色，角色授权">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -800,7 +798,7 @@
 <div id="cnblogs_post_body" class="blogpost-body ">
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 最近一直在网上捣鼓东西，之前看到有篇文章介绍微信开发，感觉很有意思，然后在官方网站找到API文档就开始开发了，花了一晚上时间，基本实现一般关键字的处理回复，以及城市天气的预报。因为文档是PHP示例,我也边学习边用PHP开发起来。</p>
 <p>　　可以先微信扫一扫,体验一下."看完代码就不神奇了" .—_—.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280933118409782.jpg" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280933118409782.jpg" alt=""></p>
 <p>　　注：代码GitHub地址在文章后面列出.</p>
 <h1>一.功能介绍：</h1>
 <p>　　可以识别多种关键字,可以查询城市天气,许多功能用户可以自己探索. <br>
@@ -817,7 +815,7 @@
 <h1>二.使用方法:</h1>
 <h2>&nbsp;&nbsp;&nbsp; 1.直接使用.</h2>
 <p>&nbsp;　　直接使用已经搭建好的新浪云应用程序，那"URL"填写http://vxinxi.sinaapp.com/index.php 和"Token"填写superman这两个就不能更改了。</p>
-<p>&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280910575123261.png" alt width="839" height="643"></p>
+<p>&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280910575123261.png" alt="" width="839" height="643"></p>
 <h2>&nbsp;　　2.自己部署程序.</h2>
 <p>　　 如果自己部署，如果你没有服务器，对PHP程序部署不熟悉的。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 你可以参考我的另一篇文章：<a id="homepage1_HomePageDays_DaysList_ctl01_DayList_TitleUrl_0" class="postTitle2" href="http://www.cnblogs.com/bugzone/p/SinaAppEngine.html" target="_blank"><span class="postTitle2">在新浪SAE上搭建自己的网站！</span></a></p>
@@ -841,9 +839,9 @@
 </div>
 <h1>&nbsp;四.效果预览:</h1>
 <h2>&nbsp;1.关注后提示信息.</h2>
-<p>&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280928321999648.png" alt width="350" height="619"></p>
+<p>&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280928321999648.png" alt="" width="350" height="619"></p>
 <h2>2.天气播报功能.</h2>
-<p><img src="https://images0.cnblogs.com/blog/612293/201411/280929392772856.png" alt width="343" height="606"></p>
+<p><img src="https://images0.cnblogs.com/blog/612293/201411/280929392772856.png" alt="" width="343" height="606"></p>
 <p>&nbsp;</p>
 <h1>五.其它</h1>
 <p>&nbsp;代码GitHub地址:<a href="https://github.com/MyGHCode/WeChatRobot" target="_blank">https://github.com/MyGHCode/WeChatRobot</a></p>
@@ -857,7 +855,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2014/11/28/超简单微信公众帐号自动回复和天气播报功能应用/" title="超简单微信公众帐号自动回复和天气播报功能应用">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/8.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/8.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -868,7 +866,7 @@
 
     
     <nav class="page-navigator">
-        <a class="extend prev" rel="prev" href="/archives/page/6/">前一页</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/8/">后一页</a>
+        <a class="extend prev" rel="prev" href="/archives/page/6/">前一页</a><a class="page-number" href="/archives/">1</a><span class="space">…</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/8/">后一页</a>
     </nav>
     
 
@@ -1003,16 +1001,6 @@
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -1025,15 +1013,25 @@
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -1081,7 +1079,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -1092,6 +1090,6 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

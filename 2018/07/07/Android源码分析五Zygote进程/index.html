@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -141,101 +139,101 @@
     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String argv[]) {
         ZygoteServer zygoteServer </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ZygoteServer();
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Mark zygote start. This ensures that thread creation will throw
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; an error.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ZygoteHooks.startZygoteNoThreadCreation();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Zygote goes into its own process group.&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    Os.setpgid(&lt;/span&gt;0, 0&lt;span style=&quot;color: #000000;&quot;&gt;);
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (ErrnoException ex) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;Failed to setpgid(0,0)&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Mark zygote start. This ensures that thread creation will throw
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; an error.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ZygoteHooks.startZygoteNoThreadCreation();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Zygote goes into its own process group.&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    Os.setpgid(&lt;/span&gt;0, 0&lt;span style="color: #000000;"&gt;);
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ErrnoException ex) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("Failed to setpgid(0,0)"&lt;span style="color: #000000;"&gt;, ex);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Report Zygote start time to tron unless it is a runtime restart&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&quot;1&quot;.equals(SystemProperties.get(&quot;sys.boot_completed&quot;&lt;span style=&quot;color: #000000;&quot;&gt;))) {
-        MetricsLogger.histogram(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &quot;boot_zygote_init&quot;&lt;span style=&quot;color: #000000;&quot;&gt;,
-                (&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) SystemClock.elapsedRealtime());
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Report Zygote start time to tron unless it is a runtime restart&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!"1".equals(SystemProperties.get("sys.boot_completed"&lt;span style="color: #000000;"&gt;))) {
+        MetricsLogger.histogram(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, "boot_zygote_init"&lt;span style="color: #000000;"&gt;,
+                (&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt;) SystemClock.elapsedRealtime());
     }
 
-    String bootTimeTag &lt;/span&gt;= Process.is64Bit() ? &quot;Zygote64Timing&quot; : &quot;Zygote32Timing&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
-    BootTimingsTraceLog bootTimingsTraceLog &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; BootTimingsTraceLog(bootTimeTag,
+    String bootTimeTag &lt;/span&gt;= Process.is64Bit() ? "Zygote64Timing" : "Zygote32Timing"&lt;span style="color: #000000;"&gt;;
+    BootTimingsTraceLog bootTimingsTraceLog &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; BootTimingsTraceLog(bootTimeTag,
             Trace.TRACE_TAG_DALVIK);
-    bootTimingsTraceLog.traceBegin(&lt;/span&gt;&quot;ZygoteInit&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    bootTimingsTraceLog.traceBegin(&lt;/span&gt;"ZygoteInit"&lt;span style="color: #000000;"&gt;);
     RuntimeInit.enableDdms();
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Start profiling the zygote initialization.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            SamplingProfilerIntegration.start();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; startSystemServer = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-String socketName &lt;/span&gt;= &quot;zygote&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
-String abiList &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; enableLazyPreload = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = 1; i &amp;lt; argv.length; i++&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&quot;start-system-server&quot;&lt;span style=&quot;color: #000000;&quot;&gt;.equals(argv[i])) {
-        startSystemServer &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&quot;--enable-lazy-preload&quot;&lt;span style=&quot;color: #000000;&quot;&gt;.equals(argv[i])) {
-        enableLazyPreload &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (argv[i].startsWith(ABI_LIST_ARG)) {
-        abiList &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; argv[i].substring(ABI_LIST_ARG.length());
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (argv[i].startsWith(SOCKET_NAME_ARG)) {
-        socketName &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; argv[i].substring(SOCKET_NAME_ARG.length());
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;Unknown command line argument: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; argv[i]);
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Start profiling the zygote initialization.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            SamplingProfilerIntegration.start();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; startSystemServer = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+String socketName &lt;/span&gt;= "zygote"&lt;span style="color: #000000;"&gt;;
+String abiList &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; enableLazyPreload = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = 1; i &amp;lt; argv.length; i++&lt;span style="color: #000000;"&gt;) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ("start-system-server"&lt;span style="color: #000000;"&gt;.equals(argv[i])) {
+        startSystemServer &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ("--enable-lazy-preload"&lt;span style="color: #000000;"&gt;.equals(argv[i])) {
+        enableLazyPreload &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (argv[i].startsWith(ABI_LIST_ARG)) {
+        abiList &lt;/span&gt;=&lt;span style="color: #000000;"&gt; argv[i].substring(ABI_LIST_ARG.length());
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (argv[i].startsWith(SOCKET_NAME_ARG)) {
+        socketName &lt;/span&gt;=&lt;span style="color: #000000;"&gt; argv[i].substring(SOCKET_NAME_ARG.length());
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("Unknown command line argument: " +&lt;span style="color: #000000;"&gt; argv[i]);
     }
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (abiList == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;No ABI list supplied.&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (abiList == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("No ABI list supplied."&lt;span style="color: #000000;"&gt;);
 }
 
 zygoteServer.registerServerSocket(socketName);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; In some configurations, we avoid preloading resources and classes eagerly.
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; In such cases, we will preload things prior to our first fork.&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;enableLazyPreload) {
-    bootTimingsTraceLog.traceBegin(&lt;/span&gt;&quot;ZygotePreload&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; In some configurations, we avoid preloading resources and classes eagerly.
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; In such cases, we will preload things prior to our first fork.&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;enableLazyPreload) {
+    bootTimingsTraceLog.traceBegin(&lt;/span&gt;"ZygotePreload"&lt;span style="color: #000000;"&gt;);
     EventLog.writeEvent(LOG_BOOT_PROGRESS_PRELOAD_START,
         SystemClock.uptimeMillis());
     preload(bootTimingsTraceLog);
     EventLog.writeEvent(LOG_BOOT_PROGRESS_PRELOAD_END,
         SystemClock.uptimeMillis());
-    bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; ZygotePreload&lt;/span&gt;
-} &lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; ZygotePreload&lt;/span&gt;
+} &lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
     Zygote.resetNicePriority();
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Finish profiling the zygote initialization.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            SamplingProfilerIntegration.writeZygoteSnapshot();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Do an initial gc to clean up after startup&lt;/span&gt;
-bootTimingsTraceLog.traceBegin(&quot;PostZygoteInitGC&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Finish profiling the zygote initialization.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            SamplingProfilerIntegration.writeZygoteSnapshot();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Do an initial gc to clean up after startup&lt;/span&gt;
+bootTimingsTraceLog.traceBegin("PostZygoteInitGC"&lt;span style="color: #000000;"&gt;);
 gcAndFinalize();
-bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; PostZygoteInitGC&lt;/span&gt;</code></pre><span style="color: #000000;">
+bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; PostZygoteInitGC&lt;/span&gt;</code></pre><span style="color: #000000;">
             bootTimingsTraceLog.traceEnd(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> ZygoteInit
             </span><span style="color: #008000;">//</span><span style="color: #008000;"> Disable tracing so that forked processes do not inherit stale tracing tags from
             </span><span style="color: #008000;">//</span><span style="color: #008000;"> Zygote.</span>
             Trace.setTracingEnabled(<span style="color: #0000ff;">false</span><span style="color: #000000;">);
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Zygote process unmounts root storage spaces.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            Zygote.nativeUnmountStorageOnInit();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Set seccomp policy&lt;/span&gt;</code></pre><p><span style="color: #000000;">            Seccomp.setPolicy();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Zygote process unmounts root storage spaces.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            Zygote.nativeUnmountStorageOnInit();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set seccomp policy&lt;/span&gt;</code></pre><p><span style="color: #000000;">            Seccomp.setPolicy();</span></p>
 <pre><code>        ZygoteHooks.stopZygoteNoThreadCreation();
 
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (startSystemServer) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (startSystemServer) {
             startSystemServer(abiList, socketName, zygoteServer);
         }
 
-        Log.i(TAG, &lt;/span&gt;&quot;Accepting command socket connections&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        Log.i(TAG, &lt;/span&gt;"Accepting command socket connections"&lt;span style="color: #000000;"&gt;);
         zygoteServer.runSelectLoop(abiList);
 
         zygoteServer.closeServerSocket();
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Zygote.MethodAndArgsCaller caller) {
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Zygote.MethodAndArgsCaller caller) {
         caller.run();
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Throwable ex) {
-        Log.e(TAG, &lt;/span&gt;&quot;System zygote died with exception&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Throwable ex) {
+        Log.e(TAG, &lt;/span&gt;"System zygote died with exception"&lt;span style="color: #000000;"&gt;, ex);
         zygoteServer.closeServerSocket();
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ex;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt;&lt;span style="color: #000000;"&gt; ex;
     }
 }
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;1.registerServerSocket
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;2.调用preload加载资源，
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;3.利用gcAndFinalize初始化gc，
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;4.启动SystemServer，startSystemServer() 这里启动SystemServer服务.
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;5.调用runSelectLoop运行Zygote进程选择的looper，
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;6.关闭和清理zygote sockets &lt;/span&gt;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;1.registerServerSocket
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;2.调用preload加载资源，
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;3.利用gcAndFinalize初始化gc，
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;4.启动SystemServer，startSystemServer() 这里启动SystemServer服务.
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;5.调用runSelectLoop运行Zygote进程选择的looper，
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;6.关闭和清理zygote sockets &lt;/span&gt;
 &lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></span></pre></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteServer.java</span>
@@ -255,13 +253,13 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
                 </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> RuntimeException(fullSocketName + " unset or invalid"<span style="color: #000000;">, ex);
             }
 
-<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-            FileDescriptor fd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; FileDescriptor();
+<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+            FileDescriptor fd &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; FileDescriptor();
             fd.setInt$(fileDesc);
-            mServerSocket &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; LocalServerSocket(fd);
-        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (IOException ex) {
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RuntimeException(
-                    &lt;/span&gt;&quot;Error binding to local socket &apos;&quot; + fileDesc + &quot;&apos;&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
+            mServerSocket &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; LocalServerSocket(fd);
+        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (IOException ex) {
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
+                    &lt;/span&gt;"Error binding to local socket '" + fileDesc + "'"&lt;span style="color: #000000;"&gt;, ex);
         }
     }
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
@@ -296,7 +294,7 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
         warmUpJcaProviders();
         Log.d(TAG, </span>"end preload"<span style="color: #000000;">);
 
-<pre><code>    sPreloadComplete &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>    sPreloadComplete &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">进去看看初始化webview方法
@@ -313,17 +311,17 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
                     CHROMIUM_WEBVIEW_DEFAULT_VMSIZE_BYTES);
             sAddressSpaceReserved </span>=<span style="color: #000000;"> nativeReserveAddressSpace(addressSpaceToReserve);
 
-<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (sAddressSpaceReserved) {
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG) {
-                Log.v(LOGTAG, &lt;/span&gt;&quot;address space reserved: &quot; + addressSpaceToReserve + &quot; bytes&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (sAddressSpaceReserved) {
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG) {
+                Log.v(LOGTAG, &lt;/span&gt;"address space reserved: " + addressSpaceToReserve + " bytes"&lt;span style="color: #000000;"&gt;);
             }
-        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-            Log.e(LOGTAG, &lt;/span&gt;&quot;reserving &quot; + addressSpaceToReserve +
-                    &quot; bytes of address space failed&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+            Log.e(LOGTAG, &lt;/span&gt;"reserving " + addressSpaceToReserve +
+                    " bytes of address space failed"&lt;span style="color: #000000;"&gt;);
         }
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Throwable t) {
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Log and discard errors at this stage as we must not crash the zygote.&lt;/span&gt;
-        Log.e(LOGTAG, &quot;error preparing native loader&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, t);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Throwable t) {
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Log and discard errors at this stage as we must not crash the zygote.&lt;/span&gt;
+        Log.e(LOGTAG, "error preparing native loader"&lt;span style="color: #000000;"&gt;, t);
     }
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
@@ -348,11 +346,11 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -362,7 +360,7 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/07/Android源码分析六SystemServer进程/">
             
                 Android 源码分析（六） SystemServer 进程
@@ -373,7 +371,7 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/07/Android源码分析四Handler异步消息机制/">
             
                 Android 源码分析（四） Handler 异步消息机制
@@ -385,7 +383,7 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -450,16 +448,7 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析五Zygote进程' || '2018/07/07/Android源码分析五Zygote进程/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -592,16 +581,6 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -614,15 +593,25 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -670,7 +659,7 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -681,6 +670,13 @@ bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style=&quot;color: #008000
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析五Zygote进程' || '2018/07/07/Android源码分析五Zygote进程/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

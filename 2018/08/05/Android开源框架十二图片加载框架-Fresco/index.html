@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -172,8 +170,8 @@ compile <span style="color: #800000;">'</span><span style="color: #800000;">jp.w
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre>　　GenericDraweeHierarchyBuilder builder = <span style="color: #0000ff;">new</span><span style="color: #000000;"> GenericDraweeHierarchyBuilder(getResources());
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;居中，无缩放&lt;/span&gt;
-GenericDraweeHierarchy hierarchy =&lt;span style=&quot;color: #000000;&quot;&gt; builder.setActualImageScaleType(ScalingUtils.ScaleType.CENTER).build();&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 设置样式&lt;/span&gt;</code></pre><p><span style="color: #000000;">    sdvFresco.setHierarchy(hierarchy);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 加载图片的地址</span><br>    Uri uri = Uri.parse(<span style="color: #800000;">“</span><span style="color: #800000;">http://</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 加载图片</span><br>    sdvFresco.setImageURI(uri);</p></span></pre><p></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;居中，无缩放&lt;/span&gt;
+GenericDraweeHierarchy hierarchy =&lt;span style="color: #000000;"&gt; builder.setActualImageScaleType(ScalingUtils.ScaleType.CENTER).build();&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 设置样式&lt;/span&gt;</code></pre><p><span style="color: #000000;">    sdvFresco.setHierarchy(hierarchy);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 加载图片的地址</span><br>    Uri uri = Uri.parse(<span style="color: #800000;">“</span><span style="color: #800000;">http://</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 加载图片</span><br>    sdvFresco.setImageURI(uri);</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>　　CENTER_CROP</p>
 <div class="cnblogs_code">
@@ -223,10 +221,10 @@ GenericDraweeHierarchy hierarchy =&lt;span style=&quot;color: #000000;&quot;&gt;
     GenericDraweeHierarchy hierarchy </span>=<span style="color: #000000;"> builder.setRoundingParams(parames).build();
 
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;圆角图片&lt;/span&gt;
-parames =&lt;span style=&quot;color: #000000;&quot;&gt; RoundingParams.fromCornersRadius(50f);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;parames.setOverlayColor(getResources().getColor(android.R.color.holo_red_light));&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;覆盖层
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;parames.setBorder(getResources().getColor(android.R.color.holo_blue_light), 5);&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;边框&lt;/span&gt;
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;圆角图片&lt;/span&gt;
+parames =&lt;span style="color: #000000;"&gt; RoundingParams.fromCornersRadius(50f);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;parames.setOverlayColor(getResources().getColor(android.R.color.holo_red_light));&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;覆盖层
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;parames.setBorder(getResources().getColor(android.R.color.holo_blue_light), 5);&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;边框&lt;/span&gt;
 GenericDraweeHierarchy hierarchy = builder.setRoundingParams(parames).build();&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h4>　　3.4&nbsp;渐进式展示图片</h4>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -238,23 +236,23 @@ GenericDraweeHierarchy hierarchy = builder.setRoundingParams(parames).build();&l
         }
 
 <pre><code>    @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; QualityInfo getQualityInfo(&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; scanNumber) {
-        boolean isGoodEnough &lt;/span&gt;= (scanNumber &amp;gt;= &lt;span style=&quot;color: #800080;&quot;&gt;5&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; QualityInfo getQualityInfo(&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; scanNumber) {
+        boolean isGoodEnough &lt;/span&gt;= (scanNumber &amp;gt;= &lt;span style="color: #800080;"&gt;5&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; ImmutableQualityInfo.of(scanNumber, isGoodEnough, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; ImmutableQualityInfo.of(scanNumber, isGoodEnough, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
 };
 
-ImagePipelineConfig.newBuilder(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).setProgressiveJpegConfig(jpegConfig).build();
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 获取图片URL&lt;/span&gt;
-Uri uri = Uri.parse(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;http://&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 获取图片请求&lt;/span&gt;
-ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri).setProgressiveRenderingEnabled(&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).build();
-DraweeController draweeController &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Fresco.newDraweeControllerBuilder()
+ImagePipelineConfig.newBuilder(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).setProgressiveJpegConfig(jpegConfig).build();
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 获取图片URL&lt;/span&gt;
+Uri uri = Uri.parse(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;http://&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 获取图片请求&lt;/span&gt;
+ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri).setProgressiveRenderingEnabled(&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;).build();
+DraweeController draweeController &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Fresco.newDraweeControllerBuilder()
         .setImageRequest(request)
-        .setTapToRetryEnabled(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)
-        .setOldController(sdvFresco.getController())&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;使用oldController可以节省不必要的内存分配&lt;/span&gt;</code></pre><p><span style="color: #000000;">            .build();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 设置加载的控制&lt;/span&gt;
+        .setTapToRetryEnabled(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;)
+        .setOldController(sdvFresco.getController())&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;使用oldController可以节省不必要的内存分配&lt;/span&gt;</code></pre><p><span style="color: #000000;">            .build();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 设置加载的控制&lt;/span&gt;
 sdvFresco.setController(draweeController);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h4>　　3.5&nbsp;GIF动画图片</h4>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -267,15 +265,15 @@ sdvFresco.setController(draweeController);&lt;/pre&gt;</code></pre><div class="c
 
 <pre><code>sdvFresco.setController(controller);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 动画开始&lt;/span&gt;
-Animatable animatable =&lt;span style=&quot;color: #000000;&quot;&gt; sdvFresco.getController().getAnimatable();
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;(animatable != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; !&lt;span style=&quot;color: #000000;&quot;&gt;animatable.isRunning()) {
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 动画开始&lt;/span&gt;
+Animatable animatable =&lt;span style="color: #000000;"&gt; sdvFresco.getController().getAnimatable();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;(animatable != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp; !&lt;span style="color: #000000;"&gt;animatable.isRunning()) {
     animatable.start();
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;动画停止&lt;/span&gt;
- Animatable animatable =&lt;span style=&quot;color: #000000;&quot;&gt; sdvFresco.getController().getAnimatable();
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;(animatable != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; animatable.isRunning()) {
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;动画停止&lt;/span&gt;
+ Animatable animatable =&lt;span style="color: #000000;"&gt; sdvFresco.getController().getAnimatable();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;(animatable != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; animatable.isRunning()) {
     animatable.stop();
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h4>　　3.6&nbsp;多图请求及图片复用</h4>
@@ -293,34 +291,34 @@ Animatable animatable =&lt;span style=&quot;color: #000000;&quot;&gt; sdvFresco.
 <span style="color: #000000;">    sdvFresco.setController(controller);
 
 <pre><code>本地缩略图预览
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 图片地址&lt;/span&gt;
-Uri uri = Uri.fromFile(&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(Environment.getExternalStorageDirectory() +&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/meinv1.jpg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 加载图片的请求&lt;/span&gt;
-ImageRequest request =&lt;span style=&quot;color: #000000;&quot;&gt; ImageRequestBuilder.newBuilderWithSource(uri)
-        .setLocalThumbnailPreviewsEnabled(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 图片地址&lt;/span&gt;
+Uri uri = Uri.fromFile(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(Environment.getExternalStorageDirectory() +&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/meinv1.jpg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 加载图片的请求&lt;/span&gt;
+ImageRequest request =&lt;span style="color: #000000;"&gt; ImageRequestBuilder.newBuilderWithSource(uri)
+        .setLocalThumbnailPreviewsEnabled(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;)
         .build();
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 控制图片的加载&lt;/span&gt;
-DraweeController controller =&lt;span style=&quot;color: #000000;&quot;&gt; Fresco.newDraweeControllerBuilder()
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 控制图片的加载&lt;/span&gt;
+DraweeController controller =&lt;span style="color: #000000;"&gt; Fresco.newDraweeControllerBuilder()
         .setImageRequest(request)
         .build();
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 加载图片&lt;/span&gt;</code></pre><p><span style="color: #000000;">    sdvFresco.setController(controller);</span></p>
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 加载图片&lt;/span&gt;</code></pre><p><span style="color: #000000;">    sdvFresco.setController(controller);</span></p>
 <pre><code>本地图片复用
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;本地图片的复用
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;在请求之前，还会去内存中请求一次图片，没有才会先去本地，最后去网络uri
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;本地准备复用图片的uri  如果本地这个图片不存在，会自动去加载下一个uri
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 请求加载图片&lt;/span&gt;
-Uri uri1 = Uri.fromFile(&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(Environment.getExternalStorageDirectory()+&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/meinv.jpg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;图片的网络uri&lt;/span&gt;
-Uri uri2 = Uri.parse(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;http://&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-ImageRequest request1 &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; ImageRequest.fromUri(uri1);
-ImageRequest request2 &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; ImageRequest.fromUri(uri2);
-ImageRequest[] requests &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; {request1, request2};
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 控制加载图片&lt;/span&gt;
-DraweeController controller =&lt;span style=&quot;color: #000000;&quot;&gt; Fresco.newDraweeControllerBuilder()
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;本地图片的复用
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;在请求之前，还会去内存中请求一次图片，没有才会先去本地，最后去网络uri
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;本地准备复用图片的uri  如果本地这个图片不存在，会自动去加载下一个uri
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 请求加载图片&lt;/span&gt;
+Uri uri1 = Uri.fromFile(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(Environment.getExternalStorageDirectory()+&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/meinv.jpg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;图片的网络uri&lt;/span&gt;
+Uri uri2 = Uri.parse(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;http://&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+ImageRequest request1 &lt;/span&gt;=&lt;span style="color: #000000;"&gt; ImageRequest.fromUri(uri1);
+ImageRequest request2 &lt;/span&gt;=&lt;span style="color: #000000;"&gt; ImageRequest.fromUri(uri2);
+ImageRequest[] requests &lt;/span&gt;=&lt;span style="color: #000000;"&gt; {request1, request2};
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 控制加载图片&lt;/span&gt;
+DraweeController controller =&lt;span style="color: #000000;"&gt; Fresco.newDraweeControllerBuilder()
         .setFirstAvailableImageRequests(requests)
         .setOldController(sdvFresco.getController())
         .build();
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 加载图片&lt;/span&gt;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 加载图片&lt;/span&gt;
 sdvFresco.setController(controller);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h4>　　3.7&nbsp;图片加载监听</h4>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -328,7 +326,7 @@ sdvFresco.setController(controller);&lt;/pre&gt;</code></pre><div class="cnblogs
      </span><span style="color: #008000;">//</span><span style="color: #008000;">添加监听事件 .setControllerListener(controllerListener)</span>
 <span style="color: #000000;">    SimpleDraweeView sdvFrescoListener;
 
-<pre><code>DraweeController controller &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Fresco.newDraweeControllerBuilder()
+<pre><code>DraweeController controller &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Fresco.newDraweeControllerBuilder()
         .setOldController(sdvFrescoListener.getController())
         .setImageRequest(request)
         .setControllerListener(controllerListener)
@@ -340,28 +338,28 @@ sdvFresco.setController(controller);&lt;/pre&gt;</code></pre><div class="cnblogs
         </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
             super.onFinalImageSet(id, imageInfo, animatable);
 
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (imageInfo == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (imageInfo == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 获取图片的质量&lt;/span&gt;
-    QualityInfo qualityInfo =&lt;span style=&quot;color: #000000;&quot;&gt; imageInfo.getQualityInfo();
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 获取图片的质量&lt;/span&gt;
+    QualityInfo qualityInfo =&lt;span style="color: #000000;"&gt; imageInfo.getQualityInfo();
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;页面文本打印setText&lt;/span&gt;
-    tvFrescoListener.setText(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Final image received! &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +
-            &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\nSize: &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; imageInfo.getWidth()
-            &lt;/span&gt;+ &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; imageInfo.getHeight()
-            &lt;/span&gt;+ &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\nQuality level: &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; qualityInfo.getQuality()
-            &lt;/span&gt;+ &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\ngood enough: &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; qualityInfo.isOfGoodEnoughQuality()
-            &lt;/span&gt;+ &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\nfull quality: &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; qualityInfo.isOfFullQuality());
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;页面文本打印setText&lt;/span&gt;
+    tvFrescoListener.setText(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Final image received! &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +
+            &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;\nSize: &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; imageInfo.getWidth()
+            &lt;/span&gt;+ &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;x&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; imageInfo.getHeight()
+            &lt;/span&gt;+ &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;\nQuality level: &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; qualityInfo.getQuality()
+            &lt;/span&gt;+ &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;\ngood enough: &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; qualityInfo.isOfGoodEnoughQuality()
+            &lt;/span&gt;+ &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;\nfull quality: &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; qualityInfo.isOfFullQuality());
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 渐进式加载图片回调&lt;/span&gt;</code></pre><p><span style="color: #000000;">        @Override<br>        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onIntermediateImageSet(String id, ImageInfo imageInfo) {<br>            super.onIntermediateImageSet(id, imageInfo);</span></p>
-<pre><code>    tvFrescoListener2.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;IntermediateImageSet image receiced&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 渐进式加载图片回调&lt;/span&gt;</code></pre><p><span style="color: #000000;">        @Override<br>        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onIntermediateImageSet(String id, ImageInfo imageInfo) {<br>            super.onIntermediateImageSet(id, imageInfo);</span></p>
+<pre><code>    tvFrescoListener2.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;IntermediateImageSet image receiced&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 加载图片失败&lt;/span&gt;</code></pre><p><span style="color: #000000;">        @Override<br>        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onFailure(String id, Throwable throwable) {<br>            super.onFailure(id, throwable);</span></p>
-<pre><code>        tvFrescoListener.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Error loading&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; id);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 加载图片失败&lt;/span&gt;</code></pre><p><span style="color: #000000;">        @Override<br>        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onFailure(String id, Throwable throwable) {<br>            super.onFailure(id, throwable);</span></p>
+<pre><code>        tvFrescoListener.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Error loading&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; id);
     }
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h4>　　3.8&nbsp;图片修改和旋转</h4>
@@ -413,8 +411,8 @@ sdvFresco.setController(controller);&lt;/pre&gt;</code></pre><div class="cnblogs
         }
     };
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 创建图片请求&lt;/span&gt;
-ImageRequest request =&lt;span style=&quot;color: #000000;&quot;&gt; ImageRequestBuilder.newBuilderWithSource(uri)
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 创建图片请求&lt;/span&gt;
+ImageRequest request =&lt;span style="color: #000000;"&gt; ImageRequestBuilder.newBuilderWithSource(uri)
         .setPostprocessor(postProcessor)
         .build();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h4>&nbsp;　　3.10&nbsp;动态展示图片（添加SimpleDraweeView到LinearLayout中）</h4>
@@ -423,18 +421,18 @@ ImageRequest request =&lt;span style=&quot;color: #000000;&quot;&gt; ImageReques
     </span><span style="color: #008000;">//</span><span style="color: #008000;"> 设置宽高比</span>
     simpleDraweeView.setAspectRatio(<span style="color: #800080;">3.0f</span><span style="color: #000000;">);
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 图片的地址&lt;/span&gt;
-Uri uri = Uri.parse(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;http://&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 图片的请求&lt;/span&gt;
-ImageRequest request =&lt;span style=&quot;color: #000000;&quot;&gt; ImageRequestBuilder.newBuilderWithSource(uri)
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 图片的地址&lt;/span&gt;
+Uri uri = Uri.parse(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;http://&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 图片的请求&lt;/span&gt;
+ImageRequest request =&lt;span style="color: #000000;"&gt; ImageRequestBuilder.newBuilderWithSource(uri)
         .build();
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 加载图片的控制&lt;/span&gt;
-PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&gt; (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 加载图片的控制&lt;/span&gt;
+PipelineDraweeController controller =&lt;span style="color: #000000;"&gt; (PipelineDraweeController) Fresco.newDraweeControllerBuilder()
         .setOldController(simpleDraweeView.getController())
         .setImageRequest(request)
         .build();
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 加载图片&lt;/span&gt;</code></pre><p><span style="color: #000000;">    simpleDraweeView.setController(controller);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 添加View到线性布局中</span><br>    linearLayout.addView(simpleDraweeView);</p></span></pre><p></p>
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 加载图片&lt;/span&gt;</code></pre><p><span style="color: #000000;">    simpleDraweeView.setController(controller);<br>    </span><span style="color: #008000;">//</span><span style="color: #008000;"> 添加View到线性布局中</span><br>    linearLayout.addView(simpleDraweeView);</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>&nbsp;</p>
 <h4>&nbsp;</h4>
@@ -459,11 +457,11 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -473,7 +471,7 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/08/05/Android开源框架十三RecyclerView/">
             
                 Android 开源框架 ( 十三 ) RecyclerView
@@ -484,7 +482,7 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/08/05/Android开源框架十一图片加载框架-Glide/">
             
                 Android 开源框架 ( 十一 ) 图片加载框架---Glide
@@ -496,7 +494,7 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -561,16 +559,7 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android开源框架十二图片加载框架-Fresco' || '2018/08/05/Android开源框架十二图片加载框架-Fresco/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -703,16 +692,6 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -725,15 +704,25 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -781,7 +770,7 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -792,6 +781,13 @@ PipelineDraweeController controller =&lt;span style=&quot;color: #000000;&quot;&
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android开源框架十二图片加载框架-Fresco' || '2018/08/05/Android开源框架十二图片加载框架-Fresco/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

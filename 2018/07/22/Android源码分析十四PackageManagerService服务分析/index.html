@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -164,50 +162,50 @@
 <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> PackageManagerService extends IPackageManager.Stub
         implements PackageSender {
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; PackageManagerService main(Context context, Installer installer,
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt;&lt;span style="color: #000000;"&gt; PackageManagerService main(Context context, Installer installer,
         boolean factoryTest, boolean onlyCore) {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Self-check for initial settings.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        PackageManagerServiceCompilerMapping.checkProperties();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">构造一个PackageManagerService</span><br>        PackageManagerService m = <span style="color: #0000ff;">new</span><span style="color: #000000;"> PackageManagerService(context, installer,<br>                factoryTest, onlyCore);<br>        m.enableSystemUserPackages();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">添加到ServiceManager</span><br>        ServiceManager.addService(<span style="color: #800000;">“</span><span style="color: #800000;">package</span><span style="color: #800000;">“</span><span style="color: #000000;">, m);<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> m;<br>    }</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; PackageManagerService(Context context, Installer installer,
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Self-check for initial settings.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        PackageManagerServiceCompilerMapping.checkProperties();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">构造一个PackageManagerService</span><br>        PackageManagerService m = <span style="color: #0000ff;">new</span><span style="color: #000000;"> PackageManagerService(context, installer,<br>                factoryTest, onlyCore);<br>        m.enableSystemUserPackages();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">添加到ServiceManager</span><br>        ServiceManager.addService(<span style="color: #800000;">“</span><span style="color: #800000;">package</span><span style="color: #800000;">“</span><span style="color: #000000;">, m);<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> m;<br>    }</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt;&lt;span style="color: #000000;"&gt; PackageManagerService(Context context, Installer installer,
         boolean factoryTest, boolean onlyCore) {
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;installer apk的安装和卸载最终都是调用installd来实现的。&lt;/span&gt;
-    mInstaller =&lt;span style=&quot;color: #000000;&quot;&gt; installer;
-    mPackageDexOptimizer &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; PackageDexOptimizer(installer, mInstallLock, context,
-            &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;*dexopt*&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    mDexManager &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; DexManager(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, mPackageDexOptimizer, installer, mInstallLock);
-    mMoveCallbacks &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; MoveCallbacks(FgThread.&lt;span style=&quot;color: #0000ff;&quot;&gt;get&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;().getLooper());
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;installer apk的安装和卸载最终都是调用installd来实现的。&lt;/span&gt;
+    mInstaller =&lt;span style="color: #000000;"&gt; installer;
+    mPackageDexOptimizer &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; PackageDexOptimizer(installer, mInstallLock, context,
+            &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;*dexopt*&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    mDexManager &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; DexManager(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;, mPackageDexOptimizer, installer, mInstallLock);
+    mMoveCallbacks &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; MoveCallbacks(FgThread.&lt;span style="color: #0000ff;"&gt;get&lt;/span&gt;&lt;span style="color: #000000;"&gt;().getLooper());
 
     synchronized (mInstallLock) {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; writer 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;环境变量初始化&lt;/span&gt;</code></pre><p><span style="color: #000000;">        synchronized (mPackages) {<br>            File dataDir </span>=<span style="color: #000000;"> Environment.getDataDirectory();<br>            mAppInstallDir </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>            mAppLib32InstallDir </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app-lib</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>            mAsecInternalPath </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app-asec</span><span style="color: #800000;">“</span><span style="color: #000000;">).getPath();<br>            mDrmAppPrivateInstallDir </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app-private</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>            sUserManager </span>= <span style="color: #0000ff;">new</span> UserManagerService(context, <span style="color: #0000ff;">this</span><span style="color: #000000;">,<br>                    </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> UserDataPreparer(mInstaller, mInstallLock, mContext, mOnlyCore), mPackages);</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;权限注册到 package manager，一个权限与几个组ID对应，当一个APK授予这个权限时，它同属于这几个组。
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;权限是一个复杂的过程
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Propagate permission configuration in to package manager.&lt;/span&gt;
-ArrayMap&amp;lt;String, SystemConfig.PermissionEntry&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; permConfig
-        &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; systemConfig.getPermissions();
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;遍历权限配置文件&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i=&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;; i&amp;lt;permConfig.size(); i++&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    SystemConfig.PermissionEntry perm &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; permConfig.valueAt(i);
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;拿到权限&lt;/span&gt;
-    BasePermission bp = mSettings.mPermissions.&lt;span style=&quot;color: #0000ff;&quot;&gt;get&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(perm.name);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (bp == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        bp &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; BasePermission(perm.name, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;android&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, BasePermission.TYPE_BUILTIN);
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;写入权限&lt;/span&gt;</code></pre><p><span style="color: #000000;">                    mSettings.mPermissions.put(perm.name, bp);<br>                }<br>                </span><span style="color: #0000ff;">if</span> (perm.gids != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>                    bp.setGids(perm.gids, perm.perUser);<br>                }<br>            }<br>        }</span></p>
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; writer 
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;环境变量初始化&lt;/span&gt;</code></pre><p><span style="color: #000000;">        synchronized (mPackages) {<br>            File dataDir </span>=<span style="color: #000000;"> Environment.getDataDirectory();<br>            mAppInstallDir </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>            mAppLib32InstallDir </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app-lib</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>            mAsecInternalPath </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app-asec</span><span style="color: #800000;">“</span><span style="color: #000000;">).getPath();<br>            mDrmAppPrivateInstallDir </span>= <span style="color: #0000ff;">new</span> File(dataDir, <span style="color: #800000;">“</span><span style="color: #800000;">app-private</span><span style="color: #800000;">“</span><span style="color: #000000;">);<br>            sUserManager </span>= <span style="color: #0000ff;">new</span> UserManagerService(context, <span style="color: #0000ff;">this</span><span style="color: #000000;">,<br>                    </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> UserDataPreparer(mInstaller, mInstallLock, mContext, mOnlyCore), mPackages);</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;权限注册到 package manager，一个权限与几个组ID对应，当一个APK授予这个权限时，它同属于这几个组。
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;权限是一个复杂的过程
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Propagate permission configuration in to package manager.&lt;/span&gt;
+ArrayMap&amp;lt;String, SystemConfig.PermissionEntry&amp;gt;&lt;span style="color: #000000;"&gt; permConfig
+        &lt;/span&gt;=&lt;span style="color: #000000;"&gt; systemConfig.getPermissions();
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;遍历权限配置文件&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i=&lt;span style="color: #800080;"&gt;0&lt;/span&gt;; i&amp;lt;permConfig.size(); i++&lt;span style="color: #000000;"&gt;) {
+    SystemConfig.PermissionEntry perm &lt;/span&gt;=&lt;span style="color: #000000;"&gt; permConfig.valueAt(i);
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;拿到权限&lt;/span&gt;
+    BasePermission bp = mSettings.mPermissions.&lt;span style="color: #0000ff;"&gt;get&lt;/span&gt;&lt;span style="color: #000000;"&gt;(perm.name);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (bp == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        bp &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; BasePermission(perm.name, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;android&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, BasePermission.TYPE_BUILTIN);
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;写入权限&lt;/span&gt;</code></pre><p><span style="color: #000000;">                    mSettings.mPermissions.put(perm.name, bp);<br>                }<br>                </span><span style="color: #0000ff;">if</span> (perm.gids != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>                    bp.setGids(perm.gids, perm.perUser);<br>                }<br>            }<br>        }</span></p>
 <pre><code>final PackageHandler mHandler;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;class&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; PackageHandler extends Handler {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; doHandleMessage(Message msg) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (msg.what) {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;class&lt;/span&gt;&lt;span style="color: #000000;"&gt; PackageHandler extends Handler {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; doHandleMessage(Message msg) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (msg.what) {
 
         }
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; scanDirLI(File dir, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; parseFlags, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; scanFlags, &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; currentTime) {
-    final File[] files &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; dir.listFiles();
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (ArrayUtils.isEmpty(files)) {
-        Log.d(TAG, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;No files in app dir &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; dir);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; scanDirLI(File dir, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; parseFlags, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; scanFlags, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; currentTime) {
+    final File[] files &lt;/span&gt;=&lt;span style="color: #000000;"&gt; dir.listFiles();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ArrayUtils.isEmpty(files)) {
+        Log.d(TAG, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;No files in app dir &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; dir);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
     }
-    ParallelPackageParser parallelPackageParser &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ParallelPackageParser(
+    ParallelPackageParser parallelPackageParser &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; ParallelPackageParser(
             mSeparateProcesses, mOnlyCore, mMetrics, mCacheDir,
             mParallelPackageParserCallback);
 
@@ -215,26 +213,26 @@ ArrayMap&amp;lt;String, SystemConfig.PermissionEntry&amp;gt;&lt;span style=&quot
 
 }
 
-File frameworkDir &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(Environment.getRootDirectory(), &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;framework&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Find base frameworks (resource packages without code).&lt;/span&gt;</code></pre><p><span style="color: #000000;">    scanDirTracedLI(frameworkDir, mDefParseFlags<br>            </span>|<span style="color: #000000;"> PackageParser.PARSE_IS_SYSTEM<br>            </span>|<span style="color: #000000;"> PackageParser.PARSE_IS_SYSTEM_DIR<br>            </span>|<span style="color: #000000;"> PackageParser.PARSE_IS_PRIVILEGED,<br>            scanFlags </span>| SCAN_NO_DEX, <span style="color: #800080;">0</span><span style="color: #000000;">);</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Collected privileged system packages. 系统安装包&lt;/span&gt;
-final File privilegedAppDir = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(Environment.getRootDirectory(), &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;priv-app&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+File frameworkDir &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(Environment.getRootDirectory(), &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;framework&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Find base frameworks (resource packages without code).&lt;/span&gt;</code></pre><p><span style="color: #000000;">    scanDirTracedLI(frameworkDir, mDefParseFlags<br>            </span>|<span style="color: #000000;"> PackageParser.PARSE_IS_SYSTEM<br>            </span>|<span style="color: #000000;"> PackageParser.PARSE_IS_SYSTEM_DIR<br>            </span>|<span style="color: #000000;"> PackageParser.PARSE_IS_PRIVILEGED,<br>            scanFlags </span>| SCAN_NO_DEX, <span style="color: #800080;">0</span><span style="color: #000000;">);</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Collected privileged system packages. 系统安装包&lt;/span&gt;
+final File privilegedAppDir = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(Environment.getRootDirectory(), &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;priv-app&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 scanDirTracedLI(privilegedAppDir, mDefParseFlags
-        &lt;/span&gt;|&lt;span style=&quot;color: #000000;&quot;&gt; PackageParser.PARSE_IS_SYSTEM
-        &lt;/span&gt;|&lt;span style=&quot;color: #000000;&quot;&gt; PackageParser.PARSE_IS_SYSTEM_DIR
-        &lt;/span&gt;| PackageParser.PARSE_IS_PRIVILEGED, scanFlags, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;|&lt;span style="color: #000000;"&gt; PackageParser.PARSE_IS_SYSTEM
+        &lt;/span&gt;|&lt;span style="color: #000000;"&gt; PackageParser.PARSE_IS_SYSTEM_DIR
+        &lt;/span&gt;| PackageParser.PARSE_IS_PRIVILEGED, scanFlags, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Collect ordinary system packages. 系统app安装包&lt;/span&gt;
-final File systemAppDir = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(Environment.getRootDirectory(), &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;app&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Collect ordinary system packages. 系统app安装包&lt;/span&gt;
+final File systemAppDir = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(Environment.getRootDirectory(), &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;app&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 scanDirTracedLI(systemAppDir, mDefParseFlags
-        &lt;/span&gt;|&lt;span style=&quot;color: #000000;&quot;&gt; PackageParser.PARSE_IS_SYSTEM
-        &lt;/span&gt;| PackageParser.PARSE_IS_SYSTEM_DIR, scanFlags, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);</code></pre><p>}</p></span></pre><p></p>
+        &lt;/span&gt;|&lt;span style="color: #000000;"&gt; PackageParser.PARSE_IS_SYSTEM
+        &lt;/span&gt;| PackageParser.PARSE_IS_SYSTEM_DIR, scanFlags, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>　　PMS里面主要完成以下几件事。<br>&nbsp;　　1、通过installer与installd进行连接，进行安装卸载应用操作<br>&nbsp;　　2、创建PacakageHandler线程，处理外部应用的安装卸载请求<br>&nbsp;　　3、处理系统权限相关配置<br>&nbsp;　　4、扫描安装应用，并解析APK安装包信息</p>
 <div>
 <h3>二.总结</h3>
 
-<p>&nbsp;一张图总结下PMS主要完成的工作，以及对上与PackageManager交互，向下与Installd的控制。<br>&nbsp;　　　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722145529724-1218830986.png" alt></p></div><p></p>
+<p>&nbsp;一张图总结下PMS主要完成的工作，以及对上与PackageManager交互，向下与Installd的控制。<br>&nbsp;　　　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722145529724-1218830986.png" alt=""></p></div><p></p>
 <div><br>如果想了解桌面Launcher应用启动app过程，请看这篇文章。<a id="homepage1_HomePageDays_DaysList_ctl00_DayList_TitleUrl_0" class="postTitle2" href="https://www.cnblogs.com/bugzone/p/Launcher_app.html" target="_blank">Android 源码分析（八） Launcher 桌面启动App过程</a></div>
 <div>最后补充一点，如果想要了解APK的编译过程，可以进一步去了解Android4.4之后使用的ART,可以与Dalivk对比了解。<br>给个Dalivk的启动过程介绍的文章：<a id="homepage1_HomePageDays_DaysList_ctl05_DayList_TitleUrl_0" class="postTitle2" href="https://www.cnblogs.com/bugzone/p/dalvik.html" target="_blank">Android 源码分析（十） Dalvik 虚拟机创建过程</a></div>
 
@@ -261,11 +259,11 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -275,7 +273,7 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/22/Android进阶学习笔记整理/">
             
                 Android进阶学习笔记整理
@@ -286,7 +284,7 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/22/Android源码分析十三ActivityManagerService服务分析/">
             
                 Android源码分析（十三）ActivityManagerService服务分析
@@ -298,7 +296,7 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -363,16 +361,7 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析十四PackageManagerService服务分析' || '2018/07/22/Android源码分析十四PackageManagerService服务分析/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -505,16 +494,6 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -527,15 +506,25 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -583,7 +572,7 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -594,6 +583,13 @@ scanDirTracedLI(systemAppDir, mDefParseFlags
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析十四PackageManagerService服务分析' || '2018/07/22/Android源码分析十四PackageManagerService服务分析/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

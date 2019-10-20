@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -152,58 +150,58 @@ recyclerview.setLayoutManager(<span style="color: #0000ff;">new</span> LinearLay
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> MyRecyclerViewAdapter extends RecyclerView.Adapter&lt;MyRecyclerViewAdapter.ViewHolder&gt;<span style="color: #000000;"> {
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; final Context context;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;  ArrayList&amp;lt;String&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; datas;
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;&lt;span style="color: #000000;"&gt; final Context context;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;  ArrayList&amp;lt;String&amp;gt;&lt;span style="color: #000000;"&gt; datas;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; MyRecyclerViewAdapter(Context context, ArrayList&amp;lt;String&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; datas) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;.context =&lt;span style=&quot;color: #000000;&quot;&gt; context;
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;.datas =&lt;span style=&quot;color: #000000;&quot;&gt; datas;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; MyRecyclerViewAdapter(Context context, ArrayList&amp;lt;String&amp;gt;&lt;span style="color: #000000;"&gt; datas) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;.context =&lt;span style="color: #000000;"&gt; context;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;.datas =&lt;span style="color: #000000;"&gt; datas;
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * 相当于getView方法中创建View和ViewHolder
  * @param parent
  * @param viewType
  * @return
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
 @Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; ViewHolder onCreateViewHolder(ViewGroup parent, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; viewType) {
-    View itemView &lt;/span&gt;= View.inflate(context, R.layout.item_recyclerview,&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ViewHolder(itemView);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; ViewHolder onCreateViewHolder(ViewGroup parent, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; viewType) {
+    View itemView &lt;/span&gt;= View.inflate(context, R.layout.item_recyclerview,&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; ViewHolder(itemView);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*相当于于getView绑定数据部分的代码
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*相当于于getView绑定数据部分的代码
  * 数据和View绑定
  * @param holder
  * @param position
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
 @Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onBindViewHolder(ViewHolder holder, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; position) {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;根据位置得到对应的数据&lt;/span&gt;
-    String  data  = datas.&lt;span style=&quot;color: #0000ff;&quot;&gt;get&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(position);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onBindViewHolder(ViewHolder holder, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; position) {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;根据位置得到对应的数据&lt;/span&gt;
+    String  data  = datas.&lt;span style="color: #0000ff;"&gt;get&lt;/span&gt;&lt;span style="color: #000000;"&gt;(position);
     holder.tv_title.setText(data);
 
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * 得到总条数
  * @return
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
 @Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; getItemCount() {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; datas.size();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; getItemCount() {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; datas.size();
 }
 
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;class&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ViewHolder extends RecyclerView.ViewHolder {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;class&lt;/span&gt;&lt;span style="color: #000000;"&gt; ViewHolder extends RecyclerView.ViewHolder {
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ImageView iv_icon;
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; TextView tv_title;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;&lt;span style="color: #000000;"&gt; ImageView iv_icon;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;&lt;span style="color: #000000;"&gt; TextView tv_title;
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ViewHolder(View itemView) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt;&lt;span style="color: #000000;"&gt; ViewHolder(View itemView) {
         super(itemView);
-        iv_icon &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (ImageView) itemView.findViewById(R.id.iv_icon);
-        tv_title &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (TextView) itemView.findViewById(R.id.tv_title);
+        iv_icon &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (ImageView) itemView.findViewById(R.id.iv_icon);
+        tv_title &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (TextView) itemView.findViewById(R.id.tv_title);
 
     }
 }</code></pre><p>}</p></span></pre><p></p>
@@ -234,78 +232,78 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 <p></p></span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> DividerListItemDecoration extends RecyclerView.ItemDecoration {<br>    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> final <span style="color: #0000ff;">int</span>[] ATTRS = <span style="color: #0000ff;">new</span> <span style="color: #0000ff;">int</span><span style="color: #000000;">[]{<br>            android.R.attr.listDivider<br>    };<p></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; final &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; HORIZONTAL_LIST =&lt;span style=&quot;color: #000000;&quot;&gt; LinearLayoutManager.HORIZONTAL;
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; final &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; HORIZONTAL_LIST =&lt;span style="color: #000000;"&gt; LinearLayoutManager.HORIZONTAL;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; final &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; VERTICAL_LIST =&lt;span style=&quot;color: #000000;&quot;&gt; LinearLayoutManager.VERTICAL;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; final &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; VERTICAL_LIST =&lt;span style="color: #000000;"&gt; LinearLayoutManager.VERTICAL;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Drawable mDivider;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;&lt;span style="color: #000000;"&gt; Drawable mDivider;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mOrientation;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; mOrientation;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; DividerListItemDecoration(Context context, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; orientation) {
-    final TypedArray a &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; context.obtainStyledAttributes(ATTRS);
-    mDivider &lt;/span&gt;= a.getDrawable(&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; DividerListItemDecoration(Context context, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; orientation) {
+    final TypedArray a &lt;/span&gt;=&lt;span style="color: #000000;"&gt; context.obtainStyledAttributes(ATTRS);
+    mDivider &lt;/span&gt;= a.getDrawable(&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     a.recycle();
     setOrientation(orientation);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; setOrientation(&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; orientation) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (orientation != HORIZONTAL_LIST &amp;amp;&amp;amp; orientation !=&lt;span style=&quot;color: #000000;&quot;&gt; VERTICAL_LIST) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalArgumentException(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;invalid orientation&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; setOrientation(&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; orientation) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (orientation != HORIZONTAL_LIST &amp;amp;&amp;amp; orientation !=&lt;span style="color: #000000;"&gt; VERTICAL_LIST) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; IllegalArgumentException(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;invalid orientation&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
-    mOrientation &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; orientation;
+    mOrientation &lt;/span&gt;=&lt;span style="color: #000000;"&gt; orientation;
 }
 
 @Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onDraw(Canvas c, RecyclerView parent) {</code></pre><p></p></span><span style="color: #008000;">//</span><span style="color: #008000;">        Log.e(“recyclerview - itemdecoration”, “onDraw()”);</span><p></p>
-<pre><code>    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (mOrientation ==&lt;span style=&quot;color: #000000;&quot;&gt; VERTICAL_LIST) {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onDraw(Canvas c, RecyclerView parent) {</code></pre><p></p></span><span style="color: #008000;">//</span><span style="color: #008000;">        Log.e(“recyclerview - itemdecoration”, “onDraw()”);</span><p></p>
+<pre><code>    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (mOrientation ==&lt;span style="color: #000000;"&gt; VERTICAL_LIST) {
         drawVertical(c, parent);
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
         drawHorizontal(c, parent);
     }
 
 }
 
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; drawVertical(Canvas c, RecyclerView parent) {
-    final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; left =&lt;span style=&quot;color: #000000;&quot;&gt; parent.getPaddingLeft();
-    final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; right = parent.getWidth() -&lt;span style=&quot;color: #000000;&quot;&gt; parent.getPaddingRight();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; drawVertical(Canvas c, RecyclerView parent) {
+    final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; left =&lt;span style="color: #000000;"&gt; parent.getPaddingLeft();
+    final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; right = parent.getWidth() -&lt;span style="color: #000000;"&gt; parent.getPaddingRight();
 
-    final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; childCount =&lt;span style=&quot;color: #000000;&quot;&gt; parent.getChildCount();
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;; i &amp;lt; childCount; i++&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        final View child &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; parent.getChildAt(i);
-        android.support.v7.widget.RecyclerView v &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; android.support.v7.widget.RecyclerView(parent.getContext());
-        final RecyclerView.LayoutParams &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;params&lt;/span&gt; =&lt;span style=&quot;color: #000000;&quot;&gt; (RecyclerView.LayoutParams) child
+    final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; childCount =&lt;span style="color: #000000;"&gt; parent.getChildCount();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = &lt;span style="color: #800080;"&gt;0&lt;/span&gt;; i &amp;lt; childCount; i++&lt;span style="color: #000000;"&gt;) {
+        final View child &lt;/span&gt;=&lt;span style="color: #000000;"&gt; parent.getChildAt(i);
+        android.support.v7.widget.RecyclerView v &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; android.support.v7.widget.RecyclerView(parent.getContext());
+        final RecyclerView.LayoutParams &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;params&lt;/span&gt; =&lt;span style="color: #000000;"&gt; (RecyclerView.LayoutParams) child
                 .getLayoutParams();
-        final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; top = child.getBottom() + &lt;span style=&quot;color: #0000ff;&quot;&gt;params&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.bottomMargin;
-        final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; bottom = top +&lt;span style=&quot;color: #000000;&quot;&gt; mDivider.getIntrinsicHeight();
+        final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; top = child.getBottom() + &lt;span style="color: #0000ff;"&gt;params&lt;/span&gt;&lt;span style="color: #000000;"&gt;.bottomMargin;
+        final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; bottom = top +&lt;span style="color: #000000;"&gt; mDivider.getIntrinsicHeight();
         mDivider.setBounds(left, top, right, bottom);
         mDivider.draw(c);
     }
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; drawHorizontal(Canvas c, RecyclerView parent) {
-    final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; top =&lt;span style=&quot;color: #000000;&quot;&gt; parent.getPaddingTop();
-    final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; bottom = parent.getHeight() -&lt;span style=&quot;color: #000000;&quot;&gt; parent.getPaddingBottom();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; drawHorizontal(Canvas c, RecyclerView parent) {
+    final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; top =&lt;span style="color: #000000;"&gt; parent.getPaddingTop();
+    final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; bottom = parent.getHeight() -&lt;span style="color: #000000;"&gt; parent.getPaddingBottom();
 
-    final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; childCount =&lt;span style=&quot;color: #000000;&quot;&gt; parent.getChildCount();
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;; i &amp;lt; childCount; i++&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        final View child &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; parent.getChildAt(i);
-        final RecyclerView.LayoutParams &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;params&lt;/span&gt; =&lt;span style=&quot;color: #000000;&quot;&gt; (RecyclerView.LayoutParams) child
+    final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; childCount =&lt;span style="color: #000000;"&gt; parent.getChildCount();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = &lt;span style="color: #800080;"&gt;0&lt;/span&gt;; i &amp;lt; childCount; i++&lt;span style="color: #000000;"&gt;) {
+        final View child &lt;/span&gt;=&lt;span style="color: #000000;"&gt; parent.getChildAt(i);
+        final RecyclerView.LayoutParams &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;params&lt;/span&gt; =&lt;span style="color: #000000;"&gt; (RecyclerView.LayoutParams) child
                 .getLayoutParams();
-        final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; left = child.getRight() + &lt;span style=&quot;color: #0000ff;&quot;&gt;params&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.rightMargin;
-        final &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; right = left +&lt;span style=&quot;color: #000000;&quot;&gt; mDivider.getIntrinsicHeight();
+        final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; left = child.getRight() + &lt;span style="color: #0000ff;"&gt;params&lt;/span&gt;&lt;span style="color: #000000;"&gt;.rightMargin;
+        final &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; right = left +&lt;span style="color: #000000;"&gt; mDivider.getIntrinsicHeight();
         mDivider.setBounds(left, top, right, bottom);
         mDivider.draw(c);
     }
 }
 
 @Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; getItemOffsets(Rect outRect, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; itemPosition, RecyclerView parent) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (mOrientation ==&lt;span style=&quot;color: #000000;&quot;&gt; VERTICAL_LIST) {
-        outRect.&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;set&lt;/span&gt;(&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, mDivider.getIntrinsicHeight());
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        outRect.&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;set&lt;/span&gt;(&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;, mDivider.getIntrinsicWidth(), &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; getItemOffsets(Rect outRect, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; itemPosition, RecyclerView parent) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (mOrientation ==&lt;span style="color: #000000;"&gt; VERTICAL_LIST) {
+        outRect.&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;set&lt;/span&gt;(&lt;span style="color: #800080;"&gt;0&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;, mDivider.getIntrinsicHeight());
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        outRect.&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;set&lt;/span&gt;(&lt;span style="color: #800080;"&gt;0&lt;/span&gt;, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;, mDivider.getIntrinsicWidth(), &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
 }</code></pre><p>}</p></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
@@ -332,11 +330,11 @@ import android.view.View;
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -346,7 +344,7 @@ import android.view.View;
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/08/05/Android开源框架系列导读/">
             
                 Android 开源框架 系列 导读
@@ -357,7 +355,7 @@ import android.view.View;
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/08/05/Android开源框架十二图片加载框架-Fresco/">
             
                 Android 开源框架 ( 十二 ) 图片加载框架---Fresco
@@ -369,7 +367,7 @@ import android.view.View;
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -434,16 +432,7 @@ import android.view.View;
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android开源框架十三RecyclerView' || '2018/08/05/Android开源框架十三RecyclerView/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -576,16 +565,6 @@ import android.view.View;
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -598,15 +577,25 @@ import android.view.View;
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -654,7 +643,7 @@ import android.view.View;
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -665,6 +654,13 @@ import android.view.View;
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android开源框架十三RecyclerView' || '2018/08/05/Android开源框架十三RecyclerView/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -146,83 +144,83 @@
 <pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ActivityManagerService extends IActivityManager.Stub
         implements Watchdog.Monitor, BatteryStatsImpl.BatteryCallback {
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* All system services &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* All system services &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
 SystemServiceManager mSystemServiceManager;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* Run all ActivityStacks through this &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;管理Activity&lt;/span&gt;</code></pre><p><span style="color: #000000;">    final ActivityStackSupervisor mStackSupervisor;</span></p>
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* Run all ActivityStacks through this &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;管理Activity&lt;/span&gt;</code></pre><p><span style="color: #000000;">    final ActivityStackSupervisor mStackSupervisor;</span></p>
 <pre><code>final ActivityStarter mActivityStarter;
 
 final TaskChangeNotificationController mTaskChangeNotificationController;
 
-final InstrumentationReporter mInstrumentationReporter &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; InstrumentationReporter();
+final InstrumentationReporter mInstrumentationReporter &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; InstrumentationReporter();
 
-final ArrayList&lt;/span&gt;&amp;lt;ActiveInstrumentation&amp;gt; mActiveInstrumentation = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;();
+final ArrayList&lt;/span&gt;&amp;lt;ActiveInstrumentation&amp;gt; mActiveInstrumentation = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;&lt;span style="color: #000000;"&gt;();
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Whether we should use SCHED_FIFO for UI and RenderThreads.&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; boolean mUseFifoUiScheduling = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Whether we should use SCHED_FIFO for UI and RenderThreads.&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; boolean mUseFifoUiScheduling = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Broadcast 广播 ，前台广播队列和后台广播队列&lt;/span&gt;</code></pre><p><span style="color: #000000;">    BroadcastQueue mFgBroadcastQueue;<br>    BroadcastQueue mBgBroadcastQueue;</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Convenient for easy iteration over the queues. Foreground is first
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; so that dispatch of foreground broadcasts gets precedence.&lt;/span&gt;
-final BroadcastQueue[] mBroadcastQueues = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; BroadcastQueue[&lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;];
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Broadcast 广播 ，前台广播队列和后台广播队列&lt;/span&gt;</code></pre><p><span style="color: #000000;">    BroadcastQueue mFgBroadcastQueue;<br>    BroadcastQueue mBgBroadcastQueue;</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Convenient for easy iteration over the queues. Foreground is first
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; so that dispatch of foreground broadcasts gets precedence.&lt;/span&gt;
+final BroadcastQueue[] mBroadcastQueues = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; BroadcastQueue[&lt;span style="color: #800080;"&gt;2&lt;/span&gt;&lt;span style="color: #000000;"&gt;];
 
 BroadcastStats mLastBroadcastStats;
 BroadcastStats mCurBroadcastStats;
 
 BroadcastQueue broadcastQueueForIntent(Intent intent) {
-    final boolean isFg &lt;/span&gt;= (intent.getFlags() &amp;amp; Intent.FLAG_RECEIVER_FOREGROUND) != &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_BROADCAST_BACKGROUND) Slog.i(TAG_BROADCAST,
-            &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Broadcast intent &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; + intent + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt; on &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;
-            + (isFg ? &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;foreground&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; : &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;background&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;) + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt; queue&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; (isFg) ?&lt;span style=&quot;color: #000000;&quot;&gt; mFgBroadcastQueue : mBgBroadcastQueue;
+    final boolean isFg &lt;/span&gt;= (intent.getFlags() &amp;amp; Intent.FLAG_RECEIVER_FOREGROUND) != &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_BROADCAST_BACKGROUND) Slog.i(TAG_BROADCAST,
+            &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Broadcast intent &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; + intent + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt; on &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;
+            + (isFg ? &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;foreground&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; : &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;background&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;) + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt; queue&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; (isFg) ?&lt;span style="color: #000000;"&gt; mFgBroadcastQueue : mBgBroadcastQueue;
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Activity 堆栈&lt;/span&gt;
-&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Activity 堆栈&lt;/span&gt;
+&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * The last resumed activity. This is identical to the current resumed activity most
- * of the time but could be different when we&apos;re pausing one activity before we resume
+ * of the time but could be different when we're pausing one activity before we resume
  * another activity.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ActivityRecord mLastResumedActivity;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;&lt;span style="color: #000000;"&gt; ActivityRecord mLastResumedActivity;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * If non-null, we are tracking the time the user spends in the currently focused app.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; AppTimeTracker mCurAppTimeTracker;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt;&lt;span style="color: #000000;"&gt; AppTimeTracker mCurAppTimeTracker;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;ANR ？ 最后个ANR状态，难道可以记录app发生ANR的？&lt;/span&gt;
-&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;ANR ？ 最后个ANR状态，难道可以记录app发生ANR的？&lt;/span&gt;
+&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Dump of the activity state at the time of the last ANR. Cleared after
  * {@link WindowManagerService#LAST_ANR_LIFETIME_DURATION_MSECS}
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
 String mLastANRState;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Service 和 Provider 管理&lt;/span&gt;</code></pre><p><span style="color: #000000;">    final ActiveServices mServices;<br>    final ProviderMap mProviderMap;</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;存放系统数据目录
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; TODO: Move creation of battery stats service outside of activity manager service.&lt;/span&gt;
-File dataDir =&lt;span style=&quot;color: #000000;&quot;&gt; Environment.getDataDirectory();
-File systemDir &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(dataDir, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;system&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Service 和 Provider 管理&lt;/span&gt;</code></pre><p><span style="color: #000000;">    final ActiveServices mServices;<br>    final ProviderMap mProviderMap;</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;存放系统数据目录
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; TODO: Move creation of battery stats service outside of activity manager service.&lt;/span&gt;
+File dataDir =&lt;span style="color: #000000;"&gt; Environment.getDataDirectory();
+File systemDir &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(dataDir, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;system&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 systemDir.mkdirs();
-mBatteryStatsService &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; BatteryStatsService(systemDir, mHandler);
+mBatteryStatsService &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; BatteryStatsService(systemDir, mHandler);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;应用权限管理&lt;/span&gt;
-mAppOpsService = mInjector.getAppOpsService(&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(systemDir, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;appops.xml&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;), mHandler);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;应用权限管理&lt;/span&gt;
+mAppOpsService = mInjector.getAppOpsService(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(systemDir, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;appops.xml&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;), mHandler);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;AcitivityManager 添加进来&lt;/span&gt;
-    ServiceManager.addService(Context.ACTIVITY_SERVICE, &lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;AcitivityManager 添加进来&lt;/span&gt;
+    ServiceManager.addService(Context.ACTIVITY_SERVICE, &lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             ServiceManager.addService(ProcessStats.SERVICE_NAME, mProcessStats);
-            ServiceManager.addService(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;meminfo&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; MemBinder(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-            ServiceManager.addService(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;gfxinfo&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; GraphicsBinder(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-            ServiceManager.addService(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;dbinfo&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; DbBinder(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (MONITOR_CPU_USAGE) {
-                ServiceManager.addService(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;cpuinfo&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; CpuBinder(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
+            ServiceManager.addService(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;meminfo&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; MemBinder(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+            ServiceManager.addService(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;gfxinfo&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; GraphicsBinder(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+            ServiceManager.addService(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;dbinfo&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; DbBinder(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (MONITOR_CPU_USAGE) {
+                ServiceManager.addService(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;cpuinfo&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; CpuBinder(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
             }
-            ServiceManager.addService(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;permission&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; PermissionController(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
-            ServiceManager.addService(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;processinfo&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ProcessInfoService(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;));
+            ServiceManager.addService(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;permission&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; PermissionController(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
+            ServiceManager.addService(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;processinfo&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ProcessInfoService(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;));
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;最后 使用Watchdog监控&lt;/span&gt;
-Watchdog.getInstance().addMonitor(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;最后 使用Watchdog监控&lt;/span&gt;
+Watchdog.getInstance().addMonitor(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>&nbsp;&nbsp; 从上面截取的一些代码片段，我们能了解到， AMS创建过程 涉及到Android 四大组件管理的初始化工作。并且ActivityManagerService extends IActivityManager.Stub，所以可知AcitivityManagerService与AcitivityManager之间通信也是使用binder机制。</p>
@@ -242,7 +240,7 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
 <p>ActivityManager 是客户端用来管理系统中正在运行的所有Activity.</p>
 <p>上层APP通过ActivityManager使用binder机制传递信息给AMS，由AMS去完成交互和调度工作后通过binder机制返回给ActivityManager，把结果在返回给上层app。</p>
 <p>一张图了解ActivityManager和ActivityManagerService在整个Android系统通信过程中位置。</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722132754102-1009841250.png" alt></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722132754102-1009841250.png" alt=""></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -269,11 +267,11 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -283,7 +281,7 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/22/Android源码分析十四PackageManagerService服务分析/">
             
                 Android源码分析（十四）PackageManagerService服务分析
@@ -294,7 +292,7 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/22/Android源码分析十二ServiceManager服务分析/">
             
                 Android源码分析（十二）ServiceManager服务分析
@@ -306,7 +304,7 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -371,16 +369,7 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析十三ActivityManagerService服务分析' || '2018/07/22/Android源码分析十三ActivityManagerService服务分析/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -513,16 +502,6 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -535,15 +514,25 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -591,7 +580,7 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -602,6 +591,13 @@ Watchdog.getInstance().addThread(mHandler);</code></pre><p>}</p></span></pre><p>
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析十三ActivityManagerService服务分析' || '2018/07/22/Android源码分析十三ActivityManagerService服务分析/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -180,7 +178,7 @@
 <p>    　　onDetach():与onAttach相对应，当Fragment与Activity关联被取消时调用.为Fragment生命周期中的最后一个方法，当该方法执行完后，Fragment与Activity不再有关联<br>    <br>    　　　　来自:https://blog.csdn.net/osle123/article/details/52756424</p>
 <h2>Fragment 与 Activity 生命周期交互:</h2>
 <p>一张图了解下:</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180719091746040-653406302.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180719091746040-653406302.png" alt=""></p>
 <p>执行代码过程了解下:</p>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #800080;">1</span>. -- fragmentTransaction.addToBackStack(<span style="color: #800000;">"</span><span style="color: #800000;">blank</span><span style="color: #800000;">"</span>);<span style="color: #008000;">//</span><span style="color: #008000;">加入回退栈  按两次返回按键</span>
@@ -236,10 +234,10 @@
 <pre><code>android.support.v4.app.FragmentManager fragmentManager;
 android.support.v4.app.FragmentTransaction fragmentTransaction;
 
-fragmentManager &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getSupportFragmentManager();
-fragmentTransaction &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getSupportFragmentManager().beginTransaction();
-fragmentTransaction.add(R.id.ll_fragment,fragment,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;blank&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-fragmentTransaction.addToBackStack(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;blank&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+fragmentManager &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getSupportFragmentManager();
+fragmentTransaction &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getSupportFragmentManager().beginTransaction();
+fragmentTransaction.add(R.id.ll_fragment,fragment,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;blank&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+fragmentTransaction.addToBackStack(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;blank&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
 </div>
@@ -251,7 +249,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/19/Android四大组件-五-第五大组件Fragment使用/" title="Android 四大组件 (五) 第五大组件 - Fragment 使用">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -296,14 +294,14 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 <div id="cnblogs_post_body" class="blogpost-body ">
     <p>&nbsp; &nbsp; &nbsp; &nbsp; 2017年8月22日，谷歌正式发布了Android 8.0的正式版，其正式名称为：<strong>Android Oreo</strong>（奥利奥） 。在此之前 临时代号叫: <strong>Android O</strong>。对应Api level 为<strong>26</strong>。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 2017年12月5日 , 谷歌正式发布了Android 8.1的正式版。对应的Api Level 为<strong>27</strong> 。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130336131-671377976.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130336131-671377976.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Powerful 强大&nbsp; &nbsp; &nbsp; &nbsp;Secure 安全&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fast 流畅&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Smart&amp;seamiess&nbsp; 轻巧&amp;无缝</p>
 <h1>Android 8.0 新特性:</h1>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 8.0版android系统主要聚焦点在电池续航能力,速度,安全.</p>
 <h2>1.通知中心 -Notification Channel</h2>
 <h3>&nbsp; &nbsp; &nbsp;1.1新特殊:</h3>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 用户在通知界面可以发现顶部的快捷键有了更充裕的空间，并且根据网络大数据的用户使用频繁度调整了这几个快捷键的顺序；并且长按推送消息可以看到一个开关，操作它可以开启和关闭这个该应用的未来所有通知。而如果向左滑动通知，则会出现两个开关，一个是设置该应用的具体通知规范，另一个可以设置让该应用的通知推迟一段时间推送。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 长按操作:<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130403972-1193902772.png" alt>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;向左滑动: &nbsp;&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130422381-1707747781.png" alt><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130432545-721904404.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 长按操作:<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130403972-1193902772.png" alt="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;向左滑动: &nbsp;&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130422381-1707747781.png" alt=""><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130432545-721904404.png" alt=""></p>
 <h3>&nbsp; &nbsp; &nbsp;1.2注意事项:</h3>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NotificationChannel是android8.0新增的特性，如果App的targetSDKVersion&gt;=26，没有设置channel通知渠道的话，就会导致通知无法展示。报错内容:<strong>&nbsp; Failed to post notification on channel “null” Target Api is 26</strong></p>
 <h3>&nbsp; &nbsp; &nbsp;1.3 解决方案</h3>
@@ -314,7 +312,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step1:创建 NotificationChannel 对象，并设置应用内唯一的通知 ID。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step2:配置通知渠道的属性，比如提示声音/震动等。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step3:在 NotificationManager 中注册通知渠道对象。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130456453-97306205.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130456453-97306205.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展 了解:</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://stackoverflow.com/questions/45711925/failed-to-post-notification-on-channel-null-target-api-is-26" target="_blank" rel="noopener">https://stackoverflow.com/questions/45711925/failed-to-post-notification-on-channel-null-target-api-is-26</a></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.jianshu.com/p/92afa56aee05" target="_blank" rel="noopener">https://www.jianshu.com/p/92afa56aee05</a></p>
@@ -324,7 +322,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 自定义ShortCuts 是7.1牛轧糖(API Level 25)版本新增的.</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; Shortcuts是指在桌面长按app图标而出现的快捷方式，可以为你的app的关键功能添加更加快速的入口而不是先打开app。类似苹果的3D Touch。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; 点击快捷方式可以访问应用功能，而且这种快捷方式也可以被拖拽到桌面的单独位置，变成单独的左面快捷方式。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130520370-1116257844.png" alt><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130525067-1769221288.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130520370-1116257844.png" alt=""><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130525067-1769221288.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如果删除” 支付宝”应用,再点击” 付款码”,会提示”未安装应用”,随后,系统自动删除掉”付款码”快捷方式.</p>
 <h3>&nbsp; &nbsp; &nbsp;2.2注意事项</h3>
 <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.</strong>最多创建4个特定的shortcuts：目前虽然说Static shortcuts 和Dynamic shortcuts之和最多为5个，但实际上只会显示4个。当我们尝试添加第六个shortcut时, 应用会抛出异常: Java.lang.IllegalArgumentException: Max number of dynamic shortcuts exceeded.</p>
@@ -334,39 +332,39 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于静态 Shortcuts，直接删除配置文件中对应的 Shortcut 即可，系统桌面会将已固定的该 Shortcut 置灰，点击会提示 shortcutDisabledMessage。</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于动态 Shortcuts 建议通过禁用的方式而不是直接删除的方式，因为已经删除的动态 Shortcut 如果被固定了依然是可用的，所以希望该入口不可用最好的方式是禁用。</p>
 <h3>&nbsp; &nbsp; &nbsp;2.3 解决方案</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130651974-2003571495.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130651974-2003571495.png" alt=""></p>
 <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.3.1静态快捷方式</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130707338-635356109.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130707338-635356109.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AndroidManifest.xml</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130733222-1243746562.png" alt></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130741707-1997596608.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130733222-1243746562.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130741707-1997596608.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; res/xml/shortcuts</p>
 <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.3.2动态快捷方式</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130803753-1058198975.png" alt></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130811151-987638283.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130803753-1058198975.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130811151-987638283.png" alt=""></p>
 <p>&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130841345-123303880.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130841345-123303880.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ShortcutManager API可以帮助我们实现新建、更新、移除、禁用等快捷方式的操作.</p>
 <p>&nbsp;</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 扩展了解:&nbsp; &nbsp;<a href="https://www.jianshu.com/p/c10ea2bd5803" target="_blank" rel="noopener">https://www.jianshu.com/p/c10ea2bd5803</a></p>
 <p>&nbsp;</p>
 <h2>3.画中画</h2>
 <h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3.1新特性</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130900706-542659531.png" alt></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130907952-164277144.png" alt></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130916966-1253746177.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130900706-542659531.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130907952-164277144.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130916966-1253746177.png" alt=""></p>
 <h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.2 使用方法&nbsp;</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130936884-710201620.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130936884-710201620.png" alt=""></p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展了解:&nbsp;&nbsp;<a href="https://blog.csdn.net/ckwccc/article/details/79098602" target="_blank" rel="noopener">https://blog.csdn.net/ckwccc/article/details/79098602</a></p>
 <h2>4.后台限制</h2>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0将进一步优化后台程序，减少应用在没完全退出后占用系统的资源，并且减少电量的消耗。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130956396-737551763.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130956396-737551763.png" alt=""></p>
 <p>&nbsp;&nbsp;</p>
 <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意事项</strong>:&nbsp;使用常驻service时候需要注意权限问题.</p>
 <p>&nbsp;</p>
 <h2>5. 自动保存密码</h2>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这个功能将会保存用户的部分帐号和密码，用于在网站或者应用中的快速登录，效率提升了不少 。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131014555-1049141484.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131014555-1049141484.png" alt=""></p>
 <p>&nbsp;</p>
 <h2>6. 设置菜单</h2>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 在新的Android 8.0系统中，设置的界面有了大幅变化，主菜单的覆盖性变得更广，更多的功能将在子菜单中体现，并且在菜单界面中重新设计了很多图标。</p>
@@ -377,7 +375,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展了解:&nbsp;<a href="https://blog.csdn.net/IO_Field/article/details/78016411" target="_blank" rel="noopener">https://blog.csdn.net/IO_Field/article/details/78016411</a></p>
 <h2>8. 表情符号</h2>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Android 8.0还带来了符合Unicode 10标准的表情符号，比原来新加超过60个表情符，这也是比较明显的改变之一。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131042984-1008393830.png" alt></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131042984-1008393830.png" alt=""></p>
 <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意</strong>: 表情符号在与ios表情符同步时候,可能表现不出来.</p>
 <p>&nbsp;</p>
 </div>
@@ -389,7 +387,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/" title="Android8.0新特性介绍以及注意事项">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -535,16 +533,6 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -557,15 +545,25 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -613,7 +611,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -624,6 +622,6 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

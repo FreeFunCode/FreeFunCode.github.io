@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -169,11 +167,11 @@
 <p>4.运行cmd.exe进入dos命令界面，执行下列命令</p>
 <p>　　&gt; cd d:\mongodb\bin</p>
 <p>　　&gt; d:\mongodb\bin&gt;mongod -dbpath "d:\mongodb\data\db"</p>
-<p><img src="https://images0.cnblogs.com/blog/203292/201308/21110329-868b0d1fb023479f9a605fc8353515f2.png" alt></p>
+<p><img src="https://images0.cnblogs.com/blog/203292/201308/21110329-868b0d1fb023479f9a605fc8353515f2.png" alt=""></p>
 <p>　看到类似的信息，则说明启动成功，默认MongoDB监听的端口是27017，mysql的是3306</p>
 <p>5.测试连接<span style="color: #ff0000;">（这一步可以放到第6步后测试，因为安装后默认是关闭的.....需要手动启动下 NET START MongoDB）</span></p>
 <p>　新开一个cmd窗口，进入mongodb的bin目录，输入mongo或者mongo.exe，出现如下信息说明测试通过，此时我们已经进入了test这个数据库，如何进入其他数据库下面会说。</p>
-<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/21111025-91a3b6a9bde844688300928f0a9ea26f.png" alt></p>
+<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/21111025-91a3b6a9bde844688300928f0a9ea26f.png" alt=""></p>
 <p>　输入exit或者ctrl+C可退出。</p>
 <p>&nbsp;6.当mongod.exe被关闭时，mongo.exe 就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod.exe程序，所以比较麻烦，此时我们可以将<span style="line-height: 1.5;">MongoDB安装为windows服务</span></p>
 <p><span style="line-height: 1.5;">　还是运行cmd，进入bin文件夹，执行下列命令</span></p>
@@ -181,7 +179,7 @@
 <p>　这里MongoDB.log就是开始建立的日志文件，--serviceName "MongoDB" 服务名为MongoDB</p>
 <p>　接着启动mongodb服务</p>
 <p>　&gt;&nbsp;d:\mongodb\bin&gt;NET START MongoDB</p>
-<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/21161507-c374a9f43c1c4c75aeb9cc4ff83ef463.jpg" alt></p>
+<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/21161507-c374a9f43c1c4c75aeb9cc4ff83ef463.jpg" alt=""></p>
 <p>　打开任务管理器，可以看到进程已经启动</p>
 <p>7.关闭服务和删除进程</p>
 <p>　&gt; d:\mongodb\bin&gt;NET&nbsp;stop MongoDB&nbsp;&nbsp; (关闭服务)</p>
@@ -221,7 +219,7 @@
 <ul>
 <li>db.users.update({"name":"lecaf"}, {"age":10}) &nbsp; &nbsp;<em>修改name=lecaf的数据为age=10，第一个参数是查找条件，第二个参数是修改内容，除了主键，其他内容会被第二个参数的内容替换，主键不能修改，如图</em></li>
 </ul>
-<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/22143209-cddea033063e480bb1bd4cc5dfdf9f4e.jpg" alt></p>
+<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/22143209-cddea033063e480bb1bd4cc5dfdf9f4e.jpg" alt=""></p>
 <p><strong>三、高级应用</strong></p>
 <p>1.条件查找</p>
 <ul>
@@ -264,7 +262,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2014/08/24/mongodb在windows下安装教程/" title="mongodb在windows下安装教程">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -410,16 +408,6 @@
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -432,15 +420,25 @@
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -488,7 +486,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -499,6 +497,6 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

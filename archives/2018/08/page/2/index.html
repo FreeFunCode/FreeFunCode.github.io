@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -190,10 +188,10 @@
 
 <pre><code>    }
 });
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;3.将请求对象添加到请求队列中&lt;/span&gt;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;3.将请求对象添加到请求队列中&lt;/span&gt;
 queue.add(request);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>　　同样还有一些其他请求:ClearCacheRequest,ImageRequest,JsonArrayRequest,JsonRequest,StringRequest 用法一样.</p>
-<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105814344-1488596964.jpg" alt></p>
+<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105814344-1488596964.jpg" alt=""></p>
 <hr>
 <p>&nbsp;</p>
 <p> 　　　　　　<strong>1.ClearCacheRequest</strong> :A synthetic request used for clearing the cache. 用于清除缓存请求类<br>        　　　　　　<strong>2.ImageRequest</strong> :A canned request for getting an image at a given URL and calling back with a decoded Bitmap. 通过Url获取对应解码位图decoded BitMap 请求类<br>        　　　　　　<strong>3.JsonArrayRequest</strong> :A request for retrieving a {@link JSONArray} response body at a given URL. 通过Url返回一个{@ Link JSONArray}Json数组请求类<br>        　　　　　　<strong>4.JsonObjectRequest</strong> :A request for retrieving a {@link JSONObject} response body at a given URL, allowing for an optional {@link JSONObject} to be passed in as part of the request body. 可以通过Url返回一个{@link JSONObject},也可以使用{@link JSONObject}当做请求Request的传递参数.<br>        　　　　　　<strong>5.JsonRequest</strong> :A request for retrieving a T type response body at a given URL that also optionally sends along a JSON body in the request specified. 通过Url返回一个定义的泛型T ,也可以使用JSON当做请求Request的传递参数的类<br>        　　　　　　<strong>6.StringRequest</strong> :A canned request for retrieving the response body at a given URL as a String. 通过Url返回一个String字符串请求类</p>
@@ -215,7 +213,7 @@ queue.add(request);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><s
 <pre><code>    }
 });
 queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<p> 　　通过Request.Method.能看到Volley支持的一些请求方式: <br>         　　　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105752291-1794437800.jpg" alt><br>    </p>
+<p> 　　通过Request.Method.能看到Volley支持的一些请求方式: <br>         　　　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105752291-1794437800.jpg" alt=""><br>    </p>
 <h4>　　5.HurlStack 与&nbsp;HttpClientStack 介绍</h4>
 <p>　　&nbsp;Volley是官方出的，volley在设计的时候是将具体的请求客户端做了下封装，也就是说可以支持HttpUrlConnection, HttpClient.当然也可以自己封装支持OkHttp.</p>
 <p>　　Volley.java类</p>
@@ -240,103 +238,103 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
      </span>*/
 <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HurlStack implements HttpStack {
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; final String HEADER_CONTENT_TYPE = &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Content-Type&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; final String HEADER_CONTENT_TYPE = &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Content-Type&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Create an {@link HttpURLConnection} for the specified {@code url}.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;protected&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpURLConnection createConnection(URL url) throws IOException {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (HttpURLConnection) url.openConnection();
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;protected&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpURLConnection createConnection(URL url) throws IOException {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; (HttpURLConnection) url.openConnection();
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Opens an {@link HttpURLConnection} with parameters.
  * @param url
  * @return an open connection
  * @throws IOException
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; HttpURLConnection openConnection(URL url, Request&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request) throws IOException {
-    HttpURLConnection connection &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; createConnection(url);
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; HttpURLConnection openConnection(URL url, Request&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request) throws IOException {
+    HttpURLConnection connection &lt;/span&gt;=&lt;span style="color: #000000;"&gt; createConnection(url);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; timeoutMs =&lt;span style=&quot;color: #000000;&quot;&gt; request.getTimeoutMs();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; timeoutMs =&lt;span style="color: #000000;"&gt; request.getTimeoutMs();
     connection.setConnectTimeout(timeoutMs);
     connection.setReadTimeout(timeoutMs);
-    connection.setUseCaches(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    connection.setDoInput(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    connection.setUseCaches(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    connection.setDoInput(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; use caller-provided custom SslSocketFactory, if any, for HTTPS&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;https&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;.equals(url.getProtocol()) &amp;amp;&amp;amp; mSslSocketFactory != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; use caller-provided custom SslSocketFactory, if any, for HTTPS&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;https&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;.equals(url.getProtocol()) &amp;amp;&amp;amp; mSslSocketFactory != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
         ((HttpsURLConnection)connection).setSSLSocketFactory(mSslSocketFactory);
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; connection;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; connection;
 }
 
-@SuppressWarnings(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;deprecation&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; package &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; setConnectionParametersForRequest(HttpURLConnection connection,
-        Request&lt;/span&gt;&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request) throws IOException, AuthFailureError {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (request.getMethod()) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DEPRECATED_GET_OR_POST:
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This is the deprecated way that needs to be handled for backwards compatibility.
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If the request&apos;s post body is null, then the assumption is that the request is
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
-            &lt;span style=&quot;color: #0000ff;&quot;&gt;byte&lt;/span&gt;[] postBody =&lt;span style=&quot;color: #000000;&quot;&gt; request.getPostBody();
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (postBody != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Prepare output. There is no need to set Content-Length explicitly,
-                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; since this is handled by HttpURLConnection using the size of the prepared
-                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; output stream.&lt;/span&gt;
-                connection.setDoOutput(&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-                connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;POST&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+@SuppressWarnings(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;deprecation&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;)
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; package &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; setConnectionParametersForRequest(HttpURLConnection connection,
+        Request&lt;/span&gt;&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request) throws IOException, AuthFailureError {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (request.getMethod()) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DEPRECATED_GET_OR_POST:
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This is the deprecated way that needs to be handled for backwards compatibility.
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If the request's post body is null, then the assumption is that the request is
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
+            &lt;span style="color: #0000ff;"&gt;byte&lt;/span&gt;[] postBody =&lt;span style="color: #000000;"&gt; request.getPostBody();
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (postBody != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Prepare output. There is no need to set Content-Length explicitly,
+                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; since this is handled by HttpURLConnection using the size of the prepared
+                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; output stream.&lt;/span&gt;
+                connection.setDoOutput(&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+                connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;POST&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
                 connection.addRequestProperty(HEADER_CONTENT_TYPE,
                         request.getPostBodyContentType());
-                DataOutputStream &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt; = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; DataOutputStream(connection.getOutputStream());
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.write(postBody);
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.close();
+                DataOutputStream &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt; = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; DataOutputStream(connection.getOutputStream());
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.write(postBody);
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.close();
             }
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.GET:
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Not necessary to set the request method because connection defaults to GET but
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; being explicit here.&lt;/span&gt;
-            connection.setRequestMethod(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;GET&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DELETE:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;DELETE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.POST:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;POST&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.GET:
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Not necessary to set the request method because connection defaults to GET but
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; being explicit here.&lt;/span&gt;
+            connection.setRequestMethod(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;GET&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DELETE:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;DELETE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.POST:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;POST&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             addBodyIfExists(connection, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PUT:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;PUT&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PUT:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;PUT&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             addBodyIfExists(connection, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.HEAD:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;HEAD&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.OPTIONS:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;OPTIONS&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.TRACE:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;TRACE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PATCH:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;PATCH&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.HEAD:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;HEAD&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.OPTIONS:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;OPTIONS&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.TRACE:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;TRACE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PATCH:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;PATCH&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             addBodyIfExists(connection, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalStateException(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Unknown method type.&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;default&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; IllegalStateException(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Unknown method type.&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
 }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; addBodyIfExists(HttpURLConnection connection, Request&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; addBodyIfExists(HttpURLConnection connection, Request&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request)
         throws IOException, AuthFailureError {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;byte&lt;/span&gt;[] body =&lt;span style=&quot;color: #000000;&quot;&gt; request.getBody();
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (body != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-            connection.setDoOutput(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;byte&lt;/span&gt;[] body =&lt;span style="color: #000000;"&gt; request.getBody();
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (body != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+            connection.setDoOutput(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             connection.addRequestProperty(HEADER_CONTENT_TYPE, request.getBodyContentType());
-            DataOutputStream &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt; = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; DataOutputStream(connection.getOutputStream());
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.write(body);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.close();
+            DataOutputStream &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt; = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; DataOutputStream(connection.getOutputStream());
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.write(body);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.close();
         }
     }</code></pre><p>}    </p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
@@ -348,62 +346,62 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HttpClientStack implements HttpStack {
     </span><span style="color: #0000ff;">protected</span><span style="color: #000000;"> final HttpClient mClient;
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; final &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; String HEADER_CONTENT_TYPE = &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Content-Type&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; final &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; String HEADER_CONTENT_TYPE = &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Content-Type&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Creates the appropriate subclass of HttpUriRequest for passed in request.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
-@SuppressWarnings(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;deprecation&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; protected &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; HttpUriRequest createHttpRequest(Request&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request,
-        Map&lt;/span&gt;&amp;lt;String, String&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; additionalHeaders) throws AuthFailureError {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (request.getMethod()) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DEPRECATED_GET_OR_POST: {
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This is the deprecated way that needs to be handled for backwards compatibility.
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If the request&apos;s post body is null, then the assumption is that the request is
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
-            &lt;span style=&quot;color: #0000ff;&quot;&gt;byte&lt;/span&gt;[] postBody =&lt;span style=&quot;color: #000000;&quot;&gt; request.getPostBody();
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (postBody != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-                HttpPost postRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPost(request.getUrl());
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
+@SuppressWarnings(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;deprecation&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;)
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; protected &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; HttpUriRequest createHttpRequest(Request&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request,
+        Map&lt;/span&gt;&amp;lt;String, String&amp;gt;&lt;span style="color: #000000;"&gt; additionalHeaders) throws AuthFailureError {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (request.getMethod()) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DEPRECATED_GET_OR_POST: {
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This is the deprecated way that needs to be handled for backwards compatibility.
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If the request's post body is null, then the assumption is that the request is
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
+            &lt;span style="color: #0000ff;"&gt;byte&lt;/span&gt;[] postBody =&lt;span style="color: #000000;"&gt; request.getPostBody();
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (postBody != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+                HttpPost postRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPost(request.getUrl());
                 postRequest.addHeader(HEADER_CONTENT_TYPE, request.getPostBodyContentType());
                 HttpEntity entity;
-                entity &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ByteArrayEntity(postBody);
+                entity &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; ByteArrayEntity(postBody);
                 postRequest.setEntity(entity);
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; postRequest;
-            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpGet(request.getUrl());
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; postRequest;
+            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpGet(request.getUrl());
             }
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.GET:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpGet(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DELETE:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpDelete(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.POST: {
-            HttpPost postRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPost(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.GET:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpGet(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DELETE:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpDelete(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.POST: {
+            HttpPost postRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPost(request.getUrl());
             postRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
             setEntityIfNonEmptyBody(postRequest, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; postRequest;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; postRequest;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PUT: {
-            HttpPut putRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPut(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PUT: {
+            HttpPut putRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPut(request.getUrl());
             putRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
             setEntityIfNonEmptyBody(putRequest, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; putRequest;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; putRequest;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.HEAD:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpHead(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.OPTIONS:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpOptions(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.TRACE:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpTrace(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PATCH: {
-            HttpPatch patchRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPatch(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.HEAD:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpHead(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.OPTIONS:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpOptions(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.TRACE:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpTrace(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PATCH: {
+            HttpPatch patchRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPatch(request.getUrl());
             patchRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
             setEntityIfNonEmptyBody(patchRequest, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; patchRequest;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; patchRequest;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalStateException(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Unknown request method.&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;default&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; IllegalStateException(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Unknown request method.&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
 }</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
@@ -417,7 +415,7 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/08/01/Android开源框架六Volley-Google的轻量级网络通信框架/" title="Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -563,16 +561,6 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -585,15 +573,25 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -641,7 +639,7 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -652,6 +650,6 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

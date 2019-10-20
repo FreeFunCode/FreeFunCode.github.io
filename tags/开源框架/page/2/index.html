@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -104,7 +102,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -316,7 +314,7 @@
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/08/02/Android开源框架七事件总线-EventBus/" title="Android 开源框架 ( 七 ) 事件总线---EventBus">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -388,10 +386,10 @@
 
 <pre><code>    }
 });
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;3.将请求对象添加到请求队列中&lt;/span&gt;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;3.将请求对象添加到请求队列中&lt;/span&gt;
 queue.add(request);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>　　同样还有一些其他请求:ClearCacheRequest,ImageRequest,JsonArrayRequest,JsonRequest,StringRequest 用法一样.</p>
-<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105814344-1488596964.jpg" alt></p>
+<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105814344-1488596964.jpg" alt=""></p>
 <hr>
 <p>&nbsp;</p>
 <p> 　　　　　　<strong>1.ClearCacheRequest</strong> :A synthetic request used for clearing the cache. 用于清除缓存请求类<br>        　　　　　　<strong>2.ImageRequest</strong> :A canned request for getting an image at a given URL and calling back with a decoded Bitmap. 通过Url获取对应解码位图decoded BitMap 请求类<br>        　　　　　　<strong>3.JsonArrayRequest</strong> :A request for retrieving a {@link JSONArray} response body at a given URL. 通过Url返回一个{@ Link JSONArray}Json数组请求类<br>        　　　　　　<strong>4.JsonObjectRequest</strong> :A request for retrieving a {@link JSONObject} response body at a given URL, allowing for an optional {@link JSONObject} to be passed in as part of the request body. 可以通过Url返回一个{@link JSONObject},也可以使用{@link JSONObject}当做请求Request的传递参数.<br>        　　　　　　<strong>5.JsonRequest</strong> :A request for retrieving a T type response body at a given URL that also optionally sends along a JSON body in the request specified. 通过Url返回一个定义的泛型T ,也可以使用JSON当做请求Request的传递参数的类<br>        　　　　　　<strong>6.StringRequest</strong> :A canned request for retrieving the response body at a given URL as a String. 通过Url返回一个String字符串请求类</p>
@@ -413,7 +411,7 @@ queue.add(request);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><s
 <pre><code>    }
 });
 queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<p> 　　通过Request.Method.能看到Volley支持的一些请求方式: <br>         　　　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105752291-1794437800.jpg" alt><br>    </p>
+<p> 　　通过Request.Method.能看到Volley支持的一些请求方式: <br>         　　　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180731105752291-1794437800.jpg" alt=""><br>    </p>
 <h4>　　5.HurlStack 与&nbsp;HttpClientStack 介绍</h4>
 <p>　　&nbsp;Volley是官方出的，volley在设计的时候是将具体的请求客户端做了下封装，也就是说可以支持HttpUrlConnection, HttpClient.当然也可以自己封装支持OkHttp.</p>
 <p>　　Volley.java类</p>
@@ -438,103 +436,103 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
      </span>*/
 <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HurlStack implements HttpStack {
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; final String HEADER_CONTENT_TYPE = &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Content-Type&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; final String HEADER_CONTENT_TYPE = &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Content-Type&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Create an {@link HttpURLConnection} for the specified {@code url}.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;protected&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpURLConnection createConnection(URL url) throws IOException {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (HttpURLConnection) url.openConnection();
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;protected&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpURLConnection createConnection(URL url) throws IOException {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; (HttpURLConnection) url.openConnection();
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Opens an {@link HttpURLConnection} with parameters.
  * @param url
  * @return an open connection
  * @throws IOException
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; HttpURLConnection openConnection(URL url, Request&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request) throws IOException {
-    HttpURLConnection connection &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; createConnection(url);
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; HttpURLConnection openConnection(URL url, Request&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request) throws IOException {
+    HttpURLConnection connection &lt;/span&gt;=&lt;span style="color: #000000;"&gt; createConnection(url);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; timeoutMs =&lt;span style=&quot;color: #000000;&quot;&gt; request.getTimeoutMs();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; timeoutMs =&lt;span style="color: #000000;"&gt; request.getTimeoutMs();
     connection.setConnectTimeout(timeoutMs);
     connection.setReadTimeout(timeoutMs);
-    connection.setUseCaches(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    connection.setDoInput(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    connection.setUseCaches(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    connection.setDoInput(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; use caller-provided custom SslSocketFactory, if any, for HTTPS&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;https&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;.equals(url.getProtocol()) &amp;amp;&amp;amp; mSslSocketFactory != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; use caller-provided custom SslSocketFactory, if any, for HTTPS&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;https&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;.equals(url.getProtocol()) &amp;amp;&amp;amp; mSslSocketFactory != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
         ((HttpsURLConnection)connection).setSSLSocketFactory(mSslSocketFactory);
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; connection;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; connection;
 }
 
-@SuppressWarnings(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;deprecation&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; package &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; setConnectionParametersForRequest(HttpURLConnection connection,
-        Request&lt;/span&gt;&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request) throws IOException, AuthFailureError {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (request.getMethod()) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DEPRECATED_GET_OR_POST:
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This is the deprecated way that needs to be handled for backwards compatibility.
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If the request&apos;s post body is null, then the assumption is that the request is
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
-            &lt;span style=&quot;color: #0000ff;&quot;&gt;byte&lt;/span&gt;[] postBody =&lt;span style=&quot;color: #000000;&quot;&gt; request.getPostBody();
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (postBody != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Prepare output. There is no need to set Content-Length explicitly,
-                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; since this is handled by HttpURLConnection using the size of the prepared
-                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; output stream.&lt;/span&gt;
-                connection.setDoOutput(&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-                connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;POST&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+@SuppressWarnings(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;deprecation&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;)
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; package &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; setConnectionParametersForRequest(HttpURLConnection connection,
+        Request&lt;/span&gt;&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request) throws IOException, AuthFailureError {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (request.getMethod()) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DEPRECATED_GET_OR_POST:
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This is the deprecated way that needs to be handled for backwards compatibility.
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If the request's post body is null, then the assumption is that the request is
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
+            &lt;span style="color: #0000ff;"&gt;byte&lt;/span&gt;[] postBody =&lt;span style="color: #000000;"&gt; request.getPostBody();
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (postBody != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Prepare output. There is no need to set Content-Length explicitly,
+                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; since this is handled by HttpURLConnection using the size of the prepared
+                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; output stream.&lt;/span&gt;
+                connection.setDoOutput(&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+                connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;POST&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
                 connection.addRequestProperty(HEADER_CONTENT_TYPE,
                         request.getPostBodyContentType());
-                DataOutputStream &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt; = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; DataOutputStream(connection.getOutputStream());
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.write(postBody);
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.close();
+                DataOutputStream &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt; = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; DataOutputStream(connection.getOutputStream());
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.write(postBody);
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.close();
             }
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.GET:
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Not necessary to set the request method because connection defaults to GET but
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; being explicit here.&lt;/span&gt;
-            connection.setRequestMethod(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;GET&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DELETE:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;DELETE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.POST:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;POST&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.GET:
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Not necessary to set the request method because connection defaults to GET but
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; being explicit here.&lt;/span&gt;
+            connection.setRequestMethod(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;GET&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DELETE:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;DELETE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.POST:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;POST&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             addBodyIfExists(connection, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PUT:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;PUT&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PUT:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;PUT&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             addBodyIfExists(connection, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.HEAD:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;HEAD&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.OPTIONS:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;OPTIONS&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.TRACE:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;TRACE&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PATCH:
-            connection.setRequestMethod(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;PATCH&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.HEAD:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;HEAD&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.OPTIONS:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;OPTIONS&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.TRACE:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;TRACE&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PATCH:
+            connection.setRequestMethod(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;PATCH&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             addBodyIfExists(connection, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalStateException(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Unknown method type.&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;default&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; IllegalStateException(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Unknown method type.&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
 }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; addBodyIfExists(HttpURLConnection connection, Request&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; addBodyIfExists(HttpURLConnection connection, Request&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request)
         throws IOException, AuthFailureError {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;byte&lt;/span&gt;[] body =&lt;span style=&quot;color: #000000;&quot;&gt; request.getBody();
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (body != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-            connection.setDoOutput(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;byte&lt;/span&gt;[] body =&lt;span style="color: #000000;"&gt; request.getBody();
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (body != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+            connection.setDoOutput(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             connection.addRequestProperty(HEADER_CONTENT_TYPE, request.getBodyContentType());
-            DataOutputStream &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt; = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; DataOutputStream(connection.getOutputStream());
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.write(body);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;out&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.close();
+            DataOutputStream &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt; = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; DataOutputStream(connection.getOutputStream());
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.write(body);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;out&lt;/span&gt;&lt;span style="color: #000000;"&gt;.close();
         }
     }</code></pre><p>}    </p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
@@ -546,62 +544,62 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HttpClientStack implements HttpStack {
     </span><span style="color: #0000ff;">protected</span><span style="color: #000000;"> final HttpClient mClient;
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; final &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; String HEADER_CONTENT_TYPE = &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Content-Type&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; final &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; String HEADER_CONTENT_TYPE = &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Content-Type&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;*
  * Creates the appropriate subclass of HttpUriRequest for passed in request.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
-@SuppressWarnings(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;deprecation&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; protected &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; HttpUriRequest createHttpRequest(Request&amp;lt;?&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; request,
-        Map&lt;/span&gt;&amp;lt;String, String&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; additionalHeaders) throws AuthFailureError {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (request.getMethod()) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DEPRECATED_GET_OR_POST: {
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This is the deprecated way that needs to be handled for backwards compatibility.
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If the request&apos;s post body is null, then the assumption is that the request is
-            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
-            &lt;span style=&quot;color: #0000ff;&quot;&gt;byte&lt;/span&gt;[] postBody =&lt;span style=&quot;color: #000000;&quot;&gt; request.getPostBody();
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (postBody != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-                HttpPost postRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPost(request.getUrl());
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
+@SuppressWarnings(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;deprecation&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;)
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; protected &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; HttpUriRequest createHttpRequest(Request&amp;lt;?&amp;gt;&lt;span style="color: #000000;"&gt; request,
+        Map&lt;/span&gt;&amp;lt;String, String&amp;gt;&lt;span style="color: #000000;"&gt; additionalHeaders) throws AuthFailureError {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (request.getMethod()) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DEPRECATED_GET_OR_POST: {
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This is the deprecated way that needs to be handled for backwards compatibility.
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If the request's post body is null, then the assumption is that the request is
+            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; GET.  Otherwise, it is assumed that the request is a POST.&lt;/span&gt;
+            &lt;span style="color: #0000ff;"&gt;byte&lt;/span&gt;[] postBody =&lt;span style="color: #000000;"&gt; request.getPostBody();
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (postBody != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+                HttpPost postRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPost(request.getUrl());
                 postRequest.addHeader(HEADER_CONTENT_TYPE, request.getPostBodyContentType());
                 HttpEntity entity;
-                entity &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ByteArrayEntity(postBody);
+                entity &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; ByteArrayEntity(postBody);
                 postRequest.setEntity(entity);
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; postRequest;
-            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpGet(request.getUrl());
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; postRequest;
+            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpGet(request.getUrl());
             }
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.GET:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpGet(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.DELETE:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpDelete(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.POST: {
-            HttpPost postRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPost(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.GET:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpGet(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.DELETE:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpDelete(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.POST: {
+            HttpPost postRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPost(request.getUrl());
             postRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
             setEntityIfNonEmptyBody(postRequest, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; postRequest;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; postRequest;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PUT: {
-            HttpPut putRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPut(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PUT: {
+            HttpPut putRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPut(request.getUrl());
             putRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
             setEntityIfNonEmptyBody(putRequest, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; putRequest;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; putRequest;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.HEAD:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpHead(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.OPTIONS:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpOptions(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.TRACE:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpTrace(request.getUrl());
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Method.PATCH: {
-            HttpPatch patchRequest &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; HttpPatch(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.HEAD:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpHead(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.OPTIONS:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpOptions(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.TRACE:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpTrace(request.getUrl());
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; Method.PATCH: {
+            HttpPatch patchRequest &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; HttpPatch(request.getUrl());
             patchRequest.addHeader(HEADER_CONTENT_TYPE, request.getBodyContentType());
             setEntityIfNonEmptyBody(patchRequest, request);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; patchRequest;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; patchRequest;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalStateException(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Unknown request method.&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;default&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; IllegalStateException(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Unknown request method.&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
 }</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
@@ -615,7 +613,7 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/08/01/Android开源框架六Volley-Google的轻量级网络通信框架/" title="Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -679,7 +677,7 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 <p> 　　　　1. 添加Android默认混淆配置${sdk.dir}/tools/proguard/proguard-android.txt<br>    　　　　2. 不要混淆xUtils中的注解类型，添加混淆配置：-keep class * extends java.lang.annotation.Annotation { *; }<br>    　　　　3. 对使用DbUtils模块持久化的实体类不要混淆，或者注解所有表和列名称@Table(name="xxx")，@Id(column="xxx")，@Column(column="xxx"),@Foreign(column="xxx",foreign="xxx")；</p>
 <h2>二.Xutils 使用</h2>
 <h4>1.引入示例module</h4>
-<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180730233934163-175096619.png" alt></p>
+<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180730233934163-175096619.png" alt=""></p>
 <h4>2.记得授权</h4>
 <div class="cnblogs_code">
 <pre>&lt;uses-permission android:name=<span style="color: #800000;">"</span><span style="color: #800000;">android.permission.INTERNET</span><span style="color: #800000;">"</span> /&gt;
@@ -690,10 +688,10 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 <pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> MyApplication extends Application {
 
 <pre><code>@Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onCreate() {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onCreate() {
     super.onCreate();
-    x.Ext.init(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    x.Ext.setDebug(BuildConfig.DEBUG); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 开启debug会影响性能&lt;/span&gt;</code></pre><p><span style="color: #000000;">    }<br>}</span></p></span></pre><p></p>
+    x.Ext.init(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    x.Ext.setDebug(BuildConfig.DEBUG); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 开启debug会影响性能&lt;/span&gt;</code></pre><p><span style="color: #000000;">    }<br>}</span></p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <h4>4.DbManager操作数据库</h4>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -725,7 +723,7 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 <pre> DbManager db = x.getDb(daoConfig);        </pre>
 </div>
 <p>最终都是调用xutils lib里的<span style="font-family: Courier New; font-size: small;">db包里的</span>DbModelSelector类转换为sql语句操作sqlLite数据库</p>
-<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180730233915251-1868064577.png" alt></p>
+<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180730233915251-1868064577.png" alt=""></p>
 <h4>5.HttpManager请求，ImageManager加载图片</h4>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> loadImgList(String url) {
@@ -738,17 +736,17 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
 <span style="color: #000000;">            }
 
 <pre><code>        @Override
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onError(Throwable ex, boolean isOnCallback) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onError(Throwable ex, boolean isOnCallback) {
 
         }
 
         @Override
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onCancelled(CancelledException cex) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onCancelled(CancelledException cex) {
 
         }
 
         @Override
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onFinished() {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onFinished() {
 
         }
     });
@@ -784,7 +782,7 @@ queue.add(request);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_cod
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/30/Android开源框架五xUtils-Android里的ORM-IOC聚合型框架/" title="Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/0.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/0.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -879,26 +877,26 @@ db.save(user);</span></pre>
             strSQL.append(</span><span style="color: #800000;">"</span><span style="color: #800000;"> (</span><span style="color: #800000;">"</span><span style="color: #000000;">);
             Iterator var5 </span>=<span style="color: #000000;"> keyValueList.iterator();
 
-<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;while&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(var5.hasNext()) {
-            KeyValue kv &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (KeyValue)var5.next();
-            strSQL.append(kv.getKey()).append(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;while&lt;/span&gt;&lt;span style="color: #000000;"&gt;(var5.hasNext()) {
+            KeyValue kv &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (KeyValue)var5.next();
+            strSQL.append(kv.getKey()).append(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             sqlInfo.addValue(kv.getValue());
         }
 
-        strSQL.deleteCharAt(strSQL.length() &lt;/span&gt;- &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        strSQL.append(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;) VALUES ( &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; length =&lt;span style=&quot;color: #000000;&quot;&gt; keyValueList.size();
+        strSQL.deleteCharAt(strSQL.length() &lt;/span&gt;- &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        strSQL.append(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;) VALUES ( &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; length =&lt;span style="color: #000000;"&gt; keyValueList.size();
 
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt;(&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;; i &amp;lt; length; ++&lt;span style=&quot;color: #000000;&quot;&gt;i) {
-            strSQL.append(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;?,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;(&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = &lt;span style="color: #800080;"&gt;0&lt;/span&gt;; i &amp;lt; length; ++&lt;span style="color: #000000;"&gt;i) {
+            strSQL.append(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;?,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         }
 
-        strSQL.deleteCharAt(strSQL.length() &lt;/span&gt;- &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        strSQL.append(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        strSQL.deleteCharAt(strSQL.length() &lt;/span&gt;- &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        strSQL.append(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;)&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         sqlInfo.setSql(strSQL.toString());
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; sqlInfo;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; sqlInfo;
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h2>　　4.FinalBitmap使用</h2>
 <div class="cnblogs_code">
@@ -912,31 +910,31 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
             </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.init();
         }
 
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;(!TextUtils.isEmpty(uri) &amp;amp;&amp;amp; imageView != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;(displayConfig == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-            displayConfig &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.mConfig.defaultDisplayConfig;
+<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;(!TextUtils.isEmpty(uri) &amp;amp;&amp;amp; imageView != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;(displayConfig == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+            displayConfig &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;.mConfig.defaultDisplayConfig;
         }
 
-        Bitmap bitmap &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;.mImageCache != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {&lt;br&gt;　　　　　　　　　　//优先缓存获取&lt;br&gt;                bitmap &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.mImageCache.getBitmapFromMemoryCache(uri);
+        Bitmap bitmap &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;.mImageCache != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {&lt;br&gt;　　　　　　　　　　//优先缓存获取&lt;br&gt;                bitmap &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;.mImageCache.getBitmapFromMemoryCache(uri);
         }
 
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;(bitmap != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(imageView instanceof ImageView) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;(bitmap != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt;(imageView instanceof ImageView) {
                 ((ImageView)imageView).setImageBitmap(bitmap);
-            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-                imageView.setBackgroundDrawable(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; BitmapDrawable(bitmap));
+            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+                imageView.setBackgroundDrawable(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; BitmapDrawable(bitmap));
             }
-        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(checkImageTask(uri, imageView)) {&lt;br&gt;　　　　　　　　　//FinalBitmap模块 加载图片
-            FinalBitmap.BitmapLoadAndDisplayTask task &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; FinalBitmap.BitmapLoadAndDisplayTask(imageView, displayConfig);
-            FinalBitmap.AsyncDrawable asyncDrawable &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; FinalBitmap.AsyncDrawable(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.mContext.getResources(), displayConfig.getLoadingBitmap(), task);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(imageView instanceof ImageView) {
+        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt;(checkImageTask(uri, imageView)) {&lt;br&gt;　　　　　　　　　//FinalBitmap模块 加载图片
+            FinalBitmap.BitmapLoadAndDisplayTask task &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; FinalBitmap.BitmapLoadAndDisplayTask(imageView, displayConfig);
+            FinalBitmap.AsyncDrawable asyncDrawable &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; FinalBitmap.AsyncDrawable(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;.mContext.getResources(), displayConfig.getLoadingBitmap(), task);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt;(imageView instanceof ImageView) {
                 ((ImageView)imageView).setImageDrawable(asyncDrawable);
-            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
                 imageView.setBackgroundDrawable(asyncDrawable);
             }
 
-            task.executeOnExecutor(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;.bitmapLoadAndDisplayExecutor, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Object[]{uri});
+            task.executeOnExecutor(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;.bitmapLoadAndDisplayExecutor, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Object[]{uri});
         }
 
     }
@@ -949,22 +947,22 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
         </span><span style="color: #008000;">//</span><span style="color: #008000;"> 存放视频文件到本地位置</span>
         String target = getFilesDir()+<span style="color: #800000;">"</span><span style="color: #800000;">/testAfinal.mp4</span><span style="color: #800000;">"</span><span style="color: #000000;">;
 
-<pre><code>finalHttp.download(url, target, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; AjaxCallBack&amp;lt;File&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;() {
+<pre><code>finalHttp.download(url, target, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; AjaxCallBack&amp;lt;File&amp;gt;&lt;span style="color: #000000;"&gt;() {
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onSuccess(File file) {
-        tv_afinal_result.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;下载文件成功&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onSuccess(File file) {
+        tv_afinal_result.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;下载文件成功&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         super.onSuccess(file);
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onFailure(Throwable t, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; errorNo, String strMsg) {
-        tv_afinal_result.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;下载文件失败&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onFailure(Throwable t, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; errorNo, String strMsg) {
+        tv_afinal_result.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;下载文件失败&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         super.onFailure(t, errorNo, strMsg);
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onStart() {
-        tv_afinal_result.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;开始下载&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onStart() {
+        tv_afinal_result.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;开始下载&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         super.onStart();
     }
 });&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
@@ -981,22 +979,22 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
             e.printStackTrace();
         }
 
-<pre><code>finalHttp.post(url, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;params&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; AjaxCallBack&amp;lt;Object&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;() {
+<pre><code>finalHttp.post(url, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;params&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; AjaxCallBack&amp;lt;Object&amp;gt;&lt;span style="color: #000000;"&gt;() {
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onStart() {
-        tv_afinal_result.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;开始上传&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onStart() {
+        tv_afinal_result.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;开始上传&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         super.onStart();
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; onSuccess(Object o) {
-        tv_afinal_result.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;上传成功&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; onSuccess(Object o) {
+        tv_afinal_result.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;上传成功&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         super.onSuccess(o);
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onFailure(Throwable t, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; errorNo, String strMsg) {
-        tv_afinal_result.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;上传失败&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onFailure(Throwable t, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; errorNo, String strMsg) {
+        tv_afinal_result.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;上传失败&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         super.onFailure(t, errorNo, strMsg);
     }
 });&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
@@ -1010,7 +1008,7 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/30/Android开源框架四Afinal-Android里的ORM-IOC聚合型框架/" title="Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/0.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/0.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -1057,7 +1055,7 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
 <p>　　里面的<strong>上传下载功能使用队列的概念</strong>做了进一步封装，但是因为我使用的是旧库，对于android6.0运行时权限判断和android7.0私有文件权限设置没有处理。</p>
 <p>　　同上一篇随笔一样分析：<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/bugzone/p/okhttp-utils.html" target="_blank">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</a> 介绍下基本使用，加深自己对OkHttp的理解。</p>
 <h3>　　一.引入到自己项目后，先来对比下同上一篇介绍的okhttp-utils类库目录对比下：</h3>
-<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112723166-1670399309.png" alt></p>
+<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112723166-1670399309.png" alt=""></p>
 <p>　　注意：途中下面红框标注部分的module:okhttputils-lib是本文介绍的OkHttpUtils类库，上面的module:okhttputils是<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/bugzone/p/okhttp-utils.html" target="_blank">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</a>介绍的框架类库。　　</p>
 <p>　　两个封装框架都有一个 <strong>OkHttpUtils 入口类。</strong></p>
 <p>&nbsp;</p>
@@ -1094,16 +1092,16 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
             </span><span style="color: #008000;">/*</span><span style="color: #008000;">* 按照HTTP协议的默认缓存规则，例如有304响应头时缓存 </span><span style="color: #008000;">*/</span><span style="color: #000000;">
             DEFAULT,
 
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 不使用缓存 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 不使用缓存 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     NO_CACHE,
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 请求网络失败后，读取缓存 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 请求网络失败后，读取缓存 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     REQUEST_FAILED_READ_CACHE,
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 如果缓存不存在才请求网络，否则使用缓存 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 如果缓存不存在才请求网络，否则使用缓存 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     IF_NONE_CACHE_REQUEST,
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 先使用缓存，不管是否存在，仍然请求网络 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 先使用缓存，不管是否存在，仍然请求网络 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     FIRST_CACHE_THEN_REQUEST,
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h3>　　4.//批量上传文件</h3>
@@ -1141,27 +1139,27 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
         mUploadInfo.setState(UploadManager.UPLOADING);
         postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;构建请求体,默认使用post请求上传&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">本质还是调用OkHttpUtils的post方法上传</span><br>            PostRequest postRequest =<span style="color: #000000;"> OkHttpUtils.post(mUploadInfo.getUrl());<br>            File resource </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> File(mUploadInfo.getResourcePath());<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (TextUtils.isEmpty(mUploadInfo.getFileName())) {<br>                mUploadInfo.setFileName(resource.getName());<br>            }<br>            postRequest.</span><span style="color: #0000ff;">params</span><span style="color: #000000;">(mUploadInfo.getKey(), resource, mUploadInfo.getFileName());<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">接口对接，数据回调</span><br>            postRequest.setCallback(<span style="color: #0000ff;">new</span><span style="color: #000000;"> MergeListener());<br>            response </span>=<span style="color: #000000;"> postRequest.execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mUploadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mUploadInfo.setState(UploadManager.ERROR);<br>            postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mUploadInfo;<br>        }</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (response.isSuccessful()) {
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;解析过程中抛出异常，一般为 json 格式错误，或者数据解析异常&lt;/span&gt;
-        &lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-            T t &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (T) mUploadInfo.getListener().parseNetworkResponse(response);
-            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            mUploadInfo.setState(UploadManager.FINISH); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;上传成功&lt;/span&gt;
-            postMessage(t, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mUploadInfo;
-        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Exception e) {
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;构建请求体,默认使用post请求上传&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">本质还是调用OkHttpUtils的post方法上传</span><br>            PostRequest postRequest =<span style="color: #000000;"> OkHttpUtils.post(mUploadInfo.getUrl());<br>            File resource </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> File(mUploadInfo.getResourcePath());<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (TextUtils.isEmpty(mUploadInfo.getFileName())) {<br>                mUploadInfo.setFileName(resource.getName());<br>            }<br>            postRequest.</span><span style="color: #0000ff;">params</span><span style="color: #000000;">(mUploadInfo.getKey(), resource, mUploadInfo.getFileName());<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">接口对接，数据回调</span><br>            postRequest.setCallback(<span style="color: #0000ff;">new</span><span style="color: #000000;"> MergeListener());<br>            response </span>=<span style="color: #000000;"> postRequest.execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mUploadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mUploadInfo.setState(UploadManager.ERROR);<br>            postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mUploadInfo;<br>        }</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (response.isSuccessful()) {
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;解析过程中抛出异常，一般为 json 格式错误，或者数据解析异常&lt;/span&gt;
+        &lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+            T t &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (T) mUploadInfo.getListener().parseNetworkResponse(response);
+            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            mUploadInfo.setState(UploadManager.FINISH); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;上传成功&lt;/span&gt;
+            postMessage(t, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mUploadInfo;
+        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Exception e) {
             e.printStackTrace();
-            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             mUploadInfo.setState(UploadManager.ERROR);
-            postMessage(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;解析数据对象出错&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, e);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mUploadInfo;
+            postMessage(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;解析数据对象出错&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, e);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mUploadInfo;
         }
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         mUploadInfo.setState(UploadManager.ERROR);
-        postMessage(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;数据返回失败&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mUploadInfo;
+        postMessage(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;数据返回失败&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mUploadInfo;
     }
 }    &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h3>　　5.//批量下载文件</h3>
@@ -1196,63 +1194,63 @@ finalBitmap.display(iv_afinal,<span style="color: #800000;">"</span><span style=
         mDownloadInfo.setState(DownloadManager.DOWNLOADING);
         postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;构建下载文件路径，如果有设置，就用设置的，否者就自己创建&lt;/span&gt;
-String url =&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getUrl();
-String fileName &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getFileName();
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (TextUtils.isEmpty(fileName)) {
-    fileName &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getUrlFileName(url);
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;构建下载文件路径，如果有设置，就用设置的，否者就自己创建&lt;/span&gt;
+String url =&lt;span style="color: #000000;"&gt; mDownloadInfo.getUrl();
+String fileName &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mDownloadInfo.getFileName();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (TextUtils.isEmpty(fileName)) {
+    fileName &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getUrlFileName(url);
     mDownloadInfo.setFileName(fileName);
 }
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (TextUtils.isEmpty(mDownloadInfo.getTargetPath())) {
-    File file &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(mDownloadInfo.getTargetFolder(), fileName);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (TextUtils.isEmpty(mDownloadInfo.getTargetPath())) {
+    File file &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(mDownloadInfo.getTargetFolder(), fileName);
     mDownloadInfo.setTargetPath(file.getAbsolutePath());
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;检查手机上文件的有效性&lt;/span&gt;
-File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(mDownloadInfo.getTargetPath());
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; startPos;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (file.length() !=&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getDownloadLength()) {
-    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;检查手机上文件的有效性&lt;/span&gt;
+File file = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(mDownloadInfo.getTargetPath());
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; startPos;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (file.length() !=&lt;span style="color: #000000;"&gt; mDownloadInfo.getDownloadLength()) {
+    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     mDownloadInfo.setState(DownloadManager.ERROR);
-    postMessage(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;断点下载的情况&lt;/span&gt;
-    startPos =&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getDownloadLength();
+    postMessage(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;断点下载的情况&lt;/span&gt;
+    startPos =&lt;span style="color: #000000;"&gt; mDownloadInfo.getDownloadLength();
 }
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;再次检查文件有效性，文件大小大于总文件大小&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (startPos &amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getTotalLength()) {
-    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;再次检查文件有效性，文件大小大于总文件大小&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startPos &amp;gt;&lt;span style="color: #000000;"&gt; mDownloadInfo.getTotalLength()) {
+    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     mDownloadInfo.setState(DownloadManager.ERROR);
-    postMessage(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
+    postMessage(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
 }
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (startPos == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; startPos &amp;gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    mDownloadInfo.setProgress(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;1.0f&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startPos == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; startPos &amp;gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    mDownloadInfo.setProgress(&lt;/span&gt;&lt;span style="color: #800080;"&gt;1.0f&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     mDownloadInfo.setState(DownloadManager.FINISH);
-    postMessage(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
+    postMessage(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
 }
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;设置断点写文件&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ProgressRandomAccessFile randomAccessFile;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            randomAccessFile </span>= <span style="color: #0000ff;">new</span> ProgressRandomAccessFile(file, <span style="color: #800000;">“</span><span style="color: #800000;">rw</span><span style="color: #800000;">“</span><span style="color: #000000;">, startPos);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (FileNotFoundException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">没有找到已存在的断点文件</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        L.e(</span><span style="color: #800000;">“</span><span style="color: #800000;">startPos:</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">  path:</span><span style="color: #800000;">“</span> +<span style="color: #000000;"> mDownloadInfo.getTargetPath());</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;构建请求体,默认使用get请求下载,设置断点头&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            response </span>= OkHttpUtils.<span style="color: #0000ff;">get</span>(url).headers(<span style="color: #800000;">“</span><span style="color: #800000;">RANGE</span><span style="color: #800000;">“</span>, <span style="color: #800000;">“</span><span style="color: #800000;">bytes=</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">-</span><span style="color: #800000;">“</span><span style="color: #000000;">).execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">获取流对象，准备进行读写文件</span><br>        <span style="color: #0000ff;">long</span> totalLength =<span style="color: #000000;"> response.body().contentLength();<br>        </span><span style="color: #0000ff;">if</span> (mDownloadInfo.getTotalLength() == <span style="color: #800080;">0</span><span style="color: #000000;">) {<br>            mDownloadInfo.setTotalLength(totalLength);<br>        }<br>        InputStream </span><span style="color: #0000ff;">is</span> =<span style="color: #000000;"> response.body().byteStream();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">读写文件流</span><br>        <span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            download(</span><span style="color: #0000ff;">is</span><span style="color: #000000;">, randomAccessFile);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">文件读写异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;循环结束走到这里，a.下载完成     b.暂停      c.判断是否下载出错&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (isCancelled()) {
-        L.e(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;state: 暂停&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getState());
-        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (isPause) mDownloadInfo.setState(DownloadManager.PAUSE); &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;暂停&lt;/span&gt;
-        &lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; mDownloadInfo.setState(DownloadManager.NONE);          &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;停止&lt;/span&gt;
-        postMessage(&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (file.length() == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; mDownloadInfo.getState() ==&lt;span style=&quot;color: #000000;&quot;&gt; DownloadManager.DOWNLOADING) {
-        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        mDownloadInfo.setState(DownloadManager.FINISH); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;下载完成&lt;/span&gt;
-        postMessage(&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (file.length() !=&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getDownloadLength()) {
-        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        mDownloadInfo.setState(DownloadManager.ERROR); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;由于不明原因，文件保存有误&lt;/span&gt;
-        postMessage(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;未知原因&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;设置断点写文件&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ProgressRandomAccessFile randomAccessFile;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            randomAccessFile </span>= <span style="color: #0000ff;">new</span> ProgressRandomAccessFile(file, <span style="color: #800000;">“</span><span style="color: #800000;">rw</span><span style="color: #800000;">“</span><span style="color: #000000;">, startPos);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (FileNotFoundException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">没有找到已存在的断点文件</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        L.e(</span><span style="color: #800000;">“</span><span style="color: #800000;">startPos:</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">  path:</span><span style="color: #800000;">“</span> +<span style="color: #000000;"> mDownloadInfo.getTargetPath());</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;构建请求体,默认使用get请求下载,设置断点头&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            response </span>= OkHttpUtils.<span style="color: #0000ff;">get</span>(url).headers(<span style="color: #800000;">“</span><span style="color: #800000;">RANGE</span><span style="color: #800000;">“</span>, <span style="color: #800000;">“</span><span style="color: #800000;">bytes=</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">-</span><span style="color: #800000;">“</span><span style="color: #000000;">).execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">获取流对象，准备进行读写文件</span><br>        <span style="color: #0000ff;">long</span> totalLength =<span style="color: #000000;"> response.body().contentLength();<br>        </span><span style="color: #0000ff;">if</span> (mDownloadInfo.getTotalLength() == <span style="color: #800080;">0</span><span style="color: #000000;">) {<br>            mDownloadInfo.setTotalLength(totalLength);<br>        }<br>        InputStream </span><span style="color: #0000ff;">is</span> =<span style="color: #000000;"> response.body().byteStream();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">读写文件流</span><br>        <span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            download(</span><span style="color: #0000ff;">is</span><span style="color: #000000;">, randomAccessFile);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">文件读写异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;循环结束走到这里，a.下载完成     b.暂停      c.判断是否下载出错&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (isCancelled()) {
+        L.e(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;state: 暂停&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; mDownloadInfo.getState());
+        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (isPause) mDownloadInfo.setState(DownloadManager.PAUSE); &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;暂停&lt;/span&gt;
+        &lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; mDownloadInfo.setState(DownloadManager.NONE);          &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;停止&lt;/span&gt;
+        postMessage(&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (file.length() == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; mDownloadInfo.getState() ==&lt;span style="color: #000000;"&gt; DownloadManager.DOWNLOADING) {
+        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        mDownloadInfo.setState(DownloadManager.FINISH); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;下载完成&lt;/span&gt;
+        postMessage(&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (file.length() !=&lt;span style="color: #000000;"&gt; mDownloadInfo.getDownloadLength()) {
+        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        mDownloadInfo.setState(DownloadManager.ERROR); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;由于不明原因，文件保存有误&lt;/span&gt;
+        postMessage(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;未知原因&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
 }    &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
 </div>
@@ -1264,7 +1262,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/29/Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍/" title="Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -1311,9 +1309,9 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 <p>　　对于OkHttp使用，可以自己根据自己项目需要，做一些封装。如果应付手头临时项目，可以借鉴GitHub上一些开源OkHttp封装库.只要去GitHub上搜索下OkHttp 会出来很多封装的框架。</p>
 <p>　　分析okhttp-utils使用，只是用于自己学习了解。</p>
 <h3>一.将okhttp-utils当做module引入项目中</h3>
-<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112047366-1984867735.png" alt></p>
+<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112047366-1984867735.png" alt=""></p>
 <h3>二.okhttp-utils引入到项目中文件列表目录：</h3>
-<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112102229-1521363822.png" alt></p>
+<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112102229-1521363822.png" alt=""></p>
 <h2>三.okhttp-utils 基本使用</h2>
 <h3>　　1. //get 请求数据</h3>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -1362,9 +1360,9 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
             }
 
 <pre><code>    @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onResponse(Bitmap bitmap, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onResponse(Bitmap bitmap, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
-        Log.e(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;TAG&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;onResponse：complete&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        Log.e(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;TAG&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;onResponse：complete&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         mImageView.setImageBitmap(bitmap);
     }
 });    &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
@@ -1398,28 +1396,28 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
         {
 
 <pre><code>    @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onBefore(Request request, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onBefore(Request request, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; inProgress(&lt;span style=&quot;color: #0000ff;&quot;&gt;float&lt;/span&gt; progress, &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; total, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; inProgress(&lt;span style="color: #0000ff;"&gt;float&lt;/span&gt; progress, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; total, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;进度条显示&lt;/span&gt;
-        mProgressBar.setProgress((&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;) (&lt;span style=&quot;color: #800080;&quot;&gt;100&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt; progress));
-        Log.e(TAG, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;inProgress :&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; + (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;) (&lt;span style=&quot;color: #800080;&quot;&gt;100&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt; progress));
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;进度条显示&lt;/span&gt;
+        mProgressBar.setProgress((&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;) (&lt;span style="color: #800080;"&gt;100&lt;/span&gt; *&lt;span style="color: #000000;"&gt; progress));
+        Log.e(TAG, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;inProgress :&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; + (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;) (&lt;span style="color: #800080;"&gt;100&lt;/span&gt; *&lt;span style="color: #000000;"&gt; progress));
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onError(Call call, Exception e, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onError(Call call, Exception e, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
-        Log.e(TAG, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;onError :&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; e.getMessage());
+        Log.e(TAG, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;onError :&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; e.getMessage());
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onResponse(File file, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onResponse(File file, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
-        Log.e(TAG, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;onResponse :&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; file.getAbsolutePath());
+        Log.e(TAG, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;onResponse :&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; file.getAbsolutePath());
     }
 });    &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h3>　　定义的公共回调方法：</h3>
@@ -1432,38 +1430,38 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
         }
 
 <pre><code>    @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onAfter(&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onAfter(&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onError(Call call, Exception e, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onError(Call call, Exception e, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
         e.printStackTrace();
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; onResponse(String response, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; onResponse(String response, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
-        Log.e(TAG, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;onResponse：complete&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        mTv.setText(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;onResponse:&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; response);
+        Log.e(TAG, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;onResponse：complete&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        mTv.setText(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;onResponse:&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; response);
 
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (id)
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (id)
         {
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;100&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
-                Toast.makeText(MainActivity.&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;http&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, Toast.LENGTH_SHORT).show();
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;101&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
-                Toast.makeText(MainActivity.&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;https&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, Toast.LENGTH_SHORT).show();
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt; &lt;span style="color: #800080;"&gt;100&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
+                Toast.makeText(MainActivity.&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;http&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, Toast.LENGTH_SHORT).show();
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt; &lt;span style="color: #800080;"&gt;101&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
+                Toast.makeText(MainActivity.&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;https&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, Toast.LENGTH_SHORT).show();
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
         }
     }
 
     @Override
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt; inProgress(&lt;span style=&quot;color: #0000ff;&quot;&gt;float&lt;/span&gt; progress, &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; total, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; id)
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt; inProgress(&lt;span style="color: #0000ff;"&gt;float&lt;/span&gt; progress, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; total, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; id)
     {
-        Log.e(TAG, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;inProgress:&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; progress);
-        mProgressBar.setProgress((&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;) (&lt;span style=&quot;color: #800080;&quot;&gt;100&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt; progress));
+        Log.e(TAG, &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;inProgress:&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; progress);
+        mProgressBar.setProgress((&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;) (&lt;span style="color: #800080;"&gt;100&lt;/span&gt; *&lt;span style="color: #000000;"&gt; progress));
     }
 }        &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
@@ -1476,7 +1474,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/29/Android开源框架二基于OkHttp进一步封装的okhttp-utils介绍/" title="Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -1533,9 +1531,9 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 <pre><span style="color: #0000ff;">new</span> Thread(<span style="color: #0000ff;">new</span><span style="color: #000000;"> Runnable() {
 
 <pre><code>@Override
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; run() {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; run() {
     ...
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;子线程方法异步执行&lt;/span&gt;</code></pre><p><span style="color: #000000;">                …<br>            }<br>        }).start();</span></p></span></pre><p></p>
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;子线程方法异步执行&lt;/span&gt;</code></pre><p><span style="color: #000000;">                …<br>            }<br>        }).start();</span></p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>　　如果在主线程(也就是我们常说的UI线程)中进行Http请求,会报如下错.(NetworkOnMainThreadException)</p>
 <div class="cnblogs_code">
@@ -1573,18 +1571,18 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
                         </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> InputStreamReader(connection.getInputStream()));
                 String line </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 循环从流中读取&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;while&lt;/span&gt; ((line = reader.readLine()) != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    msg &lt;/span&gt;+= line + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 循环从流中读取&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;while&lt;/span&gt; ((line = reader.readLine()) != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    msg &lt;/span&gt;+= line + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 }
-reader.close(); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 关闭流&lt;/span&gt;</code></pre><p><span style="color: #000000;">            }<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 6. 断开连接，释放资源</span><br><span style="color: #000000;">            connection.disconnect();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 显示响应结果&lt;/span&gt;
-Log.i(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;getDataByHttpUrlConnect&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,msg);
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;组装消息&lt;/span&gt;
-Message message = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Message();
-message.what &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; RESPONSE_OK;
-message.obj &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;发送消息&lt;/span&gt;</code></pre><p><span style="color: #000000;">            handler.sendMessage(message);<br></span></p></span></pre><p></p>
+reader.close(); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 关闭流&lt;/span&gt;</code></pre><p><span style="color: #000000;">            }<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> 6. 断开连接，释放资源</span><br><span style="color: #000000;">            connection.disconnect();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; 显示响应结果&lt;/span&gt;
+Log.i(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;getDataByHttpUrlConnect&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,msg);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;组装消息&lt;/span&gt;
+Message message = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Message();
+message.what &lt;/span&gt;=&lt;span style="color: #000000;"&gt; RESPONSE_OK;
+message.obj &lt;/span&gt;=&lt;span style="color: #000000;"&gt; msg;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;发送消息&lt;/span&gt;</code></pre><p><span style="color: #000000;">            handler.sendMessage(message);<br></span></p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <h4>　　　　4.在子线程进行网络请求后,将返回的信息在主线程控件上刷新显示. 使用到Handler操作.</h4>
 <pre><span>　　//定义一个Handler来接收子线程发送的消息并处理:</span></pre>
@@ -1643,7 +1641,7 @@ message.obj &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
         <div class="post-thumbnail" data-img="">
             <a href="https://freefuncode.github.io/2018/07/28/Android开源框架一OkHttp网络框架的基本使用/" title="Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/8.jpg" alt="默认配图" >
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/8.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -1789,16 +1787,6 @@ message.obj &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
-  
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
-  
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
     <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
@@ -1811,15 +1799,25 @@ message.obj &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
-    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
   
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
   
     <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+    <a class="tag-item" href="/tags/ContentProvider/" title="ContentProvider">ContentProvider (1)</a>
   
 </div>
     </section>
@@ -1867,7 +1865,7 @@ message.obj &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2016-2019
     
@@ -1878,6 +1876,6 @@ message.obj &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-</body>
-</html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
