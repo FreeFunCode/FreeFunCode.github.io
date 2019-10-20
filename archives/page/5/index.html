@@ -134,6 +134,410 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
+    	<a href="https://freefuncode.github.io/2018/07/21/ViewPager相关使用/">
+    		ViewPager相关使用
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        huangguangzhi 发表于
+        <time datetime="2018-07-21T15:59:41.000Z">2018-07-21</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/ViewPager/" title="ViewPager">ViewPager</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p><a href="https://www.cnblogs.com/bugzone/p/viewpager.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h2>一.ViewPager+Fragment 预加载</h2>
+<p>&nbsp;ViewPager的预加载，是指ViewPager的内部加载数据机制，它会默认至少预加载一个相邻的ViewPager内的Fragment页数据。<br>&nbsp;<br>&nbsp;如果设置 viewpager.setOffscreenPageLimit(0); 会发现没有效果。<br>&nbsp;可以查看ViewPager.java源码我们知道，ViewPager默认必须预加载一个相邻页面的数据。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ViewPager extends ViewGroup {
+    ...
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> final <span style="color: #0000ff;">int</span> DEFAULT_OFFSCREEN_PAGES = <span style="color: #800080;">1</span><span style="color: #000000;">;
+    ...
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">*
+     * Set the number of pages that should be retained to either side of the
+     * current page in the view hierarchy in an idle state. Pages beyond this
+     * limit will be recreated from the adapter when needed.
+     *
+     * &lt;p&gt;This is offered as an optimization. If you know in advance the number
+     * of pages you will need to support or have lazy-loading mechanisms in place
+     * on your pages, tweaking this setting can have benefits in perceived smoothness
+     * of paging animations and interaction. If you have a small number of pages (3-4)
+     * that you can keep active all at once, less time will be spent in layout for
+     * newly created view subtrees as the user pages back and forth.&lt;/p&gt;
+     *
+     * &lt;p&gt;You should keep this limit low, especially if your pages have complex layouts.
+     * This setting defaults to 1.&lt;/p&gt;
+     *
+     * @param limit How many pages will be kept offscreen in an idle state.
+     </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setOffscreenPageLimit(<span style="color: #0000ff;">int</span><span style="color: #000000;"> limit) {
+        </span><span style="color: #0000ff;">if</span> (limit &lt;<span style="color: #000000;"> DEFAULT_OFFSCREEN_PAGES) {
+            Log.w(TAG, </span><span style="color: #800000;">"</span><span style="color: #800000;">Requested offscreen page limit </span><span style="color: #800000;">"</span> + limit + <span style="color: #800000;">"</span><span style="color: #800000;"> too small; defaulting to </span><span style="color: #800000;">"</span> +<span style="color: #000000;">
+                    DEFAULT_OFFSCREEN_PAGES);
+            limit </span>=<span style="color: #000000;"> DEFAULT_OFFSCREEN_PAGES;
+        }
+        </span><span style="color: #0000ff;">if</span> (limit !=<span style="color: #000000;"> mOffscreenPageLimit) {
+            mOffscreenPageLimit </span>=<span style="color: #000000;"> limit;
+            populate();
+        }
+    }
+    ...
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div>&nbsp; &nbsp; 如果确实有时候非要相邻的Fragment页面需要实时显示的时候就要刷新数据，我们可以使用Fragment里的一个方法。<br>&nbsp; &nbsp; 重写 public void setUserVisibleHint(boolean isVisibleToUser) {...} 来处理请求刷新数据。</div>
+<div>&nbsp; &nbsp; 当然也有很多其他方法来解决页面立即刷新问题，比如：利用EventBus监听事件刷新，或者FragmentManager来控制Fragment响应事件的触发更新等等。</div>
+<div>&nbsp;</div>
+<div>
+<div>
+<h2>二.FragmentStatePagerAdapter 和 FragmentPagerAdapter</h2>
+<br>&nbsp;&nbsp;&nbsp;&nbsp; ViewPager 经常和 Fragment 一起使用，并且提供了专门的 FragmentPagerAdapter 和 FragmentStatePagerAdapter 类供 Fragment 中的 ViewPager 使用。</div>
+<div>
+<h4>&nbsp;1.FragmentStatePagerAdapter</h4>
+Implementation of PagerAdapter that uses a Fragment to manage each page. This class also handles saving and restoring of fragment's state. <br>&nbsp;&nbsp;&nbsp; This version of the pager is more useful when there are a large number of pages, working more like a list view. <br>&nbsp;When pages are not visible to the user, their entire fragment may be destroyed, only keeping the saved state of that fragment.<br>&nbsp;This allows the pager to hold on to much less memory associated with each visited page as compared to FragmentPagerAdapter at the cost of potentially more overhead when switching between pages. <br>&nbsp;&nbsp;&nbsp; When using FragmentPagerAdapter the host ViewPager must have a valid ID set.<br>&nbsp;&nbsp;&nbsp; Subclasses only need to implement getItem(int) and getCount() to have a working adapter. </div>
+<div>&nbsp;</div>
+<div>&nbsp; &nbsp;&nbsp; 从FragmentStatePagerAdapter的Api可知。<strong>当ViewPager管理的页面有大量数据时候，也就是如果viewpager管理的页面是一个ListView时候，推荐使用FragmentStatePagerAdapter</strong>。这是因为FragmentStatePagerAdapter在页面不可见的时候，会销毁这个Fragment。所以FragmentStatePagerAdapter比FragmentPagerAdapter占用内存更小。<br>
+<h4> 2.FragmentPagerAdapter</h4>
+&nbsp;Implementation of PagerAdapter that represents each page as a Fragment that is persistently kept in the fragment manager as long as the user can return to the page. <br>&nbsp;This version of the pager is best for use when there are a handful of typically more static fragments to be paged through, such as a set of tabs. The fragment of each page the user visits will be kept in memory, <br>&nbsp;though its view hierarchy may be destroyed when not visible. This can result in using a significant amount of memory since fragment instances can hold on to an arbitrary amount of state. <br>&nbsp;For larger sets of pages, consider FragmentStatePagerAdapter. <br>&nbsp;When using FragmentPagerAdapter the host ViewPager must have a valid ID set.<br>&nbsp;Subclasses only need to implement getItem(int) and getCount() to have a working adapter. <br>&nbsp;<br>&nbsp;从FragmentPagerAdapter的Api也同样了解到，当页面有大量数据加载的时候推荐使用FragmentStatePagerAdapter，FragmentPagerAdapter 创建的 fragment 永远不会被销毁，一般用于<strong>只有少量固定的 fragment 时，可以选择 FragmentPagerAdapter</strong>。<br>&nbsp;<br><br>&nbsp;最后说一点，在内存优化上，<strong>RecyclerView要比ViewPager优秀</strong>些。推荐大家优先考虑使用RecyclerView 实现。</div>
+</div>
+</div>
+            
+            <p class="more">
+                <a href="https://freefuncode.github.io/2018/07/21/ViewPager相关使用/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img="">
+            <a href="https://freefuncode.github.io/2018/07/21/ViewPager相关使用/" title="ViewPager相关使用">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/Android/">Android</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://freefuncode.github.io/2018/07/21/AIDL介绍以及简单使用/">
+    		AIDL介绍以及简单使用
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        huangguangzhi 发表于
+        <time datetime="2018-07-21T05:05:21.000Z">2018-07-21</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/AIDL/" title="AIDL">AIDL</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p><a href="https://www.cnblogs.com/bugzone/p/aidl.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <div class="toc">
+    <p class="toc-title">目录</p>
+    <div class="toc-list">
+        <ul>
+        <li><a href="#一.-aidl-介绍.">一. AIDL 介绍.</a></li>
+        <li><a href="#二.-aidl简单应用.">二. AIDL简单应用.</a><ul>
+        <li><a href="#aidl_server端">Aidl_Server端</a></li>
+        </ul></li>
+        <li><a href="#section"></a><ul>
+        <li><a href="#aidl_client端">Aidl_Client端</a></li>
+        </ul></li>
+        <li><a href="#三.注意事项">三.注意事项</a></li>
+        </ul>
+    </div>
+</div>
+<h2 id="一.-aidl-介绍.">一. AIDL 介绍.</h2>
+<pre><code class="hljs"> AIDL（Android接口描述语言）是一个IDL语言，它可以生成一段代码，可以是一个在Android设备上运行的两个进程使用内部通信进程进行交互。</code></pre>
+<p>如果你想在一个进程中（例如在一个Activity中）访问另一个进程中（例如service）某个对象的方法，你就可以使用AIDL来生成这样的代码来伪装传递各种参数。</p>
+<p>稍微了解下几个常见的名词(IPC,匿名共享内存,Binder,Aidl,消息,广播,ContentProvider,Intent):<br>
+<strong>IPC是一种概念，即进程间通信；其它几个都是Android里的概念；</strong><br>
+<strong>匿名共享内存(Anonymous Shared Memory):其作用之一即通过Binder进程间通信机制来实现进程间的内存共享。 </strong><br>
+<strong>Binder:Binder是对IPC的具体实行，是IPC的一种具体实现.其本质也是调用系统底层的共享内存实现.</strong><br>
+<strong>AIDL:进程间的通信，速度快(系统底层直接是共享内存)，性能稳，效率高，一般进程间通信就用它. AIDL是Binder机制向外提供的接口，目的就是为了方便对Binder的使用；</strong><br>
+<strong>消息(Messager)：Messenger本质也是AIDL，只是进行了封装，开发的时候不用再写.aidl文件,效率应该是和Aidl是一样的，与Aidl的区别在于Messager是线程安全的，而Aidl是非线程安全的，所以Aidl在使用的时候应该注意这个问题;</strong><br>
+<strong>广播(BroadcastReceiver):只要注册了广播，都能收到，有点范围广，缺点速度慢必须在一定时间完成处理操作,同其他Android四大组件一样,都不能执行耗时操作;</strong><br>
+<strong>ContentProvider:暴露app的数据访问接口，让其他应该访问app数据.同时也能通过ContentProvider来访问第三方的一些app数据(如通讯录,日历等暴露接口的应用);</strong><br>
+<strong>Intent:Intent是最高层级的封装，实质是封装了对Binder的使用，当然Intent也常常在同一进程中调用，只是把两种方式封装在一起了.</strong><br>
+<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180721125726338-2042877965.jpg"></p>
+<h2 id="二.-aidl简单应用.">二. AIDL简单应用.</h2>
+<pre><code class="hljs vbscript">编写两个app应用程序,一个实现Aidl传递的<span class="hljs-built_in">Server</span>端,一个实现Aidl的Client端:
+aidl的<span class="hljs-built_in">Server</span>端,接收Client端传过来的两个<span class="hljs-built_in">int</span>值,定义一个加法计算的逻辑规则, 并返回 两个<span class="hljs-built_in">int</span>数之和, return num1 + num2;
+aidl的Client端,从界面用户输入两个<span class="hljs-built_in">int</span>数,点击绑定<span class="hljs-built_in">Server</span>端服务,点击计算,调用<span class="hljs-built_in">Server</span>端加法逻辑,将返回结果 输入到用户界面展示,两数之和.</code></pre>
+<h3 id="aidl_server端">Aidl_Server端</h3>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180721125835612-1721114769.jpg"></p>
+<pre class="java"><code class="hljs"><span class="hljs-comment">// IImoocAIDL.aidl</span>
+ <span class="hljs-keyword">package</span> com.example.administrator.aidl_server.service;
+
+<p><span class="hljs-comment">// Declare any non-default types here with import statements</span></p>
+<p><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IImoocAIDL</span> </span>{<br>     <span class="hljs-comment">//计算num1 + num2</span><br>        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1,<span class="hljs-keyword">int</span> num2)</span></span>;<br>}</p></code></pre><p></p>
+<p>编译后会生成</p>
+<pre class="java"><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IImoocAIDL</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">android</span>.<span class="hljs-title">os</span>.<span class="hljs-title">IInterface</span> </span>{
+    <span class="hljs-comment">/**
+     * Local-side IPC implementation stub class.
+     */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">android</span>.<span class="hljs-title">os</span>.<span class="hljs-title">Binder</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">com</span>.<span class="hljs-title">example</span>.<span class="hljs-title">administrator</span>.<span class="hljs-title">aidl_server</span>.<span class="hljs-title">service</span>.<span class="hljs-title">IImoocAIDL</span> </span>{
+            ...
+            <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Proxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">com</span>.<span class="hljs-title">example</span>.<span class="hljs-title">administrator</span>.<span class="hljs-title">aidl_server</span>.<span class="hljs-title">service</span>.<span class="hljs-title">IImoocAIDL</span> </span>{
+            <span class="hljs-keyword">private</span> android.os.IBinder mRemote;
+
+<pre><code>        Proxy(android.os.IBinder remote) {
+            mRemote = remote;
+        }
+
+        &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+        &lt;span class="hljs-keyword"&gt;public&lt;/span&gt; android.os.&lt;span class="hljs-function"&gt;IBinder &lt;span class="hljs-title"&gt;asBinder&lt;/span&gt;&lt;span class="hljs-params"&gt;()&lt;/span&gt; &lt;/span&gt;{
+            &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; mRemote;
+        }
+
+        &lt;span class="hljs-keyword"&gt;public&lt;/span&gt; java.lang.&lt;span class="hljs-function"&gt;String &lt;span class="hljs-title"&gt;getInterfaceDescriptor&lt;/span&gt;&lt;span class="hljs-params"&gt;()&lt;/span&gt; &lt;/span&gt;{
+            &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; DESCRIPTOR;
+        }
+
+        &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+        &lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;public&lt;/span&gt; &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; &lt;span class="hljs-title"&gt;add&lt;/span&gt;&lt;span class="hljs-params"&gt;(&lt;span class="hljs-keyword"&gt;int&lt;/span&gt; num1, &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; num2)&lt;/span&gt; &lt;span class="hljs-keyword"&gt;throws&lt;/span&gt; android.os.RemoteException &lt;/span&gt;{
+            ...
+        }
+
+        ...
+    }
+        ...
+}</code></pre><p>}</p></code></pre><p></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180721125949447-88355980.jpg"></p>
+<p>//om.example.administrator.aidl_server.IRemoteService</p>
+<pre class="java"><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IRemoteService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Service</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String TAG = <span class="hljs-string">"IRemoteService"</span>;
+    <span class="hljs-comment">//客户端绑定service时会执行</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> IBinder <span class="hljs-title">onBind</span><span class="hljs-params">(Intent intent)</span> </span>{
+        <span class="hljs-keyword">return</span> iBinder;
+    }
+
+<pre><code>&lt;span class="hljs-keyword"&gt;private&lt;/span&gt; IBinder iBinder = &lt;span class="hljs-keyword"&gt;new&lt;/span&gt; IImoocAIDL.Stub() {
+    &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+    &lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;public&lt;/span&gt; &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; &lt;span class="hljs-title"&gt;add&lt;/span&gt;&lt;span class="hljs-params"&gt;(&lt;span class="hljs-keyword"&gt;int&lt;/span&gt; num1, &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; num2)&lt;/span&gt; &lt;span class="hljs-keyword"&gt;throws&lt;/span&gt; RemoteException &lt;/span&gt;{
+        Log.e(TAG,&lt;span class="hljs-string"&gt;"收到了来自客户端的请求"&lt;/span&gt; + num1 + &lt;span class="hljs-string"&gt;"+"&lt;/span&gt; + num2 );
+        &lt;span class="hljs-keyword"&gt;return&lt;/span&gt; num1 + num2;
+    }
+
+};</code></pre><p>}</p></code></pre><p></p>
+<p>//AndroidManifest.xml</p>
+<pre class="xml"><code class="hljs"><span class="hljs-tag">&lt;<span class="hljs-name">application</span>
+    <span class="hljs-attr">...</span>
+        &lt;<span class="hljs-attr">service</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".IRemoteService"</span>
+            <span class="hljs-attr">android:process</span>=<span class="hljs-string">":remote"</span>
+            <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"true"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.example.administrator.aidl_server"</span>/&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">service</span>&gt;</span>
+    ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span></code></pre>
+<h2 id="section"></h2>
+<h3 id="aidl_client端">Aidl_Client端</h3>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180721125848817-895261162.jpg"></p>
+<pre class="java"><code class="hljs">com.example.administrator.aidl_client.MainActivity
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String TAG = <span class="hljs-string">"MainActivity"</span>;
+    <span class="hljs-keyword">private</span> EditText et_send_input,nub_1,nub_2;
+    <span class="hljs-keyword">private</span> TextView tv_send;
+    <span class="hljs-keyword">private</span> TextView tv_bind;
+    <span class="hljs-keyword">private</span> IImoocAIDL iImoocAIDLService;
+
+<pre><code>&lt;span class="hljs-keyword"&gt;private&lt;/span&gt; ServiceConnection conn = &lt;span class="hljs-keyword"&gt;new&lt;/span&gt; ServiceConnection() {
+
+    &lt;span class="hljs-comment"&gt;//绑定服务，回调onBind()方法&lt;/span&gt;
+    &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+    &lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;public&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;onServiceConnected&lt;/span&gt;&lt;span class="hljs-params"&gt;(ComponentName name, IBinder service)&lt;/span&gt; &lt;/span&gt;{
+        iImoocAIDLService = IImoocAIDL.Stub.asInterface(service);
+    }
+
+    &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+    &lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;public&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;onServiceDisconnected&lt;/span&gt;&lt;span class="hljs-params"&gt;(ComponentName name)&lt;/span&gt; &lt;/span&gt;{
+        iImoocAIDLService = &lt;span class="hljs-keyword"&gt;null&lt;/span&gt;;
+    }
+};
+
+
+&lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;protected&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;onCreate&lt;/span&gt;&lt;span class="hljs-params"&gt;(Bundle savedInstanceState)&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class="hljs-keyword"&gt;super&lt;/span&gt;.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    bindService();
+
+    et_send_input = findViewById(R.id.et_send_input);
+    nub_1 = findViewById(R.id.nub_1);
+    nub_2 = findViewById(R.id.nub_2);
+    tv_send = findViewById(R.id.tv_send);
+    tv_bind = findViewById(R.id.tv_bind);
+
+    tv_send.setOnClickListener(&lt;span class="hljs-keyword"&gt;new&lt;/span&gt; View.OnClickListener() {
+        &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+        &lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;public&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;onClick&lt;/span&gt;&lt;span class="hljs-params"&gt;(View view)&lt;/span&gt; &lt;/span&gt;{
+            &lt;span class="hljs-keyword"&gt;try&lt;/span&gt; {
+                &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; nub1 = Integer.parseInt(nub_1.getText().toString().trim());
+                &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; nub2 = Integer.parseInt(nub_2.getText().toString().trim());
+
+                &lt;span class="hljs-keyword"&gt;int&lt;/span&gt; result = iImoocAIDLService.add(nub1,nub2);
+                et_send_input.setText(result+&lt;span class="hljs-string"&gt;""&lt;/span&gt;);
+            }&lt;span class="hljs-keyword"&gt;catch&lt;/span&gt; (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+    });
+
+    tv_bind.setOnClickListener(&lt;span class="hljs-keyword"&gt;new&lt;/span&gt; View.OnClickListener() {
+        &lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+        &lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;public&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;onClick&lt;/span&gt;&lt;span class="hljs-params"&gt;(View view)&lt;/span&gt; &lt;/span&gt;{
+            bindService();
+            Log.e(TAG,&lt;span class="hljs-string"&gt;"bindService"&lt;/span&gt;+iImoocAIDLService);
+        }
+    });
+}
+
+&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;private&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;bindService&lt;/span&gt;&lt;span class="hljs-params"&gt;()&lt;/span&gt; &lt;/span&gt;{
+    Intent intent = &lt;span class="hljs-keyword"&gt;new&lt;/span&gt; Intent();
+    &lt;span class="hljs-comment"&gt;//绑定服务端的service&lt;/span&gt;
+    intent.setAction(&lt;span class="hljs-string"&gt;"com.example.administrator.aidl_server.IRemoteService"&lt;/span&gt;);
+    &lt;span class="hljs-comment"&gt;//新版本（5.0后）必须显式intent启动 绑定服务&lt;/span&gt;
+    intent.setComponent(&lt;span class="hljs-keyword"&gt;new&lt;/span&gt; ComponentName(&lt;span class="hljs-string"&gt;"com.example.administrator.aidl_server"&lt;/span&gt;,&lt;span class="hljs-string"&gt;"com.example.administrator.aidl_server.IRemoteService"&lt;/span&gt;));
+    &lt;span class="hljs-comment"&gt;//绑定的时候服务端自动创建&lt;/span&gt;
+    bindService(intent,conn, Context.BIND_AUTO_CREATE);
+}
+
+&lt;span class="hljs-meta"&gt;@Override&lt;/span&gt;
+&lt;span class="hljs-function"&gt;&lt;span class="hljs-keyword"&gt;protected&lt;/span&gt; &lt;span class="hljs-keyword"&gt;void&lt;/span&gt; &lt;span class="hljs-title"&gt;onDestroy&lt;/span&gt;&lt;span class="hljs-params"&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class="hljs-keyword"&gt;super&lt;/span&gt;.onDestroy();
+    unbindService(conn);
+}</code></pre><p>}</p></code></pre><p></p>
+<p>layout/activity_main.xml</p>
+<pre class="xml"><code class="hljs"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"utf-8"</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+
+<pre><code>&lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;LinearLayout&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:gravity&lt;/span&gt;=&lt;span class="hljs-string"&gt;"center"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"match_parent"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;EditText&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:id&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@+id/nub_1"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:inputType&lt;/span&gt;=&lt;span class="hljs-string"&gt;"number"&lt;/span&gt; /&amp;gt;&lt;/span&gt;
+
+    &lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;TextView&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:text&lt;/span&gt;=&lt;span class="hljs-string"&gt;"+"&lt;/span&gt; /&amp;gt;&lt;/span&gt;
+
+    &lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;EditText&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:id&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@+id/nub_2"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:inputType&lt;/span&gt;=&lt;span class="hljs-string"&gt;"number"&lt;/span&gt; /&amp;gt;&lt;/span&gt;
+
+    &lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;TextView&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:text&lt;/span&gt;=&lt;span class="hljs-string"&gt;"="&lt;/span&gt; /&amp;gt;&lt;/span&gt;
+
+    &lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;EditText&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:id&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@+id/et_send_input"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"wrap_content"&lt;/span&gt;
+        &lt;span class="hljs-attr"&gt;android:inputType&lt;/span&gt;=&lt;span class="hljs-string"&gt;"number"&lt;/span&gt; /&amp;gt;&lt;/span&gt;
+&lt;span class="hljs-tag"&gt;&amp;lt;/&lt;span class="hljs-name"&gt;LinearLayout&lt;/span&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;TextView&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:id&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@+id/tv_bind"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"200dp"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"55dp"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_gravity&lt;/span&gt;=&lt;span class="hljs-string"&gt;"center"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_marginBottom&lt;/span&gt;=&lt;span class="hljs-string"&gt;"15dp"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:background&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@color/colorAccent"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:gravity&lt;/span&gt;=&lt;span class="hljs-string"&gt;"center"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:text&lt;/span&gt;=&lt;span class="hljs-string"&gt;"bind"&lt;/span&gt; /&amp;gt;&lt;/span&gt;
+
+&lt;span class="hljs-tag"&gt;&amp;lt;&lt;span class="hljs-name"&gt;TextView&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:id&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@+id/tv_send"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_width&lt;/span&gt;=&lt;span class="hljs-string"&gt;"200dp"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_height&lt;/span&gt;=&lt;span class="hljs-string"&gt;"55dp"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:layout_gravity&lt;/span&gt;=&lt;span class="hljs-string"&gt;"center"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:background&lt;/span&gt;=&lt;span class="hljs-string"&gt;"@color/colorAccent"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:gravity&lt;/span&gt;=&lt;span class="hljs-string"&gt;"center"&lt;/span&gt;
+    &lt;span class="hljs-attr"&gt;android:text&lt;/span&gt;=&lt;span class="hljs-string"&gt;"计算"&lt;/span&gt; /&amp;gt;&lt;/span&gt;</code></pre><p><span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span></p></code></pre><p></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180721125924545-1098549099.jpg"></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180721130234841-1703766935.jpg"></p>
+<h2 id="三.注意事项">三.注意事项</h2>
+<p>如果运行中报错:</p>
+<h4 id="aidl-method-threw-java.lang.securityexception-exception.">aidl Method threw 'java.lang.SecurityException' exception.</h4>
+<p>需要 确保客户端的aidl文件包名要与服务端的包名一样.也就是本项目中的IImoocAIDL.aidl文件包名一致.</p>
+<hr>
+<p>[1] 参考资料: https://blog.csdn.net/jinxinliu1/article/details/70174591</p>
+</div>
+            
+            <p class="more">
+                <a href="https://freefuncode.github.io/2018/07/21/AIDL介绍以及简单使用/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img="">
+            <a href="https://freefuncode.github.io/2018/07/21/AIDL介绍以及简单使用/" title="AIDL介绍以及简单使用">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/Android/">Android</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
     	<a href="https://freefuncode.github.io/2018/07/19/Android四大组件-五-第五大组件Fragment使用/">
     		Android 四大组件 (五) 第五大组件 - Fragment 使用
     	</a>
@@ -2260,631 +2664,6 @@ traceEnd();
 </article>
 
     
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/Android/">Android</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/07/07/Android源码分析五Zygote进程/">
-    		Android 源码分析（五） Zygote 进程
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        huangguangzhi 发表于
-        <time datetime="2018-07-07T06:14:54.000Z">2018-07-07</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/安卓源码/" title="安卓源码">安卓源码</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p><a href="https://www.cnblogs.com/bugzone/p/zygote.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h2>一.前言:&nbsp;&nbsp;</h2>
-<p>&nbsp;&nbsp;&nbsp; init进程 –&gt; Zygote进程 –&gt; SystemServer进程 –&gt; Launcher桌面程序 -&gt; 我们的App应用<br><br>&nbsp;&nbsp;&nbsp; init进程：linux的根进程，android系统是基于linux系统的，因此可以算作是整个android操作系统的第一个进程；</p>
-<h3>&nbsp;&nbsp;&nbsp; Zygote进程：android系统的根进程，主要作用：可以作用Zygote进程fork出SystemServer进程和各种应用进程；</h3>
-<p>&nbsp;&nbsp;&nbsp; SystemService进程：主要是在这个进程中启动系统的各项服务，比如ActivityManagerService，PackageManagerService，WindowManagerService服务等等；<br>&nbsp;&nbsp; &nbsp;<br>&nbsp;&nbsp; &nbsp;Launcher桌面程序:就是我们平时看到的桌面程序，它其实也是一个android应用程序，只不过这个应用程序是系统默认第一个启动的应用程序.&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</p>
-<h2>二. Zygote进程&nbsp;</h2>
-<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Android系统是基于Linux内核的，而在Linux系统中，所有的进程都是init进程的子孙进程，也就是说，所有的进程都是直接或者间接地由init进程fork出来的。Zygote进程也不例外，它是在系统启动的过程，由init进程创建的.<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; init进程在启动Zygote进程时一般都会调用ZygoteInit类的main方法.</p>
-<p>　　如果SystemServer崩溃了，Zygote也会kill自己，重新创建进程服务。</p>
-<p>&nbsp;　　</p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteInit.java</span>
-    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String argv[]) {
-        ZygoteServer zygoteServer </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> ZygoteServer();
-
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Mark zygote start. This ensures that thread creation will throw
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; an error.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ZygoteHooks.startZygoteNoThreadCreation();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Zygote goes into its own process group.&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    Os.setpgid(&lt;/span&gt;0, 0&lt;span style="color: #000000;"&gt;);
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ErrnoException ex) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("Failed to setpgid(0,0)"&lt;span style="color: #000000;"&gt;, ex);
-}
-
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Report Zygote start time to tron unless it is a runtime restart&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!"1".equals(SystemProperties.get("sys.boot_completed"&lt;span style="color: #000000;"&gt;))) {
-        MetricsLogger.histogram(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, "boot_zygote_init"&lt;span style="color: #000000;"&gt;,
-                (&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt;) SystemClock.elapsedRealtime());
-    }
-
-    String bootTimeTag &lt;/span&gt;= Process.is64Bit() ? "Zygote64Timing" : "Zygote32Timing"&lt;span style="color: #000000;"&gt;;
-    BootTimingsTraceLog bootTimingsTraceLog &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; BootTimingsTraceLog(bootTimeTag,
-            Trace.TRACE_TAG_DALVIK);
-    bootTimingsTraceLog.traceBegin(&lt;/span&gt;"ZygoteInit"&lt;span style="color: #000000;"&gt;);
-    RuntimeInit.enableDdms();
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Start profiling the zygote initialization.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            SamplingProfilerIntegration.start();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; startSystemServer = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-String socketName &lt;/span&gt;= "zygote"&lt;span style="color: #000000;"&gt;;
-String abiList &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; enableLazyPreload = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = 1; i &amp;lt; argv.length; i++&lt;span style="color: #000000;"&gt;) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ("start-system-server"&lt;span style="color: #000000;"&gt;.equals(argv[i])) {
-        startSystemServer &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ("--enable-lazy-preload"&lt;span style="color: #000000;"&gt;.equals(argv[i])) {
-        enableLazyPreload &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (argv[i].startsWith(ABI_LIST_ARG)) {
-        abiList &lt;/span&gt;=&lt;span style="color: #000000;"&gt; argv[i].substring(ABI_LIST_ARG.length());
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (argv[i].startsWith(SOCKET_NAME_ARG)) {
-        socketName &lt;/span&gt;=&lt;span style="color: #000000;"&gt; argv[i].substring(SOCKET_NAME_ARG.length());
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("Unknown command line argument: " +&lt;span style="color: #000000;"&gt; argv[i]);
-    }
-}
-
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (abiList == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("No ABI list supplied."&lt;span style="color: #000000;"&gt;);
-}
-
-zygoteServer.registerServerSocket(socketName);
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; In some configurations, we avoid preloading resources and classes eagerly.
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; In such cases, we will preload things prior to our first fork.&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;enableLazyPreload) {
-    bootTimingsTraceLog.traceBegin(&lt;/span&gt;"ZygotePreload"&lt;span style="color: #000000;"&gt;);
-    EventLog.writeEvent(LOG_BOOT_PROGRESS_PRELOAD_START,
-        SystemClock.uptimeMillis());
-    preload(bootTimingsTraceLog);
-    EventLog.writeEvent(LOG_BOOT_PROGRESS_PRELOAD_END,
-        SystemClock.uptimeMillis());
-    bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; ZygotePreload&lt;/span&gt;
-} &lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    Zygote.resetNicePriority();
-}
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Finish profiling the zygote initialization.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            SamplingProfilerIntegration.writeZygoteSnapshot();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Do an initial gc to clean up after startup&lt;/span&gt;
-bootTimingsTraceLog.traceBegin("PostZygoteInitGC"&lt;span style="color: #000000;"&gt;);
-gcAndFinalize();
-bootTimingsTraceLog.traceEnd(); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; PostZygoteInitGC&lt;/span&gt;</code></pre><span style="color: #000000;">
-            bootTimingsTraceLog.traceEnd(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> ZygoteInit
-            </span><span style="color: #008000;">//</span><span style="color: #008000;"> Disable tracing so that forked processes do not inherit stale tracing tags from
-            </span><span style="color: #008000;">//</span><span style="color: #008000;"> Zygote.</span>
-            Trace.setTracingEnabled(<span style="color: #0000ff;">false</span><span style="color: #000000;">);
-
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Zygote process unmounts root storage spaces.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            Zygote.nativeUnmountStorageOnInit();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set seccomp policy&lt;/span&gt;</code></pre><p><span style="color: #000000;">            Seccomp.setPolicy();</span></p>
-<pre><code>        ZygoteHooks.stopZygoteNoThreadCreation();
-
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (startSystemServer) {
-            startSystemServer(abiList, socketName, zygoteServer);
-        }
-
-        Log.i(TAG, &lt;/span&gt;"Accepting command socket connections"&lt;span style="color: #000000;"&gt;);
-        zygoteServer.runSelectLoop(abiList);
-
-        zygoteServer.closeServerSocket();
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Zygote.MethodAndArgsCaller caller) {
-        caller.run();
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Throwable ex) {
-        Log.e(TAG, &lt;/span&gt;"System zygote died with exception"&lt;span style="color: #000000;"&gt;, ex);
-        zygoteServer.closeServerSocket();
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt;&lt;span style="color: #000000;"&gt; ex;
-    }
-}
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;1.registerServerSocket
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;2.调用preload加载资源，
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;3.利用gcAndFinalize初始化gc，
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;4.启动SystemServer，startSystemServer() 这里启动SystemServer服务.
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;5.调用runSelectLoop运行Zygote进程选择的looper，
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;6.关闭和清理zygote sockets &lt;/span&gt;
-&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></span></pre></div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteServer.java</span>
-    <span style="color: #008000;">/**</span><span style="color: #008000;">
-     * Registers a server socket for zygote command connections
-     *
-     * </span><span style="color: #808080;">@throws</span><span style="color: #008000;"> RuntimeException when open fails
-     </span><span style="color: #008000;">*/</span>
-    <span style="color: #0000ff;">void</span><span style="color: #000000;"> registerServerSocket(String socketName) {
-        </span><span style="color: #0000ff;">if</span> (mServerSocket == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
-            </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> fileDesc;
-            </span><span style="color: #0000ff;">final</span> String fullSocketName = ANDROID_SOCKET_PREFIX +<span style="color: #000000;"> socketName;
-            </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {
-                String env </span>=<span style="color: #000000;"> System.getenv(fullSocketName);
-                fileDesc </span>=<span style="color: #000000;"> Integer.parseInt(env);
-            } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (RuntimeException ex) {
-                </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> RuntimeException(fullSocketName + " unset or invalid"<span style="color: #000000;">, ex);
-            }
-
-<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-            FileDescriptor fd &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; FileDescriptor();
-            fd.setInt$(fileDesc);
-            mServerSocket &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; LocalServerSocket(fd);
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (IOException ex) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
-                    &lt;/span&gt;"Error binding to local socket '" + fileDesc + "'"&lt;span style="color: #000000;"&gt;, ex);
-        }
-    }
-}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteInit.java</span>
-    <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> preload(BootTimingsTraceLog bootTimingsTraceLog) {
-        Log.d(TAG, </span>"begin preload"<span style="color: #000000;">);
-        bootTimingsTraceLog.traceBegin(</span>"BeginIcuCachePinning"<span style="color: #000000;">);
-        beginIcuCachePinning();
-        bootTimingsTraceLog.traceEnd(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> BeginIcuCachePinning</span>
-        bootTimingsTraceLog.traceBegin("PreloadClasses"<span style="color: #000000;">);
-        </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化Zygote中需要的class类        </span>
-<span style="color: #000000;">        preloadClasses();
-        bootTimingsTraceLog.traceEnd(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> PreloadClasses</span>
-        bootTimingsTraceLog.traceBegin("PreloadResources"<span style="color: #000000;">);
-        </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化系统资源</span>
-<span style="color: #000000;">        preloadResources();
-        bootTimingsTraceLog.traceEnd(); </span><span style="color: #008000;">//</span><span style="color: #008000;"> PreloadResources</span>
-        Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadOpenGL"<span style="color: #000000;">);
-        </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化OpenGL</span>
-<span style="color: #000000;">        preloadOpenGL();
-        Trace.traceEnd(Trace.TRACE_TAG_DALVIK);
-        </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化系统libraries</span>
-<span style="color: #000000;">        preloadSharedLibraries();
-        </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化文字资源</span>
-<span style="color: #000000;">        preloadTextResources();
-        </span><span style="color: #008000;">//</span><span style="color: #008000;"> Ask the WebViewFactory to do any initialization that must run in the zygote process,
-        </span><span style="color: #008000;">//</span><span style="color: #008000;"> for memory sharing purposes.
-        </span><span style="color: #008000;">//</span><span style="color: #008000;">初始化webview</span>
-<span style="color: #000000;">        WebViewFactory.prepareWebViewInZygote();
-        endIcuCachePinning();
-        warmUpJcaProviders();
-        Log.d(TAG, </span>"end preload"<span style="color: #000000;">);
-
-<pre><code>    sPreloadComplete &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">进去看看初始化webview方法
-    </span><span style="color: #008000;">//</span><span style="color: #008000;">WebViewFactory.java</span>
-    <span style="color: #008000;">/**</span><span style="color: #008000;">
-     * Perform any WebView loading preparations that must happen in the zygote.
-     * Currently, this means allocating address space to load the real JNI library later.
-     </span><span style="color: #008000;">*/</span>
-    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> prepareWebViewInZygote() {
-        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {
-            System.loadLibrary(</span>"webviewchromium_loader"<span style="color: #000000;">);
-            </span><span style="color: #0000ff;">long</span> addressSpaceToReserve =<span style="color: #000000;">
-                    SystemProperties.getLong(CHROMIUM_WEBVIEW_VMSIZE_SIZE_PROPERTY,
-                    CHROMIUM_WEBVIEW_DEFAULT_VMSIZE_BYTES);
-            sAddressSpaceReserved </span>=<span style="color: #000000;"> nativeReserveAddressSpace(addressSpaceToReserve);
-
-<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (sAddressSpaceReserved) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG) {
-                Log.v(LOGTAG, &lt;/span&gt;"address space reserved: " + addressSpaceToReserve + " bytes"&lt;span style="color: #000000;"&gt;);
-            }
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-            Log.e(LOGTAG, &lt;/span&gt;"reserving " + addressSpaceToReserve +
-                    " bytes of address space failed"&lt;span style="color: #000000;"&gt;);
-        }
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Throwable t) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Log and discard errors at this stage as we must not crash the zygote.&lt;/span&gt;
-        Log.e(LOGTAG, "error preparing native loader"&lt;span style="color: #000000;"&gt;, t);
-    }
-}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<p>&nbsp;</p>
-</div>
-            
-            <p class="more">
-                <a href="https://freefuncode.github.io/2018/07/07/Android源码分析五Zygote进程/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/07/07/Android源码分析五Zygote进程/" title="Android 源码分析（五） Zygote 进程">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/Android/">Android</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/07/07/Android源码分析四Handler异步消息机制/">
-    		Android 源码分析（四） Handler 异步消息机制
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        huangguangzhi 发表于
-        <time datetime="2018-07-07T04:40:19.000Z">2018-07-07</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/安卓源码/" title="安卓源码">安卓源码</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p><a href="https://www.cnblogs.com/bugzone/p/handler.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h2>一.Handler 使用方法:</h2>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre> Handler handler = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Handler() {
-        @Override
-        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> handleMessage(Message msg) {
-            </span><span style="color: #0000ff;">super</span><span style="color: #000000;">.handleMessage(msg);
-            </span><span style="color: #0000ff;">switch</span><span style="color: #000000;"> (msg.what) {
-                </span><span style="color: #0000ff;">case</span> 1<span style="color: #000000;">:
-                    Log.i(TAG,</span>"UI thread sendEmptyMessage...1"<span style="color: #000000;">);
-                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
-                </span><span style="color: #0000ff;">case</span> 2<span style="color: #000000;">:
-                    Log.i(TAG,</span>"thread sendEmptyMessage...2"<span style="color: #000000;">);
-                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
-                </span><span style="color: #0000ff;">case</span> 3<span style="color: #000000;">:
-                    Log.i(TAG,</span>"thread sendMessage...3"<span style="color: #000000;">);
-                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
-                </span><span style="color: #0000ff;">case</span> 4<span style="color: #000000;">:
-                    Log.i(TAG,</span>"UI thread sendMessage...4"<span style="color: #000000;">);
-                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
-            }
-        }
-    };
-
-
-<pre><code>handler.sendEmptyMessage(&lt;/span&gt;1&lt;span style="color: #000000;"&gt;);
-
-handler.postDelayed(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Runnable() {
-        @Override
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; run() {
-            handler.sendEmptyMessage(&lt;/span&gt;2&lt;span style="color: #000000;"&gt;);
-
-            Message msg &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Message();
-            msg.what &lt;/span&gt;= 3&lt;span style="color: #000000;"&gt;;
-            handler.sendMessage(msg);
-        }
-    }, &lt;/span&gt;1000&lt;span style="color: #000000;"&gt;);&lt;br&gt;
-Message msg2 &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Message();
-msg2.what &lt;/span&gt;= 4&lt;span style="color: #000000;"&gt;;
-handler.sendMessage(msg2);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<p>输出结果:</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180707123135364-1224869612.png" alt=""></p>
-<h2>二.源码分析</h2>
-<pre><span style="color: #000000;">从handler.sendMessage(msg)进去看看源码怎么调用的.<br></span></pre>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre>//<span style="color: #000000;">Handler.java
-
-<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Looper.prepare()方法初始化了一个Looper对象并关联在一个MessageQueue对象，并且一个线程中只有一个Looper对象，只有一个MessageQueue对象。
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Handler的构造方法则在Handler内部维护了当前线程的Looper对象&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; Handler(Callback callback, &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; async) {
-    ......
-    mLooper &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Looper.myLooper();
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (mLooper == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
-            &lt;/span&gt;"Can't create handler inside thread that has not called Looper.prepare()"&lt;span style="color: #000000;"&gt;);
-    }
-    ......
-}
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; if we can get rid of this method, the handler need not remember its loop
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; we could instead export a getMessageQueue() method... &lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt;&lt;span style="color: #000000;"&gt; Looper getLooper() {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mLooper;
-}
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
- * Pushes a message onto the end of the message queue after all pending messages
- * before the current time. It will be received in {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; #handleMessage},
- * in the thread attached to this handler.
- *  
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; Returns true if the message was successfully placed in to the 
- *         message queue.  Returns false on failure, usually because the
- *         looper processing the message queue is exiting.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; sendMessage(Message msg)
-{
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;参数 0 代表,无延迟.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; sendMessageDelayed(msg, 0&lt;span style="color: #000000;"&gt;);
-}
-
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
- * Enqueue a message into the message queue after all pending messages
- * before (current time + delayMillis). You will receive it in
- * {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; #handleMessage}, in the thread attached to this handler.
- *  
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; Returns true if the message was successfully placed in to the 
- *         message queue.  Returns false on failure, usually because the
- *         looper processing the message queue is exiting.  Note that a
- *         result of true does not mean the message will be processed -- if
- *         the looper is quit before the delivery time of the message
- *         occurs then the message will be dropped.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; sendMessageDelayed(Message msg, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; delayMillis)
-{
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (delayMillis &amp;lt; 0&lt;span style="color: #000000;"&gt;) {
-        delayMillis &lt;/span&gt;= 0&lt;span style="color: #000000;"&gt;;
-    }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; sendMessageAtTime(msg, SystemClock.uptimeMillis() +&lt;span style="color: #000000;"&gt; delayMillis);
-}
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
- * Enqueue a message into the message queue after all pending messages
- * before the absolute time (in milliseconds) &amp;lt;var&amp;gt;uptimeMillis&amp;lt;/var&amp;gt;.
- * &amp;lt;b&amp;gt;The time-base is {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; android.os.SystemClock#uptimeMillis}.&amp;lt;/b&amp;gt;
- * Time spent in deep sleep will add an additional delay to execution.
- * You will receive it in {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; #handleMessage}, in the thread attached
- * to this handler.
- * 
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@param&lt;/span&gt;&lt;span style="color: #008000;"&gt; uptimeMillis The absolute time at which the message should be
- *         delivered, using the
- *         {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; android.os.SystemClock#uptimeMillis} time-base.
- *         
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; Returns true if the message was successfully placed in to the 
- *         message queue.  Returns false on failure, usually because the
- *         looper processing the message queue is exiting.  Note that a
- *         result of true does not mean the message will be processed -- if
- *         the looper is quit before the delivery time of the message
- *         occurs then the message will be dropped.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; sendMessageAtTime(Message msg, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; uptimeMillis) {
-    MessageQueue queue &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mQueue;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (queue == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        RuntimeException e &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt; + " sendMessageAtTime() called with no mQueue"&lt;span style="color: #000000;"&gt;);
-        Log.w(&lt;/span&gt;"Looper"&lt;span style="color: #000000;"&gt;, e.getMessage(), e);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; enqueueMessage(queue, msg, uptimeMillis);
-}
-
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; enqueueMessage(MessageQueue queue, Message msg, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; uptimeMillis) {
-    msg.target &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mAsynchronous) {
-        msg.setAsynchronous(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-    }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; queue.enqueueMessage(msg, uptimeMillis);
-}
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;msg.target就是Handler对象本身；而这里的queue对象就是我们的Handler内部维护的Looper对象关联的MessageQueue对象.&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<pre></pre>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">MessageQueue.java</span>
-    <span style="color: #0000ff;">boolean</span> enqueueMessage(Message msg, <span style="color: #0000ff;">long</span><span style="color: #000000;"> when) {
-        </span><span style="color: #0000ff;">if</span> (msg.target == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
-            </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> IllegalArgumentException("Message must have a target."<span style="color: #000000;">);
-        }
-        </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (msg.isInUse()) {
-            </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> IllegalStateException(msg + " This message is already in use."<span style="color: #000000;">);
-        }
-
-<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;synchronized&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mQuitting) {
-            IllegalStateException e &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; IllegalStateException(
-                    msg.target &lt;/span&gt;+ " sending message to a Handler on a dead thread"&lt;span style="color: #000000;"&gt;);
-            Log.w(TAG, e.getMessage(), e);
-            msg.recycle();
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-        }
-
-        msg.markInUse();
-        msg.when &lt;/span&gt;=&lt;span style="color: #000000;"&gt; when;
-        Message p &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mMessages;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; needWake;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (p == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; || when == 0 || when &amp;lt;&lt;span style="color: #000000;"&gt; p.when) {
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; New head, wake up the event queue if blocked.&lt;/span&gt;
-            msg.next =&lt;span style="color: #000000;"&gt; p;
-            mMessages &lt;/span&gt;=&lt;span style="color: #000000;"&gt; msg;
-            needWake &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mBlocked;
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Inserted within the middle of the queue.  Usually we don't have to wake
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; up the event queue unless there is a barrier at the head of the queue
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; and the message is the earliest asynchronous message in the queue.&lt;/span&gt;
-            needWake = mBlocked &amp;amp;&amp;amp; p.target == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; msg.isAsynchronous();
-            Message prev;
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;&lt;span style="color: #000000;"&gt; (;;) {
-                prev &lt;/span&gt;=&lt;span style="color: #000000;"&gt; p;
-                p &lt;/span&gt;=&lt;span style="color: #000000;"&gt; p.next;
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (p == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; || when &amp;lt;&lt;span style="color: #000000;"&gt; p.when) {
-                    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-                }
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (needWake &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; p.isAsynchronous()) {
-                    needWake &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-                }
-            }
-            msg.next &lt;/span&gt;= p; &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; invariant: p == prev.next&lt;/span&gt;
-            prev.next =&lt;span style="color: #000000;"&gt; msg;
-        }
-
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; We can assume mPtr != 0 because mQuitting is false.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (needWake) {
-            nativeWake(mPtr);
-        }
-    }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">Looper.java</span>
-    <span style="color: #008000;">/**</span><span style="color: #008000;">
-     * Run the message queue in this thread. Be sure to call
-     * {</span><span style="color: #808080;">@link</span><span style="color: #008000;"> #quit()} to end the loop.
-     </span><span style="color: #008000;">*/</span>
-    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> loop() {
-        </span><span style="color: #0000ff;">final</span> Looper me =<span style="color: #000000;"> myLooper();
-        </span><span style="color: #0000ff;">if</span> (me == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
-            </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> RuntimeException("No Looper; Looper.prepare() wasn't called on this thread."<span style="color: #000000;">);
-        }
-        </span><span style="color: #0000ff;">final</span> MessageQueue queue =<span style="color: #000000;"> me.mQueue;
-
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure the identity of this thread is that of the local process,
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; and keep track of what that identity token actually is.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Binder.clearCallingIdentity();<br>        </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">long</span> ident =<span style="color: #000000;"> Binder.clearCallingIdentity();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Looper.loop()方法里起了一个死循环，不断的判断MessageQueue中的消息是否为空，如果为空则直接return掉，然后执行queue.next()方法：&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;&lt;span style="color: #000000;"&gt; (;;) {
-    Message msg &lt;/span&gt;= queue.next(); &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; might block&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (msg == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; No message indicates that the message queue is quitting.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    }
-
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This must be in a local variable, in case a UI event sets the logger&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; Printer logging =&lt;span style="color: #000000;"&gt; me.mLogging;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (logging != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        logging.println(&lt;/span&gt;"&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Dispatching to " + msg.target + " " +&lt;span style="color: #000000;"&gt;
-                msg.callback &lt;/span&gt;+ ": " +&lt;span style="color: #000000;"&gt; msg.what);
-    }
-
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; slowDispatchThresholdMs =&lt;span style="color: #000000;"&gt; me.mSlowDispatchThresholdMs;
-
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; traceTag =&lt;span style="color: #000000;"&gt; me.mTraceTag;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (traceTag != 0 &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; Trace.isTagEnabled(traceTag)) {
-        Trace.traceBegin(traceTag, msg.target.getTraceName(msg));
-    }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; start = (slowDispatchThresholdMs == 0) ? 0&lt;span style="color: #000000;"&gt; : SystemClock.uptimeMillis();
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; end;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;msg.target就是Handler对象本身&lt;/span&gt;</code></pre><p><span style="color: #000000;">                msg.target.dispatchMessage(msg);<br>                end </span>= (slowDispatchThresholdMs == 0) ? 0<span style="color: #000000;"> : SystemClock.uptimeMillis();<br>            } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>                </span><span style="color: #0000ff;">if</span> (traceTag != 0<span style="color: #000000;">) {<br>                    Trace.traceEnd(traceTag);<br>                }<br>            }<br>            </span><span style="color: #0000ff;">if</span> (slowDispatchThresholdMs &gt; 0<span style="color: #000000;">) {<br>                </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">long</span> time = end -<span style="color: #000000;"> start;<br>                </span><span style="color: #0000ff;">if</span> (time &gt;<span style="color: #000000;"> slowDispatchThresholdMs) {<br>                    Slog.w(TAG, </span>“Dispatch took “ + time + “ms on “<br>                            + Thread.currentThread().getName() + “, h=” +<span style="color: #000000;"><br>                            msg.target </span>+ “ cb=” + msg.callback + “ msg=” +<span style="color: #000000;"> msg.what);<br>                }<br>            }</span></p>
-<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (logging != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-            logging.println(&lt;/span&gt;"&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; Finished to " + msg.target + " " +&lt;span style="color: #000000;"&gt; msg.callback);
-        }
-
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure that during the course of dispatching the
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; identity of the thread wasn't corrupted.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; newIdent =&lt;span style="color: #000000;"&gt; Binder.clearCallingIdentity();
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (ident !=&lt;span style="color: #000000;"&gt; newIdent) {
-            Log.wtf(TAG, &lt;/span&gt;"Thread identity changed from 0x"
-                    + Long.toHexString(ident) + " to 0x"
-                    + Long.toHexString(newIdent) + " while dispatching to "
-                    + msg.target.getClass().getName() + " "
-                    + msg.callback + " what=" +&lt;span style="color: #000000;"&gt; msg.what);
-        }
-
-        msg.recycleUnchecked();
-    }
-}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<p>又回到Handler.java</p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #008000;">//</span><span style="color: #008000;">Handle.java</span>
-    <span style="color: #008000;">/**</span><span style="color: #008000;">
-     * Handle system messages here.
-     </span><span style="color: #008000;">*/</span>
-    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> dispatchMessage(Message msg) {
-        </span><span style="color: #0000ff;">if</span> (msg.callback != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
-            handleCallback(msg);
-        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {
-            </span><span style="color: #0000ff;">if</span> (mCallback != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
-                </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (mCallback.handleMessage(msg)) {
-                    </span><span style="color: #0000ff;">return</span><span style="color: #000000;">;
-                }
-            }
-            handleMessage(msg);
-        }
-    }
-
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; handleCallback(Message message) {
-    message.callback.run();
-}
-&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<h3>补充: UI线程 调用 Loop.</h3>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre>    <span style="color: #008000;">//</span><span style="color: #008000;">ActivityThread.java</span>
-    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args) {
-        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, </span>"ActivityThreadMain"<span style="color: #000000;">);
-        SamplingProfilerIntegration.start();
-
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; CloseGuard defaults to true and can be quite spammy.  We
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; disable it here, but selectively enable it later (via
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; StrictMode) on debug builds, but using DropBox, not logs.&lt;/span&gt;
-CloseGuard.setEnabled(&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-
-Environment.initForCurrentUser();
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set the reporter for event logging in libcore&lt;/span&gt;
-EventLogger.setReporter(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; EventLoggingReporter());
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure TrustedCertificateStore looks in the right place for CA certificates&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; File configDir =&lt;span style="color: #000000;"&gt; Environment.getUserConfigDirectory(UserHandle.myUserId());
-TrustedCertificateStore.setDefaultUserDirectory(configDir);
-
-Process.setArgV0(&lt;/span&gt;"&amp;lt;pre-initialized&amp;gt;"&lt;span style="color: #000000;"&gt;);
-
-Looper.prepareMainLooper();
-
-ActivityThread thread &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; ActivityThread();
-thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (sMainThreadHandler == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    sMainThreadHandler &lt;/span&gt;=&lt;span style="color: #000000;"&gt; thread.getHandler();
-}
-
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    Looper.myLooper().setMessageLogging(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt;
-            LogPrinter(Log.DEBUG, &lt;/span&gt;"ActivityThread"&lt;span style="color: #000000;"&gt;));
-}
-
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; End of event ActivityThreadMain.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">主线程启动就调用了loop().</span><br><span style="color: #000000;">        Looper.loop();</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("Main thread loop unexpectedly exited"&lt;span style="color: #000000;"&gt;);
-}&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<h2><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180707123851869-829464379.png" alt=""></h2>
-<h2>三.总结:</h2>
-<p>一.Handler,Looper,MessageQue三者关系&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</p>
-<p>　　1.Looper：相当于消息的载体<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 　　1) 它的内部有一个消息队列，也就是MessageQueue，Handler发送的所有消息都会走向这个消息队里。<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 　　2) 它的Looper.loop方法是一个死循环，不断的从消息队列MessageQueue中取出消息。如果有消息存在就处理该消息，否则就阻塞。<br><br>&nbsp;&nbsp; &nbsp;2.MessageQue：就是一个消息队列，可以向其中添加消息并处理消息。<br><br>&nbsp;&nbsp; &nbsp;3.Handler其实就是发送消息处理消息的封装。它与Looper相关联，也就是说在Handler的内部可以找到Looper，找到了Looper就找到了相应的消息队列。因此Handler发送的消息都会走向MessageQueue。<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </p>
-<p>&nbsp;二.为什么不能在子线程中更新UI&nbsp;&nbsp; &nbsp;</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果在子线程更新UI，那么就会出现这样子的一种况：其中一个子线程更新界面还没有完成，另外一个子线程就又去更新UI了，这样子会造成子UI界面错乱。那么你可能会说，我们可以实行加锁机制啊，让更新UI的代码不能并发执行。如果每一个子线程都加锁，那么 毫无疑问程序的性能将会大大下降。因此主要的原因总结起来就是两点：<br><br>&nbsp;&nbsp; &nbsp;（1）为了防止界面错乱<br><br>&nbsp;&nbsp; &nbsp;（2）为了防止程序性能下降<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 因此android不允许在子线程中更新UI。为了解决这个这个问题，android就设计出这样子的一套消息处理机制，让我们尽管在子线程中发送更新UI的消息，而不用去关心多线程问题。在主线程的消息队里中采取轮询更新处理。</p>
-<pre><span style="color: #000000;">&nbsp;</span></pre>
-</div>
-            
-            <p class="more">
-                <a href="https://freefuncode.github.io/2018/07/07/Android源码分析四Handler异步消息机制/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/07/07/Android源码分析四Handler异步消息机制/" title="Android 源码分析（四） Handler 异步消息机制">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
 
     
     <nav class="page-navigator">
@@ -2950,7 +2729,7 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
     
     <li>
         <a href="/categories/心情/">心情</a>
-        <span class="badge">(10)</span>
+        <span class="badge">(12)</span>
     </li>
     
     <li>
@@ -3013,17 +2792,21 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
   
     <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
   
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
   
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
-  
     <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
     <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
   
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
@@ -3050,10 +2833,6 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
     <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
   
     <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
-  
-    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
-  
-    <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
   
 </div>
     </section>
