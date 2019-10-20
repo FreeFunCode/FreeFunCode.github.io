@@ -1,800 +1,1527 @@
 <!DOCTYPE html>
 <html>
-
 <head><meta name="generator" content="Hexo 3.9.0">
-  
+  <meta charset="utf-8">
   <title>网记本</title>
-  <meta charset="UTF-8">
-  <meta name="description" content>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-
-  <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="网记本">
-<meta property="og:url" content="https://freefuncode.github.io/page/7/index.html">
+  <meta name="keywords" content>
+  <meta name="description" content="网记本">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="links">
+<meta property="og:url" content="https://freefuncode.github.io/PY.html">
 <meta property="og:site_name" content="网记本">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.wanandroid.com/resources/image/pc/logo.png">
+<meta property="og:image" content="https://www.android-doc.com/assets/images/dac_logo.png">
+<meta property="og:updated_time" content="2019-10-20T04:06:18.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网记本">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
-   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-  
-  
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1571545567813">
-</head>
-
-<body class="mdui-drawer-body-left">
-  
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="网记本" class="mdui-btn mdui-btn-icon"><img src="/img/avatar.jpg"></a>
-       </div>
-    </div>
-  </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="网记本">
-            <img src="/img/avatar.jpg" alt="网记本">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div><span>文章</span>94</div>
-        <div><span>标签</span>51</div>
-        <div><span>分类</span>13</div>
-    </div>
-    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about" title="关于博客">
-            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-            <div class="mdui-list-item-content">
-                关于博客
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的收藏">
-            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
-            <div class="mdui-list-item-content">
-                我的收藏
-            </div>
-        </a>
-        
-    </ul>
-    <aside id="nexmoe-sidebar">
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">社交按钮</h3>
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://weibo.com/230689567" target="_blank" mdui-tooltip="{content: '微博'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-weibo"></i>
-        </a><a class="mdui-ripple" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" mdui-tooltip="{content: '掘金'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-appstore-fill"></i>
-        </a><a class="mdui-ripple" href="https://www.cnblogs.com/bugzone/" target="_blank" mdui-tooltip="{content: '博客园'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-dribbble"></i>
-        </a><a class="mdui-ripple" href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" mdui-tooltip="{content: '简书'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-container"></i>
-        </a><a class="mdui-ripple" href="https://github.com/freefuncode/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a><a class="mdui-ripple" href="https://www.zhihu.com/people/yimei-cheng-xu-yuan-28/activities" target="_blank" mdui-tooltip="{content: '知乎'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-zhihu"></i>
-        </a>
-    </div>
-</div>
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章分类</h3>
-    <div class="nexmoe-widget">
-
-      <ul class="category-list">
-
-        
+<meta name="twitter:title" content="links">
+<meta name="twitter:image" content="https://www.wanandroid.com/resources/image/pc/logo.png">
 
 
-        
+<link rel="icon" href="/img/favicon.png">
 
-        
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Android/">Android</a>
-          <span class="category-list-count">52</span>
-        </li>
+<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
 
-        
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/后端/CSharp/">CSharp</a>
-          <span class="category-list-count">14</span>
-        </li>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
 
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/GitHub/">GitHub</a>
-          <span class="category-list-count">5</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/后端/JAVA/">JAVA</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/后端/PHP/">PHP</a>
-          <span class="category-list-count">6</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Android/kotlin/">kotlin</a>
-          <span class="category-list-count">2</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/前端/">前端</a>
-          <span class="category-list-count">5</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/后端/">后端</a>
-          <span class="category-list-count">21</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Android/安卓源码/">安卓源码</a>
-          <span class="category-list-count">15</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Android/开源框架/">开源框架</a>
-          <span class="category-list-count">17</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/心情/">心情</a>
-          <span class="category-list-count">10</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Android/知识点/">知识点</a>
-          <span class="category-list-count">18</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/设计模式/">设计模式</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-      </ul>
-
-    </div>
-  </div>
-
-
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">标签云</h3>
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/AIDL/" style="font-size: 10px;">AIDL</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 12.5px;">Android</a> <a href="/tags/Android7-0/" style="font-size: 10px;">Android7.0</a> <a href="/tags/BroadcastReceiver/" style="font-size: 10px;">BroadcastReceiver</a> <a href="/tags/C-文件上传/" style="font-size: 10px;">C#文件上传</a> <a href="/tags/ContentProvider/" style="font-size: 10px;">ContentProvider</a> <a href="/tags/Excel操作/" style="font-size: 10px;">Excel操作</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/IIS/" style="font-size: 12.5px;">IIS</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/Linq/" style="font-size: 10px;">Linq</a> <a href="/tags/MAMP/" style="font-size: 10px;">MAMP</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SqlServer/" style="font-size: 10px;">SqlServer</a> <a href="/tags/ViewPager/" style="font-size: 10px;">ViewPager</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/c/" style="font-size: 10px;">c#</a> <a href="/tags/coroutine协程/" style="font-size: 10px;">coroutine协程</a> <a href="/tags/easyui/" style="font-size: 12.5px;">easyui</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/kotlin/" style="font-size: 10px;">kotlin</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mono-for-Android/" style="font-size: 10px;">mono_for_Android</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/view绘制/" style="font-size: 10px;">view绘制</a> <a href="/tags/visualStudio/" style="font-size: 12.5px;">visualStudio</a> <a href="/tags/习惯/" style="font-size: 10px;">习惯</a> <a href="/tags/京东云擎/" style="font-size: 10px;">京东云擎</a> <a href="/tags/公众号/" style="font-size: 10px;">公众号</a> <a href="/tags/副业/" style="font-size: 10px;">副业</a> <a href="/tags/图片保存/" style="font-size: 10px;">图片保存</a> <a href="/tags/地图/" style="font-size: 12.5px;">地图</a> <a href="/tags/增量更新/" style="font-size: 10px;">增量更新</a> <a href="/tags/安卓源码/" style="font-size: 17.5px;">安卓源码</a> <a href="/tags/屏幕适配/" style="font-size: 10px;">屏幕适配</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a> <a href="/tags/开源框架/" style="font-size: 20px;">开源框架</a> <a href="/tags/新浪SAE/" style="font-size: 10px;">新浪SAE</a> <a href="/tags/日期格式化/" style="font-size: 10px;">日期格式化</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a> <a href="/tags/电影/" style="font-size: 15px;">电影</a> <a href="/tags/线程切换/" style="font-size: 10px;">线程切换</a> <a href="/tags/职业发展/" style="font-size: 10px;">职业发展</a> <a href="/tags/职业生涯/" style="font-size: 10px;">职业生涯</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/评论插件/" style="font-size: 10px;">评论插件</a> <a href="/tags/跳槽/" style="font-size: 12.5px;">跳槽</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
-    </div>
-    
-  </div>
-
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">五月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
-    <div class="nexmoe-copyright">
-        &copy; 2019 网记本
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
-    </div>
-</div><!-- .nexmoe-drawer -->
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <section class="nexmoe-posts" id="brand-waterfall">
-    
-    <div class="nexmoe-post">
-        <a href="/2018/04/11/四大组件-一-Activity生命周期/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Android 四大组件 (一) Activity 生命周期">
-                
-                <h1>Android 四大组件 (一) Activity 生命周期</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2018年04月11日</a>
-            <a><i class="nexmoefont icon-areachart"></i>925 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Android/">Android</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/Android/知识点/">知识点</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/Activity/">Activity</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/activity_lifecycle.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp;</p>
-<p>简单粗暴。</p>
-<p>分两块来熟悉activity生命周期：<strong>一.典型生命周期过程;二.异常情况下的生命周期过程。</strong></p>
-<p>&nbsp;</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411190609661-2068970253.png" alt></p>
-<p><span style="text-decoration: underline;"><em><strong>一. 典型生命周期过程</strong></em></span></p>
-<p style="text-align: left;">Activitiy的生命周期方法主要有七个：onCreate()、onRestart()、onStart()、onResume()、onPause()、onStop()、onDestory()。</p>
-<p style="text-align: left;">&nbsp;1. onCreate()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onCreate方法是整个生命周期中唯一必须实现的方法。布局都是在Activity中进行，在该方法中做一些初始化的操作，如通过setContentView设置界面布局的资源，初始化所需要的组件信息等。</p>
-<p style="text-align: left;">&nbsp;2. onRestart()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; 当Activitiy被onStop()并且没有被killed时候，调用这个方法进行唤醒，也可以说理解为，当处于非栈顶状态的活动需要再次返回栈顶，展现给用户的时候，触发该方法。该方法优先于onStart()方法。</p>
-<p style="text-align: left;">&nbsp;3.onStart()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; 表示Activity正在启动，但是无法与用户进行交互。可以把onStart和onStop看成一对。</p>
-<p style="text-align: left;">&nbsp;4.onResume()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity已在前台可见，可与用户交互了。</p>
-<p style="text-align: left;"><span style="text-decoration: underline;"><em>&nbsp;&nbsp; onResume方法与onStart的相同点是两者都表示Activity可见，只不过onStart回调时Activity还是后台无法与用户交互，而onResume则已显示在前台，可与用户交互。</em></span></p>
-<p style="text-align: left;">&nbsp;5.onPause()</p>
-<p style="text-align: left;">&nbsp;&nbsp; 这个方法之后有可能是onResume也有可能是onStop。用于提交未保存发生变化了的持久化数据，及停止动画及其他其他比较消耗CPU的事件，这是为了更好的运行新的activity。当在activity中打开的是一个dialog不完全覆盖这个activity，则activity就会是onPause状态。</p>
-<p style="text-align: left;">&nbsp;6.onStop()</p>
-<p style="text-align: left;">&nbsp;&nbsp; activity完全看不见的时候，会调用onStop方法。当用户自己退出程序的时候，建议在onStop方法中保存数据。此时Activity不可见，仅在后台运行。同样地，在onStop方法可以做一些资源释放的操作（不能太耗时）。</p>
-<p style="text-align: left;">&nbsp;7.onDestroy()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity正在被销毁，也是生命周期最后一个执行的方法，一般我们可以在此方法中做一些回收工作和最终的资源释放。</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><strong><em><span style="text-decoration: underline;">二、异常情况下的生命周期过程</span></em></strong></p>
-<p style="text-align: left;">异常生命周期产生原因一般有这两种：</p>
-<p style="text-align: left;"><strong>1.横竖屏切换；</strong></p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity处于竖屏状态，如果突然旋转屏幕，由于系统配置发生了变化，在默认的情况下，Activity会被销毁并重新创建。</p>
-<p style="text-align: left;">&nbsp;&nbsp; <img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411194802808-1639713916.png" alt></p>
-<p style="text-align: left;">&nbsp;&nbsp; 可以在onSaveInstanceState方法中存储一些数据以便Activity重建之后可以恢复这些数据。onSaveInstanceState和onRestoreInstanceState只有在Activity异常终止时才会被调用的，正常情况是不会调用这两个方法的。</p>
-<p style="text-align: left;">&nbsp; 当我们不想Activity在屏幕旋转后导致销毁重建时，可以设置configChange=“orientation”；当SDK版本大于13时，我们还需额外添加一个“screenSize”的值，对于这两个值含义如下：<br>orientation：屏幕方向发生变化，配置该参数可以解决横竖屏切换时，Activity重建问题（API&lt;13）<br>screenSize：当设备旋转时，屏幕尺寸发生变化，API&gt;13后必须配置该参数才可以保证横竖切换不会导致Activity重建。<br>设置了这两个参数后，当横竖屏切换时，Activity不会再重建并且也不会调用之前相关的方法，取而代之的是回调onConfigurationChanged方法.</p>
-<p style="text-align: left;"><strong>2.内存不足的时候killed优先级低的activity.</strong></p>
-<p style="text-align: left;">&nbsp;&nbsp;android系统中进程优先级由高到低依次是：前台进程，可见进程、服务进程、后台进程、空进程.</p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2016/08/27/第二次裸辞-潜伏期-一些感想/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="第二次裸辞_潜伏期_一些感想">
-                
-                <h1>第二次裸辞_潜伏期_一些感想</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2016年08月27日</a>
-            <a><i class="nexmoefont icon-areachart"></i>823 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/心情/">心情</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/跳槽/">跳槽</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/luoci.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp; &nbsp;上周五，忙完一个多月的工作交接，正式第二次裸辞了。</p>
-<p>&nbsp; &nbsp; 第一份工作工作了2年零9个月，第二份工作工作1年零4个月。从第一份工作做c#到第二份工作因为公司的一个契机转行做android。因为工作压力大繁琐，对公司之后个人的发展也不是很看好，个人觉得换个移动端氛围更浓点的企业对自己提升更大。考虑换了工作，当然也想提升下自己的经济能力。</p>
-<p>&nbsp; &nbsp; 个人感觉现在自己处境很尴尬，干了三年的后台，最近一年干了移动端开发。那第三份工作当然希望还是继续做移动端开发。当然本人更看好移动端领域发展。</p>
-<p>&nbsp; &nbsp; 对于离开的公司，都是抱有心存感恩的心态，不去评价公司如何，对于开发流程管理，我还是很欣赏这家公司，立项-&gt;需求-&gt;设计-&gt;开发-&gt;单元测试-&gt;系统测试-&gt;结项。每个过程都需要文档记录和会议记录。虽然繁琐但是还算规范，对于项目来说总之利大于弊吧。</p>
-<p>&nbsp; &nbsp; 安卓开发，因为之前就对安卓很感兴趣，自己也经常尝试开发个helloworld，所以对于转行做android并不排斥，相反感觉是一个契机，对于自己职业发展是有利的，所以毅然的开始了我的移动端开发之旅。</p>
-<p>&nbsp; &nbsp;接手的第一个项目是基于公司目前的c#编写的erp作后台来开发android app，花了大概一周时间去预研，然后又花了一周时间把架子搭建完毕。后面陆续的开发了常用的系统设置板块和手势密码等等。当然说的开发，基本都是拿网上现有的功能源码，来研究下然后做集成。当然，这里需要说明下，特别不推荐拿到网上源码后就直接集成进自己项目，这样会造成自己项目源码很混乱，太容易出现无法预料的bug了，因为我带的几个人中就经常出现这样的情况。前期一个ui都感觉很麻烦，后续慢慢的接触了更多的安卓方面的知识socket/线程等等。做到后面会越来越感觉跟web前台很像。</p>
-<p>&nbsp; &nbsp;之前的事就不感慨了，好好规划下接下来的事情。</p>
-<p>&nbsp; &nbsp;离职后本来筹划是去三亚的，但是由于机票没预定到后取消了，然后同朋友一合计，去青岛，啤酒/海鲜/沙滩，哈哈哈，可以。玩了四天，晒黑了一圈，回来后想起来朋友的朋友委托的做一个企业网站，花了一天时间帮忙弄了下。然后找找网上的求职网站，了解下一般需要掌握哪些知识，自己边学边找找工作吧。正好这段时间也好好提升提升自己，忙忙自己的事情。</p>
-<p>&nbsp; &nbsp;今个先就到这把！</p>
-<p>&nbsp;</p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2015/11/14/最近的一些感想（关于移动客户端开发android-ios）/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="最近的一些感想（关于移动客户端开发android,ios）">
-                
-                <h1>最近的一些感想（关于移动客户端开发android,ios）</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2015年11月14日</a>
-            <a><i class="nexmoefont icon-areachart"></i>968 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/心情/">心情</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/职业发展/">职业发展</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/app_somethings.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp; &nbsp;呵呵,想不出怎样的开场白...索性直奔主题。</p>
-<p>&nbsp; &nbsp;好久没有更新博客了。因为最近比较“忙”,工作上，生活上，先聊工作吧，看了一眼上一篇博客是6月份更新的。算算也有5个月了。</p>
-<p>&nbsp; &nbsp;从6月底开始有个机会转android了，之前一直从事的是c#Web端开发，加上自己对移动端也挺感兴趣的，也就随公司安排，做起了安卓移动客户端起来了。</p>
-<p>&nbsp; &nbsp; 大概看书，看资料预研了两周的android，因为有点java的基础，转起来还算轻松。自己捣鼓捣鼓花了一两周架起来基本的架子，然后有加入了两个新同事，像其他大部分项目一样，磕磕绊绊的花了两个月，大概9月底基本快弄完了原本公司的web端OA板块功能，因为急着先上线，10月份就弄电厂SIS板块功能，后台app一肩挑，巨心累，毕竟也是年后来公司，对于SIS业务和原来的后台代码都不熟，所以有时赶鸭子上架的弄到了现在，安卓初步上线了。客户现在又需要ios客户端，好吧，因为时间比较紧，请了外包。其实，我也很想弄弄IOS，因为时间比较紧，还有安卓项目还有功能未完善，也没敢跟领导主动请缨来弄IOS。</p>
-<p>&nbsp;</p>
-<p>&nbsp; &nbsp;现在一边维护现场项目，一边继续开发安卓新功能，一边跟外包公司ios团队对接协议。给我影响最深的就是搞ios的那家伙比我还小两岁，未读过大学，找个ios培训机构，后台基本不懂，然后，现在比我薪资都高，好吧，果然选择是大于努力的，当然我不否认他的努力哈。说真对，其实我现在还是没有真正觉得移动客户端开发真能一直这么吃香下去，我还是会偶尔羡慕已经成功转换到移动开发的程序员，也会偶尔羡慕那些深谙各种牛B技术的后台程序员。但是，我如果两个都想要，感觉最后会一个都得到的感觉。。</p>
-<p>&nbsp;</p>
-<p>&nbsp; 记录下工作的流水账。</p>
-<p>&nbsp;</p>
-<p>&nbsp; 说说生活吧，毕业三年，真的越来越感觉健康的重要性，8月底到9月份的时候，因为身体原因，几乎每周必去几趟医院，几乎每次去都要上缴三四百左右的医疗费，哎，最后基本交钱都麻木了。几周时间，一个月的税前薪水就没了。10月份，办了张两年健身卡，2700元。如果能把身体锻炼好，花再多钱也是值得的。</p>
-<p>&nbsp; 11月份初，也就是这个月，阔别上次出差快大半年了，终于又出差了，虽然工作都是累，但是大公司与小公司区别就体现出来了，虽然工作都是累，但是，在大公司是一个团队，后面，前面有一堆人在支撑着，小公司之前基本上我就算是整个项目开发负责人了，领导基本不在现场，事无巨细的全是我在处理，压力太大，心累。</p>
-<p>&nbsp;</p>
-<p>------------------------------分割线哦------------------------------</p>
-<p>&nbsp;</p>
-<p>下面，我还是希望自己继续把安卓项目搞好，有机会还是希望能把公司移动端这个大旗扛起来。</p>
-<p>我还是想弄弄ios啊，但是公司的设备支出真心的不给力，安卓手机都是自己买的，更别提苹果电脑了，现在还在犹豫是狠心花笔钱买个苹果还是尝试下黑苹果呢。</p>
-<p>&nbsp;</p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2015/06/07/错误：类型System-Object未定义或者不能引入项目/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="错误：类型System.Object未定义或者不能引入项目">
-                
-                <h1>错误：类型System.Object未定义或者不能引入项目</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2015年06月07日</a>
-            <a><i class="nexmoefont icon-areachart"></i>269 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/">后端</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/CSharp/">CSharp</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/c/">c#</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/mscorlib.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>最近在研究一些网上开源的工作流，下了源代码，发布遇到了问题。“类型 'System.Object' 为定义或者不能引入”，想引入.dll,还不让引入进来。</p>
-<p>&nbsp;</p>
-<p>网上搜了下，大部分是将visual studio关下，在打开，就没事了。但是我电脑都重启，还是没解决。</p>
-<p>&nbsp;</p>
-<p>最后，使用下面这个方法解决的，这个方法搜起来比较麻烦，还不好找，所以记录下，方便自己，方便别人。http://i.cnblogs.com/EditPosts.aspx?opt=1</p>
-<p>&nbsp;</p>
-<p><strong>问题：</strong></p>
-<p>项目之前引用了mscorlib 或 System.Core，但是vs2013上显示黄色警告小图标，说明文件丢失了，手动删除了，准备重新引入，但是引不进来。</p>
-<p>&nbsp;</p>
-<p><strong>办法如下：</strong></p>
-<p>想要引用 mscorlib 或 System.Core 被删了，提示类型 'System.Object'，你手工加上这个引用加不进去。</p>
-<p>让你用记事本打开对应项目的 .csproj 文件。在里面加你要引入的dll名称：</p>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_841013" class="syntaxhighlighter  csharp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="csharp plain">&lt;Reference Include=</code><code class="csharp string">"mscorlib"</code> <code class="csharp plain">/&gt;</code></div><div class="line number2 index1 alt1"><code class="csharp plain">&lt;Reference Include=</code><code class="csharp string">"System.Core"</code> <code class="csharp plain">/&gt;</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>&nbsp;<img src="https://images0.cnblogs.com/blog2015/612293/201506/071431161292531.png" alt></p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2015/06/02/easyui换主题，并记录在cookie-以及cookie作用域介绍/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="easyui换主题，并记录在cookie.以及cookie作用域介绍">
-                
-                <h1>easyui换主题，并记录在cookie.以及cookie作用域介绍</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2015年06月02日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/easyui/">easyui</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/cookie.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <div>如下是网上摘录的：</div>
-<div>　　　　　　-------START----------------------</div>
-<div>注：引入JS的顺序jquery&gt;cookie&gt;easyuicss&gt;changeEasyUITheme.js</div>
-<div>首先将easyui的样式文件加入一个ID，这里命名为easyuiTheme，然后在样式文件下面加入一个JS文件</div>
-<div>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_223622" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">&lt;script type=</code><code class="javascript string">"text/javascript"</code> <code class="javascript plain">charset=</code><code class="javascript string">"UTF-8"</code> <code class="javascript plain">src=</code><code class="javascript string">"jslib/jquery-easyui-1.2.5/jquery-1.7.1.min.js"</code><code class="javascript plain">&gt;&lt;/script&gt;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="javascript plain">&lt;script type=</code><code class="javascript string">"text/javascript"</code> <code class="javascript plain">charset=</code><code class="javascript string">"UTF-8"</code> <code class="javascript plain">src=</code><code class="javascript string">"jslib/jquery.cookie.js"</code><code class="javascript plain">&gt;&lt;/script&gt;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="javascript plain">&lt;link id=</code><code class="javascript string">"easyuiTheme"</code> <code class="javascript plain">rel=</code><code class="javascript string">"stylesheet"</code> <code class="javascript plain">type=</code><code class="javascript string">"text/css"</code> <code class="javascript plain">href=</code><code class="javascript string">"jslib/jquery-easyui-1.2.5/themes/gray/easyui.css"</code><code class="javascript plain">&gt;</code></div><div class="line number6 index5 alt1"><code class="javascript plain">&lt;script type=</code><code class="javascript string">"text/javascript"</code> <code class="javascript plain">charset=</code><code class="javascript string">"UTF-8"</code> <code class="javascript plain">src=</code><code class="javascript string">"jslib/changeEasyuiTheme.js"</code><code class="javascript plain">&gt;&lt;/script&gt;</code></div><div class="line number7 index6 alt2"><code class="javascript plain">&lt;link rel=</code><code class="javascript string">"stylesheet"</code> <code class="javascript plain">type=</code><code class="javascript string">"text/css"</code> <code class="javascript plain">href=</code><code class="javascript string">"jslib/jquery-easyui-1.2.5/themes/icon.css"</code><code class="javascript plain">&gt;</code></div><div class="line number8 index7 alt1"><code class="javascript plain">&lt;script type=</code><code class="javascript string">"text/javascript"</code> <code class="javascript plain">charset=</code><code class="javascript string">"UTF-8"</code> <code class="javascript plain">src=</code><code class="javascript string">"jslib/jquery-easyui-1.2.5/jquery.easyui.min.js"</code><code class="javascript plain">&gt;&lt;/script&gt;</code></div><div class="line number9 index8 alt2"><code class="javascript plain">&lt;script type=</code><code class="javascript string">"text/javascript"</code> <code class="javascript plain">charset=</code><code class="javascript string">"UTF-8"</code> <code class="javascript plain">src=</code><code class="javascript string">"jslib/jquery-easyui-1.2.5/locale/easyui-lang-zh_CN.js"</code><code class="javascript plain">&gt;&lt;/script&gt;</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-</div>
-<div>changeEasyuiTheme.js文件的内容是</div>
-<div><br>
-</div>
-<div>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_756024" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript keyword">function</code> <code class="javascript plain">changeThemeFun(themeName) {</code><code class="javascript comments">/* 更换主题 */</code></div><div class="line number2 index1 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">$easyuiTheme = $(</code><code class="javascript string">'#easyuiTheme'</code><code class="javascript plain">);</code></div><div class="line number3 index2 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">url = $easyuiTheme.attr(</code><code class="javascript string">'href'</code><code class="javascript plain">);</code></div><div class="line number4 index3 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">href = url.substring(0, url.indexOf(</code><code class="javascript string">'themes'</code><code class="javascript plain">)) + </code><code class="javascript string">'themes/'</code> <code class="javascript plain">+ themeName + </code><code class="javascript string">'/easyui.css'</code><code class="javascript plain">;</code></div><div class="line number5 index4 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$easyuiTheme.attr(</code><code class="javascript string">'href'</code><code class="javascript plain">, href);</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">$iframe = $(</code><code class="javascript string">'iframe'</code><code class="javascript plain">);</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">if</code> <code class="javascript plain">($iframe.length &gt; 0) {</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">for</code> <code class="javascript plain">( </code><code class="javascript keyword">var</code> <code class="javascript plain">i = 0; i &lt; $iframe.length; i++) {</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">ifr = $iframe[i];</code></div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$(ifr).contents().find(</code><code class="javascript string">'#easyuiTheme'</code><code class="javascript plain">).attr(</code><code class="javascript string">'href'</code><code class="javascript plain">, href);</code></div><div class="line number12 index11 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number13 index12 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">$.cookie(</code><code class="javascript string">'easyuiThemeName'</code><code class="javascript plain">, themeName, {</code></div><div class="line number16 index15 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">expires : 7</code></div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">});</code></div><div class="line number18 index17 alt1"><code class="javascript plain">};</code></div><div class="line number19 index18 alt2"><code class="javascript keyword">if</code> <code class="javascript plain">($.cookie(</code><code class="javascript string">'easyuiThemeName'</code><code class="javascript plain">)) {</code></div><div class="line number20 index19 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">changeThemeFun($.cookie(</code><code class="javascript string">'easyuiThemeName'</code><code class="javascript plain">));</code></div><div class="line number21 index20 alt2"><code class="javascript plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-</div>
-<div>jquery.cookie.js的内容是</div>
-<div><br>
-</div>
-<div>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_818712" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">jQuery.cookie = </code><code class="javascript keyword">function</code> <code class="javascript plain">(key, value, options) {</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// key and value given, set cookie...</code></div><div class="line number4 index3 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">if</code> <code class="javascript plain">(arguments.length &gt; 1 &amp;&amp; (value === </code><code class="javascript keyword">null</code> <code class="javascript plain">|| </code><code class="javascript keyword">typeof</code> <code class="javascript plain">value !== </code><code class="javascript string">"object"</code><code class="javascript plain">)) {</code></div><div class="line number5 index4 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options = jQuery.extend({}, options);</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">if</code> <code class="javascript plain">(value === </code><code class="javascript keyword">null</code><code class="javascript plain">) {</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options.expires = -1;</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">if</code> <code class="javascript plain">(</code><code class="javascript keyword">typeof</code> <code class="javascript plain">options.expires === </code><code class="javascript string">'number'</code><code class="javascript plain">) {</code></div><div class="line number12 index11 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">days = options.expires, t = options.expires = </code><code class="javascript keyword">new</code> <code class="javascript plain">Date();</code></div><div class="line number13 index12 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">t.setDate(t.getDate() + days);</code></div><div class="line number14 index13 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number15 index14 alt2">&nbsp;</div><div class="line number16 index15 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">return</code> <code class="javascript plain">(document.cookie = [</code></div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">encodeURIComponent(key), </code><code class="javascript string">'='</code><code class="javascript plain">,</code></div><div class="line number18 index17 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options.raw ? String(value) : encodeURIComponent(String(value)),</code></div><div class="line number19 index18 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options.expires ? </code><code class="javascript string">'; expires='</code> <code class="javascript plain">+ options.expires.toUTCString() : </code><code class="javascript string">''</code><code class="javascript plain">, </code><code class="javascript comments">// use expires attribute, max-age is not supported by IE</code></div><div class="line number20 index19 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options.path ? </code><code class="javascript string">'; path='</code> <code class="javascript plain">+ options.path : </code><code class="javascript string">''</code><code class="javascript plain">,</code></div><div class="line number21 index20 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options.domain ? </code><code class="javascript string">'; domain='</code> <code class="javascript plain">+ options.domain : </code><code class="javascript string">''</code><code class="javascript plain">,</code></div><div class="line number22 index21 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options.secure ? </code><code class="javascript string">'; secure'</code> <code class="javascript plain">: </code><code class="javascript string">''</code></div><div class="line number23 index22 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">].join(</code><code class="javascript string">''</code><code class="javascript plain">));</code></div><div class="line number24 index23 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number25 index24 alt2">&nbsp;</div><div class="line number26 index25 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript comments">// key and possibly options given, get cookie...</code></div><div class="line number27 index26 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">options = value || {};</code></div><div class="line number28 index27 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">var</code> <code class="javascript plain">result, decode = options.raw ? </code><code class="javascript keyword">function</code> <code class="javascript plain">(s) { </code><code class="javascript keyword">return</code> <code class="javascript plain">s; } : decodeURIComponent;</code></div><div class="line number29 index28 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript keyword">return</code> <code class="javascript plain">(result = </code><code class="javascript keyword">new</code> <code class="javascript plain">RegExp(</code><code class="javascript string">'(?:^|; )'</code> <code class="javascript plain">+ encodeURIComponent(key) + </code><code class="javascript string">'=([^;]*)'</code><code class="javascript plain">).exec(document.cookie)) ? decode(result[1]) : </code><code class="javascript keyword">null</code><code class="javascript plain">;</code></div><div class="line number30 index29 alt1"><code class="javascript plain">};</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p><span style="line-height: 1.5;">使用的时候</span></p>
-</div>
-<div>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_477048" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">changeThemeFun(</code><code class="javascript string">'default'</code><code class="javascript plain">);</code></div><div class="line number2 index1 alt1"><code class="javascript plain">changeThemeFun(</code><code class="javascript string">'gray'</code><code class="javascript plain">);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　　　　　　　　　-----END-----------</p>
-<p>但是，问题来了。整个框架在首页的时候可以根据cookie中的&nbsp;$.cookie('easyuiThemeName') 获取到指，但是其他子页面却无法获取。</p>
-<p>接着找资料，原来是<strong>cookie的作用域</strong>问题。</p>
-<p>cookie的一个属性：Path – 路径。指定与cookie关联的WEB页。值可以是一个目录，或者是一个路径。如果http://www.baidu.com/a/index.html 建立了一个cookie，如果不设置cookie的path值，那么默认在http://www.baidu.com/a/目录里的所有页面，以及该目录下面任何子目录里的页面都可以访问这个 cookie。但是在http://www.baidu.com/b目录下无法访问到这个cookie。这时，我们要把cookies的path属性设置成“/”。在指定路径的时候，凡是来自同一服务器，URL里有相同路径的所有WEB页面都可以共享cookies。</p>
-<p>上面的问题解决办法：</p>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_545751" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">$.cookie(</code><code class="javascript string">'easyuiThemeName'</code><code class="javascript plain">, themeName, {</code></div><div class="line number2 index1 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">expires : 7 , path:</code><code class="javascript string">"/"</code></div><div class="line number3 index2 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}); </code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-<p>　　<em>注：</em>,path:"/"&nbsp;<em>为增加部分</em></p>
-<p><strong>思维拓展</strong>：</p>
-<p>如果我们想让 blog.baidu.com 能够访问bbs.baidu.com设置的cookies，该怎么办?</p>
-<p>但是有个问题来了，不能把cookies域属性设置成与设置它的服务器的所在域不同的值。</p>
-<p>介绍另一个cookie的属性 ：Domain – 域。指定关联的WEB服务器或域。值是域名，比如baidu.com。这是对path路径属性的一个延伸。 我们可以把domain属性设置成“baidu.com”，并把path属性设置成“/”。</p>
-<p>&nbsp;</p>
-</div>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2015/06/01/VS发布报错未能将文件……复制到……/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="VS发布报错未能将文件……复制到……">
-                
-                <h1>VS发布报错未能将文件……复制到……</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2015年06月01日</a>
-            <a><i class="nexmoefont icon-areachart"></i>581 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/">后端</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/CSharp/">CSharp</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/visualStudio/">visualStudio</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/notfund.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>　　　　最近在一个老项目的基础上改造和升级准备做一个“产品”出来。等我利用业余时间弄得差不多就可以公布出来了。希望时间不要太长。</p>
-<p>　　-----------------------------------------------------------------------------------------------------------------------------------</p>
-<p>　　入主题：</p>
-<p>　　删除了一些图片文件,发布的时候发现报错了，编译并不会报错。</p>
-<p>　　错误大致是：<strong>未能将文件../Images/...jpg 复制到 obj\Debug\Package\PackageTmp\.. 中</strong>，当然不限于图片文件。</p>
-<p>　　因为花了一些时间，所以记录下。</p>
-<p>　　产生的原因：之所以发布时出现这种错误，是因为之前在<span lang="EN-US">.csproj项目文件中“<span lang="EN-US">&lt;<span lang="EN-US">Content Include&gt;”参数已经存储了这些文件路径。后来有些文件被删掉了，但是.csproj中参数记录还在，所以发布时才会出现“未能将文件……复制到……”的错误。</span></span></span></p>
-<p>　　网上找来的解决办法：</p>
-<p align="left"><strong>　　方法1</strong>、比较笨的方法就是按照出错提示暂时把所缺的图片重新放入相应文件夹里，这样再次发布成功，但这样一是麻烦二是这些图片对目前的网站来说根本就是垃圾图片，没有任何用处，浪费硬盘空间，增加服务器压力。</p>
-<p align="left"><strong>　　方法2</strong>、所以网上有人给出解决方案：删掉.csproj文件中相应的&lt;Content Include&gt;行，经测试可行，但是这样还是麻烦的不行，如果是大量图片文件分多目录存放（如每一天生成一个文件夹），徒手删除操作何其繁琐。</p>
-<p align="left"><strong>　　方法3</strong>、基于之前的方法繁琐，我想到了一个其实也很笨的方法，先把upfile整个目录在解决方案资源管理器中“从项目中排除”，然后“重新生成解决方案”，然后再发布，最后把upfile目录拷贝到发布后的网站目录中，测试可行。</p>
-<p align="left">　　综上：我的方法的差不多，<strong>如果文件少，那你可以用方法2。如果文件比较多，并且你已经不知道是那些文件里，那就把.csproj文件中所有的&lt;Content Include&gt;删除，删除后在vs上就显示被排除在项目之外了，在把你自己的项目文件包含下。就可以了。</strong></p>
-<p align="left"><strong>　　</strong></p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2015/04/27/跳槽穷半年-转行穷三年-死守会穷一辈子/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="跳槽穷半年,转行穷三年,死守会穷一辈子">
-                
-                <h1>跳槽穷半年,转行穷三年,死守会穷一辈子</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2015年04月27日</a>
-            <a><i class="nexmoefont icon-areachart"></i>2.3k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/心情/">心情</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/跳槽/">跳槽</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/2015go.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>　　好久没更新博客了，终于生活有回归正轨了。enjoying。。。</p>
-<p>　　金三银四，赶在2015年的银四的末尾跳槽了。换了个新公司，在新环境已经呆了一周。</p>
-<p>&nbsp; &nbsp; &nbsp; 2012届毕业生，从毕业就一直在一家创业公司干了近3年，公司一直都是3个人code，全公司人员加起来不超过10人，从事.net开发，旧东家是接项目做，所以3年接手的项目少说也有7，8个了，都是中小型项目。想跳槽其实去年9，10月份就有想法了，感觉做了三年，一直都是在做重复的code，做的也没劲了，在加上公司氛围变了，去年8月份离职两个，个人因素还有一个就是，这个工作的繁忙程度已经影响了我的生活（我是一个把个人生活和工作看的都重要的人，至少公司没有给我可以放弃自己生活质量去拼命的工资）。去年没跳槽，考虑因素主要是：1.目前手上项目正缺人手，也算公司的一个重要项目，或者说关乎公司命运的转折点的项目。我不是那种落井下石的人，至少我是一个算有良心的程序员吧。（离职后，可能老总不这么认为，但最后离职时候我觉得自己问心无愧了）2.快年底了，也算有始有终，明年开年找工作也好找点。</p>
-<p>　　今年2月份月底（也就是过年回来，上班第一天），我就跟老板提出辞职了，他很惊讶！因为如果我没有第一时间提出辞职，他可能会安排我出差去了，想想我可能又要进行苦逼的出差生活了，还是不后悔（毕竟当时2月份工资还没发，嘿嘿！！！）。</p>
-<p>　　3月8日左右正式离职了（交接工作大概花了两个礼拜）。离职的时候，心情真爽了，感觉解放了，真的。没有在职的时候那种责任压在自己身上（离职前任开发主管），有责任心的人都比较累（这是体会）。。。</p>
-<p>　　说说2014年年底那个项目吧，博客园一直没更新，就是因为在赶这个项目。这个项目是某个地区的一个公交项目，公司入账大概可能在200+万左右，对于一个10人小团队公司，这个帐目算可以吧。。做的是公交调度系统，无非就是公交车公里统计，公交车实时监控，调度中心调度车辆，驾驶员排班等等。B/S架构，见过很多调度软件产品基本一般都是C/S做的。从9月份接手项目，开始做，前面真不知道具体要做个什么东西出来，code就三个人写（我带两个人，我：三年工作经历，另一个：两年工作经历，另一个去年毕业），公司人少，基本没有需求人员，老板做需要，你说能给你提供什么详细的信息。前期（9月份-11月份）也不知道该干嘛，硬件是购买的第三方厂家的，也不懂硬件什么玩意的。好吧，分析下，驾驶员排班这个跟硬件没有太大关系，先把这个做了吧，网上找资料看驾驶员排班是个什么东西，然后qq远程调度中心工作人员，你们平时排班怎么做的，演示下给我看，我录视频下来，然后跟另外两个同事对着视频分析讨论，做出来了驾驶员排班。车辆实时示意图，也就是调度中心核心的功能页面了。所有功能都能在这个页面能立即找到和操作，毕竟要节省调度中心人员的工作麻烦，然后又网上找资料示意图，画来画去的，其中有个比较大的认识不足，公交车来回站点维护，三种情况（1.来回站点不一样，2.来回站点一样，3.环线）当时是按来回一样的算，还有来回站点就算一样，经纬度肯定不一样啊。妈的，好吧。算我自己蠢了。重新设计，重新开发。出来个大概。然后地图，什么公交公司还没确定用什么地图？那就先用百度地图开发吧，开发了一周，哦，公交公司确定了用天地图（国家测绘局），妈的，改！！！然后使用硬件厂家提供的插件开发了摄像头的视频监控程序。就这样9月份到11月份左右就这么摸出来了一个“大概”的公交调度系统。当时自我感觉还行，凑合着能用吧。然后。。。。。。。。。。到了12月份，开发的差不多了，老板说，走我们去客户那部署起来，然后跟他们工作人员对接下，看那些需要改的，现场。。。。改！！！妈的，就这样一直改到了1月份了，说实话，有许多改动真没必要，其实是公交公司工作人员之前用老系统习惯问题，操作方式不一样，妈的，改，好吧，你是上帝，咱们改。哎！这个项目然后改来改去的，可能是因为回扣问题，公交公司领导层某副总，老是找我们麻烦，好吧！没办法，高层较劲，累死累活的总是底下的人。就这样改到了1月份底了，然后200辆新车（我们负责的），第一批（120辆左右）是1月17号左右上线，我草，真没经验，是真没经验啊，因为明天车要上线运行了，车从车厂到公交公司，只有一天时间要把所有设备检测完毕，然后，那晚我们干到1点回到宾馆（部分人员是干到4点啊），然后早上6点起来开会，早上8点新车投运仪式，我们也要在。。。。就这样黑眼圈的，上线第一天嘛，各种报站语音有问题，有是因为踩点(就是拿设备采集公交站台经纬度，这是公交公司人员采的)，有是因为语音文件本来就有问题。当时乱成一锅粥了。其实这后来一想，就是缺乏经验，这些问题公交公司人员见惯了，真的。只要没有特别大的问题，或者市民投诉，基本都没事，毕竟刚上线，可以解释的通。后面慢慢改正确过来就是了。反正遇到问题，都需要冷静下来处理，我觉得老板都没办法冷静下来去安排，调度人员处理，即使老板不懂，他也应该要冷静分析下，安排处理措施等等。就这样后续陆续有上线两次，一直到过年前，200辆车都上线完毕。</p>
-<p>　　往事随风。。。已经离职了一个多月，虽然公交这个调度系统项目，让我很累，我觉得也是让我收获最多的，除了技术外，也学会许多生活处事之道吧，如何去在紧张的工作环境下，去协调，沟通等等。</p>
-<p>　　离职的一个月内，没有投什么简历，也因为考驾照的原因，也算给自己找了个借口，快活了一个月，不需要早起，自己做自己喜欢的事，不用担心明天要上班，今晚早点睡。等等。3月份底，我在51job上更新了下自己之前毕业时候的简历，没想到第二天早上就有个电话过来，让我去面试，好吧，我车也快要考试了，正好面试，如果面试ok，考完试就可以上班了，毕竟不工作，就没有经济来源，心里也是慌慌的。第一个面试，某上市软件公司，面试。被虐，我也是活该，真的一点准备都没有，不过面试的都是理论化东西，咬文嚼字的我真不会。第二个面试，中兴的外包，我真不知道是外包公司，是去中兴面试的，我当时到中兴的时候，就很诧异，我投的不是中兴啊，虽然面试过了！由于是人力外包到中兴，最后考虑了下，推辞了。第三个面试就是我现在的公司了，一面二面，应该是一面的时候有一个领导不在，所以才有二面的吧。谈下工作经历，也准备了下，了解了下这家公司的软件产品背景，然后就是工作中常用的一些技术聊了聊。</p>
-<p>　　由于之前是在一家小创业公司做，真的，对于开发上的规范，流程，管理接触不多，现在的公司明显就让我感觉到代码，文档保密这块做的真不错，还有就是一些代码规范和流程化操作确实，这就就体现在效率上了。</p>
-<p>　　希望自己能慢慢沉淀下来，多学一些东西。能在这家公司有所发展吧！</p>
-<p>　　</p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2014/12/02/使用SqlBulkCopy实现Excel批量导入数据库/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="使用SqlBulkCopy实现Excel批量导入数据库">
-                
-                <h1>使用SqlBulkCopy实现Excel批量导入数据库</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2014年12月02日</a>
-            <a><i class="nexmoefont icon-areachart"></i>2.5k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 14 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/">后端</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/CSharp/">CSharp</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/Excel操作/">Excel操作</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/SqlBulkCopy.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h3>引言： &nbsp;&nbsp;</h3>
-<p>&nbsp;&nbsp;&nbsp; 导入Excel数据时候，因为数据量大，使用 linq 操作插入的时候，很慢。考虑使用ado.net操作数据库方式导入数据。由于数据量比较大使用SqlBulkCopy来实现批量导入。</p>
-<h2>一.代码解释：</h2>
-<p>1.将要导入的excel上传保存到服务器。</p>
-<p>2.使用OleDbDataAdapter获取excel中的数据插入tab中。</p>
-<p>3.在内存中创建一个表newDT，将tab表做修改后更新到newDT中。</p>
-<p>4.使用SqlBulkCopy批量将newDT内存表数据插入到数据库表Sys_StuUser中。</p>
-<p>&nbsp;</p>
-<h2>二.代码如下：</h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_416323" class="syntaxhighlighter  csharp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div><div class="line number58 index57 alt1">58</div><div class="line number59 index58 alt2">59</div><div class="line number60 index59 alt1">60</div><div class="line number61 index60 alt2">61</div><div class="line number62 index61 alt1">62</div><div class="line number63 index62 alt2">63</div><div class="line number64 index63 alt1">64</div><div class="line number65 index64 alt2">65</div><div class="line number66 index65 alt1">66</div><div class="line number67 index66 alt2">67</div><div class="line number68 index67 alt1">68</div><div class="line number69 index68 alt2">69</div><div class="line number70 index69 alt1">70</div><div class="line number71 index70 alt2">71</div><div class="line number72 index71 alt1">72</div><div class="line number73 index72 alt2">73</div><div class="line number74 index73 alt1">74</div><div class="line number75 index74 alt2">75</div><div class="line number76 index75 alt1">76</div><div class="line number77 index76 alt2">77</div><div class="line number78 index77 alt1">78</div><div class="line number79 index78 alt2">79</div><div class="line number80 index79 alt1">80</div><div class="line number81 index80 alt2">81</div><div class="line number82 index81 alt1">82</div><div class="line number83 index82 alt2">83</div><div class="line number84 index83 alt1">84</div><div class="line number85 index84 alt2">85</div><div class="line number86 index85 alt1">86</div><div class="line number87 index86 alt2">87</div><div class="line number88 index87 alt1">88</div><div class="line number89 index88 alt2">89</div><div class="line number90 index89 alt1">90</div><div class="line number91 index90 alt2">91</div><div class="line number92 index91 alt1">92</div><div class="line number93 index92 alt2">93</div><div class="line number94 index93 alt1">94</div><div class="line number95 index94 alt2">95</div><div class="line number96 index95 alt1">96</div><div class="line number97 index96 alt2">97</div><div class="line number98 index97 alt1">98</div><div class="line number99 index98 alt2">99</div><div class="line number100 index99 alt1">100</div><div class="line number101 index100 alt2">101</div><div class="line number102 index101 alt1">102</div><div class="line number103 index102 alt2">103</div><div class="line number104 index103 alt1">104</div><div class="line number105 index104 alt2">105</div><div class="line number106 index105 alt1">106</div><div class="line number107 index106 alt2">107</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="csharp keyword">string</code> <code class="csharp plain">FileUrl = </code><code class="csharp keyword">string</code><code class="csharp plain">.Empty;</code></div><div class="line number2 index1 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">foreach</code> <code class="csharp plain">(HttpPostedFileBase file </code><code class="csharp keyword">in</code> <code class="csharp plain">fileToUpload)</code></div><div class="line number3 index2 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div><div class="line number4 index3 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">path = System.IO.Path.Combine(Server.MapPath(</code><code class="csharp string">"~/Models/stu/UpLoadExc"</code><code class="csharp plain">), System.IO.Path.GetFileName(DateTime.Now.ToString(</code><code class="csharp string">"yyyymmddhhMMss"</code><code class="csharp plain">) + file.FileName));</code></div><div class="line number5 index4 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">file.SaveAs(path);</code><code class="csharp comments">//SaveAs 将上传的文件内容保存在服务器上</code></div><div class="line number6 index5 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">FileUrl = path;</code></div><div class="line number7 index6 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div><div class="line number8 index7 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">result = </code><code class="csharp keyword">string</code><code class="csharp plain">.Empty;</code></div><div class="line number9 index8 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">strConn;</code></div><div class="line number10 index9 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">strConn = </code><code class="csharp string">"Provider=Microsoft.Jet.OLEDB.4.0;"</code> <code class="csharp plain">+ </code><code class="csharp string">"Data Source="</code> <code class="csharp plain">+ FileUrl + </code><code class="csharp string">"; "</code> <code class="csharp plain">+ </code><code class="csharp string">"Extended Properties=Excel 8.0;"</code><code class="csharp plain">;</code></div><div class="line number11 index10 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">OleDbConnection conn = </code><code class="csharp keyword">new</code> <code class="csharp plain">OleDbConnection(strConn);</code></div><div class="line number12 index11 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">OleDbDataAdapter myCommand = </code><code class="csharp keyword">new</code> <code class="csharp plain">OleDbDataAdapter(</code><code class="csharp string">"SELECT * FROM [Sheet1$]"</code><code class="csharp plain">, conn);</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">DataSet myDataSet = </code><code class="csharp keyword">new</code> <code class="csharp plain">DataSet();</code></div><div class="line number15 index14 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">myCommand.Fill(myDataSet, </code><code class="csharp string">"ExcelInfo"</code><code class="csharp plain">);</code></div><div class="line number16 index15 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">System.Data.DataTable tab = myDataSet.Tables[</code><code class="csharp string">"ExcelInfo"</code><code class="csharp plain">].DefaultView.ToTable();</code></div><div class="line number17 index16 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">majordata = MajorInfoService.LoadEntities(u =&gt; </code><code class="csharp keyword">true</code><code class="csharp plain">).ToList();</code></div><div class="line number18 index17 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">schooldata = UniversityInfoService.LoadEntities(u =&gt; </code><code class="csharp keyword">true</code><code class="csharp plain">).ToList();</code></div><div class="line number19 index18 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp comments">// ...用foreach把tab中数据添加到数据库</code></div><div class="line number20 index19 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">DataTable newDT = </code><code class="csharp keyword">new</code> <code class="csharp plain">DataTable();</code></div><div class="line number21 index20 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp comments">//newDT.Columns.Add("LoginID", typeof(string));</code></div><div class="line number22 index21 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Pwd"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number23 index22 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"UserName"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number24 index23 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Education"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">int</code><code class="csharp plain">));</code></div><div class="line number25 index24 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Major"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">int</code><code class="csharp plain">));</code></div><div class="line number26 index25 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"StuOrigin"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number27 index26 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Gender"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">int</code><code class="csharp plain">));</code></div><div class="line number28 index27 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Destination"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">int</code><code class="csharp plain">));</code></div><div class="line number29 index28 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"HomeTel"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number30 index29 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Tel"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number31 index30 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"Emai"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number32 index31 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"StudentID"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number33 index32 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"School"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">int</code><code class="csharp plain">));</code></div><div class="line number34 index33 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"GradYear"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number35 index34 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Columns.Add(</code><code class="csharp string">"IdentityID"</code><code class="csharp plain">, </code><code class="csharp keyword">typeof</code><code class="csharp plain">(</code><code class="csharp keyword">string</code><code class="csharp plain">));</code></div><div class="line number36 index35 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp comments">//newDT.Columns.Add("IfJoin", typeof(string));</code></div><div class="line number37 index36 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp comments">//newDT.Columns.Add("Vcode", typeof(string));</code></div><div class="line number38 index37 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp comments">//newDT.Columns.Add("Flag", typeof(int));</code></div><div class="line number39 index38 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp comments">//newDT.Columns.Add("SID", typeof(string));</code></div><div class="line number40 index39 alt1">&nbsp;</div><div class="line number41 index40 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">for</code> <code class="csharp plain">(</code><code class="csharp keyword">int</code> <code class="csharp plain">i = 0; i &lt; tab.Rows.Count - 1; i++)</code></div><div class="line number42 index41 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div><div class="line number43 index42 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">DataRow dr = tab.Rows[i];</code></div><div class="line number44 index43 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">SchoolTag = dr[</code><code class="csharp string">"学校代码"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number45 index44 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">MajorID = dr[</code><code class="csharp string">"专业代码"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number46 index45 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">DestinationID = dr[</code><code class="csharp string">"毕业去向"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number47 index46 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">string</code> <code class="csharp plain">EducationID = dr[</code><code class="csharp string">"学历代码"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number48 index47 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">schoolid = (</code><code class="csharp keyword">from</code> <code class="csharp plain">s </code><code class="csharp keyword">in</code> <code class="csharp plain">schooldata </code><code class="csharp keyword">where</code> <code class="csharp plain">s.UCode == SchoolTag </code><code class="csharp keyword">select</code> <code class="csharp keyword">new</code> <code class="csharp plain">{ s.UID }).</code></div><div class="line number49 index48 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">FirstOrDefault();</code></div><div class="line number50 index49 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">majorid =</code></div><div class="line number51 index50 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">(</code><code class="csharp keyword">from</code> <code class="csharp plain">m </code><code class="csharp keyword">in</code> <code class="csharp plain">majordata </code><code class="csharp keyword">where</code> <code class="csharp plain">m.MajorCode == MajorID </code><code class="csharp keyword">select</code> <code class="csharp keyword">new</code> <code class="csharp plain">{ m.MajorID }).FirstOrDefault();</code></div><div class="line number52 index51 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">DataRow newRow = newDT.NewRow();</code></div><div class="line number53 index52 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"Pwd"</code><code class="csharp plain">] = </code><code class="csharp string">"0B946149D7DDE1A273F26402A344008E"</code><code class="csharp plain">;</code></div><div class="line number54 index53 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"UserName"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"姓名"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number55 index54 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">switch</code> <code class="csharp plain">(EducationID)</code></div><div class="line number56 index55 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div><div class="line number57 index56 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"01"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Education"</code><code class="csharp plain">] = 4; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number58 index57 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"11"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Education"</code><code class="csharp plain">] = 3; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number59 index58 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"31"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Education"</code><code class="csharp plain">] = 2; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number60 index59 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"41"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Education"</code><code class="csharp plain">] = 1; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number61 index60 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">default</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Education"</code><code class="csharp plain">] = 0; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number62 index61 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div><div class="line number63 index62 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"Major"</code><code class="csharp plain">] = majorid == </code><code class="csharp keyword">null</code> <code class="csharp plain">? 0 : majorid.MajorID;</code></div><div class="line number64 index63 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"StuOrigin"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"生源地"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number65 index64 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"Gender"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"性别代码"</code><code class="csharp plain">] == </code><code class="csharp keyword">null</code> <code class="csharp plain">? 0 : Convert.ToInt32(dr[</code><code class="csharp string">"性别代码"</code><code class="csharp plain">].ToString().Trim());</code></div><div class="line number66 index65 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">switch</code> <code class="csharp plain">(DestinationID)</code></div><div class="line number67 index66 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div><div class="line number68 index67 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"01"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Destination"</code><code class="csharp plain">] = 1; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number69 index68 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"02"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Destination"</code><code class="csharp plain">] = 2; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number70 index69 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"03"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Destination"</code><code class="csharp plain">] = 3; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number71 index70 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">case</code> <code class="csharp string">"04"</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Destination"</code><code class="csharp plain">] = 4; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number72 index71 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">default</code><code class="csharp plain">: newRow[</code><code class="csharp string">"Destination"</code><code class="csharp plain">] = 0; </code><code class="csharp keyword">break</code><code class="csharp plain">;</code></div><div class="line number73 index72 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div><div class="line number74 index73 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number75 index74 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"HomeTel"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"家庭电话"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number76 index75 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"Tel"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"手机号码"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number77 index76 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"Emai"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"电子邮箱"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number78 index77 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"StudentID"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"学号"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number79 index78 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"School"</code><code class="csharp plain">] = schoolid == </code><code class="csharp keyword">null</code> <code class="csharp plain">? 0 : schoolid.UID;</code></div><div class="line number80 index79 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"GradYear"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"毕业年份"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number81 index80 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newRow[</code><code class="csharp string">"IdentityID"</code><code class="csharp plain">] = dr[</code><code class="csharp string">"身份证号"</code><code class="csharp plain">].ToString().Trim();</code></div><div class="line number82 index81 alt1">&nbsp;</div><div class="line number83 index82 alt2">&nbsp;</div><div class="line number84 index83 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">newDT.Rows.Add(newRow);</code></div><div class="line number85 index84 alt2">&nbsp;</div><div class="line number86 index85 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div><div class="line number87 index86 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">SqlBulkCopy sqlbulkcopy = </code><code class="csharp keyword">new</code> <code class="csharp plain">SqlBulkCopy(PubConstant.ConnectionString, SqlBulkCopyOptions.UseInternalTransaction);</code></div><div class="line number88 index87 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.DestinationTableName = </code><code class="csharp string">"Sys_StuUser"</code><code class="csharp plain">;</code><code class="csharp comments">//数据库中的表名</code></div><div class="line number89 index88 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Pwd"</code><code class="csharp plain">, </code><code class="csharp string">"Pwd"</code><code class="csharp plain">);</code></div><div class="line number90 index89 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"UserName"</code><code class="csharp plain">, </code><code class="csharp string">"UserName"</code><code class="csharp plain">);</code></div><div class="line number91 index90 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Education"</code><code class="csharp plain">, </code><code class="csharp string">"Education"</code><code class="csharp plain">);</code></div><div class="line number92 index91 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Major"</code><code class="csharp plain">, </code><code class="csharp string">"Major"</code><code class="csharp plain">);</code></div><div class="line number93 index92 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"StuOrigin"</code><code class="csharp plain">, </code><code class="csharp string">"StuOrigin"</code><code class="csharp plain">);</code></div><div class="line number94 index93 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Gender"</code><code class="csharp plain">, </code><code class="csharp string">"Gender"</code><code class="csharp plain">);</code></div><div class="line number95 index94 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Destination"</code><code class="csharp plain">, </code><code class="csharp string">"Destination"</code><code class="csharp plain">);</code></div><div class="line number96 index95 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"HomeTel"</code><code class="csharp plain">, </code><code class="csharp string">"HomeTel"</code><code class="csharp plain">);</code></div><div class="line number97 index96 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Tel"</code><code class="csharp plain">, </code><code class="csharp string">"Tel"</code><code class="csharp plain">);</code></div><div class="line number98 index97 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"Emai"</code><code class="csharp plain">, </code><code class="csharp string">"Emai"</code><code class="csharp plain">);</code></div><div class="line number99 index98 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"StudentID"</code><code class="csharp plain">, </code><code class="csharp string">"StudentID"</code><code class="csharp plain">);</code></div><div class="line number100 index99 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"School"</code><code class="csharp plain">, </code><code class="csharp string">"School"</code><code class="csharp plain">);</code></div><div class="line number101 index100 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"GradYear"</code><code class="csharp plain">, </code><code class="csharp string">"GradYear"</code><code class="csharp plain">);</code></div><div class="line number102 index101 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.ColumnMappings.Add(</code><code class="csharp string">"IdentityID"</code><code class="csharp plain">, </code><code class="csharp string">"IdentityID"</code><code class="csharp plain">);&nbsp; </code></div><div class="line number103 index102 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">sqlbulkcopy.WriteToServer(newDT);</code></div><div class="line number104 index103 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">return</code> <code class="csharp plain">Content(</code><code class="csharp string">"上传成功！"</code><code class="csharp plain">);</code></div><div class="line number105 index104 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>&nbsp;</p>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2014/12/02/SqlServer数据库添加角色，角色授权/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="SqlServer数据库添加角色，角色授权">
-                
-                <h1>SqlServer数据库添加角色，角色授权</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2014年12月02日</a>
-            <a><i class="nexmoefont icon-areachart"></i>163 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/">后端</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/CSharp/">CSharp</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/SqlServer/">SqlServer</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/sqlgrant.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h4>&nbsp;&nbsp; 有时候我们需要跟第三方共享数据，但是又不能数据库完全开放。</h4>
-<h4>&nbsp;&nbsp; 所以使用数据库角色授权就能很好的解决这个问题。</h4>
-<h4>&nbsp;&nbsp; 以下是工作中用到的Sql语句。就当是做下笔记。</h4>
-<p>&nbsp;</p>
-<div>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_400258" class="syntaxhighlighter  sql"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="sql comments">--创建角色 role_TechDB</code></div><div class="line number2 index1 alt1"><code class="sql keyword">EXEC</code> <code class="sql plain">sp_addrole </code><code class="sql string">'role_TechDB'</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="sql comments">--授予 role_TechDB 对 GXJG_JZGJCSJZLB,GXXX_YXSDWJBSJZL 表的所有权限</code></div><div class="line number5 index4 alt2"><code class="sql keyword">GRANT</code> <code class="sql keyword">SELECT</code><code class="sql plain">,</code><code class="sql keyword">DELETE</code><code class="sql plain">,</code><code class="sql keyword">INSERT</code><code class="sql plain">,</code><code class="sql keyword">UPDATE</code> <code class="sql keyword">ON</code> <code class="sql plain">GXJG_JZGJCSJZLB </code><code class="sql keyword">TO</code> <code class="sql plain">role_TechDB</code></div><div class="line number6 index5 alt1"><code class="sql keyword">GRANT</code> <code class="sql keyword">SELECT</code><code class="sql plain">,</code><code class="sql keyword">DELETE</code><code class="sql plain">,</code><code class="sql keyword">INSERT</code><code class="sql plain">,</code><code class="sql keyword">UPDATE</code> <code class="sql keyword">ON</code> <code class="sql plain">GXXX_YXSDWJBSJZL </code><code class="sql keyword">TO</code> <code class="sql plain">role_TechDB</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="sql comments">--添加登录 zf_login,设置密码为zf@123456,默认数据库为TechDB</code></div><div class="line number9 index8 alt2"><code class="sql keyword">EXEC</code> <code class="sql plain">sp_addlogin </code><code class="sql string">'zf_login'</code><code class="sql plain">,</code><code class="sql string">'zf@123456'</code><code class="sql plain">,</code><code class="sql string">'TechDB'</code></div><div class="line number10 index9 alt1"><code class="sql keyword">EXEC</code> <code class="sql plain">sp_grantdbaccess </code><code class="sql string">'zf_login'</code><code class="sql plain">,</code><code class="sql string">'zf_login'</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="sql comments">--添加 zf_login 为角色 role_TechDB 的成员</code></div><div class="line number13 index12 alt2"><code class="sql keyword">EXEC</code> <code class="sql plain">sp_addrolemember </code><code class="sql string">'role_TechDB'</code><code class="sql plain">,</code><code class="sql string">'zf_login'</code></div></div></td></tr></tbody></table></div></div>
-</div>
-</div>
-</div>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2014/11/28/超简单微信公众帐号自动回复和天气播报功能应用/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="超简单微信公众帐号自动回复和天气播报功能应用">
-                
-                <h1>超简单微信公众帐号自动回复和天气播报功能应用</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2014年11月28日</a>
-            <a><i class="nexmoefont icon-areachart"></i>886 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/">后端</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/后端/PHP/">PHP</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/公众号/">公众号</a>
-            
-        </div>
-        <article>
-            
-            <p><a href="https://www.cnblogs.com/bugzone/p/weixin.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 最近一直在网上捣鼓东西，之前看到有篇文章介绍微信开发，感觉很有意思，然后在官方网站找到API文档就开始开发了，花了一晚上时间，基本实现一般关键字的处理回复，以及城市天气的预报。因为文档是PHP示例,我也边学习边用PHP开发起来。</p>
-<p>　　可以先微信扫一扫,体验一下."看完代码就不神奇了" .—_—.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280933118409782.jpg" alt></p>
-<p>　　注：代码GitHub地址在文章后面列出.</p>
-<h1>一.功能介绍：</h1>
-<p>　　可以识别多种关键字,可以查询城市天气,许多功能用户可以自己探索. <br>
-　　输入 help 的提示信息如下：
-<br>
-<code>
-　　发送 城市名天气 获取城市天气,<br>　　如：发送 北京天气 获取城市北京的天气.<br>
-<br>　　发送 help 可以获得帮助.<br>
-　　发送 img 可看到网站预览图.<br>
-　　发送 news 可看图片新闻.<br>
-　　发送 music 可听音乐.<br>
-<br>
-　　当然也可以发送其他关键字来查看是否能获得您想要的信息.<br>　　您还可以给我发语音,位置,图片等.</code> </p>
-<h1>二.使用方法:</h1>
-<h2>&nbsp;&nbsp;&nbsp; 1.直接使用.</h2>
-<p>&nbsp;　　直接使用已经搭建好的新浪云应用程序，那"URL"填写http://vxinxi.sinaapp.com/index.php 和"Token"填写superman这两个就不能更改了。</p>
-<p>&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280910575123261.png" alt width="839" height="643"></p>
-<h2>&nbsp;　　2.自己部署程序.</h2>
-<p>　　 如果自己部署，如果你没有服务器，对PHP程序部署不熟悉的。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 你可以参考我的另一篇文章：<a id="homepage1_HomePageDays_DaysList_ctl01_DayList_TitleUrl_0" class="postTitle2" href="http://www.cnblogs.com/bugzone/p/SinaAppEngine.html" target="_blank"><span class="postTitle2">在新浪SAE上搭建自己的网站！</span></a></p>
-<p><span class="postTitle2">　　部署好以后，“<span class="postTitle2">URL</span>”改为你的新浪应用程序地址，"Token"改为你代码中的token配置。如果你不修改代码，那token就不用改，还是之前的superman。</span></p>
-<h1><span class="postTitle2">三.代码解释.</span></h1>
-<h2><span class="postTitle2">&nbsp;&nbsp;&nbsp;&nbsp; 1.定义自己的token. </span></h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_476969" class="syntaxhighlighter  php"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php plain">define(</code><code class="php string">"TOKEN"</code><code class="php plain">, </code><code class="php string">"superman"</code><code class="php plain">);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<h2><span class="postTitle2"><span class="pl-s2"><span class="pl-s3"><span class="pl-s1"><span class="pl-pds"><span class="pl-pds"><span class="pl-s1"><span class="pl-pds"><span class="pl-pds">　　2.验证签名.</span></span></span></span></span></span></span></span></span></h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_839525" class="syntaxhighlighter  php"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php comments">//验证签名</code></div><div class="line number2 index1 alt1"><code class="php keyword">public</code> <code class="php keyword">function</code> <code class="php plain">valid()</code></div><div class="line number3 index2 alt2"><code class="php plain">{</code></div><div class="line number4 index3 alt1"><code class="php variable">$echoStr</code> <code class="php plain">= </code><code class="php variable">$_GET</code><code class="php plain">[</code><code class="php string">"echostr"</code><code class="php plain">];</code></div><div class="line number5 index4 alt2"><code class="php variable">$signature</code> <code class="php plain">= </code><code class="php variable">$_GET</code><code class="php plain">[</code><code class="php string">"signature"</code><code class="php plain">];</code></div><div class="line number6 index5 alt1"><code class="php variable">$timestamp</code> <code class="php plain">= </code><code class="php variable">$_GET</code><code class="php plain">[</code><code class="php string">"timestamp"</code><code class="php plain">];</code></div><div class="line number7 index6 alt2"><code class="php variable">$nonce</code> <code class="php plain">= </code><code class="php variable">$_GET</code><code class="php plain">[</code><code class="php string">"nonce"</code><code class="php plain">];</code></div><div class="line number8 index7 alt1"><code class="php variable">$token</code> <code class="php plain">= TOKEN;</code></div><div class="line number9 index8 alt2"><code class="php variable">$tmpArr</code> <code class="php plain">= </code><code class="php keyword">array</code><code class="php plain">(</code><code class="php variable">$token</code><code class="php plain">, </code><code class="php variable">$timestamp</code><code class="php plain">, </code><code class="php variable">$nonce</code><code class="php plain">);</code></div><div class="line number10 index9 alt1"><code class="php plain">sort(</code><code class="php variable">$tmpArr</code><code class="php plain">);</code></div><div class="line number11 index10 alt2"><code class="php variable">$tmpStr</code> <code class="php plain">= implode(</code><code class="php variable">$tmpArr</code><code class="php plain">);</code></div><div class="line number12 index11 alt1"><code class="php variable">$tmpStr</code> <code class="php plain">= sha1(</code><code class="php variable">$tmpStr</code><code class="php plain">);</code></div><div class="line number13 index12 alt2"><code class="php keyword">if</code><code class="php plain">(</code><code class="php variable">$tmpStr</code> <code class="php plain">== </code><code class="php variable">$signature</code><code class="php plain">){</code></div><div class="line number14 index13 alt1"><code class="php functions">echo</code> <code class="php variable">$echoStr</code><code class="php plain">;</code></div><div class="line number15 index14 alt2"><code class="php functions">exit</code><code class="php plain">;</code></div><div class="line number16 index15 alt1"><code class="php plain">}</code></div><div class="line number17 index16 alt2"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<h2>&nbsp;&nbsp; 3.消息类型分类处理</h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_678778" class="syntaxhighlighter  php"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php comments">//消息类型处理</code></div><div class="line number2 index1 alt1"><code class="php keyword">switch</code> <code class="php plain">(</code><code class="php variable">$RX_TYPE</code><code class="php plain">)</code></div><div class="line number3 index2 alt2"><code class="php plain">{</code></div><div class="line number4 index3 alt1"><code class="php keyword">case</code> <code class="php string">"event"</code><code class="php plain">:</code><code class="php comments">//微信事件消息</code></div><div class="line number5 index4 alt2"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveEvent(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number6 index5 alt1"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number7 index6 alt2"><code class="php keyword">case</code> <code class="php string">"text"</code><code class="php plain">:</code><code class="php comments">//文本消息,微信自带表情也是文本符号，（着重处理这种类型消息）</code></div><div class="line number8 index7 alt1"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveText(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number9 index8 alt2"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number10 index9 alt1"><code class="php keyword">case</code> <code class="php string">"image"</code><code class="php plain">:</code><code class="php comments">//图片消息</code></div><div class="line number11 index10 alt2"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveImage(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number12 index11 alt1"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number13 index12 alt2"><code class="php keyword">case</code> <code class="php string">"location"</code><code class="php plain">:</code><code class="php comments">//位置信息</code></div><div class="line number14 index13 alt1"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveLocation(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number15 index14 alt2"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number16 index15 alt1"><code class="php keyword">case</code> <code class="php string">"voice"</code><code class="php plain">:</code><code class="php comments">//语言信息</code></div><div class="line number17 index16 alt2"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveVoice(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number18 index17 alt1"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number19 index18 alt2"><code class="php keyword">case</code> <code class="php string">"video"</code><code class="php plain">:</code><code class="php comments">//视频信息</code></div><div class="line number20 index19 alt1"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveVideo(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number21 index20 alt2"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number22 index21 alt1"><code class="php keyword">case</code> <code class="php string">"link"</code><code class="php plain">:</code><code class="php comments">//链接消息</code></div><div class="line number23 index22 alt2"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php variable">$this</code><code class="php plain">-&gt;receiveLink(</code><code class="php variable">$postObj</code><code class="php plain">);</code></div><div class="line number24 index23 alt1"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number25 index24 alt2"><code class="php keyword">default</code><code class="php plain">:</code></div><div class="line number26 index25 alt1"><code class="php variable">$result</code> <code class="php plain">= </code><code class="php string">"unknown msg type: "</code><code class="php plain">.</code><code class="php variable">$RX_TYPE</code><code class="php plain">;</code></div><div class="line number27 index26 alt2"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number28 index27 alt1"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<h2>&nbsp;4.天气播报功能.</h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_127602" class="syntaxhighlighter  php"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php keyword">else</code> <code class="php keyword">if</code><code class="php plain">(</code><code class="php functions">strstr</code><code class="php plain">(</code><code class="php variable">$keyword</code><code class="php plain">, </code><code class="php string">"天气"</code><code class="php plain">) )</code><code class="php comments">//包含天气关键字</code></div><div class="line number2 index1 alt1"><code class="php plain">{</code></div><div class="line number3 index2 alt2"><code class="php variable">$code</code><code class="php plain">=</code><code class="php variable">$this</code><code class="php plain">-&gt;check(mb_substr(</code><code class="php variable">$keyword</code> <code class="php plain">, 0 , 2 , </code><code class="php string">'utf-8'</code><code class="php plain">));</code><code class="php comments">//获取中文字符“南京天气”前两个中文,"南京",通过check(str)找到城市对应的天气编码.</code></div><div class="line number4 index3 alt1"><code class="php variable">$getcontent</code> <code class="php plain">= </code><code class="php functions">file_get_contents</code><code class="php plain">(</code><code class="php string">"http://www.weather.com.cn/data/cityinfo/{$code}.html"</code><code class="php plain">);//通过url获取json数据.</code></div><div class="line number5 index4 alt2"><code class="php keyword">if</code><code class="php plain">(!</code><code class="php variable">$getcontent</code><code class="php plain">){</code></div><div class="line number6 index5 alt1"><code class="php keyword">return</code> <code class="php string">'暂时没有取到天气数据,请稍后再试'</code><code class="php plain">;</code></div><div class="line number7 index6 alt2"><code class="php plain">}</code><code class="php keyword">else</code><code class="php plain">{</code></div><div class="line number8 index7 alt1"><code class="php variable">$getresult</code><code class="php plain">=json_decode(</code><code class="php variable">$getcontent</code><code class="php plain">,true);</code></div><div class="line number9 index8 alt2"><code class="php variable">$info</code><code class="php plain">=</code><code class="php variable">$getresult</code><code class="php plain">[</code><code class="php string">'weatherinfo'</code><code class="php plain">];</code></div><div class="line number10 index9 alt1"><code class="php variable">$content</code><code class="php plain">=</code><code class="php string">"{$info['city']}的天气情况：\n"</code><code class="php plain">;</code><code class="php comments">//解析获取json数据,展示天气情况.</code></div><div class="line number11 index10 alt2"><code class="php variable">$content</code> <code class="php plain">.= </code><code class="php string">"今天天气:{$info['weather']}\n"</code><code class="php plain">;</code></div><div class="line number12 index11 alt1"><code class="php variable">$content</code> <code class="php plain">.= </code><code class="php string">"最低温度:{$info['temp1']}\n"</code><code class="php plain">;</code></div><div class="line number13 index12 alt2"><code class="php variable">$content</code> <code class="php plain">.= </code><code class="php string">"最高温度:{$info['temp2']}\n"</code><code class="php plain">;</code></div><div class="line number14 index13 alt1"><code class="php plain">} </code></div></div></td></tr></tbody></table></div></div>
-</div>
-<h1>&nbsp;四.效果预览:</h1>
-<h2>&nbsp;1.关注后提示信息.</h2>
-<p>&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/280928321999648.png" alt width="350" height="619"></p>
-<h2>2.天气播报功能.</h2>
-<p><img src="https://images0.cnblogs.com/blog/612293/201411/280929392772856.png" alt width="343" height="606"></p>
-<p>&nbsp;</p>
-<h1>五.其它</h1>
-<p>&nbsp;代码GitHub地址:<a href="https://github.com/MyGHCode/WeChatRobot" target="_blank">https://github.com/MyGHCode/WeChatRobot</a></p>
-<p>&nbsp;微信公众帐号开发帮助文档:<a href="http://mp.weixin.qq.com/wiki/index.php?title=%E9%A6%96%E9%A1%B5" target="_blank">http://mp.weixin.qq.com/wiki/index.php?title=%E9%A6%96%E9%A1%B5</a></p>
-</div>
-            
-        </article>
-    </div>
-    
-</section>
-
-    <nav class="nexmoe-page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/"><i class="nexmoefont icon-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="nexmoefont icon-right"></i></a>
-    </nav>
-  
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
- 
-    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
-
- 
-    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<script src="/js/app.js?v=1571545567829"></script>
-<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
-
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
-
-
-
-  
-
-
-
-
-
-    <!-- baidu Analytics -->
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?3771b2566860fea0de20c35742671f53#&lt;ID&gt;';
-    var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
+    hljs.initHighlightingOnLoad();
 </script>
 
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>网记本</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/FreeFunCode" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="juejin" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-juejin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="oschina" href="https://www.cnblogs.com/bugzone" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="jianshu" href="https://www.jianshu.com/u/ba21180e6aab" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-jianshu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(94)</small></div></li>
+    
+        
+            
+            <li><div data-rel="后端"><i class="fold iconfont icon-right"></i>后端<small>(21)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="CSharp">CSharp<small>(14)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="JAVA">JAVA<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="PHP">PHP<small>(6)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Android"><i class="fold iconfont icon-right"></i>Android<small>(52)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="开源框架">开源框架<small>(17)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="kotlin">kotlin<small>(2)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="安卓源码">安卓源码<small>(15)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="知识点">知识点<small>(18)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="GitHub">GitHub<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="心情">心情<small>(10)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="设计模式">设计模式<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="94">
+<input type="hidden" id="yelog_site_word_count" value="171.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/FreeFunCode">我的GitHub</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/bugzone">我的博客园</a></li>
+            
+            <li><a target="_blank" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts">我的掘金</a></li>
+            
+            <li><a target="_blank" href="https://www.jianshu.com/u/ba21180e6aab">我的简书</a></li>
+            
+            <li><a target="_blank" href="http://freefuncode.github.io/GitBook">我的GitBook</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">日期格式化</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Linq</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">visualStudio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">coroutine协程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">view绘制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">线程切换</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">屏幕适配</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">开源框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">安卓源码</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">地图</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">IIS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">SqlServer</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">ViewPager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">XMLHttpRequest</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">增量更新</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">电影</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">fiddler</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">副业</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">职业生涯</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Activity</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">BroadcastReceiver</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">职业发展</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">跳槽</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">图片保存</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">习惯</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">c#</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">easyui</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">php</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">kotlin</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">序列化</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">mongodb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">评论插件</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">正则表达式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">AIDL</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">公众号</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">设计模式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">ContentProvider</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Android7.0</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Excel操作</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Service</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">GitHub</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">nodejs</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">LNMP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">C#文件上传</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">mono_for_Android</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">新浪SAE</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">京东云擎</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">MAMP</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="后端 CSharp "
+           href="/2014/05/08/002-DateFormat/"
+           data-tag="日期格式化"
+           data-author="" >
+            <span class="post-title" title="C#/JavaScript/SqlServer 对日期时间的操作整理汇总">C#/JavaScript/SqlServer 对日期时间的操作整理汇总</span>
+            <span class="post-date" title="2014-05-08 14:17:15">2014/05/08</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/05/27/003-c-Linq/"
+           data-tag="Linq"
+           data-author="" >
+            <span class="post-title" title="Linq中int转String（解决LINQ to Entities 不识别方法&#34;System.String ToString()&#34;,因此该方法无法转换为存储表达式.）">Linq中int转String（解决LINQ to Entities 不识别方法&#34;System.String ToString()&#34;,因此该方法无法转换为存储表达式.）</span>
+            <span class="post-date" title="2014-05-27 17:03:35">2014/05/27</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/07/25/005-“VS无法连接远程数据库”解决方案/"
+           data-tag="visualStudio"
+           data-author="" >
+            <span class="post-title" title="“VS无法连接远程数据库”解决方案">“VS无法连接远程数据库”解决方案</span>
+            <span class="post-date" title="2014-07-25 09:28:00">2014/07/25</span>
+        </a>
+        
+        <a  class="Android kotlin "
+           href="/2019/10/19/Android-kotlin-coroutine协程的概念/"
+           data-tag="coroutine协程"
+           data-author="" >
+            <span class="post-title" title="Android-kotlin-coroutine协程的概念">Android-kotlin-coroutine协程的概念</span>
+            <span class="post-date" title="2019-10-19 16:40:15">2019/10/19</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2019/10/03/AndroidView绘制流程/"
+           data-tag="view绘制"
+           data-author="" >
+            <span class="post-title" title="Android View绘制流程">Android View绘制流程</span>
+            <span class="post-date" title="2019-10-03 12:18:40">2019/10/03</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2019/10/19/Android子线程切换到UI线程方法总结/"
+           data-tag="线程切换"
+           data-author="" >
+            <span class="post-title" title="Android子线程切换到UI线程方法总结">Android子线程切换到UI线程方法总结</span>
+            <span class="post-date" title="2019-10-19 13:10:59">2019/10/19</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2019/10/03/Android屏幕适配/"
+           data-tag="屏幕适配"
+           data-author="" >
+            <span class="post-title" title="Android屏幕适配">Android屏幕适配</span>
+            <span class="post-date" title="2019-10-03 09:07:38">2019/10/03</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2019/09/04/Android开源框架八注解框架-ButterKnife/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 八 ) 注解框架---ButterKnife">Android 开源框架 ( 八 ) 注解框架---ButterKnife</span>
+            <span class="post-date" title="2019-09-04 20:03:06">2019/09/04</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/12/Android开源框架十六视频播放器-JiaoZiVideoPlayer-JieCaoVideoPlayer/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十六 ) 视频播放器 --- JiaoZiVideoPlayer(JieCaoVideoPlayer)">Android 开源框架 ( 十六 ) 视频播放器 --- JiaoZiVideoPlayer(JieCaoVideoPlayer)</span>
+            <span class="post-date" title="2018-08-12 16:07:37">2018/08/12</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/05/Android开源框架十图片加载框架-Picasso/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十 ) 图片加载框架---Picasso">Android 开源框架 ( 十 ) 图片加载框架---Picasso</span>
+            <span class="post-date" title="2018-08-05 13:56:31">2018/08/05</span>
+        </a>
+        
+        <a id="top" class="Android 开源框架 "
+           href="/2018/08/05/Android开源框架系列导读/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 系列 导读">Android 开源框架 系列 导读</span>
+            <span class="post-date" title="2018-08-05 22:15:29">2018/08/05</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/06/18/Android源码分析一开篇介绍/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（一） 开篇介绍">Android 源码分析（一） 开篇介绍</span>
+            <span class="post-date" title="2018-06-18 19:47:55">2018/06/18</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2019/08/25/Android面试题/"
+           data-tag="面试"
+           data-author="" >
+            <span class="post-title" title="Android面试题">Android面试题</span>
+            <span class="post-date" title="2019-08-25 22:31:56">2019/08/25</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/11/08/Arcgis-地图-服务器安装配置/"
+           data-tag="地图"
+           data-author="" >
+            <span class="post-title" title="Arcgis-地图-服务器安装配置">Arcgis-地图-服务器安装配置</span>
+            <span class="post-date" title="2014-11-08 04:00:13">2014/11/08</span>
+        </a>
+        
+        <a  class="GitHub "
+           href="/2014/04/27/Hello-Hexo/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hello Hexo">Hello Hexo</span>
+            <span class="post-date" title="2014-04-27 19:20:47">2014/04/27</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/09/15/IIS网站应用偶尔出现服务不可用解决办法/"
+           data-tag="IIS"
+           data-author="" >
+            <span class="post-title" title="IIS网站应用偶尔出现服务不可用解决办法">IIS网站应用偶尔出现服务不可用解决办法</span>
+            <span class="post-date" title="2014-09-15 13:40:05">2014/09/15</span>
+        </a>
+        
+        <a  class="后端 JAVA "
+           href="/2018/07/01/Java基础面试题汇总/"
+           data-tag="面试"
+           data-author="" >
+            <span class="post-title" title="Java基础面试题汇总">Java基础面试题汇总</span>
+            <span class="post-date" title="2018-07-01 04:16:31">2018/07/01</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/12/02/SqlServer数据库添加角色，角色授权/"
+           data-tag="SqlServer"
+           data-author="" >
+            <span class="post-title" title="SqlServer数据库添加角色，角色授权">SqlServer数据库添加角色，角色授权</span>
+            <span class="post-date" title="2014-12-02 17:15:01">2014/12/02</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2015/06/01/VS发布报错未能将文件……复制到……/"
+           data-tag="visualStudio"
+           data-author="" >
+            <span class="post-title" title="VS发布报错未能将文件……复制到……">VS发布报错未能将文件……复制到……</span>
+            <span class="post-date" title="2015-06-01 21:25:08">2015/06/01</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/07/21/ViewPager相关使用/"
+           data-tag="ViewPager"
+           data-author="" >
+            <span class="post-title" title="ViewPager相关使用">ViewPager相关使用</span>
+            <span class="post-date" title="2018-07-21 23:59:41">2018/07/21</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/09/28/XMLHttpRequest异步方式和同步方式/"
+           data-tag="XMLHttpRequest"
+           data-author="" >
+            <span class="post-title" title="XMLHttpRequest异步方式和同步方式">XMLHttpRequest异步方式和同步方式</span>
+            <span class="post-date" title="2014-09-28 20:19:04">2014/09/28</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2019/10/07/bsdiff和bspatch增量更新概念介绍/"
+           data-tag="增量更新"
+           data-author="" >
+            <span class="post-title" title="bsdiff&amp;bspatch增量更新概念介绍">bsdiff&amp;bspatch增量更新概念介绍</span>
+            <span class="post-date" title="2019-10-07 10:22:16">2019/10/07</span>
+        </a>
+        
+        <a  class="GitHub "
+           href="/2014/04/26/hello-world/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2014-04-26 19:10:17">2014/04/26</span>
+        </a>
+        
+        <a  class="GitHub "
+           href="/2019/09/30/mac搭建hexo环境/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="mac搭建hexo环境">mac搭建hexo环境</span>
+            <span class="post-date" title="2019-09-30 15:47:50">2019/09/30</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/10/04/post《蛮荒故事》电影观后感/"
+           data-tag="电影"
+           data-author="" >
+            <span class="post-title" title="《蛮荒故事》电影观后感">《蛮荒故事》电影观后感</span>
+            <span class="post-date" title="2019-10-04 09:37:22">2019/10/04</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/05/06/使用fiddler抓手机端http数据包/"
+           data-tag="fiddler"
+           data-author="" >
+            <span class="post-title" title="使用fiddler抓手机端http数据包">使用fiddler抓手机端http数据包</span>
+            <span class="post-date" title="2018-05-06 19:48:10">2018/05/06</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/10/19/关于程序员的第二职业/"
+           data-tag="副业"
+           data-author="" >
+            <span class="post-title" title="关于程序员的第二职业">关于程序员的第二职业</span>
+            <span class="post-date" title="2019-10-19 17:59:57">2019/10/19</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/10/01/关于职业生涯的想法/"
+           data-tag="职业生涯"
+           data-author="" >
+            <span class="post-title" title="关于职业生涯的想法">关于职业生涯的想法</span>
+            <span class="post-date" title="2019-10-01 12:31:39">2019/10/01</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/04/11/四大组件-一-Activity生命周期/"
+           data-tag="Activity"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (一) Activity 生命周期">Android 四大组件 (一) Activity 生命周期</span>
+            <span class="post-date" title="2018-04-11 20:00:39">2018/04/11</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/05/16/四大组件-三-BroadcastReceiver介绍/"
+           data-tag="BroadcastReceiver"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (三) BroadcastReceiver 介绍">Android 四大组件 (三) BroadcastReceiver 介绍</span>
+            <span class="post-date" title="2018-05-16 12:33:39">2018/05/16</span>
+        </a>
+        
+        <a  class="GitHub "
+           href="/2014/11/23/在GitHub上搭建hexo博客/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="在GitHub上搭建hexo博客">在GitHub上搭建hexo博客</span>
+            <span class="post-date" title="2014-11-23 14:06:58">2014/11/23</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/09/28/巴比龙电影观后感/"
+           data-tag="电影"
+           data-author="" >
+            <span class="post-title" title="《巴比龙》电影观后感">《巴比龙》电影观后感</span>
+            <span class="post-date" title="2019-09-28 13:06:52">2019/09/28</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/07/开源框架十五下拉刷新框架-SwipeRefreshLayout/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十五 ) 下拉刷新框架 --- SwipeRefreshLayout">Android 开源框架 ( 十五 ) 下拉刷新框架 --- SwipeRefreshLayout</span>
+            <span class="post-date" title="2018-08-07 20:28:54">2018/08/07</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2015/11/14/最近的一些感想（关于移动客户端开发android-ios）/"
+           data-tag="职业发展"
+           data-author="" >
+            <span class="post-title" title="最近的一些感想（关于移动客户端开发android,ios）">最近的一些感想（关于移动客户端开发android,ios）</span>
+            <span class="post-date" title="2015-11-14 22:39:55">2015/11/14</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/09/22/汉尼拔电影观后感/"
+           data-tag="电影"
+           data-author="" >
+            <span class="post-title" title="汉尼拔电影观后感">汉尼拔电影观后感</span>
+            <span class="post-date" title="2019-09-22 13:00:36">2019/09/22</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2016/08/27/第二次裸辞-潜伏期-一些感想/"
+           data-tag="跳槽"
+           data-author="" >
+            <span class="post-title" title="第二次裸辞_潜伏期_一些感想">第二次裸辞_潜伏期_一些感想</span>
+            <span class="post-date" title="2016-08-27 16:12:25">2016/08/27</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/10/02/蝴蝶效应-电影观后感/"
+           data-tag="电影"
+           data-author="" >
+            <span class="post-title" title="《蝴蝶效应》电影观后感">《蝴蝶效应》电影观后感</span>
+            <span class="post-date" title="2019-10-02 17:04:13">2019/10/02</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/"
+           data-tag="图片保存"
+           data-author="" >
+            <span class="post-title" title="解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。">解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。</span>
+            <span class="post-date" title="2018-04-13 20:26:54">2018/04/13</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2019/10/13/谈谈逛博客的小习惯/"
+           data-tag="习惯"
+           data-author="" >
+            <span class="post-title" title="谈谈逛博客的小习惯">谈谈逛博客的小习惯</span>
+            <span class="post-date" title="2019-10-13 18:43:22">2019/10/13</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2015/06/07/错误：类型System-Object未定义或者不能引入项目/"
+           data-tag="c#"
+           data-author="" >
+            <span class="post-title" title="错误：类型System.Object未定义或者不能引入项目">错误：类型System.Object未定义或者不能引入项目</span>
+            <span class="post-date" title="2015-06-07 14:33:14">2015/06/07</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2014/07/14/004-easyui的-getSelections-与-getSelected-对比区别/"
+           data-tag="easyui"
+           data-author="" >
+            <span class="post-title" title="easyui的 getSelections 与 getSelected 对比区别">easyui的 getSelections 与 getSelected 对比区别</span>
+            <span class="post-date" title="2014-07-14 14:11:27">2014/07/14</span>
+        </a>
+        
+        <a  class="后端 PHP "
+           href="/2014/08/21/00Windows下搭建PHP开发环境，整合Apache-PHP-MySQL（举例软件为32位）/"
+           data-tag="php"
+           data-author="" >
+            <span class="post-title" title="Windows下搭建PHP开发环境，整合Apache+PHP+MySQL（举例软件为32位）">Windows下搭建PHP开发环境，整合Apache+PHP+MySQL（举例软件为32位）</span>
+            <span class="post-date" title="2014-08-21 15:42:28">2014/08/21</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/07/14/Android8-0新特性介绍以及注意事项/"
+           data-tag="Android"
+           data-author="" >
+            <span class="post-title" title="Android8.0新特性介绍以及注意事项">Android8.0新特性介绍以及注意事项</span>
+            <span class="post-date" title="2018-07-14 13:13:38">2018/07/14</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/07/28/Android开源框架一OkHttp网络框架的基本使用/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用">Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用</span>
+            <span class="post-date" title="2018-07-28 14:21:25">2018/07/28</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/05/Android开源框架九图片加载框架-ImageLoader/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 九 ) 图片加载框架---ImageLoader">Android 开源框架 ( 九 ) 图片加载框架---ImageLoader</span>
+            <span class="post-date" title="2018-08-05 13:00:34">2018/08/05</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/05/Android开源框架十一图片加载框架-Glide/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十一 ) 图片加载框架---Glide">Android 开源框架 ( 十一 ) 图片加载框架---Glide</span>
+            <span class="post-date" title="2018-08-05 14:07:01">2018/08/05</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/07/Android源码分析八Launcher桌面启动App过程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（八） Launcher 桌面启动App过程">Android 源码分析（八） Launcher 桌面启动App过程</span>
+            <span class="post-date" title="2018-07-07 20:13:12">2018/07/07</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/22/Android源码分析十三ActivityManagerService服务分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android源码分析（十三）ActivityManagerService服务分析">Android源码分析（十三）ActivityManagerService服务分析</span>
+            <span class="post-date" title="2018-07-22 13:33:13">2018/07/22</span>
+        </a>
+        
+        <a id="top" class="Android 安卓源码 "
+           href="/2018/07/22/Android进阶学习笔记整理/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android进阶学习笔记整理">Android进阶学习笔记整理</span>
+            <span class="post-date" title="2018-07-22 16:27:43">2018/07/22</span>
+        </a>
+        
+        <a  class="Android kotlin "
+           href="/2019/09/28/Kotlin与java对比/"
+           data-tag="kotlin"
+           data-author="" >
+            <span class="post-title" title="Kotlin与java对比">Kotlin与java对比</span>
+            <span class="post-date" title="2019-09-28 17:48:07">2019/09/28</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/07/22/Serializable和Parcelable之序列化/"
+           data-tag="序列化"
+           data-author="" >
+            <span class="post-title" title="Serializable和Parcelable之序列化">Serializable和Parcelable之序列化</span>
+            <span class="post-date" title="2018-07-22 00:28:23">2018/07/22</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2014/08/24/mongodb在windows下安装教程/"
+           data-tag="mongodb"
+           data-author="" >
+            <span class="post-title" title="mongodb在windows下安装教程">mongodb在windows下安装教程</span>
+            <span class="post-date" title="2014-08-24 02:10:01">2014/08/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2014/11/20/推荐三款使用社会化评论插件/"
+           data-tag="评论插件"
+           data-author="" >
+            <span class="post-title" title="推荐三款使用社会化评论插件">推荐三款使用社会化评论插件</span>
+            <span class="post-date" title="2014-11-20 23:24:39">2014/11/20</span>
+        </a>
+        
+        <a  class="心情 "
+           href="/2015/04/27/跳槽穷半年-转行穷三年-死守会穷一辈子/"
+           data-tag="跳槽"
+           data-author="" >
+            <span class="post-title" title="跳槽穷半年,转行穷三年,死守会穷一辈子">跳槽穷半年,转行穷三年,死守会穷一辈子</span>
+            <span class="post-date" title="2015-04-27 20:49:33">2015/04/27</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2014/05/07/001-RegEx/"
+           data-tag="正则表达式"
+           data-author="" >
+            <span class="post-title" title="《正则表达式》知识点汇总摘录">《正则表达式》知识点汇总摘录</span>
+            <span class="post-date" title="2014-05-07 16:17:16">2014/05/07</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/07/21/AIDL介绍以及简单使用/"
+           data-tag="AIDL"
+           data-author="" >
+            <span class="post-title" title="AIDL介绍以及简单使用">AIDL介绍以及简单使用</span>
+            <span class="post-date" title="2018-07-21 13:05:21">2018/07/21</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/02/Android开源框架七事件总线-EventBus/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 七 ) 事件总线---EventBus">Android 开源框架 ( 七 ) 事件总线---EventBus</span>
+            <span class="post-date" title="2018-08-02 22:54:14">2018/08/02</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/07/29/Android开源框架二基于OkHttp进一步封装的okhttp-utils介绍/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</span>
+            <span class="post-date" title="2018-07-29 11:24:14">2018/07/29</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/07/30/Android开源框架五xUtils-Android里的ORM-IOC聚合型框架/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架">Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架</span>
+            <span class="post-date" title="2018-07-30 23:55:54">2018/07/30</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/05/Android开源框架十三RecyclerView/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十三 ) RecyclerView">Android 开源框架 ( 十三 ) RecyclerView</span>
+            <span class="post-date" title="2018-08-05 21:19:57">2018/08/05</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/07/30/Android开源框架四Afinal-Android里的ORM-IOC聚合型框架/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架">Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架</span>
+            <span class="post-date" title="2018-07-30 23:07:12">2018/07/30</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/07/Android源码分析五Zygote进程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（五） Zygote 进程">Android 源码分析（五） Zygote 进程</span>
+            <span class="post-date" title="2018-07-07 14:14:54">2018/07/07</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（十） Dalvik 虚拟机创建过程">Android 源码分析（十） Dalvik 虚拟机创建过程</span>
+            <span class="post-date" title="2018-07-09 21:04:17">2018/07/09</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/22/Android源码分析十四PackageManagerService服务分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android源码分析（十四）PackageManagerService服务分析">Android源码分析（十四）PackageManagerService服务分析</span>
+            <span class="post-date" title="2018-07-22 14:59:30">2018/07/22</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2015/06/02/easyui换主题，并记录在cookie-以及cookie作用域介绍/"
+           data-tag="easyui"
+           data-author="" >
+            <span class="post-title" title="easyui换主题，并记录在cookie.以及cookie作用域介绍">easyui换主题，并记录在cookie.以及cookie作用域介绍</span>
+            <span class="post-date" title="2015-06-02 21:22:20">2015/06/02</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/07/开源框架十四列表下拉刷新框架-SmartRefreshLayout/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十四 ) 列表下拉刷新框架 --- SmartRefreshLayout">Android 开源框架 ( 十四 ) 列表下拉刷新框架 --- SmartRefreshLayout</span>
+            <span class="post-date" title="2018-08-07 20:23:00">2018/08/07</span>
+        </a>
+        
+        <a  class="后端 PHP "
+           href="/2014/11/28/超简单微信公众帐号自动回复和天气播报功能应用/"
+           data-tag="公众号"
+           data-author="" >
+            <span class="post-title" title="超简单微信公众帐号自动回复和天气播报功能应用">超简单微信公众帐号自动回复和天气播报功能应用</span>
+            <span class="post-date" title="2014-11-28 14:30:13">2014/11/28</span>
+        </a>
+        
+        <a  class="设计模式 "
+           href="/2018/07/06/23种设计模式在Android中的应用/"
+           data-tag="设计模式"
+           data-author="" >
+            <span class="post-title" title="23种设计模式在Android中的应用">23种设计模式在Android中的应用</span>
+            <span class="post-date" title="2018-07-06 23:37:49">2018/07/06</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/07/19/Android四大组件-五-第五大组件Fragment使用/"
+           data-tag="Android"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (五) 第五大组件 - Fragment 使用">Android 四大组件 (五) 第五大组件 - Fragment 使用</span>
+            <span class="post-date" title="2018-07-19 09:20:09">2018/07/19</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/06/18/Android四大组件-四-ContentProvider介绍/"
+           data-tag="ContentProvider"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (四) ContentProvider介绍">Android 四大组件 (四) ContentProvider介绍</span>
+            <span class="post-date" title="2018-06-18 03:29:27">2018/06/18</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/01/Android开源框架六Volley-Google的轻量级网络通信框架/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架">Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架</span>
+            <span class="post-date" title="2018-08-01 07:36:18">2018/08/01</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/08/Android源码分析九Init启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（九） Init 启动分析">Android 源码分析（九） Init 启动分析</span>
+            <span class="post-date" title="2018-07-08 23:05:42">2018/07/08</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/07/28/Android7-0下载APK后自动安装/"
+           data-tag="Android7.0"
+           data-author="" >
+            <span class="post-title" title="Android7.0下载APK后自动安装">Android7.0下载APK后自动安装</span>
+            <span class="post-date" title="2018-07-28 18:57:46">2018/07/28</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/07/29/Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍">Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍</span>
+            <span class="post-date" title="2018-07-29 22:51:43">2018/07/29</span>
+        </a>
+        
+        <a  class="Android 开源框架 "
+           href="/2018/08/05/Android开源框架十二图片加载框架-Fresco/"
+           data-tag="开源框架"
+           data-author="" >
+            <span class="post-title" title="Android 开源框架 ( 十二 ) 图片加载框架---Fresco">Android 开源框架 ( 十二 ) 图片加载框架---Fresco</span>
+            <span class="post-date" title="2018-08-05 18:43:27">2018/08/05</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/15/Android源码分析十一事件传递机制/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（十一） 事件传递机制">Android 源码分析（十一） 事件传递机制</span>
+            <span class="post-date" title="2018-07-15 13:18:25">2018/07/15</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/22/Android源码分析十二ServiceManager服务分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android源码分析（十二）ServiceManager服务分析">Android源码分析（十二）ServiceManager服务分析</span>
+            <span class="post-date" title="2018-07-22 11:44:46">2018/07/22</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/07/Android源码分析四Handler异步消息机制/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（四） Handler 异步消息机制">Android 源码分析（四） Handler 异步消息机制</span>
+            <span class="post-date" title="2018-07-07 12:40:19">2018/07/07</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/"
+           data-tag="地图"
+           data-author="" >
+            <span class="post-title" title="使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。">使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。</span>
+            <span class="post-date" title="2014-11-09 17:10:29">2014/11/09</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/07/Android源码分析七Launcher桌面程序启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（七） Launcher 桌面程序启动分析">Android 源码分析（七） Launcher 桌面程序启动分析</span>
+            <span class="post-date" title="2018-07-07 19:51:44">2018/07/07</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/07/07/Android源码分析六SystemServer进程/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（六） SystemServer 进程">Android 源码分析（六） SystemServer 进程</span>
+            <span class="post-date" title="2018-07-07 15:14:19">2018/07/07</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/12/02/使用SqlBulkCopy实现Excel批量导入数据库/"
+           data-tag="Excel操作"
+           data-author="" >
+            <span class="post-title" title="使用SqlBulkCopy实现Excel批量导入数据库">使用SqlBulkCopy实现Excel批量导入数据库</span>
+            <span class="post-date" title="2014-12-02 18:05:14">2014/12/02</span>
+        </a>
+        
+        <a  class="Android 知识点 "
+           href="/2018/05/13/四大组件-二-Service使用/"
+           data-tag="Service"
+           data-author="" >
+            <span class="post-title" title="Android 四大组件 (二) Service 使用">Android 四大组件 (二) Service 使用</span>
+            <span class="post-date" title="2018-05-13 23:46:47">2018/05/13</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/06/24/Android源码分析三Service启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（三） Service 启动分析">Android 源码分析（三） Service 启动分析</span>
+            <span class="post-date" title="2018-06-24 14:24:40">2018/06/24</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/08/20/006-IIS7发布-EF-MVC项目提示404-0页面错误解决方案/"
+           data-tag="IIS"
+           data-author="" >
+            <span class="post-title" title="IIS7发布 EF MVC项目提示404.0页面错误解决方案">IIS7发布 EF MVC项目提示404.0页面错误解决方案</span>
+            <span class="post-date" title="2014-08-20 09:29:00">2014/08/20</span>
+        </a>
+        
+        <a  class="GitHub "
+           href="/2014/08/24/GitHub在windows上代码管理教程/"
+           data-tag="GitHub"
+           data-author="" >
+            <span class="post-title" title="GitHub在windows上代码管理教程">GitHub在windows上代码管理教程</span>
+            <span class="post-date" title="2014-08-24 04:03:23">2014/08/24</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2014/08/24/nodejs在windows平台下搭建部署环境教程/"
+           data-tag="nodejs"
+           data-author="" >
+            <span class="post-title" title="nodejs在windows平台下搭建部署环境教程">nodejs在windows平台下搭建部署环境教程</span>
+            <span class="post-date" title="2014-08-24 01:30:43">2014/08/24</span>
+        </a>
+        
+        <a  class="后端 PHP "
+           href="/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/"
+           data-tag="LNMP"
+           data-author="" >
+            <span class="post-title" title="在vmware虚拟机中安装centos系统并使用LNMP安装部署环境">在vmware虚拟机中安装centos系统并使用LNMP安装部署环境</span>
+            <span class="post-date" title="2014-09-06 11:32:34">2014/09/06</span>
+        </a>
+        
+        <a  class="Android 安卓源码 "
+           href="/2018/06/24/Android源码分析二Activity启动分析/"
+           data-tag="安卓源码"
+           data-author="" >
+            <span class="post-title" title="Android 源码分析（二） Activity 启动分析">Android 源码分析（二） Activity 启动分析</span>
+            <span class="post-date" title="2018-06-24 03:26:17">2018/06/24</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/09/03/使用uploadify上传大文件报IOerror-2038错误的解决方案/"
+           data-tag="C#文件上传"
+           data-author="" >
+            <span class="post-title" title="使用uploadify上传大文件报IOerror#2038错误的解决方案">使用uploadify上传大文件报IOerror#2038错误的解决方案</span>
+            <span class="post-date" title="2014-09-03 16:42:58">2014/09/03</span>
+        </a>
+        
+        <a  class="后端 CSharp "
+           href="/2014/09/12/mono-for-Android环境配置-环境搭建-破解方法-运行一个小程序/"
+           data-tag="mono_for_Android"
+           data-author="" >
+            <span class="post-title" title="mono_for_Android环境配置-环境搭建+破解方法+运行一个小程序-">mono_for_Android环境配置-环境搭建+破解方法+运行一个小程序-</span>
+            <span class="post-date" title="2014-09-12 13:50:06">2014/09/12</span>
+        </a>
+        
+        <a  class="后端 PHP "
+           href="/2014/08/24/在新浪SAE上搭建自己的网站！/"
+           data-tag="新浪SAE"
+           data-author="" >
+            <span class="post-title" title="在新浪SAE上搭建自己的网站！">在新浪SAE上搭建自己的网站！</span>
+            <span class="post-date" title="2014-08-24 21:45:51">2014/08/24</span>
+        </a>
+        
+        <a  class="后端 PHP "
+           href="/2014/08/26/在京东云擎上搭建自己的网站/"
+           data-tag="京东云擎"
+           data-author="" >
+            <span class="post-title" title="在京东云擎上搭建自己的网站">在京东云擎上搭建自己的网站</span>
+            <span class="post-date" title="2014-08-26 19:51:03">2014/08/26</span>
+        </a>
+        
+        <a  class="后端 PHP "
+           href="/2014/09/06/在vmware虚拟机中安装MacOSXMountainLion10-8-2系统并使用MAMP安装部署环境/"
+           data-tag="MAMP"
+           data-author="" >
+            <span class="post-title" title="在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境">在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境</span>
+            <span class="post-date" title="2014-09-06 12:41:21">2014/09/06</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android开发你正在那个级别？"><span class="toc-text">Android开发你正在那个级别？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么写博客"><span class="toc-text">为什么写博客</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+            <h1 id="Android开发你正在那个级别？"><a href="#Android开发你正在那个级别？" class="headerlink" title="Android开发你正在那个级别？"></a>Android开发你正在那个级别？</h1><blockquote>
+<p>初级</p>
+<blockquote>
+<p>初级研发工程师的定义是掌握基础的Android知识，能够独立完成一个功能，工作年限大概在1-2年，这个层级大部分人通过看一些资料书籍再经过项目练习很快可以达到。这个级别的人往往需要掌握如下一些技能：<br>掌握Android 四大组件知识，深入了解相关生命周期，对于Application、Fragment、Intent常见的开发知识也必须掌握。<br>掌握Android 基本布局和控件的属性和使用，常用布局有LinearLayout、RelativeLayout、ConstraintLayout等，控件有TextView、ImageView、RecyclerView、ScrollView等。<br>对Android的资源访问使用有基本了解，了解Android针对不同国家、语言、屏幕、API的适配原理。<br>掌握android系统服务和工具类的使用，对网络访问和数据库操作有基本认知。<br>熟练掌握研发工具，如IDE、模拟器、网络代理、日志等。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>中级</p>
+<blockquote>
+<p>我对中级工程师的定义是能够熟练完成功能研发外，还需要掌握常见开源库的一些原理，并仿照开源库去造轮子练习。这个阶段的人大多工作3-5年，业务开发能力熟练，碰到任何一个问题都能够得到解决，这个级别的人往往需要具备如下技能：<br>熟悉SOLID基础设计原则，掌握23种设计模式。<br>对于研发语言特性java/kotlin有深入理解，如反射、动态代理、apt等。<br>对Android架构有基础了解，对apk结构和打包原理有深入了解。<br>对于Android各个版本特性有基本了解，如MD设计、权限管理、doze模式等。<br>熟练掌握各种研发调试工具，如git、gradle、mat、layout inspector等。<br>掌握HandlerAsyncTask原理，熟悉多线程开发。<br>对绘页面制原理有初步理解，能够实现一个复杂自定义控件。<br>能够熟练掌握开源库的使用，如图片库(GlideFresco)、网络库(VolleyokhttpRetrofit)、工具(DaggerRxJavaEventBus)等，能够对这些常用的库进行二次封装。<br>熟悉应用常见的优化方法，避免编写内存泄漏的代码。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>高级</p>
+<blockquote>
+<p>对于高级，就不仅限于功能和业务开发，还需要深入理解Android系统的运行原理，达到融会贯通，部分可够作为Android端架构师。这一阶段的人大多工作5-8年，具备开源库设计能力，同时对于Android系统的运行原理也比较了解。<br>掌握java高级特性，如JUC、线程池、NIOBIO等；掌握jvm虚拟机知识，如内存模型、GC原理、类加载机制、线程模型等。<br>对Android运行环境有深入理解，理解Android沙盒机制，掌握AIDL原理及Binder通信原理，了解app和activity启动原理。<br>掌握热修复原理，各大厂商方案的优缺点。<br>对于Android事件分发有深入理解，重点掌握触摸事件机制。<br>深入理解Android绘制原理，理解VSYNC和surface机制和窗口原理。<br>深入理解Android动画原理，包括补间动画和属性动画。<br>对于Android安全机制有基本认知，理解Android安全原理。<br>深入理解端上设计范式思想，如mvcmvpmvvmclean-arch等。<br>理解架构演进，有良好的分层和拆分思路，掌握模块化、插件化、动态部署等。<br>对新技术敏感（，理解掌握下一代架构dynamic feature等。<br>如果达到这一水平，恭喜你，你已经超过70%左右的人，但是如果要再进一步，比如架构中/开发专家，那么除了理解Android的一些核心原理外，还需要具有架构设计能力，能够从更高层面看待问题，理解整个系统的设计。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>专家</p>
+<blockquote>
+<p>作为开发专家，那么除了理解Android的一些核心原理外，还需要具有架构设计能力，能够从更高层面看待问题，理解整个系统的设计。<br>理解微服务、SOA思想，对于后端开发有一定涉猎。<br>了解前端研发工具和思想，知道vue react等研发框架。<br>深入理解跨端技术，如phonegap、weex/RN flutter、小程序快应用等。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>原文链接：<a href="https://blog.csdn.net/qianlian123/article/details/100096585/" target="_blank">查看原文</a></li>
+</ul>
+<h1 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h1><blockquote>
+<p>利用碎片化时间，挖掘知识深度。通过写博客，加深自己对技术的理解。</p>
+</blockquote>
+
+        </article>
+        
+        
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'f59edbb15c434fe50f63',
+            clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b',
+            repo: 'FreeFunCode.github.io',
+            owner: 'FreeFunCode',
+            admin: ['FreeFunCode'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2019 网记本</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
 </body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#日期格式化','#Linq','#visualStudio','#coroutine协程','#view绘制','#线程切换','#屏幕适配','#开源框架','#安卓源码','#面试','#地图','#hexo','#IIS','#SqlServer','#ViewPager','#XMLHttpRequest','#增量更新','#电影','#fiddler','#副业','#职业生涯','#Activity','#BroadcastReceiver','#职业发展','#跳槽','#图片保存','#习惯','#c#','#easyui','#php','#Android','#kotlin','#序列化','#mongodb','#评论插件','#正则表达式','#AIDL','#公众号','#设计模式','#ContentProvider','#Android7.0','#Excel操作','#Service','#GitHub','#nodejs','#LNMP','#C#文件上传','#mono_for_Android','#新浪SAE','#京东云擎','#MAMP',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/img/article-list-background.jpeg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
 
 </html>
