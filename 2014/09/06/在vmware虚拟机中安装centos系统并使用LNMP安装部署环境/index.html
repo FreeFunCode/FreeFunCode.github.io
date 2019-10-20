@@ -1,1344 +1,123 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  <title>在vmware虚拟机中安装centos系统并使用LNMP安装部署环境 | 网记本</title>
-  <meta name="keywords" content=" LNMP ">
-  <meta name="description" content="在vmware虚拟机中安装centos系统并使用LNMP安装部署环境 | 网记本">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="links">
-<meta property="og:url" content="https://freefuncode.github.io/PY.html">
-<meta property="og:site_name" content="网记本">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.wanandroid.com/resources/image/pc/logo.png">
-<meta property="og:image" content="https://www.android-doc.com/assets/images/dac_logo.png">
-<meta property="og:updated_time" content="2019-10-20T04:06:18.259Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="links">
-<meta name="twitter:image" content="https://www.wanandroid.com/resources/image/pc/logo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>在vmware虚拟机中安装centos系统并使用LNMP安装部署环境 | 网记本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="freefuncode, Android, Kotlin, 网络记事本, 网记本">
+    <meta name="description" content="FreeFunCode网络记事本">
 
-
-<link rel="icon" href="/img/favicon.png">
-
-<link href="/css/style.css?v=1.0.1" rel="stylesheet">
-
-<link href="/css/hl_theme/zenbum.css?v=1.0.1" rel="stylesheet">
-
-<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
-
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+    
+    <link rel="alternative" href="/atom.xml" title="网记本" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
 <script>
-    hljs.initHighlightingOnLoad();
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
-<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-
-
-
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-
-<script src="/js/iconfont.js?v=1.0.1"></script>
 
 </head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="false">
-  <input class="theme_blog_path" value>
-</div>
-
-<body>
-<aside class="nav">
-    <div class="nav-left">
-        <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg" />
-</a>
-<div class="author">
-    <span>网记本</span>
-</div>
-
-<div class="icon">
-    
-        
-        <a title="github" href="https://github.com/FreeFunCode" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="juejin" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-juejin"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="oschina" href="https://www.cnblogs.com/bugzone" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-oschina"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="jianshu" href="https://www.jianshu.com/u/ba21180e6aab" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-jianshu"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-</div>
-
-
-
-
-<ul>
-    <li><div class="all active">全部文章<small>(94)</small></div></li>
-    
-        
-            
-            <li><div data-rel="后端"><i class="fold iconfont icon-right"></i>后端<small>(21)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="CSharp">CSharp<small>(14)</small></div>
-                            
-                        </li>
-                            
-                        <li><div data-rel="JAVA">JAVA<small>(1)</small></div>
-                            
-                        </li>
-                            
-                        <li><div data-rel="PHP">PHP<small>(6)</small></div>
-                            
-                        </li>
-                            
-                    </ul>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="Android"><i class="fold iconfont icon-right"></i>Android<small>(52)</small></div>
-                
-                    <ul class="sub hide">
-                        
-                        <li><div data-rel="开源框架">开源框架<small>(17)</small></div>
-                            
-                        </li>
-                            
-                        <li><div data-rel="kotlin">kotlin<small>(2)</small></div>
-                            
-                        </li>
-                            
-                        <li><div data-rel="安卓源码">安卓源码<small>(15)</small></div>
-                            
-                        </li>
-                            
-                        <li><div data-rel="知识点">知识点<small>(18)</small></div>
-                            
-                        </li>
-                            
-                    </ul>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="GitHub">GitHub<small>(5)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="心情">心情<small>(10)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="前端">前端<small>(5)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="设计模式">设计模式<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-</ul>
-<div class="left-bottom">
-    <div class="menus">
-    
-    
-    
-    
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
     </div>
-    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
-</div>
-<input type="hidden" id="yelog_site_posts_number" value="94">
-<input type="hidden" id="yelog_site_word_count" value="171.6k">
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
-</div>
+    <![endif]-->
 
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        友情链接
-        <i class="back-title-list"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">网记本</span>
+                    <span class="description">网络记事本-huangguangzhi</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
             
-            <li><a target="_blank" href="https://github.com/FreeFunCode">我的GitHub</a></li>
+            <li rel="/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
             
-            <li><a target="_blank" href="https://www.cnblogs.com/bugzone">我的博客园</a></li>
-            
-            <li><a target="_blank" href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts">我的掘金</a></li>
-            
-            <li><a target="_blank" href="https://www.jianshu.com/u/ba21180e6aab">我的简书</a></li>
-            
-            <li><a target="_blank" href="http://freefuncode.github.io/GitBook">我的GitBook</a></li>
+            <li rel="/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
             
         </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
-        <i class="cross"></i>
-        <span>
-            <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none" />
-            <i id="tagsWitchIcon"></i>
-        </span>
-    </form>
-    <div class="tags-list">
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">日期格式化</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Linq</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">visualStudio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">coroutine协程</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">view绘制</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">线程切换</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">屏幕适配</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">开源框架</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">安卓源码</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">面试</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">地图</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">hexo</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">IIS</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">SqlServer</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">ViewPager</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">XMLHttpRequest</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">增量更新</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">电影</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">fiddler</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">副业</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">职业生涯</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">Activity</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">BroadcastReceiver</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">职业发展</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">跳槽</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">图片保存</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">习惯</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">c#</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">easyui</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">php</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">Android</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">kotlin</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">序列化</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">mongodb</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">评论插件</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">正则表达式</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">AIDL</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">公众号</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">设计模式</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">ContentProvider</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">Android7.0</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">Excel操作</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">Service</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">GitHub</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">nodejs</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">LNMP</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">C#文件上传</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">mono_for_Android</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">新浪SAE</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">京东云擎</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">MAMP</a>
-    </li>
-    
-    <div class="clearfix"></div>
-</div>
-
-    
-    <nav id="title-list-nav">
-        
-        <a  class="后端 CSharp "
-           href="/2014/05/08/002-DateFormat/"
-           data-tag="日期格式化"
-           data-author="" >
-            <span class="post-title" title="C#/JavaScript/SqlServer 对日期时间的操作整理汇总">C#/JavaScript/SqlServer 对日期时间的操作整理汇总</span>
-            <span class="post-date" title="2014-05-08 14:17:15">2014/05/08</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/05/27/003-c-Linq/"
-           data-tag="Linq"
-           data-author="" >
-            <span class="post-title" title="Linq中int转String（解决LINQ to Entities 不识别方法&#34;System.String ToString()&#34;,因此该方法无法转换为存储表达式.）">Linq中int转String（解决LINQ to Entities 不识别方法&#34;System.String ToString()&#34;,因此该方法无法转换为存储表达式.）</span>
-            <span class="post-date" title="2014-05-27 17:03:35">2014/05/27</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/07/25/005-“VS无法连接远程数据库”解决方案/"
-           data-tag="visualStudio"
-           data-author="" >
-            <span class="post-title" title="“VS无法连接远程数据库”解决方案">“VS无法连接远程数据库”解决方案</span>
-            <span class="post-date" title="2014-07-25 09:28:00">2014/07/25</span>
-        </a>
-        
-        <a  class="Android kotlin "
-           href="/2019/10/19/Android-kotlin-coroutine协程的概念/"
-           data-tag="coroutine协程"
-           data-author="" >
-            <span class="post-title" title="Android-kotlin-coroutine协程的概念">Android-kotlin-coroutine协程的概念</span>
-            <span class="post-date" title="2019-10-19 16:40:15">2019/10/19</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2019/10/03/AndroidView绘制流程/"
-           data-tag="view绘制"
-           data-author="" >
-            <span class="post-title" title="Android View绘制流程">Android View绘制流程</span>
-            <span class="post-date" title="2019-10-03 12:18:40">2019/10/03</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2019/10/19/Android子线程切换到UI线程方法总结/"
-           data-tag="线程切换"
-           data-author="" >
-            <span class="post-title" title="Android子线程切换到UI线程方法总结">Android子线程切换到UI线程方法总结</span>
-            <span class="post-date" title="2019-10-19 13:10:59">2019/10/19</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2019/10/03/Android屏幕适配/"
-           data-tag="屏幕适配"
-           data-author="" >
-            <span class="post-title" title="Android屏幕适配">Android屏幕适配</span>
-            <span class="post-date" title="2019-10-03 09:07:38">2019/10/03</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2019/09/04/Android开源框架八注解框架-ButterKnife/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 八 ) 注解框架---ButterKnife">Android 开源框架 ( 八 ) 注解框架---ButterKnife</span>
-            <span class="post-date" title="2019-09-04 20:03:06">2019/09/04</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/12/Android开源框架十六视频播放器-JiaoZiVideoPlayer-JieCaoVideoPlayer/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十六 ) 视频播放器 --- JiaoZiVideoPlayer(JieCaoVideoPlayer)">Android 开源框架 ( 十六 ) 视频播放器 --- JiaoZiVideoPlayer(JieCaoVideoPlayer)</span>
-            <span class="post-date" title="2018-08-12 16:07:37">2018/08/12</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/05/Android开源框架十图片加载框架-Picasso/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十 ) 图片加载框架---Picasso">Android 开源框架 ( 十 ) 图片加载框架---Picasso</span>
-            <span class="post-date" title="2018-08-05 13:56:31">2018/08/05</span>
-        </a>
-        
-        <a id="top" class="Android 开源框架 "
-           href="/2018/08/05/Android开源框架系列导读/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 系列 导读">Android 开源框架 系列 导读</span>
-            <span class="post-date" title="2018-08-05 22:15:29">2018/08/05</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/06/18/Android源码分析一开篇介绍/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（一） 开篇介绍">Android 源码分析（一） 开篇介绍</span>
-            <span class="post-date" title="2018-06-18 19:47:55">2018/06/18</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2019/08/25/Android面试题/"
-           data-tag="面试"
-           data-author="" >
-            <span class="post-title" title="Android面试题">Android面试题</span>
-            <span class="post-date" title="2019-08-25 22:31:56">2019/08/25</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/11/08/Arcgis-地图-服务器安装配置/"
-           data-tag="地图"
-           data-author="" >
-            <span class="post-title" title="Arcgis-地图-服务器安装配置">Arcgis-地图-服务器安装配置</span>
-            <span class="post-date" title="2014-11-08 04:00:13">2014/11/08</span>
-        </a>
-        
-        <a  class="GitHub "
-           href="/2014/04/27/Hello-Hexo/"
-           data-tag="hexo"
-           data-author="" >
-            <span class="post-title" title="Hello Hexo">Hello Hexo</span>
-            <span class="post-date" title="2014-04-27 19:20:47">2014/04/27</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/09/15/IIS网站应用偶尔出现服务不可用解决办法/"
-           data-tag="IIS"
-           data-author="" >
-            <span class="post-title" title="IIS网站应用偶尔出现服务不可用解决办法">IIS网站应用偶尔出现服务不可用解决办法</span>
-            <span class="post-date" title="2014-09-15 13:40:05">2014/09/15</span>
-        </a>
-        
-        <a  class="后端 JAVA "
-           href="/2018/07/01/Java基础面试题汇总/"
-           data-tag="面试"
-           data-author="" >
-            <span class="post-title" title="Java基础面试题汇总">Java基础面试题汇总</span>
-            <span class="post-date" title="2018-07-01 04:16:31">2018/07/01</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/12/02/SqlServer数据库添加角色，角色授权/"
-           data-tag="SqlServer"
-           data-author="" >
-            <span class="post-title" title="SqlServer数据库添加角色，角色授权">SqlServer数据库添加角色，角色授权</span>
-            <span class="post-date" title="2014-12-02 17:15:01">2014/12/02</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2015/06/01/VS发布报错未能将文件……复制到……/"
-           data-tag="visualStudio"
-           data-author="" >
-            <span class="post-title" title="VS发布报错未能将文件……复制到……">VS发布报错未能将文件……复制到……</span>
-            <span class="post-date" title="2015-06-01 21:25:08">2015/06/01</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/07/21/ViewPager相关使用/"
-           data-tag="ViewPager"
-           data-author="" >
-            <span class="post-title" title="ViewPager相关使用">ViewPager相关使用</span>
-            <span class="post-date" title="2018-07-21 23:59:41">2018/07/21</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/09/28/XMLHttpRequest异步方式和同步方式/"
-           data-tag="XMLHttpRequest"
-           data-author="" >
-            <span class="post-title" title="XMLHttpRequest异步方式和同步方式">XMLHttpRequest异步方式和同步方式</span>
-            <span class="post-date" title="2014-09-28 20:19:04">2014/09/28</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2019/10/07/bsdiff和bspatch增量更新概念介绍/"
-           data-tag="增量更新"
-           data-author="" >
-            <span class="post-title" title="bsdiff&amp;bspatch增量更新概念介绍">bsdiff&amp;bspatch增量更新概念介绍</span>
-            <span class="post-date" title="2019-10-07 10:22:16">2019/10/07</span>
-        </a>
-        
-        <a  class="GitHub "
-           href="/2014/04/26/hello-world/"
-           data-tag="hexo"
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2014-04-26 19:10:17">2014/04/26</span>
-        </a>
-        
-        <a  class="GitHub "
-           href="/2019/09/30/mac搭建hexo环境/"
-           data-tag="hexo"
-           data-author="" >
-            <span class="post-title" title="mac搭建hexo环境">mac搭建hexo环境</span>
-            <span class="post-date" title="2019-09-30 15:47:50">2019/09/30</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/10/04/post《蛮荒故事》电影观后感/"
-           data-tag="电影"
-           data-author="" >
-            <span class="post-title" title="《蛮荒故事》电影观后感">《蛮荒故事》电影观后感</span>
-            <span class="post-date" title="2019-10-04 09:37:22">2019/10/04</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/05/06/使用fiddler抓手机端http数据包/"
-           data-tag="fiddler"
-           data-author="" >
-            <span class="post-title" title="使用fiddler抓手机端http数据包">使用fiddler抓手机端http数据包</span>
-            <span class="post-date" title="2018-05-06 19:48:10">2018/05/06</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/10/19/关于程序员的第二职业/"
-           data-tag="副业"
-           data-author="" >
-            <span class="post-title" title="关于程序员的第二职业">关于程序员的第二职业</span>
-            <span class="post-date" title="2019-10-19 17:59:57">2019/10/19</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/10/01/关于职业生涯的想法/"
-           data-tag="职业生涯"
-           data-author="" >
-            <span class="post-title" title="关于职业生涯的想法">关于职业生涯的想法</span>
-            <span class="post-date" title="2019-10-01 12:31:39">2019/10/01</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/04/11/四大组件-一-Activity生命周期/"
-           data-tag="Activity"
-           data-author="" >
-            <span class="post-title" title="Android 四大组件 (一) Activity 生命周期">Android 四大组件 (一) Activity 生命周期</span>
-            <span class="post-date" title="2018-04-11 20:00:39">2018/04/11</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/05/16/四大组件-三-BroadcastReceiver介绍/"
-           data-tag="BroadcastReceiver"
-           data-author="" >
-            <span class="post-title" title="Android 四大组件 (三) BroadcastReceiver 介绍">Android 四大组件 (三) BroadcastReceiver 介绍</span>
-            <span class="post-date" title="2018-05-16 12:33:39">2018/05/16</span>
-        </a>
-        
-        <a  class="GitHub "
-           href="/2014/11/23/在GitHub上搭建hexo博客/"
-           data-tag="hexo"
-           data-author="" >
-            <span class="post-title" title="在GitHub上搭建hexo博客">在GitHub上搭建hexo博客</span>
-            <span class="post-date" title="2014-11-23 14:06:58">2014/11/23</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/09/28/巴比龙电影观后感/"
-           data-tag="电影"
-           data-author="" >
-            <span class="post-title" title="《巴比龙》电影观后感">《巴比龙》电影观后感</span>
-            <span class="post-date" title="2019-09-28 13:06:52">2019/09/28</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/07/开源框架十五下拉刷新框架-SwipeRefreshLayout/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十五 ) 下拉刷新框架 --- SwipeRefreshLayout">Android 开源框架 ( 十五 ) 下拉刷新框架 --- SwipeRefreshLayout</span>
-            <span class="post-date" title="2018-08-07 20:28:54">2018/08/07</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2015/11/14/最近的一些感想（关于移动客户端开发android-ios）/"
-           data-tag="职业发展"
-           data-author="" >
-            <span class="post-title" title="最近的一些感想（关于移动客户端开发android,ios）">最近的一些感想（关于移动客户端开发android,ios）</span>
-            <span class="post-date" title="2015-11-14 22:39:55">2015/11/14</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/09/22/汉尼拔电影观后感/"
-           data-tag="电影"
-           data-author="" >
-            <span class="post-title" title="汉尼拔电影观后感">汉尼拔电影观后感</span>
-            <span class="post-date" title="2019-09-22 13:00:36">2019/09/22</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2016/08/27/第二次裸辞-潜伏期-一些感想/"
-           data-tag="跳槽"
-           data-author="" >
-            <span class="post-title" title="第二次裸辞_潜伏期_一些感想">第二次裸辞_潜伏期_一些感想</span>
-            <span class="post-date" title="2016-08-27 16:12:25">2016/08/27</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/10/02/蝴蝶效应-电影观后感/"
-           data-tag="电影"
-           data-author="" >
-            <span class="post-title" title="《蝴蝶效应》电影观后感">《蝴蝶效应》电影观后感</span>
-            <span class="post-date" title="2019-10-02 17:04:13">2019/10/02</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/"
-           data-tag="图片保存"
-           data-author="" >
-            <span class="post-title" title="解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。">解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。</span>
-            <span class="post-date" title="2018-04-13 20:26:54">2018/04/13</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2019/10/13/谈谈逛博客的小习惯/"
-           data-tag="习惯"
-           data-author="" >
-            <span class="post-title" title="谈谈逛博客的小习惯">谈谈逛博客的小习惯</span>
-            <span class="post-date" title="2019-10-13 18:43:22">2019/10/13</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2015/06/07/错误：类型System-Object未定义或者不能引入项目/"
-           data-tag="c#"
-           data-author="" >
-            <span class="post-title" title="错误：类型System.Object未定义或者不能引入项目">错误：类型System.Object未定义或者不能引入项目</span>
-            <span class="post-date" title="2015-06-07 14:33:14">2015/06/07</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2014/07/14/004-easyui的-getSelections-与-getSelected-对比区别/"
-           data-tag="easyui"
-           data-author="" >
-            <span class="post-title" title="easyui的 getSelections 与 getSelected 对比区别">easyui的 getSelections 与 getSelected 对比区别</span>
-            <span class="post-date" title="2014-07-14 14:11:27">2014/07/14</span>
-        </a>
-        
-        <a  class="后端 PHP "
-           href="/2014/08/21/00Windows下搭建PHP开发环境，整合Apache-PHP-MySQL（举例软件为32位）/"
-           data-tag="php"
-           data-author="" >
-            <span class="post-title" title="Windows下搭建PHP开发环境，整合Apache+PHP+MySQL（举例软件为32位）">Windows下搭建PHP开发环境，整合Apache+PHP+MySQL（举例软件为32位）</span>
-            <span class="post-date" title="2014-08-21 15:42:28">2014/08/21</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/07/14/Android8-0新特性介绍以及注意事项/"
-           data-tag="Android"
-           data-author="" >
-            <span class="post-title" title="Android8.0新特性介绍以及注意事项">Android8.0新特性介绍以及注意事项</span>
-            <span class="post-date" title="2018-07-14 13:13:38">2018/07/14</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/07/28/Android开源框架一OkHttp网络框架的基本使用/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用">Android 开源框架 ( 一 ) OkHttp 网络框架的基本使用</span>
-            <span class="post-date" title="2018-07-28 14:21:25">2018/07/28</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/05/Android开源框架九图片加载框架-ImageLoader/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 九 ) 图片加载框架---ImageLoader">Android 开源框架 ( 九 ) 图片加载框架---ImageLoader</span>
-            <span class="post-date" title="2018-08-05 13:00:34">2018/08/05</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/05/Android开源框架十一图片加载框架-Glide/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十一 ) 图片加载框架---Glide">Android 开源框架 ( 十一 ) 图片加载框架---Glide</span>
-            <span class="post-date" title="2018-08-05 14:07:01">2018/08/05</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/07/Android源码分析八Launcher桌面启动App过程/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（八） Launcher 桌面启动App过程">Android 源码分析（八） Launcher 桌面启动App过程</span>
-            <span class="post-date" title="2018-07-07 20:13:12">2018/07/07</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/22/Android源码分析十三ActivityManagerService服务分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android源码分析（十三）ActivityManagerService服务分析">Android源码分析（十三）ActivityManagerService服务分析</span>
-            <span class="post-date" title="2018-07-22 13:33:13">2018/07/22</span>
-        </a>
-        
-        <a id="top" class="Android 安卓源码 "
-           href="/2018/07/22/Android进阶学习笔记整理/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android进阶学习笔记整理">Android进阶学习笔记整理</span>
-            <span class="post-date" title="2018-07-22 16:27:43">2018/07/22</span>
-        </a>
-        
-        <a  class="Android kotlin "
-           href="/2019/09/28/Kotlin与java对比/"
-           data-tag="kotlin"
-           data-author="" >
-            <span class="post-title" title="Kotlin与java对比">Kotlin与java对比</span>
-            <span class="post-date" title="2019-09-28 17:48:07">2019/09/28</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/07/22/Serializable和Parcelable之序列化/"
-           data-tag="序列化"
-           data-author="" >
-            <span class="post-title" title="Serializable和Parcelable之序列化">Serializable和Parcelable之序列化</span>
-            <span class="post-date" title="2018-07-22 00:28:23">2018/07/22</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2014/08/24/mongodb在windows下安装教程/"
-           data-tag="mongodb"
-           data-author="" >
-            <span class="post-title" title="mongodb在windows下安装教程">mongodb在windows下安装教程</span>
-            <span class="post-date" title="2014-08-24 02:10:01">2014/08/24</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2014/11/20/推荐三款使用社会化评论插件/"
-           data-tag="评论插件"
-           data-author="" >
-            <span class="post-title" title="推荐三款使用社会化评论插件">推荐三款使用社会化评论插件</span>
-            <span class="post-date" title="2014-11-20 23:24:39">2014/11/20</span>
-        </a>
-        
-        <a  class="心情 "
-           href="/2015/04/27/跳槽穷半年-转行穷三年-死守会穷一辈子/"
-           data-tag="跳槽"
-           data-author="" >
-            <span class="post-title" title="跳槽穷半年,转行穷三年,死守会穷一辈子">跳槽穷半年,转行穷三年,死守会穷一辈子</span>
-            <span class="post-date" title="2015-04-27 20:49:33">2015/04/27</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2014/05/07/001-RegEx/"
-           data-tag="正则表达式"
-           data-author="" >
-            <span class="post-title" title="《正则表达式》知识点汇总摘录">《正则表达式》知识点汇总摘录</span>
-            <span class="post-date" title="2014-05-07 16:17:16">2014/05/07</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/07/21/AIDL介绍以及简单使用/"
-           data-tag="AIDL"
-           data-author="" >
-            <span class="post-title" title="AIDL介绍以及简单使用">AIDL介绍以及简单使用</span>
-            <span class="post-date" title="2018-07-21 13:05:21">2018/07/21</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/02/Android开源框架七事件总线-EventBus/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 七 ) 事件总线---EventBus">Android 开源框架 ( 七 ) 事件总线---EventBus</span>
-            <span class="post-date" title="2018-08-02 22:54:14">2018/08/02</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/07/29/Android开源框架二基于OkHttp进一步封装的okhttp-utils介绍/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</span>
-            <span class="post-date" title="2018-07-29 11:24:14">2018/07/29</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/07/30/Android开源框架五xUtils-Android里的ORM-IOC聚合型框架/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架">Android 开源框架 ( 五 ) xUtils --- Android 里的 ORM IOC聚合型框架</span>
-            <span class="post-date" title="2018-07-30 23:55:54">2018/07/30</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/05/Android开源框架十三RecyclerView/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十三 ) RecyclerView">Android 开源框架 ( 十三 ) RecyclerView</span>
-            <span class="post-date" title="2018-08-05 21:19:57">2018/08/05</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/07/30/Android开源框架四Afinal-Android里的ORM-IOC聚合型框架/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架">Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架</span>
-            <span class="post-date" title="2018-07-30 23:07:12">2018/07/30</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/07/Android源码分析五Zygote进程/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（五） Zygote 进程">Android 源码分析（五） Zygote 进程</span>
-            <span class="post-date" title="2018-07-07 14:14:54">2018/07/07</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（十） Dalvik 虚拟机创建过程">Android 源码分析（十） Dalvik 虚拟机创建过程</span>
-            <span class="post-date" title="2018-07-09 21:04:17">2018/07/09</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/22/Android源码分析十四PackageManagerService服务分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android源码分析（十四）PackageManagerService服务分析">Android源码分析（十四）PackageManagerService服务分析</span>
-            <span class="post-date" title="2018-07-22 14:59:30">2018/07/22</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2015/06/02/easyui换主题，并记录在cookie-以及cookie作用域介绍/"
-           data-tag="easyui"
-           data-author="" >
-            <span class="post-title" title="easyui换主题，并记录在cookie.以及cookie作用域介绍">easyui换主题，并记录在cookie.以及cookie作用域介绍</span>
-            <span class="post-date" title="2015-06-02 21:22:20">2015/06/02</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/07/开源框架十四列表下拉刷新框架-SmartRefreshLayout/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十四 ) 列表下拉刷新框架 --- SmartRefreshLayout">Android 开源框架 ( 十四 ) 列表下拉刷新框架 --- SmartRefreshLayout</span>
-            <span class="post-date" title="2018-08-07 20:23:00">2018/08/07</span>
-        </a>
-        
-        <a  class="后端 PHP "
-           href="/2014/11/28/超简单微信公众帐号自动回复和天气播报功能应用/"
-           data-tag="公众号"
-           data-author="" >
-            <span class="post-title" title="超简单微信公众帐号自动回复和天气播报功能应用">超简单微信公众帐号自动回复和天气播报功能应用</span>
-            <span class="post-date" title="2014-11-28 14:30:13">2014/11/28</span>
-        </a>
-        
-        <a  class="设计模式 "
-           href="/2018/07/06/23种设计模式在Android中的应用/"
-           data-tag="设计模式"
-           data-author="" >
-            <span class="post-title" title="23种设计模式在Android中的应用">23种设计模式在Android中的应用</span>
-            <span class="post-date" title="2018-07-06 23:37:49">2018/07/06</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/07/19/Android四大组件-五-第五大组件Fragment使用/"
-           data-tag="Android"
-           data-author="" >
-            <span class="post-title" title="Android 四大组件 (五) 第五大组件 - Fragment 使用">Android 四大组件 (五) 第五大组件 - Fragment 使用</span>
-            <span class="post-date" title="2018-07-19 09:20:09">2018/07/19</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/06/18/Android四大组件-四-ContentProvider介绍/"
-           data-tag="ContentProvider"
-           data-author="" >
-            <span class="post-title" title="Android 四大组件 (四) ContentProvider介绍">Android 四大组件 (四) ContentProvider介绍</span>
-            <span class="post-date" title="2018-06-18 03:29:27">2018/06/18</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/01/Android开源框架六Volley-Google的轻量级网络通信框架/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架">Android 开源框架 ( 六 ) Volley --- Google的轻量级网络通信框架</span>
-            <span class="post-date" title="2018-08-01 07:36:18">2018/08/01</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/08/Android源码分析九Init启动分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（九） Init 启动分析">Android 源码分析（九） Init 启动分析</span>
-            <span class="post-date" title="2018-07-08 23:05:42">2018/07/08</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/07/28/Android7-0下载APK后自动安装/"
-           data-tag="Android7.0"
-           data-author="" >
-            <span class="post-title" title="Android7.0下载APK后自动安装">Android7.0下载APK后自动安装</span>
-            <span class="post-date" title="2018-07-28 18:57:46">2018/07/28</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/07/29/Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍">Android 开源框架 ( 三 ) 基于OkHttp进一步封装的OkHttpUtils介绍</span>
-            <span class="post-date" title="2018-07-29 22:51:43">2018/07/29</span>
-        </a>
-        
-        <a  class="Android 开源框架 "
-           href="/2018/08/05/Android开源框架十二图片加载框架-Fresco/"
-           data-tag="开源框架"
-           data-author="" >
-            <span class="post-title" title="Android 开源框架 ( 十二 ) 图片加载框架---Fresco">Android 开源框架 ( 十二 ) 图片加载框架---Fresco</span>
-            <span class="post-date" title="2018-08-05 18:43:27">2018/08/05</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/15/Android源码分析十一事件传递机制/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（十一） 事件传递机制">Android 源码分析（十一） 事件传递机制</span>
-            <span class="post-date" title="2018-07-15 13:18:25">2018/07/15</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/22/Android源码分析十二ServiceManager服务分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android源码分析（十二）ServiceManager服务分析">Android源码分析（十二）ServiceManager服务分析</span>
-            <span class="post-date" title="2018-07-22 11:44:46">2018/07/22</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/07/Android源码分析四Handler异步消息机制/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（四） Handler 异步消息机制">Android 源码分析（四） Handler 异步消息机制</span>
-            <span class="post-date" title="2018-07-07 12:40:19">2018/07/07</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/"
-           data-tag="地图"
-           data-author="" >
-            <span class="post-title" title="使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。">使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。</span>
-            <span class="post-date" title="2014-11-09 17:10:29">2014/11/09</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/07/Android源码分析七Launcher桌面程序启动分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（七） Launcher 桌面程序启动分析">Android 源码分析（七） Launcher 桌面程序启动分析</span>
-            <span class="post-date" title="2018-07-07 19:51:44">2018/07/07</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/07/07/Android源码分析六SystemServer进程/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（六） SystemServer 进程">Android 源码分析（六） SystemServer 进程</span>
-            <span class="post-date" title="2018-07-07 15:14:19">2018/07/07</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/12/02/使用SqlBulkCopy实现Excel批量导入数据库/"
-           data-tag="Excel操作"
-           data-author="" >
-            <span class="post-title" title="使用SqlBulkCopy实现Excel批量导入数据库">使用SqlBulkCopy实现Excel批量导入数据库</span>
-            <span class="post-date" title="2014-12-02 18:05:14">2014/12/02</span>
-        </a>
-        
-        <a  class="Android 知识点 "
-           href="/2018/05/13/四大组件-二-Service使用/"
-           data-tag="Service"
-           data-author="" >
-            <span class="post-title" title="Android 四大组件 (二) Service 使用">Android 四大组件 (二) Service 使用</span>
-            <span class="post-date" title="2018-05-13 23:46:47">2018/05/13</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/06/24/Android源码分析三Service启动分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（三） Service 启动分析">Android 源码分析（三） Service 启动分析</span>
-            <span class="post-date" title="2018-06-24 14:24:40">2018/06/24</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/08/20/006-IIS7发布-EF-MVC项目提示404-0页面错误解决方案/"
-           data-tag="IIS"
-           data-author="" >
-            <span class="post-title" title="IIS7发布 EF MVC项目提示404.0页面错误解决方案">IIS7发布 EF MVC项目提示404.0页面错误解决方案</span>
-            <span class="post-date" title="2014-08-20 09:29:00">2014/08/20</span>
-        </a>
-        
-        <a  class="GitHub "
-           href="/2014/08/24/GitHub在windows上代码管理教程/"
-           data-tag="GitHub"
-           data-author="" >
-            <span class="post-title" title="GitHub在windows上代码管理教程">GitHub在windows上代码管理教程</span>
-            <span class="post-date" title="2014-08-24 04:03:23">2014/08/24</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2014/08/24/nodejs在windows平台下搭建部署环境教程/"
-           data-tag="nodejs"
-           data-author="" >
-            <span class="post-title" title="nodejs在windows平台下搭建部署环境教程">nodejs在windows平台下搭建部署环境教程</span>
-            <span class="post-date" title="2014-08-24 01:30:43">2014/08/24</span>
-        </a>
-        
-        <a  class="后端 PHP "
-           href="/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/"
-           data-tag="LNMP"
-           data-author="" >
-            <span class="post-title" title="在vmware虚拟机中安装centos系统并使用LNMP安装部署环境">在vmware虚拟机中安装centos系统并使用LNMP安装部署环境</span>
-            <span class="post-date" title="2014-09-06 11:32:34">2014/09/06</span>
-        </a>
-        
-        <a  class="Android 安卓源码 "
-           href="/2018/06/24/Android源码分析二Activity启动分析/"
-           data-tag="安卓源码"
-           data-author="" >
-            <span class="post-title" title="Android 源码分析（二） Activity 启动分析">Android 源码分析（二） Activity 启动分析</span>
-            <span class="post-date" title="2018-06-24 03:26:17">2018/06/24</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/09/03/使用uploadify上传大文件报IOerror-2038错误的解决方案/"
-           data-tag="C#文件上传"
-           data-author="" >
-            <span class="post-title" title="使用uploadify上传大文件报IOerror#2038错误的解决方案">使用uploadify上传大文件报IOerror#2038错误的解决方案</span>
-            <span class="post-date" title="2014-09-03 16:42:58">2014/09/03</span>
-        </a>
-        
-        <a  class="后端 CSharp "
-           href="/2014/09/12/mono-for-Android环境配置-环境搭建-破解方法-运行一个小程序/"
-           data-tag="mono_for_Android"
-           data-author="" >
-            <span class="post-title" title="mono_for_Android环境配置-环境搭建+破解方法+运行一个小程序-">mono_for_Android环境配置-环境搭建+破解方法+运行一个小程序-</span>
-            <span class="post-date" title="2014-09-12 13:50:06">2014/09/12</span>
-        </a>
-        
-        <a  class="后端 PHP "
-           href="/2014/08/24/在新浪SAE上搭建自己的网站！/"
-           data-tag="新浪SAE"
-           data-author="" >
-            <span class="post-title" title="在新浪SAE上搭建自己的网站！">在新浪SAE上搭建自己的网站！</span>
-            <span class="post-date" title="2014-08-24 21:45:51">2014/08/24</span>
-        </a>
-        
-        <a  class="后端 PHP "
-           href="/2014/08/26/在京东云擎上搭建自己的网站/"
-           data-tag="京东云擎"
-           data-author="" >
-            <span class="post-title" title="在京东云擎上搭建自己的网站">在京东云擎上搭建自己的网站</span>
-            <span class="post-date" title="2014-08-26 19:51:03">2014/08/26</span>
-        </a>
-        
-        <a  class="后端 PHP "
-           href="/2014/09/06/在vmware虚拟机中安装MacOSXMountainLion10-8-2系统并使用MAMP安装部署环境/"
-           data-tag="MAMP"
-           data-author="" >
-            <span class="post-title" title="在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境">在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境</span>
-            <span class="post-date" title="2014-09-06 12:41:21">2014/09/06</span>
-        </a>
-        
-    </nav>
-</div>
-    </div>
-    <div class="hide-list">
-        <div class="semicircle">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="" target="_blank">good good study ,day day up!</a>
+                        |
+                    
+                        <a href="" target="_blank">利用碎片化时间挖掘知识深度！</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" class="juejin" target="_blank"><b>■</b> 稀土掘金</a>
+                    
+                        <a href="https://weibo.com/230689567" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/avatar.jpg" alt="avatar" title="Jelon" >
+            </div>
         </div>
-    </div>
-</aside>
-<div class="post">
-    <div class="pjax">
-        <article id="post-在vmware虚拟机中安装centos系统并使用LNMP安装部署环境" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">在vmware虚拟机中安装centos系统并使用LNMP安装部署环境</h1>
-    
-    <div class="article-meta">
-        
-        
-        
-        <span class="book">
-            
-                <a href="javascript:" data-rel="后端">后端</a>/
-            
-                <a href="javascript:" data-rel="PHP">PHP</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="javascript:" class="color5">LNMP</a>
-            
-        </span>
-        
-    </div>
-    <div class="article-meta">
-        
-        创建时间:<time class="date" title='更新时间: 2019-09-06 21:20:05'>2014-09-06 11:32</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:1.4k</span>
-        
-        
-        <span id="busuanzi_container_page_pv">
-            阅读:<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-        <span class="top-comment" title="跳转至评论区">
-            <a href="#comments">
-                评论:<span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </a>
-        </span>
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        
-    
-<style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
-    }
-    .toc-level-3 i,
-    .toc-level-3 ol {
-        display: none !important;
-    }
-</style>
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>在vmware虚拟机中安装centos系统并使用LNMP安装部署环境</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2014-09-06T03:32:34.000Z">2014-09-06</time>
+    </p>
+    <div class="post-content">
         <p><a href="https://www.cnblogs.com/bugzone/p/centos.html" target="_blank" rel="noopener">点击查看原文</a></p>
 <div id="cnblogs_post_body" class="blogpost-body ">
     <p><strong>一。介绍</strong>:题目有点绕口，大概意思就是分两步完成，首先在vmware虚拟机中安装centos系统，然后在centos系统中使用lnmp安装包安装项目部署环境。</p>
@@ -1398,243 +177,359 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 默认web项目部署放置的位置</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="data:image/png;base64,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" alt></p>
 </div>
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以扫描左上角二维码头像,关注公众号。 </span>
     </div>
-</article>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/后端/">后端</a>|<a class="cat-link" href="/categories/后端/PHP/">PHP</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/LNMP/" title="LNMP">LNMP</a>
+    
 
-
-
-<div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>在vmware虚拟机中安装centos系统并使用LNMP安装部署环境</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.4k</span></p>
-    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="网记本">网记本</a></p>
-    <p><span class="copy-title">发布时间:</span>2014-09-06, 11:32:34</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-06, 21:20:05</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/" title="在vmware虚拟机中安装centos系统并使用LNMP安装部署环境">https://freefuncode.github.io/2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/</a>
-    <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </span>
     </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="/2014/09/06/在vmware虚拟机中安装MacOSXMountainLion10-8-2系统并使用MAMP安装部署环境/">
+            
+                在vmware虚拟机中安装MacOSXMountainLion10.8.2系统并使用MAMP安装部署环境
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2014/09/03/使用uploadify上传大文件报IOerror-2038错误的解决方案/">
+            
+                使用uploadify上传大文件报IOerror#2038错误的解决方案
+            
+        </a>
+    </span>
+    
 </div>
 
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: '在vmware虚拟机中安装centos系统并使用LNMP安装部署环境' || '2014/09/06/在vmware虚拟机中安装centos系统并使用LNMP安装部署环境/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
-    <div id="comments"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+            </div>
 
-<script type="text/javascript">
-    $.getScript('/js/gitalk.js', function () {
-        var gitalk = new Gitalk({
-            clientID: 'f59edbb15c434fe50f63',
-            clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b',
-            repo: 'FreeFunCode.github.io',
-            owner: 'FreeFunCode',
-            admin: ['FreeFunCode'],
-            id: decodeURI(location.pathname),
-            distractionFreeMode: 'true',
-            language: 'zh-CN',
-            perPage: parseInt('10',10)
-        })
-        gitalk.render('comments')
-    })
-</script>
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(21)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(52)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/心情/">心情</a>
+        <span class="badge">(10)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/PHP/">PHP</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/设计模式/">设计模式</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
 
-
-
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
+  
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
+  
+    <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
+  
+    <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
+  
+    <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+  
+    <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+  
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
+  
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
+  
+    <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
+  
+    <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
+  
+    <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
+  
+    <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
+  
+    <a class="tag-item" href="/tags/评论插件/" title="评论插件">评论插件 (1)</a>
+  
+    <a class="tag-item" href="/tags/正则表达式/" title="正则表达式">正则表达式 (1)</a>
+  
+    <a class="tag-item" href="/tags/AIDL/" title="AIDL">AIDL (1)</a>
+  
+    <a class="tag-item" href="/tags/公众号/" title="公众号">公众号 (1)</a>
+  
+    <a class="tag-item" href="/tags/设计模式/" title="设计模式">设计模式 (1)</a>
+  
+</div>
+    </section>
+    
 
     
 
-
-
-
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" title="稀土掘金">稀土掘金</a>
+        </li>
+    
+        <li>
+            <a href="https://www.cnblogs.com/bugzone" target="_blank" title="博客园">博客园</a>
+        </li>
+    
+        <li>
+            <a href="https://weibo.com/230689567" target="_blank" title="新浪微博">新浪微博</a>
+        </li>
+    
+        <li>
+            <a href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" title="简书">简书</a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
+        </li>
+    
+        <li>
+            <a href="https://freefuncode.github.io/GitBook" target="_blank" title="GitBook">GitBook</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
     </div>
-    <div class="copyright">
-        <p class="footer-entry">©2019 网记本</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
-    </div>
-    <div class="full-toc">
-        <button class="full"><span class="min "></span></button>
-<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
-<div class="post-toc"><span class="post-toc-title">目录</span>
-    <div class="post-toc-content">
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
 
-    </div>
-</div>
-<a class="" id="rocket" href="javascript:void(0)"></a>
-    </div>
-</div>
-<div class="acParent"></div>
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
 
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
 </body>
-<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-
-<script src="/js/script.js?v=1.0.1" ></script>
-<script>
-    var img_resize = 'default';
-    /*作者、标签的自动补全*/
-    $(function () {
-        $('.search').AutoComplete({
-            'data': ['#日期格式化','#Linq','#visualStudio','#coroutine协程','#view绘制','#线程切换','#屏幕适配','#开源框架','#安卓源码','#面试','#地图','#hexo','#IIS','#SqlServer','#ViewPager','#XMLHttpRequest','#增量更新','#电影','#fiddler','#副业','#职业生涯','#Activity','#BroadcastReceiver','#职业发展','#跳槽','#图片保存','#习惯','#c#','#easyui','#php','#Android','#kotlin','#序列化','#mongodb','#评论插件','#正则表达式','#AIDL','#公众号','#设计模式','#ContentProvider','#Android7.0','#Excel操作','#Service','#GitHub','#nodejs','#LNMP','#C#文件上传','#mono_for_Android','#新浪SAE','#京东云擎','#MAMP',],
-            'itemHeight': 20,
-            'width': 418
-        }).AutoComplete('show');
-    })
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $(".post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-
-        /*高亮代码块行号*/
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-    }
-
-    /*打赏页面隐藏与展示*/
-    
-
-</script>
-
-<!--加入行号的高亮代码块样式-->
-
-<!--自定义样式设置-->
-<style>
-    
-    
-    .nav {
-        width: 542px;
-    }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-        .nav .hide-list.fullscreen {
-            left: 492px
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
-
-    /*列表样式*/
-    
-    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
-        border: #e2dede solid 1px;
-        border-radius: 10px;
-        padding: 10px 32px 10px 56px;
-    }
-    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
-        margin-bottom: auto;
-        margin-left: auto;
-    }
-    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
-        margin-bottom: auto;
-        margin-left: auto;
-    }
-    
-
-    /* 背景图样式 */
-    
-    
-
-
-    /*引用块样式*/
-    
-
-    /*文章列表背景图*/
-    
-    .nav-right:before {
-        content: ' ';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.3;
-        background: url("/img/article-list-background.jpeg");
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    
-
-    
-</style>
-
-
-
-
-
-
-
 </html>
