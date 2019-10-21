@@ -5,7 +5,7 @@
     
     <title>`Android`标签下的文章 | 网记本</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="freefuncode, Android, Kotlin, 网络记事本, 网记本">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
     <meta name="description" content="FreeFunCode网络记事本">
 
     
@@ -133,7 +133,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/07/19/Android四大组件-五-第五大组件Fragment使用/">
+    	<a href="https://inote.fun/2018/07/19/Android四大组件-五-第五大组件Fragment使用/">
     		Android 四大组件 (五) 第五大组件 - Fragment 使用
     	</a>
     </h3>
@@ -157,102 +157,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/fragment.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp; &nbsp; Fragment 的存在必须依附于 Activity，并且与 Activity 一样，拥有自己的生命周期，同时处理用户的交互动作。同一个 Activity 可以有一个或多个 Fragment 作为界面内容，并且可以动态添加、删除 Fragment，灵活控制 UI 内容，也可以用来解决部分屏幕适配问题。</p>
-<p>&nbsp; &nbsp; 另外，support v4 包中也提供了 Fragment，兼容 Android 3.0 之前的系统（当然，现在 3.0 之前的系统在市场上已经很少见了，可以不予考虑），使用兼容包需要注意两点：</p>
-<p>&nbsp; &nbsp; FragmentActivity是为了兼容4.0以下版本的Fragment使用的。所以如果想兼容4.0以下Android版本使用Fragment的话，框架Activity需要继承FragmentActivity，该类在android.support.v4.app.FragmentActivity里的。它提供了操作fragment的一些方法，其功能跟4.0及以后的版本的Activity的功能一样。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.Activity 必须继承自 FragmentActivity；<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2.使用 getSupportFragmentManager() 方法获取 FragmentManager 对象；</p>
-<p>&nbsp;</p>
-<h2>Fragment 生命周期介绍:</h2>
-<p>　　onAttach(Context context):当Fragment和Activity发生关联时使用,在Fragment于窗口关联后立刻调用。从该方法开始，就可以通过Fragment.getActivity方法获取与Fragment关联的窗口对象，但因为Fragment的控件未初始化，所以不能够操作控件。</p>
-<p>    　　onCreate(Bundle savedInstanceState)在调用完onAttach执行完之后立刻调用onCreate方法，可以在Bundle对象中获取一些在Activity中传过来的数据。通常会在该方法中读取保存的状态，获取或初始化一些数据。在该方法中不要进行耗时操作，不然窗口不会显示。</p>
-<p>    　　onCreateView(LayoutInflater, ViewGroup, Bundle):创建该Fragment的视图,该方法是Fragment很重要的一个生命周期方法，因为会在该方法中创建在Fragment显示的View，其中inflater是用来装载布局文件的，container是&lt;fragment&gt;标签的父标签对应对象，　　savedInstanceState参数可以获取Fragment保存的状态，如果未保存那么就为null。</p>
-<p>    　　onViewCreated(View view,Bundle savedInstanceState) Android在创建完Fragment中的View对象之后，会立刻回调该方法。其种view参数就是onCreateView中返回的view，而bundle对象用于一般用途。</p>
-<p>    　　onActivityCreate(Bundle):当Activity的onCreate方法返回时调用,在Activity的onCreate方法执行完之后，Android系统会立刻调用该方法，表示窗口已经初始化完成，从这一个时候开始，就可以在Fragment中使用getActivity().findViewById(Id);来操控Activity中的view了。</p>
-<p>    　　onStart()&nbsp;这个没啥可讲的，但有一个细节需要知道，当系统调用该方法的时候，fragment已经显示在ui上，但还不能进行互动，因为onResume方法还没执行完。</p>
-<p><em id="__mceDel">    　　onResume()&nbsp;</em>该方法为fragment从创建到显示Android系统调用的最后一个生命周期方法，调用完该方法时候，fragment就可以与用户互动了。</p>
-<p>    　　onPause() fragment由活跃状态变成非活跃状态执行的第一个回调方法，通常可以在这个方法中保存一些需要临时暂停的工作。如保存音乐播放进度，然后在onResume中恢复音乐播放进度。</p>
-<p>    　　onStop() 当onStop返回的时候，fragment将从屏幕上消失。</p>
-<p>    　　onDestoryView() 与onCreateView相对应，当该Fragment的视图被移除时调用, 该方法的调用意味着在 onCreateView 中创建的视图都将被移除。</p>
-<p>    　　onDestroy() Android在Fragment不再使用时会调用该方法，要注意的是~这时Fragment还和Activity藕断丝连！并且可以获得Fragment对象，但无法对获得的Fragment进行任何操作。</p>
-<p>    　　onDetach():与onAttach相对应，当Fragment与Activity关联被取消时调用.为Fragment生命周期中的最后一个方法，当该方法执行完后，Fragment与Activity不再有关联<br>    <br>    　　　　来自:https://blog.csdn.net/osle123/article/details/52756424</p>
-<h2>Fragment 与 Activity 生命周期交互:</h2>
-<p>一张图了解下:</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180719091746040-653406302.png" alt=""></p>
-<p>执行代码过程了解下:</p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #800080;">1</span>. -- fragmentTransaction.addToBackStack(<span style="color: #800000;">"</span><span style="color: #800000;">blank</span><span style="color: #800000;">"</span>);<span style="color: #008000;">//</span><span style="color: #008000;">加入回退栈  按两次返回按键</span>
-
-<p><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.912</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">MainActivity: onCreate<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.914</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">BlankFragment: onAttach<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.914</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">BlankFragment: onCreate<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.914</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">BlankFragment: onCreateView<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.918</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">BlankFragment: onActivityCreated<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.918</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">BlankFragment: onStart<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.918</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">MainActivity: onStart<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.921</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">MainActivity: onResume<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">15</span>:<span style="color: #800080;">50.921</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/? E/<span style="color: #000000;">BlankFragment: onResume<br></span><span style="color: #008000;">//</span><span style="color: #008000;">按返回键</span><br><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">39.838</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onPause<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">39.838</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreate<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">39.839</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onDestroyView<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">39.842</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onDestroy<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">39.842</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onDetach<br></span><span style="color: #008000;">//</span><span style="color: #008000;">按返回键</span><br><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">42.771</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onPause<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">43.157</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onStop<br></span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">16</span>:<span style="color: #800080;">43.158</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/MainActivity: onDestroy</p></pre><p></p>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #800080;">2</span>. <span style="color: #008000;">//</span><span style="color: #008000;">---------------------------------------------------------------------------------</span><span style="color: #008000;">//</span>
-<span style="color: #008000;">//</span><span style="color: #008000;">按物理home键</span>
-<span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.215</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onCreate
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.216</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onAttach
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.216</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreate
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.217</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreateView
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.220</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onActivityCreated
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.221</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onStart
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.221</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onStart
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.223</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onResume
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">06.223</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onResume
-</span><span style="color: #008000;">//</span><span style="color: #008000;">按home键</span>
-<span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">10.213</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onPause
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">10.213</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onPause
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">10.538</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onSaveInstanceState
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">10.540</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreate
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">17</span>:<span style="color: #800080;">10.540</span> <span style="color: #800080;">17903</span>-<span style="color: #800080;">17903</span>/com.example.administrator.testapplication E/MainActivity: onStop</pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre><span style="color: #800080;">3</span>. <span style="color: #008000;">//</span><span style="color: #008000;">fragmentTransaction.addToBackStack("blank"); 注释该行代码运行
-</span><span style="color: #008000;">//</span><span style="color: #008000;">-----------------------------------------------------------------------------</span><span style="color: #008000;">//
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.098</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onCreate
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.100</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onAttach
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.100</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreate
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.101</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreateView
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.105</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onActivityCreated
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.105</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onStart
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.105</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onStart
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.109</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onResume
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">12.109</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onResume
-</span><span style="color: #008000;">//</span><span style="color: #008000;">按返回键</span>
-<span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">16.642</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onPause
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">16.642</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onPause
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">17.020</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onCreate
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">17.020</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">MainActivity: onStop
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">17.022</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onDestroyView
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">17.023</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onDestroy
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">17.024</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/<span style="color: #000000;">BlankFragment: onDetach
-</span><span style="color: #800080;">07</span>-<span style="color: #800080;">18</span> <span style="color: #800080;">20</span>:<span style="color: #800080;">21</span>:<span style="color: #800080;">17.024</span> <span style="color: #800080;">18226</span>-<span style="color: #800080;">18226</span>/com.example.administrator.testapplication E/MainActivity: onDestroy</pre>
-<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
-<p>&nbsp;</p>
-<p>相关调用代码:</p>
-<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
-<pre>　　　　BlankFragment fragment = <span style="color: #0000ff;">new</span><span style="color: #000000;"> BlankFragment();
-
-<pre><code>android.support.v4.app.FragmentManager fragmentManager;
-android.support.v4.app.FragmentTransaction fragmentTransaction;
-
-fragmentManager &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getSupportFragmentManager();
-fragmentTransaction &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getSupportFragmentManager().beginTransaction();
-fragmentTransaction.add(R.id.ll_fragment,fragment,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;blank&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-fragmentTransaction.addToBackStack(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;blank&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<p>&nbsp;</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/07/19/Android四大组件-五-第五大组件Fragment使用/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/07/19/Android四大组件-五-第五大组件Fragment使用/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/07/19/Android四大组件-五-第五大组件Fragment使用/" title="Android 四大组件 (五) 第五大组件 - Fragment 使用">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/07/19/Android四大组件-五-第五大组件Fragment使用/" title="Android 四大组件 (五) 第五大组件 - Fragment 使用">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -267,7 +187,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/">
+    	<a href="https://inote.fun/2018/07/14/Android8-0新特性介绍以及注意事项/">
     		Android8.0新特性介绍以及注意事项
     	</a>
     </h3>
@@ -291,106 +211,22 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/android8_new_features.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp; &nbsp; &nbsp; &nbsp; 2017年8月22日，谷歌正式发布了Android 8.0的正式版，其正式名称为：<strong>Android Oreo</strong>（奥利奥） 。在此之前 临时代号叫: <strong>Android O</strong>。对应Api level 为<strong>26</strong>。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 2017年12月5日 , 谷歌正式发布了Android 8.1的正式版。对应的Api Level 为<strong>27</strong> 。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130336131-671377976.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Powerful 强大&nbsp; &nbsp; &nbsp; &nbsp;Secure 安全&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fast 流畅&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Smart&amp;seamiess&nbsp; 轻巧&amp;无缝</p>
-<h1>Android 8.0 新特性:</h1>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 8.0版android系统主要聚焦点在电池续航能力,速度,安全.</p>
-<h2>1.通知中心 -Notification Channel</h2>
-<h3>&nbsp; &nbsp; &nbsp;1.1新特殊:</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 用户在通知界面可以发现顶部的快捷键有了更充裕的空间，并且根据网络大数据的用户使用频繁度调整了这几个快捷键的顺序；并且长按推送消息可以看到一个开关，操作它可以开启和关闭这个该应用的未来所有通知。而如果向左滑动通知，则会出现两个开关，一个是设置该应用的具体通知规范，另一个可以设置让该应用的通知推迟一段时间推送。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 长按操作:<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130403972-1193902772.png" alt="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;向左滑动: &nbsp;&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130422381-1707747781.png" alt=""><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130432545-721904404.png" alt=""></p>
-<h3>&nbsp; &nbsp; &nbsp;1.2注意事项:</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NotificationChannel是android8.0新增的特性，如果App的targetSDKVersion&gt;=26，没有设置channel通知渠道的话，就会导致通知无法展示。报错内容:<strong>&nbsp; Failed to post notification on channel “null” Target Api is 26</strong></p>
-<h3>&nbsp; &nbsp; &nbsp;1.3 解决方案</h3>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.1 临时方案</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;临时兼容方案是设置targetSDKVersion低于26。</p>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.2 最终方案</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;创建通知渠道</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step1:创建 NotificationChannel 对象，并设置应用内唯一的通知 ID。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step2:配置通知渠道的属性，比如提示声音/震动等。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step3:在 NotificationManager 中注册通知渠道对象。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130456453-97306205.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展 了解:</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://stackoverflow.com/questions/45711925/failed-to-post-notification-on-channel-null-target-api-is-26" target="_blank" rel="noopener">https://stackoverflow.com/questions/45711925/failed-to-post-notification-on-channel-null-target-api-is-26</a></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.jianshu.com/p/92afa56aee05" target="_blank" rel="noopener">https://www.jianshu.com/p/92afa56aee05</a></p>
-<h2>2.PinnedShortcuts</h2>
-<h3>&nbsp; &nbsp; &nbsp;2.1新特性</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 安卓创造出了PinnedShortcuts功能，类似苹果的3DTouch，长按一个软件后可以弹出子菜单，然后就可以通过这个方式快捷的使用该应用的部分功能。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 自定义ShortCuts 是7.1牛轧糖(API Level 25)版本新增的.</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Shortcuts是指在桌面长按app图标而出现的快捷方式，可以为你的app的关键功能添加更加快速的入口而不是先打开app。类似苹果的3D Touch。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 点击快捷方式可以访问应用功能，而且这种快捷方式也可以被拖拽到桌面的单独位置，变成单独的左面快捷方式。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130520370-1116257844.png" alt=""><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130525067-1769221288.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如果删除” 支付宝”应用,再点击” 付款码”,会提示”未安装应用”,随后,系统自动删除掉”付款码”快捷方式.</p>
-<h3>&nbsp; &nbsp; &nbsp;2.2注意事项</h3>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.</strong>最多创建4个特定的shortcuts：目前虽然说Static shortcuts 和Dynamic shortcuts之和最多为5个，但实际上只会显示4个。当我们尝试添加第六个shortcut时, 应用会抛出异常: Java.lang.IllegalArgumentException: Max number of dynamic shortcuts exceeded.</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2.</strong>限制 Label 长度：其中shortcutShortLabel建议不超过 10 个字符，shortcutLongLabel 建议不超过 25 个字符。</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.</strong>如何更好的删除(废弃)老的 Shortcut</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这里主要考虑到删除老的 Shortcut，可能会影响已经固定的 Shortcut。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于静态 Shortcuts，直接删除配置文件中对应的 Shortcut 即可，系统桌面会将已固定的该 Shortcut 置灰，点击会提示 shortcutDisabledMessage。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于动态 Shortcuts 建议通过禁用的方式而不是直接删除的方式，因为已经删除的动态 Shortcut 如果被固定了依然是可用的，所以希望该入口不可用最好的方式是禁用。</p>
-<h3>&nbsp; &nbsp; &nbsp;2.3 解决方案</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130651974-2003571495.png" alt=""></p>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.3.1静态快捷方式</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130707338-635356109.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AndroidManifest.xml</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130733222-1243746562.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130741707-1997596608.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; res/xml/shortcuts</p>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.3.2动态快捷方式</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130803753-1058198975.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130811151-987638283.png" alt=""></p>
-<p>&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130841345-123303880.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ShortcutManager API可以帮助我们实现新建、更新、移除、禁用等快捷方式的操作.</p>
-<p>&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 扩展了解:&nbsp; &nbsp;<a href="https://www.jianshu.com/p/c10ea2bd5803" target="_blank" rel="noopener">https://www.jianshu.com/p/c10ea2bd5803</a></p>
-<p>&nbsp;</p>
-<h2>3.画中画</h2>
-<h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3.1新特性</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130900706-542659531.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130907952-164277144.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130916966-1253746177.png" alt=""></p>
-<h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.2 使用方法&nbsp;</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130936884-710201620.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展了解:&nbsp;&nbsp;<a href="https://blog.csdn.net/ckwccc/article/details/79098602" target="_blank" rel="noopener">https://blog.csdn.net/ckwccc/article/details/79098602</a></p>
-<h2>4.后台限制</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0将进一步优化后台程序，减少应用在没完全退出后占用系统的资源，并且减少电量的消耗。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130956396-737551763.png" alt=""></p>
-<p>&nbsp;&nbsp;</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意事项</strong>:&nbsp;使用常驻service时候需要注意权限问题.</p>
-<p>&nbsp;</p>
-<h2>5. 自动保存密码</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这个功能将会保存用户的部分帐号和密码，用于在网站或者应用中的快速登录，效率提升了不少 。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131014555-1049141484.png" alt=""></p>
-<p>&nbsp;</p>
-<h2>6. 设置菜单</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 在新的Android 8.0系统中，设置的界面有了大幅变化，主菜单的覆盖性变得更广，更多的功能将在子菜单中体现，并且在菜单界面中重新设计了很多图标。</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意</strong>: 各大厂商都做了优化,呈现的方式多少都有点不一致.</p>
-<h2>7. 字体优化</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0系统中谷歌还增加了对系统字体的更多支持，开发者可以自行更改字体样式，让用户有了更多字体的选择。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0 和 Android 支持库 26 允许您从提供程序应用请求字体，而无需将字体绑定到 APK 中或让 APK 下载字体。此功能可减小 APK 大小，提高应用安装成功率，使多个应用可以共享同一种字体。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展了解:&nbsp;<a href="https://blog.csdn.net/IO_Field/article/details/78016411" target="_blank" rel="noopener">https://blog.csdn.net/IO_Field/article/details/78016411</a></p>
-<h2>8. 表情符号</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Android 8.0还带来了符合Unicode 10标准的表情符号，比原来新加超过60个表情符，这也是比较明显的改变之一。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131042984-1008393830.png" alt=""></p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意</strong>: 表情符号在与ios表情符同步时候,可能表现不出来.</p>
-<p>&nbsp;</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/07/14/Android8-0新特性介绍以及注意事项/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/" title="Android8.0新特性介绍以及注意事项">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/07/14/Android8-0新特性介绍以及注意事项/" title="Android8.0新特性介绍以及注意事项">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -509,43 +345,43 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
   
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
-  
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
-    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
-  
-    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
-  
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
     <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
   
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
@@ -553,9 +389,9 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
   
     <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
   
-    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
-  
     <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
@@ -598,10 +434,6 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
             <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
         </li>
     
-        <li>
-            <a href="https://freefuncode.github.io/GitBook" target="_blank" title="GitBook">GitBook</a>
-        </li>
-    
 </ul>
     </section>
     
@@ -613,7 +445,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
     <footer class="footer">
     ©
     
-        2016-2019
+        2012-2019
     
 
     <a href="/">FreeFunCode</a>

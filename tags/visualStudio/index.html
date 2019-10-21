@@ -5,7 +5,7 @@
     
     <title>`visualStudio`标签下的文章 | 网记本</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="freefuncode, Android, Kotlin, 网络记事本, 网记本">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
     <meta name="description" content="FreeFunCode网络记事本">
 
     
@@ -133,7 +133,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2015/06/01/VS发布报错未能将文件……复制到……/">
+    	<a href="https://inote.fun/2015/06/01/VS发布报错未能将文件……复制到……/">
     		VS发布报错未能将文件……复制到……
     	</a>
     </h3>
@@ -157,33 +157,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/notfund.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>　　　　最近在一个老项目的基础上改造和升级准备做一个“产品”出来。等我利用业余时间弄得差不多就可以公布出来了。希望时间不要太长。</p>
-<p>　　-----------------------------------------------------------------------------------------------------------------------------------</p>
-<p>　　入主题：</p>
-<p>　　删除了一些图片文件,发布的时候发现报错了，编译并不会报错。</p>
-<p>　　错误大致是：<strong>未能将文件../Images/...jpg 复制到 obj\Debug\Package\PackageTmp\.. 中</strong>，当然不限于图片文件。</p>
-<p>　　因为花了一些时间，所以记录下。</p>
-<p>　　产生的原因：之所以发布时出现这种错误，是因为之前在<span lang="EN-US">.csproj项目文件中“<span lang="EN-US">&lt;<span lang="EN-US">Content Include&gt;”参数已经存储了这些文件路径。后来有些文件被删掉了，但是.csproj中参数记录还在，所以发布时才会出现“未能将文件……复制到……”的错误。</span></span></span></p>
-<p>　　网上找来的解决办法：</p>
-<p align="left"><strong>　　方法1</strong>、比较笨的方法就是按照出错提示暂时把所缺的图片重新放入相应文件夹里，这样再次发布成功，但这样一是麻烦二是这些图片对目前的网站来说根本就是垃圾图片，没有任何用处，浪费硬盘空间，增加服务器压力。</p>
-<p align="left"><strong>　　方法2</strong>、所以网上有人给出解决方案：删掉.csproj文件中相应的&lt;Content Include&gt;行，经测试可行，但是这样还是麻烦的不行，如果是大量图片文件分多目录存放（如每一天生成一个文件夹），徒手删除操作何其繁琐。</p>
-<p align="left"><strong>　　方法3</strong>、基于之前的方法繁琐，我想到了一个其实也很笨的方法，先把upfile整个目录在解决方案资源管理器中“从项目中排除”，然后“重新生成解决方案”，然后再发布，最后把upfile目录拷贝到发布后的网站目录中，测试可行。</p>
-<p align="left">　　综上：我的方法的差不多，<strong>如果文件少，那你可以用方法2。如果文件比较多，并且你已经不知道是那些文件里，那就把.csproj文件中所有的&lt;Content Include&gt;删除，删除后在vs上就显示被排除在项目之外了，在把你自己的项目文件包含下。就可以了。</strong></p>
-<p align="left"><strong>　　</strong></p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2015/06/01/VS发布报错未能将文件……复制到……/">阅读剩下更多</a>
+                <a href="https://inote.fun/2015/06/01/VS发布报错未能将文件……复制到……/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2015/06/01/VS发布报错未能将文件……复制到……/" title="VS发布报错未能将文件……复制到……">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2015/06/01/VS发布报错未能将文件……复制到……/" title="VS发布报错未能将文件……复制到……">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -198,7 +187,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2014/07/25/005-“VS无法连接远程数据库”解决方案/">
+    	<a href="https://inote.fun/2014/07/25/005-“VS无法连接远程数据库”解决方案/">
     		“VS无法连接远程数据库”解决方案
     	</a>
     </h3>
@@ -222,27 +211,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/3867226.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <div class="postTitle">
-<h1><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/yipu/p/3658905.html" target="_blank" rel="noopener">“VS无法连接远程数据库”解决方案</a></h1>
-</div>
-<p><strong>解决方案：</strong>以管理员身份登录CMD，输入netsh&nbsp;winsock&nbsp;reset并回车（注意，必须是已管理员身份运行，这个重置LSP连接)</p>
-<p><span style="line-height: 1.5;">或&nbsp;netsh winsock reset catalog</span></p>
-<p><strong style="line-height: 1.5;">异常原因：</strong><span style="line-height: 1.5;">由于一些非-IFS Winsock 基础服务提供商 (Bsp) 或分层服务提供程序 (Lsp) 安装在系统上截取和更改的传入和传出网络通信，则会出现此问题。<span style="line-height: 1.5;" lang="zh-chs">因此，当应用程序连接到 SQL Server 时，这些 Bsp 或 Lsp 干扰 Winsock 通讯，造成内存访问非法。</span></span></p>
-</div>
-
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2014/07/25/005-“VS无法连接远程数据库”解决方案/">阅读剩下更多</a>
+                <a href="https://inote.fun/2014/07/25/005-“VS无法连接远程数据库”解决方案/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2014/07/25/005-“VS无法连接远程数据库”解决方案/" title="“VS无法连接远程数据库”解决方案">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2014/07/25/005-“VS无法连接远程数据库”解决方案/" title="“VS无法连接远程数据库”解决方案">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/5.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/5.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -361,43 +345,43 @@
   
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
-  
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
-    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
-  
-    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
-  
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
     <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
   
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
@@ -405,9 +389,9 @@
   
     <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
   
-    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
-  
     <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
@@ -450,10 +434,6 @@
             <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
         </li>
     
-        <li>
-            <a href="https://freefuncode.github.io/GitBook" target="_blank" title="GitBook">GitBook</a>
-        </li>
-    
 </ul>
     </section>
     
@@ -465,7 +445,7 @@
     <footer class="footer">
     ©
     
-        2016-2019
+        2012-2019
     
 
     <a href="/">FreeFunCode</a>

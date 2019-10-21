@@ -5,7 +5,7 @@
     
     <title>文章归档: 2019/8 | 网记本</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="freefuncode, Android, Kotlin, 网络记事本, 网记本">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
     <meta name="description" content="FreeFunCode网络记事本">
 
     
@@ -134,7 +134,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2019/08/25/Android面试题/">
+    	<a href="https://inote.fun/2019/08/25/Android面试题/">
     		Android面试题
     	</a>
     </h3>
@@ -162,101 +162,22 @@
 <h2 id="1-五大布局"><a href="#1-五大布局" class="headerlink" title="1.五大布局"></a>1.五大布局</h2><p>LinearLayout，ReativeLayout，AbsoluteLayout, FrameLayout, TableLayout</p>
 <h2 id="2-Activity生命周期"><a href="#2-Activity生命周期" class="headerlink" title="2.Activity生命周期"></a>2.Activity生命周期</h2><p>onCreate-&gt;onRestart-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestory</p>
 <h2 id="3-Fragment生命周期"><a href="#3-Fragment生命周期" class="headerlink" title="3.Fragment生命周期"></a>3.Fragment生命周期</h2><p>onAttch-&gt;onCreate-&gt;onCreateView-&gt;onActivityCreate-&gt;onStart-&gt;onResume-&gt;onPause-onStop-&gt;onDestoryView-&gt;onDestory-&gt;onDetach</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.cnblogs.com%2Ffajieyefu%2Fp%2F6092465.html" target="_blank" rel="noopener">www.cnblogs.com/fajieyefu/p…</a></p>
-<h2 id="4-view事件传递"><a href="#4-view事件传递" class="headerlink" title="4.view事件传递"></a>4.view事件传递</h2><p>dispatchTouchEvent, onIntecepterEvent, onTouchEvent</p>
-<h2 id="5-Handler通信原理"><a href="#5-Handler通信原理" class="headerlink" title="5.Handler通信原理"></a>5.Handler通信原理</h2><p>Handler, Looper, MessageQueue, Message</p>
-<h2 id="6-APK打包流程"><a href="#6-APK打包流程" class="headerlink" title="6.APK打包流程"></a>6.APK打包流程</h2><p>aapt-&gt;aidl-&gt;javac-&gt;dx-&gt;apkBuilder-&gt;javaSigner-&gt;zipAlign</p>
-<h2 id="7-四大组件"><a href="#7-四大组件" class="headerlink" title="7.四大组件"></a>7.四大组件</h2><p>Activity, Service，BroadcastReceiver, ContentProvider</p>
-<h2 id="8-Service启动方式及生命周期"><a href="#8-Service启动方式及生命周期" class="headerlink" title="8.Service启动方式及生命周期"></a>8.Service启动方式及生命周期</h2><p>startService,BindService</p>
-<p>startService: onCreate-&gt;onStartCommand-&gt;onStop-&gt;onDestory</p>
-<p>bindService: onCreate-&gt;onBind-&gt;onUnbind-&gt;onDestory</p>
-<h2 id="9-进程的优先级"><a href="#9-进程的优先级" class="headerlink" title="9.进程的优先级"></a>9.进程的优先级</h2><p>前台进程，可见进程，服务进程，后台进程，空进程</p>
-<h2 id="10-GC回收对象的优先级"><a href="#10-GC回收对象的优先级" class="headerlink" title="10.GC回收对象的优先级"></a>10.GC回收对象的优先级</h2><p>强引用，软引用，弱引用，虚引用，空引用</p>
-<h2 id="11-GC回收对象的生命周期"><a href="#11-GC回收对象的生命周期" class="headerlink" title="11.GC回收对象的生命周期"></a>11.GC回收对象的生命周期</h2><p>新生期，老年期，永生期</p>
-<h2 id="12-Activity四种LuncherMode"><a href="#12-Activity四种LuncherMode" class="headerlink" title="12.Activity四种LuncherMode"></a>12.Activity四种LuncherMode</h2><p>standard，singleTop，singleTask，singleInstance</p>
-<h2 id="13-hashMap-hashTable-LinkedHashMap-treeMap区别"><a href="#13-hashMap-hashTable-LinkedHashMap-treeMap区别" class="headerlink" title="13.hashMap,hashTable,LinkedHashMap,treeMap区别"></a>13.hashMap,hashTable,LinkedHashMap,treeMap区别</h2><p>hashMap: 非线程安全，写入快，允许key-value为null</p>
-<p>hashTable: 线程安全，写入慢，不允许key-value为null,</p>
-<p>LinkedHashMap: 遍历速度与数据有关和容量无关，hashMap遍历与容量有关，输出的顺序和输入的相同（队列：先进后出），LRUcache内部实现原理。</p>
-<p>treeMap:&nbsp;按自然顺序或自定义顺序遍历键优先使用</p>
-<h2 id="14-LRUcache"><a href="#14-LRUcache" class="headerlink" title="14.LRUcache"></a>14.LRUcache</h2><p>LinkedHashMap</p>
-<h2 id="15-APP冷启动过程"><a href="#15-APP冷启动过程" class="headerlink" title="15.APP冷启动过程"></a>15.APP冷启动过程</h2><p>zygote-&gt;Launcher-&gt;ActivityManagerService-&gt;Application-&gt;mainActivity(Activity创建)-&gt;onCreate-&gt;onStart-&gt;onResume-&gt;(view绘制)onMeassure-&gt;onLayout-&gt;onDraw</p>
-<h2 id="16-进程间通信"><a href="#16-进程间通信" class="headerlink" title="16.进程间通信"></a>16.进程间通信</h2><p>Activity，Service, BroadCastReceiver, ContentProvider, Binder</p>
-<h2 id="17-线程间通信"><a href="#17-线程间通信" class="headerlink" title="17.线程间通信"></a>17.线程间通信</h2><p>AnsyTask , Handler</p>
-<h2 id="18-三种动画"><a href="#18-三种动画" class="headerlink" title="18.三种动画"></a>18.三种动画</h2><p>帧动画，补间动画，属性动画</p>
-<h2 id="19-Android6-0到9-0版本最大的新特性"><a href="#19-Android6-0到9-0版本最大的新特性" class="headerlink" title="19.Android6.0到9.0版本最大的新特性"></a>19.Android6.0到9.0版本最大的新特性</h2><p>6.0：运行时权限</p>
-<p>7.0：fileProvider文件读取</p>
-<p>8.0：多渠道notification通知</p>
-<p>9.0：安装外部来源应用授权</p>
-<h2 id="20View绘制过程"><a href="#20View绘制过程" class="headerlink" title="20View绘制过程"></a>20View绘制过程</h2><p>onMeassure-&gt;onLayout-&gt;onDraw</p>
-<h2 id="21-设计模式五大原则"><a href="#21-设计模式五大原则" class="headerlink" title="21.设计模式五大原则"></a>21.设计模式五大原则</h2><p>单一职责：干一件事</p>
-<p>开放关闭：对扩展开放，对修改关闭</p>
-<p>里氏替换：父类调用，同样适用于子类</p>
-<p>依赖倒置：实现依赖抽象，不要抽象依赖实现具体。</p>
-<p>接口隔离：使用多个接口，不要一个接口干所有事</p>
-<h2 id="22-屏幕适配方案"><a href="#22-屏幕适配方案" class="headerlink" title="22.屏幕适配方案"></a>22.屏幕适配方案</h2><p>px=dp<em>(dpi/160)=dp</em>density</p>
-<p>尺寸（size）限定符 –缺点很多，不建议使用</p>
-<p>最小宽度（Smallest-width）限定符</p>
-<p>今日头条适配方案,setCustomDensity.非浸入。</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.cnblogs.com%2Fonelikeone%2Fp%2F9583446.html" target="_blank" rel="noopener">www.cnblogs.com/onelikeone/…</a></p>
-<h2 id="23-性能优化的几个方面"><a href="#23-性能优化的几个方面" class="headerlink" title="23.性能优化的几个方面"></a>23.性能优化的几个方面</h2><p>布局减少嵌套</p>
-<p>代码优化，防止内存泄漏</p>
-<p>耗电量方面</p>
-<p>apk包瘦身</p>
-<h2 id="24-序列化Serializable-Parcelable区别"><a href="#24-序列化Serializable-Parcelable区别" class="headerlink" title="24.序列化Serializable,Parcelable区别"></a>24.序列化Serializable,Parcelable区别</h2><p>serializable: java，大量产生临时变量，内存使用较大，频繁gc</p>
-<p>parcelable: android ，内存较小</p>
-<h2 id="25-列举几点内存泄漏案例案例以及解决办法"><a href="#25-列举几点内存泄漏案例案例以及解决办法" class="headerlink" title="25.列举几点内存泄漏案例案例以及解决办法"></a>25.列举几点内存泄漏案例案例以及解决办法</h2><h2 id="原因：长生命周期对象持有短生命周期的引用"><a href="#原因：长生命周期对象持有短生命周期的引用" class="headerlink" title="原因：长生命周期对象持有短生命周期的引用"></a>原因：长生命周期对象持有短生命周期的引用</h2><p>Context : Activity-&gt;Application</p>
-<p>Handler: static</p>
-<p>webView </p>
-<p>imageView</p>
-<p>未及时关闭资源对象</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fblog.csdn.net%2Funicorn97%2Farticle%2Fdetails%2F81009204" target="_blank" rel="noopener">blog.csdn.net/unicorn97/a…</a></p>
-<h2 id="26-JVM-DVM-ART-JIT-AOT介绍"><a href="#26-JVM-DVM-ART-JIT-AOT介绍" class="headerlink" title="26.JVM,DVM,ART,JIT,AOT介绍"></a>26.JVM,DVM,ART,JIT,AOT介绍</h2><p>jvm：java虚拟机</p>
-<p>dvm:&nbsp; Android虚拟机</p>
-<p>ART: Android运行时</p>
-<p>JIT：及时编译</p>
-<p>AOT：预编译</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fblog.csdn.net%2Ffeather_wch%2Farticle%2Fdetails%2F79800614" target="_blank" rel="noopener">blog.csdn.net/feather_wch…</a></p>
-<h2 id="27-sleep-wait区别"><a href="#27-sleep-wait区别" class="headerlink" title="27.sleep,wait区别"></a>27.sleep,wait区别</h2><p>sleep: 持有锁，Thread子类</p>
-<p>wait：释放锁，Object子类</p>
-<h2 id="28-五层网络协议"><a href="#28-五层网络协议" class="headerlink" title="28.五层网络协议"></a>28.五层网络协议</h2><p>应用层（http/https）</p>
-<p>传输层 (TCP/UDP)</p>
-<p>网络层（IP）</p>
-<p>数据链路层</p>
-<p>物理层</p>
-<h2 id="29-保活的方式"><a href="#29-保活的方式" class="headerlink" title="29.保活的方式"></a>29.保活的方式</h2><p>黑色保活：app，sdk相互唤起</p>
-<p>白色保活：启动前台service</p>
-<p>灰色保活：启动两个相同id的Service,将后启动的Service,Stop掉</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.jianshu.com%2Fp%2F63aafe3c12af" target="_blank" rel="noopener">www.jianshu.com/p/63aafe3c1…</a></p>
-<h2 id="30-webView的webViewClient和WebChromeClient区别"><a href="#30-webView的webViewClient和WebChromeClient区别" class="headerlink" title="30.webView的webViewClient和WebChromeClient区别"></a>30.webView的webViewClient和WebChromeClient区别</h2><p>WebViewClient：帮助WebView处理各种通知、请求事件。</p>
-<p>WebChromeClient：辅助WebView处理Javascript的对话框、网站图标、网站title、加载进度等</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fblog.csdn.net%2Fu012810020%2Farticle%2Fdetails%2F51820240" target="_blank" rel="noopener">blog.csdn.net/u012810020/…</a></p>
-<h2 id="31-APK安装过程"><a href="#31-APK安装过程" class="headerlink" title="31.APK安装过程"></a>31.APK安装过程</h2><p>/data/app -&gt;androidManifest-&gt;dex-&gt;DVM cache-&gt;PackageManageService-&gt;BroadcastReceiver</p>
-<h2 id="32-APK包瘦身"><a href="#32-APK包瘦身" class="headerlink" title="32.APK包瘦身"></a>32.APK包瘦身</h2><p>so库，混淆，加固，shrinkResource，减少枚举，图片(webp，.9）</p>
-<h2 id="33-JVM内部结构"><a href="#33-JVM内部结构" class="headerlink" title="33.JVM内部结构"></a>33.JVM内部结构</h2><p>静态方法区，栈，堆</p>
-<h2 id="34-IntentService-HandlerThread介绍"><a href="#34-IntentService-HandlerThread介绍" class="headerlink" title="34.IntentService,HandlerThread介绍"></a>34.IntentService,HandlerThread介绍</h2><p>IntentService是一个基于Service的一个类，用来处理异步的请求，内部是通过HandlerThread实现。</p>
-<p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.cnblogs.com%2Fchenxibobo%2Fp%2F6047404.html" target="_blank" rel="noopener">www.cnblogs.com/chenxibobo/…</a></p>
-<h2 id="35-Android五种存储方式"><a href="#35-Android五种存储方式" class="headerlink" title="35.Android五种存储方式"></a>35.Android五种存储方式</h2><p>sharePrefences,&nbsp; sqlLite, contentProvider, 文件，网络</p>
-<h2 id="36-实现线程的两种方式"><a href="#36-实现线程的两种方式" class="headerlink" title="36.实现线程的两种方式"></a>36.实现线程的两种方式</h2><p>implements Runnable</p>
-<p>extends Thread</p>
-<h2 id="37-String-StringBuffer-StringBuilder区别"><a href="#37-String-StringBuffer-StringBuilder区别" class="headerlink" title="37.String,StringBuffer,StringBuilder区别"></a>37.String,StringBuffer,StringBuilder区别</h2><p>速度：StringBuilder-&gt;StringBuffer-&gt;String（不可变）</p>
-<p>StringBuilder 非线程安全</p>
-<h2 id="38-Synchronize-Volatile区别"><a href="#38-Synchronize-Volatile区别" class="headerlink" title="38.Synchronize,Volatile区别"></a>38.Synchronize,Volatile区别</h2><p>sychronize : 加锁</p>
-<p>volatile: 可变，每次实时读取。</p>
-<h2 id="39-ArrayList，LinkedList区别"><a href="#39-ArrayList，LinkedList区别" class="headerlink" title="39.ArrayList，LinkedList区别"></a>39.ArrayList，LinkedList区别</h2><p>arrayList：读取快</p>
-<p>linkedList：插入快</p>
-
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2019/08/25/Android面试题/">阅读剩下更多</a>
+                <a href="https://inote.fun/2019/08/25/Android面试题/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2019/08/25/Android面试题/" title="Android面试题">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2019/08/25/Android面试题/" title="Android面试题">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/5.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/5.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -375,43 +296,43 @@
   
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
-  
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
-    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
-  
-    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
-  
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
     <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
   
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
@@ -419,9 +340,9 @@
   
     <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
   
-    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
-  
     <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
@@ -464,10 +385,6 @@
             <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
         </li>
     
-        <li>
-            <a href="https://freefuncode.github.io/GitBook" target="_blank" title="GitBook">GitBook</a>
-        </li>
-    
 </ul>
     </section>
     
@@ -479,7 +396,7 @@
     <footer class="footer">
     ©
     
-        2016-2019
+        2012-2019
     
 
     <a href="/">FreeFunCode</a>

@@ -5,7 +5,7 @@
     
     <title>`屏幕适配`标签下的文章 | 网记本</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="freefuncode, Android, Kotlin, 网络记事本, 网记本">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
     <meta name="description" content="FreeFunCode网络记事本">
 
     
@@ -133,7 +133,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2019/10/03/Android屏幕适配/">
+    	<a href="https://inote.fun/2019/10/03/Android屏幕适配/">
     		Android屏幕适配
     	</a>
     </h3>
@@ -175,109 +175,22 @@
 <li>用来修饰Android中的drawable文件夹及values文件夹，用来区分不同像素密度下的图片和dimen值。</li>
 <li>在设计图标时，对于五种主流的像素密度（mdpi、hdpi、xhdpi、xxhdpi 和 xxxhdpi）应按照 2:3:4:6:8 的比例进行缩放。</li>
 </ul>
-<hr>
-<h3 id="2-适配方案"><a href="#2-适配方案" class="headerlink" title="2.适配方案"></a>2.适配方案</h3><blockquote>
-<p>主要介绍一些适配方案，至于布局编码注意的问题，不详细介绍了。</p>
-<ul>
-<li>使用 “wrap_content” 和 “match_parent” 尺寸值而不是硬编码的尺寸，视图就会相应地仅使用自身所需的空间或展开以填满可用空间。</li>
-<li>weight是线性布局的一个独特的属性，我们可以使用这个属性来按照比例对界面进行分配。</li>
-<li>使用相对布局，禁用绝对布局。等等…</li>
-</ul>
-<p>适配目的是使得某一元素在Android不同尺寸、不同分辨率的手机上具备相同的显示效果。</p>
-</blockquote>
-<h4 id="1-屏幕分辨率限定符（宽高限定符）"><a href="#1-屏幕分辨率限定符（宽高限定符）" class="headerlink" title="1.屏幕分辨率限定符（宽高限定符）"></a>1.屏幕分辨率限定符（宽高限定符）</h4><blockquote>
-<p>设定一个基准的分辨率，也就是设计图对应的分辨率，其他分辨率都根据这个基准分辨率来计算，在不同的尺寸文件夹内部，根据该尺寸编写对应的dimens文件。</p>
-</blockquote>
-<ul>
-<li>屏幕分辨率限定符适配需要在 res 文件夹下创建各种屏幕分辨率对应的 values-xxx 文件夹。</li>
-<li>然后根据一个基准分辨率，例如基准分辨率为 1280x720，将宽度分成 720 份，取值为 1px~720px，将高度分成 1280 份，取值为1px—1280px，生成各种分辨率对应的 dimens.xml 文件。<blockquote>
-<p>基准分辨率 1280x720 对应的dimes文件:</p>
-<ul>
-<li>宽度为720，将任何分辨率的宽度整分为720份，取值为x1-x720</li>
-<li>高度为1280，将任何分辨率的高度整分为1280份，取值为y1-y1280</li>
-</ul>
-<p>那么对于1080*1920的分辨率的dimens文件来说,宽度如下:</p>
-<ul>
-<li>x1=(1080/720)*1=1.5px </li>
-<li>x2=(1080/720)*2=3px<br>…</li>
-<li>x719=(1080/720)*719=1078.5px</li>
-<li>x720=(1080/720)*720=1080px</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<p>如下分别为分辨率 1280x720 与 1920x1080 所对应的横向dimens.xml 文件：<br><img src="/images/dimens_01.jpg" alt="分辨率 1280x720 与 1920x1080 所对应的横向dimens"></p>
-<ul>
-<li>缺点<br>这个方案有一个致命的缺陷，那就是需要精准命中才能适配，比如1920x1080的手机就一定要找到1920x1080的限定符，否则就只能用统一的默认的dimens文件了。而使用默认的尺寸的话，UI就很可能变形，简单说，就是容错机制很差。</li>
-</ul>
-<h4 id="2-smallestWidth-限定符"><a href="#2-smallestWidth-限定符" class="headerlink" title="2. smallestWidth 限定符"></a>2. smallestWidth 限定符</h4><blockquote>
-<p>smallestWidth适配，或者叫sw限定符适配。指的是Android会识别屏幕可用高度和宽度的最小尺寸的dp值（其实就是手机的宽度值），然后根据识别到的结果去资源文件中寻找对应限定符的文件夹下的资源文件。<br><strong>smallestWidth 限定符 和宽高限定符适配原理上是一样的，都是系统通过特定的规则来选择对应的文件。</strong></p>
-</blockquote>
-<ul>
-<li>smallestWidth 限定符屏幕适配方案 只是把 dimens.xml 文件中的值从 px 换成了 dp，原理和使用方式都是没变的。</li>
-</ul>
-<p><img src="/images/dimens_02.jpg" alt="最小宽度为 360dp 与最小宽度为 640dp 所对应的 dimens"></p>
-<ul>
-<li><p>插件ScreenMatch自动生成dimes文件<br><a href="https://www.jianshu.com/p/1302ad5a4b04" target="_blank" rel="noopener">一种非常好用的Android屏幕适配</a></p>
-</li>
-<li><p>优点：</p>
-<blockquote>
-<ul>
-<li>smallestWidth 限定符比屏幕分辨率限定符需要少量 dimens.xml 文件</li>
-<li>smallestWidth 限定符适配采用的单位是 dp 和 sp。屏幕分辨率限定符采用px。</li>
-<li>屏幕分辨率限定符需要精准命中才能适配，而 smallestWidth 限定符适配寻找 dimens.xml 文件的原理是从大往小找，即使没有完全匹配也能达到不错的适配效果。</li>
-</ul>
-</blockquote>
-</li>
-<li><p>缺点：</p>
-<blockquote>
-<ul>
-<li>侵入性高，在所有地方都需要引用。</li>
-<li>还是没有办法覆盖所有的机型分辨率，部分机型可能适配效果还是不佳。</li>
-<li>不能以高度为基准进行适配。</li>
-<li>生成很多文件，增大APP体积1~2M。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h4 id="3-今日头条适配方案"><a href="#3-今日头条适配方案" class="headerlink" title="3. 今日头条适配方案"></a>3. 今日头条适配方案</h4><blockquote>
-<p>今日头条屏幕适配方案的核心原理在于，动态计算density，通过系统api，将density赋值给系统，抛弃掉系统默认计算density的计算公式。<br>公式: $density = 屏幕宽度px / 设计图宽度（375dp）$</p>
-</blockquote>
-<ul>
-<li><p>如何使用<br><a href="https://blog.csdn.net/wang_yong_hui_1234/article/details/82113714" target="_blank" rel="noopener">今日头条屏幕适配方案</a></p>
-</li>
-<li><p>优点</p>
-<blockquote>
-<ul>
-<li>使用成本非常低，操作非常简单</li>
-<li>侵入性非常低</li>
-<li>可适配三方库的控件和系统的控件</li>
-</ul>
-</blockquote>
-</li>
-<li><p>缺点</p>
-<blockquote>
-<ul>
-<li>会全局影响APP的控件大小，例如一些第三方库控件，他们设计的时候可能设计图尺寸并不是像我们一样是375dp，这样就会导致控件大小变形等一些问题。<br>当某个系统控件或三方库控件的设计图尺寸和和我们项目自身的设计图尺寸差距非常大时，这个问题就越严重。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<hr>
-<p>参考：<a href="https://cloud.tencent.com/developer/article/1426238" target="_blank" rel="noopener">Android屏幕适配方案分析</a></p>
-
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2019/10/03/Android屏幕适配/">阅读剩下更多</a>
+                <a href="https://inote.fun/2019/10/03/Android屏幕适配/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2019/10/03/Android屏幕适配/" title="Android屏幕适配">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2019/10/03/Android屏幕适配/" title="Android屏幕适配">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -396,43 +309,43 @@
   
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
-  
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
-    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
-  
-    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
-  
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
     <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
   
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
@@ -440,9 +353,9 @@
   
     <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
   
-    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
-  
     <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
@@ -485,10 +398,6 @@
             <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
         </li>
     
-        <li>
-            <a href="https://freefuncode.github.io/GitBook" target="_blank" title="GitBook">GitBook</a>
-        </li>
-    
 </ul>
     </section>
     
@@ -500,7 +409,7 @@
     <footer class="footer">
     ©
     
-        2016-2019
+        2012-2019
     
 
     <a href="/">FreeFunCode</a>

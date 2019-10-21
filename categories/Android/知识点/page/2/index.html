@@ -5,7 +5,7 @@
     
     <title>`知识点`分类下的文章 | 网记本</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="keywords" content="freefuncode, Android, Kotlin, 网络记事本, 网记本">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
     <meta name="description" content="FreeFunCode网络记事本">
 
     
@@ -133,7 +133,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/">
+    	<a href="https://inote.fun/2018/07/14/Android8-0新特性介绍以及注意事项/">
     		Android8.0新特性介绍以及注意事项
     	</a>
     </h3>
@@ -157,106 +157,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/android8_new_features.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp; &nbsp; &nbsp; &nbsp; 2017年8月22日，谷歌正式发布了Android 8.0的正式版，其正式名称为：<strong>Android Oreo</strong>（奥利奥） 。在此之前 临时代号叫: <strong>Android O</strong>。对应Api level 为<strong>26</strong>。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 2017年12月5日 , 谷歌正式发布了Android 8.1的正式版。对应的Api Level 为<strong>27</strong> 。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130336131-671377976.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Powerful 强大&nbsp; &nbsp; &nbsp; &nbsp;Secure 安全&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fast 流畅&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Smart&amp;seamiess&nbsp; 轻巧&amp;无缝</p>
-<h1>Android 8.0 新特性:</h1>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 8.0版android系统主要聚焦点在电池续航能力,速度,安全.</p>
-<h2>1.通知中心 -Notification Channel</h2>
-<h3>&nbsp; &nbsp; &nbsp;1.1新特殊:</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 用户在通知界面可以发现顶部的快捷键有了更充裕的空间，并且根据网络大数据的用户使用频繁度调整了这几个快捷键的顺序；并且长按推送消息可以看到一个开关，操作它可以开启和关闭这个该应用的未来所有通知。而如果向左滑动通知，则会出现两个开关，一个是设置该应用的具体通知规范，另一个可以设置让该应用的通知推迟一段时间推送。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 长按操作:<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130403972-1193902772.png" alt="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;向左滑动: &nbsp;&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130422381-1707747781.png" alt=""><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130432545-721904404.png" alt=""></p>
-<h3>&nbsp; &nbsp; &nbsp;1.2注意事项:</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NotificationChannel是android8.0新增的特性，如果App的targetSDKVersion&gt;=26，没有设置channel通知渠道的话，就会导致通知无法展示。报错内容:<strong>&nbsp; Failed to post notification on channel “null” Target Api is 26</strong></p>
-<h3>&nbsp; &nbsp; &nbsp;1.3 解决方案</h3>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.1 临时方案</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;临时兼容方案是设置targetSDKVersion低于26。</p>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.3.2 最终方案</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;创建通知渠道</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step1:创建 NotificationChannel 对象，并设置应用内唯一的通知 ID。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step2:配置通知渠道的属性，比如提示声音/震动等。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Step3:在 NotificationManager 中注册通知渠道对象。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130456453-97306205.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展 了解:</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://stackoverflow.com/questions/45711925/failed-to-post-notification-on-channel-null-target-api-is-26" target="_blank" rel="noopener">https://stackoverflow.com/questions/45711925/failed-to-post-notification-on-channel-null-target-api-is-26</a></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.jianshu.com/p/92afa56aee05" target="_blank" rel="noopener">https://www.jianshu.com/p/92afa56aee05</a></p>
-<h2>2.PinnedShortcuts</h2>
-<h3>&nbsp; &nbsp; &nbsp;2.1新特性</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 安卓创造出了PinnedShortcuts功能，类似苹果的3DTouch，长按一个软件后可以弹出子菜单，然后就可以通过这个方式快捷的使用该应用的部分功能。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 自定义ShortCuts 是7.1牛轧糖(API Level 25)版本新增的.</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Shortcuts是指在桌面长按app图标而出现的快捷方式，可以为你的app的关键功能添加更加快速的入口而不是先打开app。类似苹果的3D Touch。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; 点击快捷方式可以访问应用功能，而且这种快捷方式也可以被拖拽到桌面的单独位置，变成单独的左面快捷方式。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130520370-1116257844.png" alt=""><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130525067-1769221288.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 如果删除” 支付宝”应用,再点击” 付款码”,会提示”未安装应用”,随后,系统自动删除掉”付款码”快捷方式.</p>
-<h3>&nbsp; &nbsp; &nbsp;2.2注意事项</h3>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.</strong>最多创建4个特定的shortcuts：目前虽然说Static shortcuts 和Dynamic shortcuts之和最多为5个，但实际上只会显示4个。当我们尝试添加第六个shortcut时, 应用会抛出异常: Java.lang.IllegalArgumentException: Max number of dynamic shortcuts exceeded.</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2.</strong>限制 Label 长度：其中shortcutShortLabel建议不超过 10 个字符，shortcutLongLabel 建议不超过 25 个字符。</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.</strong>如何更好的删除(废弃)老的 Shortcut</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这里主要考虑到删除老的 Shortcut，可能会影响已经固定的 Shortcut。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于静态 Shortcuts，直接删除配置文件中对应的 Shortcut 即可，系统桌面会将已固定的该 Shortcut 置灰，点击会提示 shortcutDisabledMessage。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 对于动态 Shortcuts 建议通过禁用的方式而不是直接删除的方式，因为已经删除的动态 Shortcut 如果被固定了依然是可用的，所以希望该入口不可用最好的方式是禁用。</p>
-<h3>&nbsp; &nbsp; &nbsp;2.3 解决方案</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130651974-2003571495.png" alt=""></p>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.3.1静态快捷方式</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130707338-635356109.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AndroidManifest.xml</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130733222-1243746562.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130741707-1997596608.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; res/xml/shortcuts</p>
-<h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2.3.2动态快捷方式</h4>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130803753-1058198975.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130811151-987638283.png" alt=""></p>
-<p>&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130841345-123303880.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ShortcutManager API可以帮助我们实现新建、更新、移除、禁用等快捷方式的操作.</p>
-<p>&nbsp;</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 扩展了解:&nbsp; &nbsp;<a href="https://www.jianshu.com/p/c10ea2bd5803" target="_blank" rel="noopener">https://www.jianshu.com/p/c10ea2bd5803</a></p>
-<p>&nbsp;</p>
-<h2>3.画中画</h2>
-<h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3.1新特性</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130900706-542659531.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130907952-164277144.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130916966-1253746177.png" alt=""></p>
-<h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.2 使用方法&nbsp;</h3>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130936884-710201620.png" alt=""></p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展了解:&nbsp;&nbsp;<a href="https://blog.csdn.net/ckwccc/article/details/79098602" target="_blank" rel="noopener">https://blog.csdn.net/ckwccc/article/details/79098602</a></p>
-<h2>4.后台限制</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0将进一步优化后台程序，减少应用在没完全退出后占用系统的资源，并且减少电量的消耗。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714130956396-737551763.png" alt=""></p>
-<p>&nbsp;&nbsp;</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意事项</strong>:&nbsp;使用常驻service时候需要注意权限问题.</p>
-<p>&nbsp;</p>
-<h2>5. 自动保存密码</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 这个功能将会保存用户的部分帐号和密码，用于在网站或者应用中的快速登录，效率提升了不少 。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131014555-1049141484.png" alt=""></p>
-<p>&nbsp;</p>
-<h2>6. 设置菜单</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 在新的Android 8.0系统中，设置的界面有了大幅变化，主菜单的覆盖性变得更广，更多的功能将在子菜单中体现，并且在菜单界面中重新设计了很多图标。</p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意</strong>: 各大厂商都做了优化,呈现的方式多少都有点不一致.</p>
-<h2>7. 字体优化</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0系统中谷歌还增加了对系统字体的更多支持，开发者可以自行更改字体样式，让用户有了更多字体的选择。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Android 8.0 和 Android 支持库 26 允许您从提供程序应用请求字体，而无需将字体绑定到 APK 中或让 APK 下载字体。此功能可减小 APK 大小，提高应用安装成功率，使多个应用可以共享同一种字体。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;扩展了解:&nbsp;<a href="https://blog.csdn.net/IO_Field/article/details/78016411" target="_blank" rel="noopener">https://blog.csdn.net/IO_Field/article/details/78016411</a></p>
-<h2>8. 表情符号</h2>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Android 8.0还带来了符合Unicode 10标准的表情符号，比原来新加超过60个表情符，这也是比较明显的改变之一。</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180714131042984-1008393830.png" alt=""></p>
-<p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 注意</strong>: 表情符号在与ios表情符同步时候,可能表现不出来.</p>
-<p>&nbsp;</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/07/14/Android8-0新特性介绍以及注意事项/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/07/14/Android8-0新特性介绍以及注意事项/" title="Android8.0新特性介绍以及注意事项">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/07/14/Android8-0新特性介绍以及注意事项/" title="Android8.0新特性介绍以及注意事项">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -271,7 +187,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/06/18/Android四大组件-四-ContentProvider介绍/">
+    	<a href="https://inote.fun/2018/06/18/Android四大组件-四-ContentProvider介绍/">
     		Android 四大组件 (四) ContentProvider介绍
     	</a>
     </h3>
@@ -295,41 +211,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/ContentProvider.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp;&nbsp;&nbsp; ContentProvider虽然与Activity、Service、BroadcastReceiver齐名为Android四大组件。如果你不是特别开发一款与其他APP有数据交互的应用，它的使用频率远没有另外三者高。因为已经介绍了前三大组件，为了完善Android四大组件介绍了解，这次补充下ContentProvider介绍。哈哈~一边在看世界杯，巴西打瑞士。目前巴西1：0。我把所有金币全压巴西了~题外话说完，下面简单介绍下ContentProvider。</p>
-<h2>一.&nbsp; ContentProvider简介和常见使用场景：</h2>
-<p>&nbsp;&nbsp;&nbsp; Android的数据存储方式总共有五种，分别是：Shared Preferences、网络存储、文件存储、外储存储、SQLite。但是我们知道一般这些存储都只是在单独的一个应用程序之中达到一个数据的共享，有时候我们需要操作其他应用程序的一些数据，例如我们需要操作系统里的媒体库、通讯录等，这时我们就可能通过ContentProvider来满足我们的需求了。</p>
-<p>&nbsp; 由此我们知道，ContentProvider为存储和获取数据提供了统一的接口。ContentProvide对数据进行封装，不用关心数据存储的细节。使用表的形式来组织数据。使用ContentProvider可以在不同的应用程序之间共享数据。Android为常见的一些数据提供了默认的ContentProvider（包括音频、视频、图片和通讯录等）。总结就是：&nbsp;ContentProvider一般为存储和获取数据提供统一的接口，可以在不同的应用程序之间共享数据。</p>
-<h2>二.ContentProvider 常见的几个类：</h2>
-<h3>1.ContentResolver</h3>
-<p>&nbsp;&nbsp;&nbsp; Android为我们提供了ContentResolver来统一管理与不同ContentProvider间的操作。</p>
-<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180618030813309-221768442.png" alt=""></p>
-<p>调用<code>getContentResolver()</code>来获得<code>ContentResolver。</code></p>
-<p>ContentResolver是如何来区别不同的ContentProvider的呢？这就涉及到URI（Uniform Resource Identifier）问题。</p>
-<h3>2.URI</h3>
-<p>ContentProvider中的URI有固定格式，如下图：</p>
-<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180618031542592-2054477058.png" alt=""></p>
-<p><strong>　　Authority：</strong>授权信息，用以区别不同的ContentProvider；<br><strong>　　Path：</strong>表名，用以区分ContentProvider中不同的数据表；<br><strong>　　Id：</strong>Id号，用以区别表中的不同数据；</p>
-<p>&nbsp;</p>
-<h2>&nbsp;三.ContentProvider查询手机通讯录联系人信息示例：</h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_728331" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div><div class="line number58 index57 alt1">58</div><div class="line number59 index58 alt2">59</div><div class="line number60 index59 alt1">60</div><div class="line number61 index60 alt2">61</div><div class="line number62 index61 alt1">62</div><div class="line number63 index62 alt2">63</div><div class="line number64 index63 alt1">64</div><div class="line number65 index64 alt2">65</div><div class="line number66 index65 alt1">66</div><div class="line number67 index66 alt2">67</div><div class="line number68 index67 alt1">68</div><div class="line number69 index68 alt2">69</div><div class="line number70 index69 alt1">70</div><div class="line number71 index70 alt2">71</div><div class="line number72 index71 alt1">72</div><div class="line number73 index72 alt2">73</div><div class="line number74 index73 alt1">74</div><div class="line number75 index74 alt2">75</div><div class="line number76 index75 alt1">76</div><div class="line number77 index76 alt2">77</div><div class="line number78 index77 alt1">78</div><div class="line number79 index78 alt2">79</div><div class="line number80 index79 alt1">80</div><div class="line number81 index80 alt2">81</div><div class="line number82 index81 alt1">82</div><div class="line number83 index82 alt2">83</div><div class="line number84 index83 alt1">84</div><div class="line number85 index84 alt2">85</div><div class="line number86 index85 alt1">86</div><div class="line number87 index86 alt2">87</div><div class="line number88 index87 alt1">88</div><div class="line number89 index88 alt2">89</div><div class="line number90 index89 alt1">90</div><div class="line number91 index90 alt2">91</div><div class="line number92 index91 alt1">92</div><div class="line number93 index92 alt2">93</div><div class="line number94 index93 alt1">94</div><div class="line number95 index94 alt2">95</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">private</code> <code class="java plain">TextView tv_query_contacts;</code></div><div class="line number2 index1 alt1"><code class="java keyword">private</code> <code class="java plain">TextView tv_info_contacts;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="java plain">String[] premiss = </code><code class="java keyword">new</code> <code class="java plain">String[]{</code></div><div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Manifest.permission.READ_CONTACTS,</code></div><div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Manifest.permission.WRITE_CONTACTS</code></div><div class="line number7 index6 alt2"><code class="java plain">};</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="java color1">@Override</code></div><div class="line number10 index9 alt1"><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onCreate(Bundle savedInstanceState) {</code></div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onCreate(savedInstanceState);</code></div><div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">setContentView(R.layout.activity_main);</code></div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_info_contacts = findViewById(R.id.tv_info_contacts);</code></div><div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_query_contacts = findViewById(R.id.query_contacts);</code></div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_query_contacts.setOnClickListener(</code><code class="java keyword">new</code> <code class="java plain">View.OnClickListener() {</code></div><div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onClick(View view) {</code></div><div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">checkPresmissed();</code></div><div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">});</code></div><div class="line number21 index20 alt2"><code class="java plain">}</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2">&nbsp;</div><div class="line number24 index23 alt1"><code class="java preprocessor">/**</code></div><div class="line number25 index24 alt2"><code class="java spaces">&nbsp;</code><code class="java preprocessor">* 查询手机通讯录所有联系人名称</code></div><div class="line number26 index25 alt1"><code class="java spaces">&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number27 index26 alt2"><code class="java keyword">private</code> <code class="java keyword">void</code> <code class="java plain">queryContacts() {</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Uri urlContacts = Uri.parse(</code><code class="java string">"content://com.android.contacts/contacts"</code><code class="java plain">);</code></div><div class="line number30 index29 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">ContentResolver contentResolver = getContentResolver();</code></div><div class="line number31 index30 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Cursor cursorsContacts = contentResolver.query(urlContacts, </code><code class="java keyword">new</code> <code class="java plain">String[]{ContactsContract.Data._ID}, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">);</code></div><div class="line number32 index31 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">StringBuilder stringBuilder = </code><code class="java keyword">new</code> <code class="java plain">StringBuilder();</code></div><div class="line number33 index32 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">while</code> <code class="java plain">(cursorsContacts.moveToNext()) {</code></div><div class="line number34 index33 alt1">&nbsp;</div><div class="line number35 index34 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Uri uriPhone = Uri.parse(</code><code class="java string">"content://com.android.contacts/contacts/"</code> <code class="java plain">+ cursorsContacts.getInt(</code><code class="java value">0</code><code class="java plain">) + </code><code class="java string">"/data"</code><code class="java plain">);</code></div><div class="line number36 index35 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Cursor cursorPhone = contentResolver.query(uriPhone, </code><code class="java keyword">new</code> <code class="java plain">String[]{ContactsContract.Data.DATA1, ContactsContract.Data.MIMETYPE}, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">, </code><code class="java keyword">null</code><code class="java plain">);</code></div><div class="line number37 index36 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">while</code> <code class="java plain">(cursorPhone.moveToNext()) {</code></div><div class="line number38 index37 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">if</code><code class="java plain">(cursorPhone.getString(cursorPhone.getColumnIndex(</code><code class="java string">"mimetype"</code><code class="java plain">)).equals(</code><code class="java string">"vnd.android.cursor.item/name"</code><code class="java plain">)){</code></div><div class="line number39 index38 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">//姓名</code></div><div class="line number40 index39 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">stringBuilder.append(cursorPhone.getString(cursorPhone.getColumnIndex(</code><code class="java string">"data1"</code><code class="java plain">)));</code></div><div class="line number41 index40 alt2">&nbsp;</div><div class="line number42 index41 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number43 index42 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number44 index43 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number45 index44 alt2">&nbsp;</div><div class="line number46 index45 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_query_contacts.setText(</code><code class="java string">""</code><code class="java plain">);</code></div><div class="line number47 index46 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_info_contacts.setText(stringBuilder.toString());</code></div><div class="line number48 index47 alt1"><code class="java plain">}</code></div><div class="line number49 index48 alt2">&nbsp;</div><div class="line number50 index49 alt1"><code class="java keyword">private</code> <code class="java keyword">void</code> <code class="java plain">checkPresmissed() {</code></div><div class="line number51 index50 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">/**</code></div><div class="line number52 index51 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">* 第 1 步: 检查是否有相应的权限</code></div><div class="line number53 index52 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number54 index53 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">boolean</code> <code class="java plain">isAllGranted = checkPermissionAllGranted(</code></div><div class="line number55 index54 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">new</code> <code class="java plain">String[]{</code></div><div class="line number56 index55 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Manifest.permission.READ_CONTACTS,</code></div><div class="line number57 index56 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Manifest.permission.WRITE_CONTACTS</code></div><div class="line number58 index57 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number59 index58 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">);</code></div><div class="line number60 index59 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 如果这3个权限全都拥有, 则直接执行备份代码</code></div><div class="line number61 index60 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">if</code> <code class="java plain">(isAllGranted) {</code></div><div class="line number62 index61 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">queryContacts();</code></div><div class="line number63 index62 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">} </code><code class="java keyword">else</code> <code class="java plain">{</code></div><div class="line number64 index63 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">/**</code></div><div class="line number65 index64 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">* 第 2 步: 请求权限</code></div><div class="line number66 index65 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number67 index66 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 一次请求多个权限, 如果其他有权限是已经授予的将会自动忽略掉</code></div><div class="line number68 index67 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">ActivityCompat.requestPermissions(</code><code class="java keyword">this</code><code class="java plain">, premiss, </code><code class="java value">11</code><code class="java plain">);</code></div><div class="line number69 index68 alt2">&nbsp;</div><div class="line number70 index69 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number71 index70 alt2">&nbsp;</div><div class="line number72 index71 alt1"><code class="java plain">}</code></div><div class="line number73 index72 alt2">&nbsp;</div><div class="line number74 index73 alt1">&nbsp;</div><div class="line number75 index74 alt2"><code class="java preprocessor">/**</code></div><div class="line number76 index75 alt1"><code class="java spaces">&nbsp;</code><code class="java preprocessor">* 检查是否拥有指定的所有权限</code></div><div class="line number77 index76 alt2"><code class="java spaces">&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number78 index77 alt1"><code class="java keyword">private</code> <code class="java keyword">boolean</code> <code class="java plain">checkPermissionAllGranted(String[] permissions) {</code></div><div class="line number79 index78 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">for</code> <code class="java plain">(String permission : permissions) {</code></div><div class="line number80 index79 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">if</code> <code class="java plain">(ContextCompat.checkSelfPermission(</code><code class="java keyword">this</code><code class="java plain">, permission) != PackageManager.PERMISSION_GRANTED) {</code></div><div class="line number81 index80 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 只要有一个权限没有被授予, 则直接返回 false</code></div><div class="line number82 index81 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">return</code> <code class="java keyword">false</code><code class="java plain">;</code></div><div class="line number83 index82 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number84 index83 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number85 index84 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">return</code> <code class="java keyword">true</code><code class="java plain">;</code></div><div class="line number86 index85 alt1"><code class="java plain">}</code></div><div class="line number87 index86 alt2">&nbsp;</div><div class="line number88 index87 alt1"><code class="java comments">//授权回调</code></div><div class="line number89 index88 alt2"><code class="java color1">@Override</code></div><div class="line number90 index89 alt1"><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onRequestPermissionsResult(</code><code class="java keyword">int</code> <code class="java plain">requestCode, </code><code class="java color1">@NonNull</code> <code class="java plain">String[] permissions, </code><code class="java color1">@NonNull</code> <code class="java keyword">int</code><code class="java plain">[] grantResults) {</code></div><div class="line number91 index90 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onRequestPermissionsResult(requestCode, permissions, grantResults);</code></div><div class="line number92 index91 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">if</code> <code class="java plain">(requestCode == </code><code class="java value">11</code><code class="java plain">) {</code></div><div class="line number93 index92 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">queryContacts();</code></div><div class="line number94 index93 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number95 index94 alt2"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-</div>
-
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/06/18/Android四大组件-四-ContentProvider介绍/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/06/18/Android四大组件-四-ContentProvider介绍/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/06/18/Android四大组件-四-ContentProvider介绍/" title="Android 四大组件 (四) ContentProvider介绍">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/06/18/Android四大组件-四-ContentProvider介绍/" title="Android 四大组件 (四) ContentProvider介绍">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/8.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/8.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -344,7 +241,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/05/16/四大组件-三-BroadcastReceiver介绍/">
+    	<a href="https://inote.fun/2018/05/16/四大组件-三-BroadcastReceiver介绍/">
     		Android 四大组件 (三) BroadcastReceiver 介绍
     	</a>
     </h3>
@@ -368,119 +265,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/BroadcastReceiver.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h2>一. BroadcastReceiver 使用场景</h2>
-<p>　　Broadcast主要是用作消息通信（专业术语叫IPC），Android的IPC基本都是binder来实现，那么这里的BroadcastReceiver其实也是对binder的一个封装，方便上层调用。开发过程中遇到的单进程多线程通信的场景比较多，所以这种情况下使用Broadcast并不是最佳选择，很多人会自己实现一套 Observer 或者使用EventBus等第三方库来完成该功能，不可否认，他们在这种场合下不论是效率还是灵活性方面都更具优势。但是，BroadcastReceiver既然能够在Android四大组件中占有一席之地，自然也有它独有的优势，第一个是系统相关事件的监听，比如开机启动，网络连接，电量变化等，第二个是多进程通信，这些是Observer 或者EventBus很难办到的。所以BroadcastReceiver的使用需要看具体的使用场景，像单进程多线程这种场景，就不建议用BroadcastReceiver了，有种杀鸡用牛刀的赶脚，使用Observer 或者EventBus更适合；但是对于需要监听系统广播事件的场合，比方说现在很多进程保活机制里面就用到了一些系统广播的监听，就正是BroadcastReceiver大展拳脚的时候了。</p>
-<h2>二.BroadcastReceiver 系统广播</h2>
-<p>Android中内置了多个系统广播：只要涉及到手机的基本操作（如开机、网络状态变化、拍照等等），都会发出相应的广播。每个广播都有特定的Intent - Filter（包括具体的action），Android系统广播action如下：</p>
-<table style="width: 600px; height: 414px;">
-<thead>
-<tr><th style="text-align: center;">系统操作</th><th align="center">action</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>监听网络变化</td>
-<td align="center">android.net.conn.CONNECTIVITY_CHANGE</td>
-</tr>
-<tr>
-<td>关闭或打开飞行模式</td>
-<td align="center">Intent.ACTION_AIRPLANE_MODE_CHANGED</td>
-</tr>
-<tr>
-<td>充电时或电量发生变化</td>
-<td align="center">Intent.ACTION_BATTERY_CHANGED</td>
-</tr>
-<tr>
-<td>电池电量低</td>
-<td align="center">Intent.ACTION_BATTERY_LOW</td>
-</tr>
-<tr>
-<td>电池电量充足（即从电量低变化到饱满时会发出广播</td>
-<td align="center">Intent.ACTION_BATTERY_OKAY</td>
-</tr>
-<tr>
-<td>系统启动完成后(仅广播一次)</td>
-<td align="center">Intent.ACTION_BOOT_COMPLETED</td>
-</tr>
-<tr>
-<td>按下照相时的拍照按键(硬件按键)时</td>
-<td align="center">Intent.ACTION_CAMERA_BUTTON</td>
-</tr>
-<tr>
-<td>屏幕锁屏</td>
-<td align="center">Intent.ACTION_CLOSE_SYSTEM_DIALOGS</td>
-</tr>
-<tr>
-<td>设备当前设置被改变时(界面语言、设备方向等)</td>
-<td align="center">Intent.ACTION_CONFIGURATION_CHANGED</td>
-</tr>
-<tr>
-<td>插入耳机时</td>
-<td align="center">Intent.ACTION_HEADSET_PLUG</td>
-</tr>
-<tr>
-<td>未正确移除SD卡但已取出来时(正确移除方法:设置–SD卡和设备内存–卸载SD卡)</td>
-<td align="center">Intent.ACTION_MEDIA_BAD_REMOVAL</td>
-</tr>
-<tr>
-<td>插入外部储存装置（如SD卡）</td>
-<td align="center">Intent.ACTION_MEDIA_CHECKING</td>
-</tr>
-<tr>
-<td>成功安装APK</td>
-<td align="center">Intent.ACTION_PACKAGE_ADDED</td>
-</tr>
-<tr>
-<td>成功删除APK</td>
-<td align="center">Intent.ACTION_PACKAGE_REMOVED</td>
-</tr>
-<tr>
-<td>重启设备</td>
-<td align="center">Intent.ACTION_REBOOT</td>
-</tr>
-<tr>
-<td>屏幕被关闭</td>
-<td align="center">Intent.ACTION_SCREEN_OFF</td>
-</tr>
-<tr>
-<td>屏幕被打开</td>
-<td align="center">Intent.ACTION_SCREEN_ON</td>
-</tr>
-<tr>
-<td>关闭系统时</td>
-<td align="center">Intent.ACTION_SHUTDOWN</td>
-</tr>
-<tr>
-<td>重启设备</td>
-<td align="center">Intent.ACTION_REBOOT</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<h2>三.BroadcastReceiver 注册方式</h2>
-<h3>1.静态注册</h3>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_330540" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">AndroidManifest.xml:</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="html plain">&lt;</code><code class="html keyword">receiver</code> <code class="html plain">android:name=".broadcastreceiver.TestBroadcastReceiver"&gt;</code></div><div class="line number4 index3 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">intent-filter</code><code class="html plain">&gt;</code></div><div class="line number5 index4 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">action</code> <code class="html plain">android:name="android.net.conn.CONNECTIVITY_CHANGE" /&gt;</code></div><div class="line number6 index5 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">intent-filter</code><code class="html plain">&gt;</code></div><div class="line number7 index6 alt2"><code class="html plain">&lt;/</code><code class="html keyword">receiver</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<h3>2.动态注册</h3>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_390725" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">IntentFilter mFilter = </code><code class="java keyword">new</code> <code class="java plain">IntentFilter();</code></div><div class="line number2 index1 alt1"><code class="java plain">mFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);</code></div><div class="line number3 index2 alt2"><code class="java plain">TestBroadcastReceiver mReceiver = </code><code class="java keyword">new</code> <code class="java plain">TestBroadcastReceiver();</code></div><div class="line number4 index3 alt1"><code class="java plain">registerReceiver(mReceiver, mFilter);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-<p>&nbsp;</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/05/16/四大组件-三-BroadcastReceiver介绍/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/05/16/四大组件-三-BroadcastReceiver介绍/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/05/16/四大组件-三-BroadcastReceiver介绍/" title="Android 四大组件 (三) BroadcastReceiver 介绍">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/05/16/四大组件-三-BroadcastReceiver介绍/" title="Android 四大组件 (三) BroadcastReceiver 介绍">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/6.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/6.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -495,7 +295,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/05/13/四大组件-二-Service使用/">
+    	<a href="https://inote.fun/2018/05/13/四大组件-二-Service使用/">
     		Android 四大组件 (二) Service 使用
     	</a>
     </h3>
@@ -519,81 +319,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/android_service.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h2>一. Service 介绍</h2>
-<p>Service属于android四大组件之一，在很多地方经常被用到。开启Service有两种不同的方式：startService和bindService。不同的开启方式，Service执行的生命周期方法也不同。</p>
-<p>分&nbsp;显示/隐示调用 ，但是官网推荐用显式的方式启动Service。下面 service使用 用的就是显示调用；注意事项用的就是隐示调用，在5.0系统上隐示调用会报错。所以这里只介绍使用显示调用。</p>
-<p>不能再service里做耗时操作，否则ANR；需要开辟子线程进行耗时操作处理。</p>
-<h2>二.Service 使用</h2>
-<h3>&nbsp; 1.startService使用。</h3>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_320107" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">Intent intent = </code><code class="java keyword">new</code> <code class="java plain">Intent(</code><code class="java keyword">this</code><code class="java plain">, TestService.</code><code class="java keyword">class</code><code class="java plain">);</code></div></div></td></tr></tbody></table></div></div>
-<pre>Log.w(Tag, "activity====启动服务");</pre>
-<div><div id="highlighter_101359" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">startService(intent);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>执行效果：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233222896-1009550225.png" alt=""></p>
-<p>&nbsp;</p>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_903563" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====停止服务"</code><code class="java plain">);</code></div><div class="line number2 index1 alt1"><code class="java plain">stopService(intent);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>执行效果：　　&nbsp;</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233310365-79628207.png" alt=""></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h3>&nbsp;&nbsp; 2.bindService绑定.</h3>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_672509" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">private</code> <code class="java keyword">class</code> <code class="java plain">MyConnection </code><code class="java keyword">implements</code> <code class="java plain">ServiceConnection {</code></div><div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onServiceConnected(ComponentName name, IBinder service) {</code></div><div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">//只有当我们自己写的MyService的onBind方法返回值不为null时，才会被调用</code></div><div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.e(</code><code class="java string">"call"</code><code class="java plain">, </code><code class="java string">"onServiceConnected"</code><code class="java plain">);</code></div><div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onServiceDisconnected(ComponentName name) {</code></div><div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 这个方法只有出现异常时才会调用，服务器正常退出不会调用。</code></div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.e(</code><code class="java string">"call"</code><code class="java plain">, </code><code class="java string">"onServiceDisconnected"</code><code class="java plain">);</code></div><div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>&nbsp;</p>
-<div class="cnblogs_Highlighter sh-gutter">
-<pre>Log.w(Tag, "activity====绑定服务");</pre>
-<div><div id="highlighter_932022" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">MyConnection conn = </code><code class="java keyword">new</code> <code class="java plain">MyConnection();</code></div><div class="line number2 index1 alt1"><code class="java comments">//第一个参数：Intent意图</code></div><div class="line number3 index2 alt2"><code class="java comments">// 第二个参数：是一个接口，通过这个接口接收服务开启或者停止的消息，并且这个参数不能为null</code></div><div class="line number4 index3 alt1"><code class="java spaces">&nbsp;</code><code class="java comments">// 第三个参数：开启服务时的操作，BIND_AUTO_CREATE代表自动创建service bindService(service, conn, BIND_AUTO_CREATE);</code></div><div class="line number5 index4 alt2"><code class="java spaces">&nbsp;</code><code class="java plain">bindService(intent, conn, BIND_AUTO_CREATE);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>&nbsp;</p>
-<p>　　执行效果：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233328633-713560348.png" alt=""></p>
-<p>&nbsp;</p>
-<div class="cnblogs_Highlighter sh-gutter">
-<pre>Log.w(Tag, "activity====解绑服务");</pre>
-<div><div id="highlighter_661551" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">unbindService(conn);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　执行效果：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233405981-2072704115.png" alt=""></p>
-<p>&nbsp;</p>
-<p>　</p>
-<h3>&nbsp;&nbsp; 3.区别：</h3>
-<p><em>&nbsp;<span style="text-decoration: underline;">以下摘自网络,后续验证</span></em><span style="text-decoration: underline;">：</span></p>
-<p>&nbsp;服务不能自己运行，需要通过调用Context.startService()或Context.bindService()方法启动服务。这两个方法都可以启动Service，但是它们的使用场合有所不同。<br>&nbsp;<br>&nbsp;使用startService()方法启用服务，调用者与服务之间没有关连，即使调用者退出了，服务仍然运行。使用bindService()方法启用服务，调用者与服务绑定在了一起，调用者一旦退出，服务也就终止，大有“不求同时生，必须同时死”的特点。<br>&nbsp;<br>如果打算采用<strong>Context.startService()方法启动服务</strong>，在服务未被创建时，系统会先调用服务的onCreate()方法，接着调用onStart()方法。如果调用startService()方法前服务已经被创建，多次调用startService()方法并不会导致多次创建服务，但会导致多次调用onStart()方法。采用startService()方法启动的服务，只能调用Context.stopService()方法结束服务，服务结束时会调用onDestroy()方法。<br>&nbsp;<br>如果打算采用<strong>Context.bindService()方法启动服务</strong>，在服务未被创建时，系统会先调用服务的onCreate()方法，接着调用onBind()方法。这个时候调用者和服务绑定在一起，调用者退出了，系统就会先调用服务的onUnbind()方法，接着调用onDestroy()方法。如果调用bindService()方法前服务已经被绑定，多次调用bindService()方法并不会导致多次创建服务及绑定(也就是说onCreate()和onBind()方法并不会被多次调用)。如果调用者希望与正在绑定的服务解除绑定，可以调用unbindService()方法，调用该方法也会导致系统调用服务的onUnbind()--&gt;onDestroy()方法。</p>
-<p>&nbsp;</p>
-<h1>三.Service 注意事项：</h1>
-<p>在5.0系统上使用如下方式start或者bind启动service时候：</p>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_738099" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">Intent&nbsp;intent&nbsp;=&nbsp;</code><code class="java keyword">new</code>&nbsp;<code class="java plain">Intent();&nbsp;&nbsp;</code></div><div class="line number2 index1 alt1"><code class="java plain">intent.setAction(</code><code class="java string">"com.example.user.firstapp.FIRST_SERVICE"</code><code class="java plain">);&nbsp;&nbsp;</code></div><div class="line number3 index2 alt2"><code class="java plain">bindService(intent,coon,Service.BIND_AUTO_CREATE);&nbsp;&nbsp;&lt;br&gt;&lt;br&gt;startService(intent);</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233520935-1303352525.png" alt=""></p>
-<p>android 5.0上，报错：<span style="color: #ff0000; font-family: Trebuchet MS;">IllegalArgumentException: Service Intent must be explicit</span></p>
-<p><span style="text-decoration: underline;"><strong><span style="color: #313131; font-family: Trebuchet MS; text-decoration: underline;">原因是：Android5.0中service的intent一定要显性声明</span>！！！</strong></span></p>
-<p>&nbsp;</p>
-<h2>四.附上核心activity代码：</h2>
-<div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_366190" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div><div class="line number54 index53 alt1">54</div><div class="line number55 index54 alt2">55</div><div class="line number56 index55 alt1">56</div><div class="line number57 index56 alt2">57</div><div class="line number58 index57 alt1">58</div><div class="line number59 index58 alt2">59</div><div class="line number60 index59 alt1">60</div><div class="line number61 index60 alt2">61</div><div class="line number62 index61 alt1">62</div><div class="line number63 index62 alt2">63</div><div class="line number64 index63 alt1">64</div><div class="line number65 index64 alt2">65</div><div class="line number66 index65 alt1">66</div><div class="line number67 index66 alt2">67</div><div class="line number68 index67 alt1">68</div><div class="line number69 index68 alt2">69</div><div class="line number70 index69 alt1">70</div><div class="line number71 index70 alt2">71</div><div class="line number72 index71 alt1">72</div><div class="line number73 index72 alt2">73</div><div class="line number74 index73 alt1">74</div><div class="line number75 index74 alt2">75</div><div class="line number76 index75 alt1">76</div><div class="line number77 index76 alt2">77</div><div class="line number78 index77 alt1">78</div><div class="line number79 index78 alt2">79</div><div class="line number80 index79 alt1">80</div><div class="line number81 index80 alt2">81</div><div class="line number82 index81 alt1">82</div><div class="line number83 index82 alt2">83</div><div class="line number84 index83 alt1">84</div><div class="line number85 index84 alt2">85</div><div class="line number86 index85 alt1">86</div><div class="line number87 index86 alt2">87</div><div class="line number88 index87 alt1">88</div><div class="line number89 index88 alt2">89</div><div class="line number90 index89 alt1">90</div><div class="line number91 index90 alt2">91</div><div class="line number92 index91 alt1">92</div><div class="line number93 index92 alt2">93</div><div class="line number94 index93 alt1">94</div><div class="line number95 index94 alt2">95</div><div class="line number96 index95 alt1">96</div><div class="line number97 index96 alt2">97</div><div class="line number98 index97 alt1">98</div><div class="line number99 index98 alt2">99</div><div class="line number100 index99 alt1">100</div><div class="line number101 index100 alt2">101</div><div class="line number102 index101 alt1">102</div><div class="line number103 index102 alt2">103</div><div class="line number104 index103 alt1">104</div><div class="line number105 index104 alt2">105</div><div class="line number106 index105 alt1">106</div><div class="line number107 index106 alt2">107</div><div class="line number108 index107 alt1">108</div><div class="line number109 index108 alt2">109</div><div class="line number110 index109 alt1">110</div><div class="line number111 index110 alt2">111</div><div class="line number112 index111 alt1">112</div><div class="line number113 index112 alt2">113</div><div class="line number114 index113 alt1">114</div><div class="line number115 index114 alt2">115</div><div class="line number116 index115 alt1">116</div><div class="line number117 index116 alt2">117</div><div class="line number118 index117 alt1">118</div><div class="line number119 index118 alt2">119</div><div class="line number120 index119 alt1">120</div><div class="line number121 index120 alt2">121</div><div class="line number122 index121 alt1">122</div><div class="line number123 index122 alt2">123</div><div class="line number124 index123 alt1">124</div><div class="line number125 index124 alt2">125</div><div class="line number126 index125 alt1">126</div><div class="line number127 index126 alt2">127</div><div class="line number128 index127 alt1">128</div><div class="line number129 index128 alt2">129</div><div class="line number130 index129 alt1">130</div><div class="line number131 index130 alt2">131</div><div class="line number132 index131 alt1">132</div><div class="line number133 index132 alt2">133</div><div class="line number134 index133 alt1">134</div><div class="line number135 index134 alt2">135</div><div class="line number136 index135 alt1">136</div><div class="line number137 index136 alt2">137</div><div class="line number138 index137 alt1">138</div><div class="line number139 index138 alt2">139</div><div class="line number140 index139 alt1">140</div><div class="line number141 index140 alt2">141</div><div class="line number142 index141 alt1">142</div><div class="line number143 index142 alt2">143</div><div class="line number144 index143 alt1">144</div><div class="line number145 index144 alt2">145</div><div class="line number146 index145 alt1">146</div><div class="line number147 index146 alt2">147</div><div class="line number148 index147 alt1">148</div><div class="line number149 index148 alt2">149</div><div class="line number150 index149 alt1">150</div><div class="line number151 index150 alt2">151</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java keyword">package</code> <code class="java plain">com.example.hp.testapp;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="java keyword">import</code> <code class="java plain">android.content.ComponentName;</code></div><div class="line number4 index3 alt1"><code class="java keyword">import</code> <code class="java plain">android.content.Intent;</code></div><div class="line number5 index4 alt2"><code class="java keyword">import</code> <code class="java plain">android.content.ServiceConnection;</code></div><div class="line number6 index5 alt1"><code class="java keyword">import</code> <code class="java plain">android.os.IBinder;</code></div><div class="line number7 index6 alt2"><code class="java keyword">import</code> <code class="java plain">android.support.v7.app.AppCompatActivity;</code></div><div class="line number8 index7 alt1"><code class="java keyword">import</code> <code class="java plain">android.os.Bundle;</code></div><div class="line number9 index8 alt2"><code class="java keyword">import</code> <code class="java plain">android.util.Log;</code></div><div class="line number10 index9 alt1"><code class="java keyword">import</code> <code class="java plain">android.view.View;</code></div><div class="line number11 index10 alt2"><code class="java keyword">import</code> <code class="java plain">android.widget.TextView;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="java keyword">import</code> <code class="java plain">com.example.hp.testapp.service.TestService;</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="java keyword">import</code> <code class="java plain">org.w3c.dom.Text;</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">MainActivity </code><code class="java keyword">extends</code> <code class="java plain">AppCompatActivity </code><code class="java keyword">implements</code> <code class="java plain">View.OnClickListener {</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">String Tag = </code><code class="java string">"TestServiceTag"</code><code class="java plain">;</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">TextView tv_btn_start;</code></div><div class="line number22 index21 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">TextView tv_btn_stop;</code></div><div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">TextView tv_btn_bind;</code></div><div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java plain">TextView tv_btn_unbind;</code></div><div class="line number25 index24 alt2">&nbsp;</div><div class="line number26 index25 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Intent intent;</code></div><div class="line number27 index26 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">MyConnection conn;</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number30 index29 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onCreate(Bundle savedInstanceState) {</code></div><div class="line number31 index30 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onCreate(savedInstanceState);</code></div><div class="line number32 index31 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">setContentView(R.layout.activity_main);</code></div><div class="line number33 index32 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">intent = </code><code class="java keyword">new</code> <code class="java plain">Intent(</code><code class="java keyword">this</code><code class="java plain">, TestService.</code><code class="java keyword">class</code><code class="java plain">);</code></div><div class="line number34 index33 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">conn = </code><code class="java keyword">new</code> <code class="java plain">MyConnection();</code></div><div class="line number35 index34 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">initView();</code></div><div class="line number36 index35 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">initListener();</code></div><div class="line number37 index36 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number38 index37 alt1">&nbsp;</div><div class="line number39 index38 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">void</code> <code class="java plain">initView() {</code></div><div class="line number40 index39 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_start = (TextView) findViewById(R.id.tv_btn_start);</code></div><div class="line number41 index40 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_stop = (TextView) findViewById(R.id.tv_btn_stop);</code></div><div class="line number42 index41 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_bind = (TextView) findViewById(R.id.tv_btn_bind);</code></div><div class="line number43 index42 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_unbind = (TextView) findViewById(R.id.tv_btn_unbind);</code></div><div class="line number44 index43 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number45 index44 alt2">&nbsp;</div><div class="line number46 index45 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">void</code> <code class="java plain">initListener() {</code></div><div class="line number47 index46 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_start.setOnClickListener(</code><code class="java keyword">this</code><code class="java plain">);</code></div><div class="line number48 index47 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_stop.setOnClickListener(</code><code class="java keyword">this</code><code class="java plain">);</code></div><div class="line number49 index48 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_bind.setOnClickListener(</code><code class="java keyword">this</code><code class="java plain">);</code></div><div class="line number50 index49 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">tv_btn_unbind.setOnClickListener(</code><code class="java keyword">this</code><code class="java plain">);</code></div><div class="line number51 index50 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number52 index51 alt1">&nbsp;</div><div class="line number53 index52 alt2">&nbsp;</div><div class="line number54 index53 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number55 index54 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onClick(View view) {</code></div><div class="line number56 index55 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">switch</code> <code class="java plain">(view.getId()) {</code></div><div class="line number57 index56 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">case</code> <code class="java plain">R.id.tv_btn_start:</code></div><div class="line number58 index57 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">/**</code></div><div class="line number59 index58 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">* 启动服务</code></div><div class="line number60 index59 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number61 index60 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====启动服务"</code><code class="java plain">);</code></div><div class="line number62 index61 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">startService(intent);</code></div><div class="line number63 index62 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">break</code><code class="java plain">;</code></div><div class="line number64 index63 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">case</code> <code class="java plain">R.id.tv_btn_stop:</code></div><div class="line number65 index64 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">/**</code></div><div class="line number66 index65 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">* 停止服务</code></div><div class="line number67 index66 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number68 index67 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====停止服务"</code><code class="java plain">);</code></div><div class="line number69 index68 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">stopService(intent);</code></div><div class="line number70 index69 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">break</code><code class="java plain">;</code></div><div class="line number71 index70 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">case</code> <code class="java plain">R.id.tv_btn_bind:</code></div><div class="line number72 index71 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">/**</code></div><div class="line number73 index72 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">* 绑定服务</code></div><div class="line number74 index73 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number75 index74 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====绑定服务"</code><code class="java plain">);</code></div><div class="line number76 index75 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">//第一个参数：Intent意图</code></div><div class="line number77 index76 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 第二个参数：是一个接口，通过这个接口接收服务开启或者停止的消息，并且这个参数不能为null</code></div><div class="line number78 index77 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 第三个参数：开启服务时的操作，BIND_AUTO_CREATE代表自动创建service bindService(service, conn, BIND_AUTO_CREATE);</code></div><div class="line number79 index78 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">bindService(intent, conn, BIND_AUTO_CREATE);</code></div><div class="line number80 index79 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">break</code><code class="java plain">;</code></div><div class="line number81 index80 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">case</code> <code class="java plain">R.id.tv_btn_unbind:</code></div><div class="line number82 index81 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">/**</code></div><div class="line number83 index82 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">* 解绑服务</code></div><div class="line number84 index83 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java preprocessor">*/</code></div><div class="line number85 index84 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====解绑服务"</code><code class="java plain">);</code></div><div class="line number86 index85 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">if</code> <code class="java plain">(conn != </code><code class="java keyword">null</code><code class="java plain">) {</code></div><div class="line number87 index86 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">unbindService(conn);</code></div><div class="line number88 index87 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number89 index88 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">default</code><code class="java plain">:</code></div><div class="line number90 index89 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">break</code><code class="java plain">;</code></div><div class="line number91 index90 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number92 index91 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number93 index92 alt2">&nbsp;</div><div class="line number94 index93 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number95 index94 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onStart() {</code></div><div class="line number96 index95 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onStart"</code><code class="java plain">);</code></div><div class="line number97 index96 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onStart();</code></div><div class="line number98 index97 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number99 index98 alt2">&nbsp;</div><div class="line number100 index99 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number101 index100 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onRestart() {</code></div><div class="line number102 index101 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onRestart"</code><code class="java plain">);</code></div><div class="line number103 index102 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onRestart();</code></div><div class="line number104 index103 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number105 index104 alt2">&nbsp;</div><div class="line number106 index105 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number107 index106 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onStateNotSaved() {</code></div><div class="line number108 index107 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onStateNotSaved"</code><code class="java plain">);</code></div><div class="line number109 index108 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onStateNotSaved();</code></div><div class="line number110 index109 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number111 index110 alt2">&nbsp;</div><div class="line number112 index111 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number113 index112 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onResume() {</code></div><div class="line number114 index113 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onResume"</code><code class="java plain">);</code></div><div class="line number115 index114 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onResume();</code></div><div class="line number116 index115 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number117 index116 alt2">&nbsp;</div><div class="line number118 index117 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number119 index118 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onPause() {</code></div><div class="line number120 index119 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onPause"</code><code class="java plain">);</code></div><div class="line number121 index120 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onPause();</code></div><div class="line number122 index121 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number123 index122 alt2">&nbsp;</div><div class="line number124 index123 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number125 index124 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onStop() {</code></div><div class="line number126 index125 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onStop"</code><code class="java plain">);</code></div><div class="line number127 index126 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onStop();</code></div><div class="line number128 index127 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number129 index128 alt2">&nbsp;</div><div class="line number130 index129 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number131 index130 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">protected</code> <code class="java keyword">void</code> <code class="java plain">onDestroy() {</code></div><div class="line number132 index131 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====onDestroy"</code><code class="java plain">);</code></div><div class="line number133 index132 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">.onDestroy();</code></div><div class="line number134 index133 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number135 index134 alt2">&nbsp;</div><div class="line number136 index135 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">private</code> <code class="java keyword">class</code> <code class="java plain">MyConnection </code><code class="java keyword">implements</code> <code class="java plain">ServiceConnection {</code></div><div class="line number137 index136 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number138 index137 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onServiceConnected(ComponentName name, IBinder service) {</code></div><div class="line number139 index138 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">//只有当我们自己写的MyService的onBind方法返回值不为null时，才会被调用</code></div><div class="line number140 index139 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.e(</code><code class="java string">"call"</code><code class="java plain">, </code><code class="java string">"onServiceConnected"</code><code class="java plain">);</code></div><div class="line number141 index140 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number142 index141 alt1">&nbsp;</div><div class="line number143 index142 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java color1">@Override</code></div><div class="line number144 index143 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">onServiceDisconnected(ComponentName name) {</code></div><div class="line number145 index144 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 这个方法只有出现异常时才会调用，服务器正常退出不会调用。</code></div><div class="line number146 index145 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Log.e(</code><code class="java string">"call"</code><code class="java plain">, </code><code class="java string">"onServiceDisconnected"</code><code class="java plain">);</code></div><div class="line number147 index146 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number148 index147 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div><div class="line number149 index148 alt2">&nbsp;</div><div class="line number150 index149 alt1">&nbsp;</div><div class="line number151 index150 alt2"><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>　　</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/05/13/四大组件-二-Service使用/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/05/13/四大组件-二-Service使用/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/05/13/四大组件-二-Service使用/" title="Android 四大组件 (二) Service 使用">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/05/13/四大组件-二-Service使用/" title="Android 四大组件 (二) Service 使用">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -608,7 +349,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/05/06/使用fiddler抓手机端http数据包/">
+    	<a href="https://inote.fun/2018/05/06/使用fiddler抓手机端http数据包/">
     		使用fiddler抓手机端http数据包
     	</a>
     </h3>
@@ -632,49 +373,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/fiddler.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <h2>一.fiddler工具用途</h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 很广泛。大部分的用法是拦截HTTP请求，分析request和response的具体细节，协助排查前后端联调开发中的问题。当然还可以打HTTP“断点”，修改request请求，绕过前端js限制。这个不限于本地还是remote服务器。因此，对于高手来说，前端js的限制基本不算限制。黑客工具中类似的是burpsuite，功能还要强大。</p>
-<p>&nbsp;</p>
-<h2>二.fiddler工具介绍</h2>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.原理是以web代理服务器的形式进行工作的。代理就是在客户端和服务器之间设置一道关卡，客户端先将请求数据发送出去后，代理服务器会将数据包进行拦截，代理服务器再冒充客户端发送数据到服务器；同理，服务器将响应数据返回，代理服务器也会将数据拦截，再返回给客户端。</p>
-<p>　　2.Fiddler可以抓取支持http代理的任意程序的数据包，如果要抓取https会话，要先安装证书。</p>
-<h2>三.fiddler工具抓app包使用方法</h2>
-<p>　　1.下载安装fiddler后。安装https协议证书。Tools =&gt;Options =&gt;HTTPS =&gt;&nbsp;勾选 Decrypt HTTPS traffic =&gt;勾选 Ignore server certificate errors(unsafe) 默认会安装协议证书，同意安装即可。&nbsp;</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180506193544627-501906284.png" alt=""></p>
-<p>　　2.配置可远程连接 tools =&gt;Options =&gt;Connections =&gt;勾选 Allow remote computers to connect.</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180506193955799-1498479438.png" alt=""></p>
-<p>　　3.查看当前安装fiddler电脑的局域网ip</p>
-<p><img style="float: left;" src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180506194221875-848894338.png" alt=""></p>
-<p>&nbsp;　　</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>3.手机与电脑在同一个局域网内。配置手机wifi的代理服务器（即安装了fiddler的电脑）ip地址和端口号。ip地址在第3步；端口号在第2部，默认是8888.</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180506194424881-544225805.jpg" alt="" width="367" height="652"></p>
-<p>&nbsp;</p>
-<p>总结：</p>
-<p>通过Fiddler可以抓取请求和响应参数，通过对参数进行分析，可以定位是前端还是后台问题。在尤其是分析无法本地IDE调试的线上生产环境下的app版本时候很有用。</p>
-<p>&nbsp;</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/05/06/使用fiddler抓手机端http数据包/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/05/06/使用fiddler抓手机端http数据包/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/05/06/使用fiddler抓手机端http数据包/" title="使用fiddler抓手机端http数据包">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/05/06/使用fiddler抓手机端http数据包/" title="使用fiddler抓手机端http数据包">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/6.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/6.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -689,7 +403,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/">
+    	<a href="https://inote.fun/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/">
     		解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。
     	</a>
     </h3>
@@ -713,25 +427,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/ACTION_MEDIA_SCANNER_SCAN_FILE.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <div class="cnblogs_Highlighter sh-gutter">
-<div><div id="highlighter_135922" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java comments">// 1.其次把文件插入到系统图库 DCIM 文件夹.</code></div><div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// vivo相册测试，如果需要在相册根目录下显示则打开本注释,这样会复制一份图片到根目录文件夹下。手机中会有两张同样名称的图片在不同文件夹中。</code></div><div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">/*try {</code></div><div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">MediaStore.Images.Media.insertImage(context.getContentResolver(),</code></div><div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">new File(saveImagePath).getAbsolutePath(), this.saveName, null);</code></div><div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">} catch (FileNotFoundException e) {</code></div><div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">YunTaiLog.e(TAG, "fun#ImageInsertMedia :" + e);</code></div><div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">}*/</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">// 2.通知图库更新。 如果是4.4及以上版本使用ACTION_MEDIA_SCANNER_SCAN_FILE，否则使用ACTION_MEDIA_MOUNTED</code></div><div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">if</code> <code class="java plain">(Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Intent mediaScanIntent = </code><code class="java keyword">new</code> <code class="java plain">Intent(</code></div><div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);</code></div><div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Uri contentUri = Uri.fromFile(</code><code class="java keyword">new</code> <code class="java plain">File(saveImagePath));</code></div><div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">mediaScanIntent.setData(contentUri);</code></div><div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">context.sendBroadcast(mediaScanIntent);</code></div><div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">} </code><code class="java keyword">else</code> <code class="java plain">{</code></div><div class="line number19 index18 alt2">&nbsp;</div><div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java comments">//更新应用存储图片的路径内所有图片</code></div><div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">context.sendBroadcast(</code><code class="java keyword">new</code> <code class="java plain">Intent(</code></div><div class="line number22 index21 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Intent.ACTION_MEDIA_MOUNTED,</code></div><div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Uri.parse(</code><code class="java string">"file://"</code> <code class="java plain">+ saveDirectory)));</code></div><div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div></div></td></tr></tbody></table></div></div>
-</div>
-<p>&nbsp;直接贴出代码，注释很详细！</p>
-<p>&nbsp;<span style="color: #629755; font-style: italic;">测试出三星手机即使文件插入了系统图库DCIM文件夹中了，还是图库不显示。我了个去！！万恶的三星~~~~</span></p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/" title="解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/04/13/解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。/" title="解决问题：保存图片到本地文件夹后，在图库里看不到保存的图片问题。">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -746,7 +457,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2018/04/11/四大组件-一-Activity生命周期/">
+    	<a href="https://inote.fun/2018/04/11/四大组件-一-Activity生命周期/">
     		Android 四大组件 (一) Activity 生命周期
     	</a>
     </h3>
@@ -770,52 +481,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/activity_lifecycle.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-    <p>&nbsp;</p>
-<p>简单粗暴。</p>
-<p>分两块来熟悉activity生命周期：<strong>一.典型生命周期过程;二.异常情况下的生命周期过程。</strong></p>
-<p>&nbsp;</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411190609661-2068970253.png" alt=""></p>
-<p><span style="text-decoration: underline;"><em><strong>一. 典型生命周期过程</strong></em></span></p>
-<p style="text-align: left;">Activitiy的生命周期方法主要有七个：onCreate()、onRestart()、onStart()、onResume()、onPause()、onStop()、onDestory()。</p>
-<p style="text-align: left;">&nbsp;1. onCreate()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onCreate方法是整个生命周期中唯一必须实现的方法。布局都是在Activity中进行，在该方法中做一些初始化的操作，如通过setContentView设置界面布局的资源，初始化所需要的组件信息等。</p>
-<p style="text-align: left;">&nbsp;2. onRestart()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; 当Activitiy被onStop()并且没有被killed时候，调用这个方法进行唤醒，也可以说理解为，当处于非栈顶状态的活动需要再次返回栈顶，展现给用户的时候，触发该方法。该方法优先于onStart()方法。</p>
-<p style="text-align: left;">&nbsp;3.onStart()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; 表示Activity正在启动，但是无法与用户进行交互。可以把onStart和onStop看成一对。</p>
-<p style="text-align: left;">&nbsp;4.onResume()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity已在前台可见，可与用户交互了。</p>
-<p style="text-align: left;"><span style="text-decoration: underline;"><em>&nbsp;&nbsp; onResume方法与onStart的相同点是两者都表示Activity可见，只不过onStart回调时Activity还是后台无法与用户交互，而onResume则已显示在前台，可与用户交互。</em></span></p>
-<p style="text-align: left;">&nbsp;5.onPause()</p>
-<p style="text-align: left;">&nbsp;&nbsp; 这个方法之后有可能是onResume也有可能是onStop。用于提交未保存发生变化了的持久化数据，及停止动画及其他其他比较消耗CPU的事件，这是为了更好的运行新的activity。当在activity中打开的是一个dialog不完全覆盖这个activity，则activity就会是onPause状态。</p>
-<p style="text-align: left;">&nbsp;6.onStop()</p>
-<p style="text-align: left;">&nbsp;&nbsp; activity完全看不见的时候，会调用onStop方法。当用户自己退出程序的时候，建议在onStop方法中保存数据。此时Activity不可见，仅在后台运行。同样地，在onStop方法可以做一些资源释放的操作（不能太耗时）。</p>
-<p style="text-align: left;">&nbsp;7.onDestroy()</p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity正在被销毁，也是生命周期最后一个执行的方法，一般我们可以在此方法中做一些回收工作和最终的资源释放。</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;"><strong><em><span style="text-decoration: underline;">二、异常情况下的生命周期过程</span></em></strong></p>
-<p style="text-align: left;">异常生命周期产生原因一般有这两种：</p>
-<p style="text-align: left;"><strong>1.横竖屏切换；</strong></p>
-<p style="text-align: left;">&nbsp;&nbsp;&nbsp; Activity处于竖屏状态，如果突然旋转屏幕，由于系统配置发生了变化，在默认的情况下，Activity会被销毁并重新创建。</p>
-<p style="text-align: left;">&nbsp;&nbsp; <img src="https://images2018.cnblogs.com/blog/612293/201804/612293-20180411194802808-1639713916.png" alt=""></p>
-<p style="text-align: left;">&nbsp;&nbsp; 可以在onSaveInstanceState方法中存储一些数据以便Activity重建之后可以恢复这些数据。onSaveInstanceState和onRestoreInstanceState只有在Activity异常终止时才会被调用的，正常情况是不会调用这两个方法的。</p>
-<p style="text-align: left;">&nbsp; 当我们不想Activity在屏幕旋转后导致销毁重建时，可以设置configChange=“orientation”；当SDK版本大于13时，我们还需额外添加一个“screenSize”的值，对于这两个值含义如下：<br>orientation：屏幕方向发生变化，配置该参数可以解决横竖屏切换时，Activity重建问题（API&lt;13）<br>screenSize：当设备旋转时，屏幕尺寸发生变化，API&gt;13后必须配置该参数才可以保证横竖切换不会导致Activity重建。<br>设置了这两个参数后，当横竖屏切换时，Activity不会再重建并且也不会调用之前相关的方法，取而代之的是回调onConfigurationChanged方法.</p>
-<p style="text-align: left;"><strong>2.内存不足的时候killed优先级低的activity.</strong></p>
-<p style="text-align: left;">&nbsp;&nbsp;android系统中进程优先级由高到低依次是：前台进程，可见进程、服务进程、后台进程、空进程.</p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2018/04/11/四大组件-一-Activity生命周期/">阅读剩下更多</a>
+                <a href="https://inote.fun/2018/04/11/四大组件-一-Activity生命周期/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2018/04/11/四大组件-一-Activity生命周期/" title="Android 四大组件 (一) Activity 生命周期">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2018/04/11/四大组件-一-Activity生命周期/" title="Android 四大组件 (一) Activity 生命周期">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/1.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -830,7 +511,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="https://freefuncode.github.io/2014/05/07/001-RegEx/">
+    	<a href="https://inote.fun/2014/05/07/001-RegEx/">
     		《正则表达式》知识点汇总摘录
     	</a>
     </h3>
@@ -854,402 +535,22 @@
         <div class="post-excerpt">
             
                 <p><a href="https://www.cnblogs.com/bugzone/p/theday140507.html" target="_blank" rel="noopener">点击查看原文</a></p>
-<div id="cnblogs_post_body" class="blogpost-body ">
-
-<p>　　<span style="text-decoration: line-through; font-size: 12px;">开园一个月了，但一直没有抽出多少时间，就算有时间，也不知道怎么组织语言记（不是写，是记，写是一个创造的过程，像我这等程序猿，猿嘴吐不出象牙！）点东西！翻翻过去手头整理的一些知识点杂记，然后再结合网上的一些，今天对正则表达式在做一个个人的知识汇总摘录吧！程序员都是共产主义者，一点不假！大部分时候我们只是互联网的搬运工，堆砌者（扯远了，当然成为互联网创造者一直使我们的目标！）。</span></p>
-<div class="para">　　正则表达式是对[字符](http://baike.baidu.com/view/263416.htm)串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</div>
-<div class="para">给定一个正则表达式和另一个字符串，我们可以达到如下的目的：</div>
-
-<h3 id="1-给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；"><a href="#1-给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；" class="headerlink" title="　　　　1. 给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；"></a>　　　　1. 给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；</h3><h3 id="2-可以通过正则表达式，从字符串中获取我们想要的特定部分。"><a href="#2-可以通过正则表达式，从字符串中获取我们想要的特定部分。" class="headerlink" title="　　　　2. 可以通过正则表达式，从字符串中获取我们想要的特定部分。"></a>　　　　2. 可以通过正则表达式，从字符串中获取我们想要的特定部分。</h3><p>一、首先列出正则表达式是的元字符，只有知道每一个零件的含义以及作用，我们才能灵活的运用这些零件造成汽车来！</p>
-<table class="table-view log-set-param" style="width: 773px; height: 1269px;">
-<tbody>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para"><span style="color: #00ccff;">元字符</span></div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">描述</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para"><span style="font-size: 12px;">\</span></div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“\\n”匹配\n。“\n”匹配换行符。序列“\\”匹配“\”而“\(”则匹配“(”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">^</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“\n”或“\r”之后的位置。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">$</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配“\n”或“\r”之前的位置。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">*</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配前面的子表达式零次或多次(大于等于0次)。例如，zo*能匹配“z”以及“zoo”。*等价于{0,}。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">+</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配前面的子表达式一次或多次(大于等于1次）。例如，“zo+”能匹配“zo”以及“zoo”，但不能匹配“z”。+等价于{1,}。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">?</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配前面的子表达式零次或一次。例如，“do(es)?”可以匹配“does”或“does”中的“do”。?等价于{0,1}。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">{n}</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">n是一个非负整数。匹配确定的n次。例如，“o{2}”不能匹配“Bob”中的“o”，但是能匹配“food”中的两个o。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">{n,}</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">n是一个非负整数。至少匹配n次。例如，“o{2,}”不能匹配“Bob”中的“o”，但能匹配“foooood”中的所有o。“o{1,}”等价于“o+”。“o{0,}”则等价于“o*”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">{n,m}</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。例如，“o{1,3}”将匹配“fooooood”中的前三个o。“o{0,1}”等价于“o?”。请注意在逗号和两个数之间不能有空格。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">?</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">当该字符 紧跟在任何一个其他限制符（*,+,?，{n}，{n,}，{n,m}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的 贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“oooo”，“o?”将匹配单个“o”，而“o+”将匹配所有“o”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">.点</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配除“\n”之外的任何单个字符。要匹配包括“\n”在内的任何字符，请使用像“[\s\S]”的模式。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">(pattern)</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“\(”或“\)”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">(?:pattern)</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用或字符“(|)”来组合一个模式的各个部分是很有用。例如“industr(?:y|ies)”就是一个比“industry|industries”更简略的表达式。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">(?=pattern)</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">正向肯定 预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例 如，“Windows(?=95|98|NT|2000)”能匹配“Windows2000”中的“Windows”，但不能匹配 “Windows3.1”中的“Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从 包含预查的字符之后开始。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">(?!pattern)</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">正向否定 预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如 “Windows(?!95|98|NT|2000)”能匹配“Windows3.1”中的“Windows”，但不能匹配“Windows2000”中 的“Windows”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">(?&lt;=pattern)</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">反向肯定预查，与正向肯定预查类似，只是方向相反。例如，“(?&lt;=95|98|NT|2000)Windows”能匹配“2000Windows”中的“Windows”，但不能匹配“3.1Windows”中的“Windows”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">(?&lt;!pattern)</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">反向否定预查，与正向否定预查类似，只是方向相反。例如“(?&lt;!95|98|NT|2000)Windows”能匹配“3.1Windows”中的“Windows”，但不能匹配“2000Windows”中的“Windows”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">x|y</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配x或y。例如，“z|food”能匹配“z”或“food”。“(z|f)ood”则匹配“zood”或“food”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">[xyz]</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">字符集合。匹配所包含的任意一个字符。例如，“[abc]”可以匹配“plain”中的“a”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">[^xyz]</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">负值字符集合。匹配未包含的任意字符。例如，“[^abc]”可以匹配“plain”中的“plin”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">[a-z]</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。</div>
-<div class="para">注意:只有连字符在字符组内部时,并且出两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示连字符本身.</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">[^a-z]</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">负值字符范围。匹配任何不在指定范围内的任意字符。例如，“[^a-z]”可以匹配任何不在“a”到“z”范围内的任意字符。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">\b</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配一个单词边界，也就是指单词和空格间的位置。例如，“er\b”可以匹配“never”中的“er”，但不能匹配“verb”中的“er”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">\B</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配非单词边界。“er\B”能匹配“verb”中的“er”，但不能匹配“never”中的“er”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">\cx</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的“c”字符。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center" width="75">
-<div class="para">\d</div>
-</td>
-<td align="left" valign="center" width="658">
-<div class="para">匹配一个数字字符。等价于[0-9]。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\D</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配一个非数字字符。等价于[^0-9]。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\f</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配一个换页符。等价于\x0c和\cL。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\n</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配一个换行符。等价于\x0a和\cJ。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\r</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配一个回车符。等价于\x0d和\cM。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\s</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配任何空白字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\S</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配任何非空白字符。等价于[^ \f\n\r\t\v]。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\t</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配一个制表符。等价于\x09和\cI。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\v</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配一个垂直制表符。等价于\x0b和\cK。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\w</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配包括下划线的任何单词字符。等价于“[A-Za-z0-9_]”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\W</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配任何非单词字符。等价于“[^A-Za-z0-9_]”。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\xn</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配n，其中n为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，“\x41”匹配“A”。“\x041”则等价于“\x04&amp;1”。正则表达式中可以使用ASCII编码。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\num</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配num，其中num是一个正整数。对所获取的匹配的引用。例如，“(.)\1”匹配两个连续的相同字符。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\n</div>
-</td>
-<td align="left" valign="center">
-<div class="para">标识一个八进制转义值或一个向后引用。如果\n之前至少n个获取的子表达式，则n为向后引用。否则，如果n为八进制数字（0-7），则n为一个八进制转义值。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\nm</div>
-</td>
-<td align="left" valign="center">
-<div class="para">标识一个八进制转义值或一个向后引用。如果\nm之前至少有nm个获得子表达式，则nm为向后引用。如果\nm之前至少有n个获取，则n为一个后跟文字m的向后引用。如果前面的条件都不满足，若n和m均为八进制数字（0-7），则\nm将匹配八进制转义值nm。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\nml</div>
-</td>
-<td align="left" valign="center">
-<div class="para">如果n为八进制数字（0-7），且m和l均为八进制数字（0-7），则匹配八进制转义值nml。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">
-<div class="para">\un</div>
-</td>
-<td align="left" valign="center">
-<div class="para">匹配n，其中n是一个用四个十六进制数字表示的Unicode字符。例如，\u00A9匹配版权符号（&amp;copy;）。</div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="center">\&lt; \&gt;</td>
-<td align="left" valign="center">匹配词（word）的开始（\&lt;）和结束（\&gt;）。例如正则表达式\&lt;the\&gt;能够匹配字符串"for the wise"中的"the"，但是不能匹配字符串"otherwise"中的"the"。注意：这个元字符不是所有的软件都支持的。</td>
-</tr>
-<tr>
-<td align="left" valign="center">\( \)</td>
-<td align="left" valign="center">将 \( 和 \) 之间的表达式定义为“组”（group），并且将匹配这个表达式的字符保存到一个临时区域（一个正则表达式中最多可以保存9个），它们可以用 \1 到\9 的符号来引用。</td>
-</tr>
-<tr>
-<td align="left" valign="center">|</td>
-<td align="left" valign="center">将两个匹配条件进行逻辑“或”（Or）运算。例如正则表达式(him|her) 匹配"it belongs to him"和"it belongs to her"，但是不能匹配"it belongs to them."。注意：这个元字符不是所有的软件都支持的。</td>
-</tr>
-<tr>
-<td align="left" valign="center">+</td>
-<td align="left" valign="center">匹配1或多个正好在它之前的那个字符。例如正则表达式9+匹配9、99、999等。注意：这个元字符不是所有的软件都支持的。</td>
-</tr>
-<tr>
-<td align="left" valign="center">?</td>
-<td align="left" valign="center">匹配0或1个正好在它之前的那个字符。注意：这个元字符不是所有的软件都支持的。</td>
-</tr>
-<tr>
-<td align="left" valign="center">{i} {i,j}</td>
-<td align="left" valign="center">匹配指定数目的字符，这些字符是在它之前的表达式定义的。例如正则表达式A[0-9]{3} 能够匹配字符"A"后面跟着正好3个数字字符的串，例如A123、A348等，但是不匹配A1234。而正则表达式[0-9]{4,6} 匹配连续的任意4个、5个或者6个数字</td>
-</tr>
-</tbody>
-</table>
-
-<p>二、了解了这些元字符后，我们就可以造车轱辘了！接下来介绍一些常用的正则表达式来做验证！！</p>
-<p><span style="color: #0000ff;">　整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span><br><span style="color: #0000ff;">　　整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span><br><span style="color: #0000ff;">　　只能输入数字：”^[0-9]<em>$”。</em></span><br><span style="color: #0000ff;">　　只能输入n位的数字：”^\d{n}$”。</span><br><span style="color: #0000ff;">　　只能输入至少n位的数字：”^\d{n,}$”。</span><br><span style="color: #0000ff;">　　只能输入m~n位的数字：。”^\d{m,n}$”</span><br><span style="color: #0000ff;">　　只能输入零和非零开头的数字：”^(0|[1-9][0-9])$”。</span><br><span style="color: #0000ff;">　　只能输入有两位小数的正实数：”^[0-9]+(.[0-9]{2})?$”。</span><br><span style="color: #0000ff;">　　只能输入有1<del>3位小数的正实数：”^[0-9]+(.[0-9]{1,3})?$”。</del></span><br><span style="color: #0000ff;">　　只能输入非零的正整数：”^+?[1-9][0-9]<em>$”。</em></span><br><span style="color: #0000ff;">　　只能输入非零的负整数：”^-[1-9][]0-9”$。</span><br><span style="color: #0000ff;">　　只能输入长度为3的字符：”^.{3}$”。</span><br><span style="color: #0000ff;">　　只能输入由26个英文字母组成的字符串：”^[A-Za-z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由26个大写英文字母组成的字符串：”^[A-Z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由26个小写英文字母组成的字符串：”^[a-z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由数字和26个英文字母组成的字符串：”^[A-Za-z0-9]+$”。</span><br><span style="color: #0000ff;">　　只能输入由数字、26个英文字母或者下划线组成的字符串：”^\w+$”。</span><br><span style="color: #0000ff;">　　验证用户密码：”^[a-zA-Z]\w{5,17}$”正确格式为：以字母开头，长度在618之间，只能包含字符、数字和下划线。</span><br><span style="color: #0000ff;">　　验证是否含有^%&amp;’’,;=?$"等字符：”[^%&amp;’’,;=?$\x22]+”。</span><br><span style="color: #0000ff;">　　只能输入汉字：”^[\u4e00-\u9fa5]{0,}$”</span><br><span style="color: #0000ff;">　　验证Email地址：”^\w+([-+.]\w+)<em>@\w+([-.]\w+)*.\w+([-.]\w+)</em>$”。</span><br><span style="color: #0000ff;">　　验证InternetURL：”^http://([\w-]+.)+[\w-]+(/[\w-./?%&amp;=]*)?$”。</span><br><span style="color: #0000ff;">　　验证电话号码：”^((\d{3,4}-)|\d{3.4}-)?\d{7,8}$”正确格式为：”XXX-XXXXXXX”、”XXXX- XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX”。</span><br><span style="color: #0000ff;">　　验证身份证号（15位或18位数字）：”^\d{15}|\d{18}$”。</span><br><span style="color: #0000ff;">　　验证一年的12个月：”^(0?[1-9]|1[0-2])$”正确格式为：”01”～”09”和”1”～”12”。</span><br><span style="color: #0000ff;">　　验证一个月的31天：”^((0?[1-9])|((1|2)[0-9])|30|31)$”正确格式为；”01”～”09”和”1”～”31”。整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span></p>
-</div>
             
             <p class="more">
-                <a href="https://freefuncode.github.io/2014/05/07/001-RegEx/">阅读剩下更多</a>
+                <a href="https://inote.fun/2014/05/07/001-RegEx/">阅读剩下更多</a>
             </p>
         </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://freefuncode.github.io/2014/05/07/001-RegEx/" title="《正则表达式》知识点汇总摘录">
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2014/05/07/001-RegEx/" title="《正则表达式》知识点汇总摘录">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/7.jpg" alt="默认配图" >
                 
             </a>
+-->
         </div>
+
     </div>
 </article>
 
@@ -1368,43 +669,43 @@
   
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
-  
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
-    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
-  
-    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
-  
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
-  
     <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
   
     <a class="tag-item" href="/tags/easyui/" title="easyui">easyui (2)</a>
   
@@ -1412,9 +713,9 @@
   
     <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
   
-    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
-  
     <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
@@ -1457,10 +758,6 @@
             <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
         </li>
     
-        <li>
-            <a href="https://freefuncode.github.io/GitBook" target="_blank" title="GitBook">GitBook</a>
-        </li>
-    
 </ul>
     </section>
     
@@ -1472,7 +769,7 @@
     <footer class="footer">
     ©
     
-        2016-2019
+        2012-2019
     
 
     <a href="/">FreeFunCode</a>
