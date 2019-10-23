@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -161,98 +163,98 @@ service servicemanager </span>/system/bin/<span style="color: #000000;">servicem
     union selinux_callback cb;
     </span><span style="color: #0000ff;">char</span> *<span style="color: #000000;">driver;
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (argc &amp;gt; &lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    driver &lt;/span&gt;= argv[&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;];
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    driver &lt;/span&gt;= &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/dev/binder&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (argc &amp;gt; &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    driver &lt;/span&gt;= argv[&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;];
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    driver &lt;/span&gt;= &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/dev/binder&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-bs &lt;/span&gt;= binder_open(driver, &lt;span style="color: #800080;"&gt;128&lt;/span&gt;*&lt;span style="color: #800080;"&gt;1024&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;bs) {
+bs &lt;/span&gt;= binder_open(driver, &lt;span style=&quot;color: #800080;&quot;&gt;128&lt;/span&gt;*&lt;span style=&quot;color: #800080;&quot;&gt;1024&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;bs) {
 #ifdef VENDORSERVICEMANAGER
-    ALOGW(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;failed to open binder driver %s\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, driver);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;while&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    ALOGW(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;failed to open binder driver %s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, driver);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;while&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
         sleep(UINT_MAX);
     }
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;#else&lt;/span&gt;&lt;span style="color: #000000;"&gt;
-    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;failed to open binder driver %s\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, driver);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;#endif&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;#else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;failed to open binder driver %s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, driver);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;#endif&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (binder_become_context_manager(bs)) {
-    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;cannot become context manager (%s)\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, strerror(errno));
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (binder_become_context_manager(bs)) {
+    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;cannot become context manager (%s)\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, strerror(errno));
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-cb.func_audit &lt;/span&gt;=&lt;span style="color: #000000;"&gt; audit_callback;
+cb.func_audit &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; audit_callback;
 selinux_set_callback(SELINUX_CB_AUDIT, cb);
-cb.func_log &lt;/span&gt;=&lt;span style="color: #000000;"&gt; selinux_log_callback;
+cb.func_log &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; selinux_log_callback;
 selinux_set_callback(SELINUX_CB_LOG, cb);
 
 #ifdef VENDORSERVICEMANAGER
-sehandle &lt;/span&gt;=&lt;span style="color: #000000;"&gt; selinux_android_vendor_service_context_handle();
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;#else&lt;/span&gt;&lt;span style="color: #000000;"&gt;
-sehandle &lt;/span&gt;=&lt;span style="color: #000000;"&gt; selinux_android_service_context_handle();
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;#endif&lt;/span&gt;&lt;span style="color: #000000;"&gt;
-selinux_status_open(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+sehandle &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; selinux_android_vendor_service_context_handle();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;#else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+sehandle &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; selinux_android_service_context_handle();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;#endif&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+selinux_status_open(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (sehandle ==&lt;span style="color: #000000;"&gt; NULL) {
-    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;SELinux: Failed to acquire sehandle. Aborting.\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (sehandle ==&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;SELinux: Failed to acquire sehandle. Aborting.\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
     abort();
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (getcon(&amp;amp;service_manager_context) != &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;SELinux: Failed to acquire service_manager context. Aborting.\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (getcon(&amp;amp;service_manager_context) != &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;SELinux: Failed to acquire service_manager context. Aborting.\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
     abort();
 }
 
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;loop 接受消息。并将binder解析完的消息返回给svcmgr_handler处理。&lt;/span&gt;</code></pre><p><span style="color: #000000;">    binder_loop(bs, svcmgr_handler);</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>}</p></span></pre><p></p>
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;loop 接受消息。并将binder解析完的消息返回给svcmgr_handler处理。&lt;/span&gt;</code></pre><p><span style="color: #000000;">    binder_loop(bs, svcmgr_handler);</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>从这我们知道，ServiceManager是基于binder机制实现的。进入binder.c中了解下binder_open,binder_loop，然后binder将解析完的消息，返回给svcmag_handler处理</p>
 <p>frameworks\native\cmds\servicemanager\binder.c</p>
-<div class="cnblogs_code" onclick="cnblogs_code_show('c271bc75-156b-40e2-ae92-90551ddf233c')"><img id="code_img_closed_c271bc75-156b-40e2-ae92-90551ddf233c" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_c271bc75-156b-40e2-ae92-90551ddf233c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('c271bc75-156b-40e2-ae92-90551ddf233c',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div class="cnblogs_code" onclick="cnblogs_code_show('c271bc75-156b-40e2-ae92-90551ddf233c')"><img id="code_img_closed_c271bc75-156b-40e2-ae92-90551ddf233c" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_c271bc75-156b-40e2-ae92-90551ddf233c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('c271bc75-156b-40e2-ae92-90551ddf233c',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
 <div id="cnblogs_code_open_c271bc75-156b-40e2-ae92-90551ddf233c" class="cnblogs_code_hide">
 <pre>    <span style="color: #0000ff;">struct</span> binder_state *binder_open(<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*<span style="color: #000000;"> driver, size_t mapsize)
 {
     </span><span style="color: #0000ff;">struct</span> binder_state *<span style="color: #000000;">bs;
     </span><span style="color: #0000ff;">struct</span><span style="color: #000000;"> binder_version vers;
 
-<pre><code>bs &lt;/span&gt;= malloc(&lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;(*&lt;span style="color: #000000;"&gt;bs));
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;bs) {
-    errno &lt;/span&gt;=&lt;span style="color: #000000;"&gt; ENOMEM;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; NULL;
+<pre><code>bs &lt;/span&gt;= malloc(&lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;(*&lt;span style=&quot;color: #000000;&quot;&gt;bs));
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;bs) {
+    errno &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; ENOMEM;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; NULL;
 }
 
-bs&lt;/span&gt;-&amp;gt;fd = open(driver, O_RDWR |&lt;span style="color: #000000;"&gt; O_CLOEXEC);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (bs-&amp;gt;fd &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    fprintf(stderr,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;binder: cannot open %s (%s)\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
+bs&lt;/span&gt;-&amp;gt;fd = open(driver, O_RDWR |&lt;span style=&quot;color: #000000;&quot;&gt; O_CLOEXEC);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (bs-&amp;gt;fd &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    fprintf(stderr,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;binder: cannot open %s (%s)\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
             driver, strerror(errno));
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;goto&lt;/span&gt;&lt;span style="color: #000000;"&gt; fail_open;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;goto&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; fail_open;
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ((ioctl(bs-&amp;gt;fd, BINDER_VERSION, &amp;amp;vers) == -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;) ||&lt;span style="color: #000000;"&gt;
-    (vers.protocol_version &lt;/span&gt;!=&lt;span style="color: #000000;"&gt; BINDER_CURRENT_PROTOCOL_VERSION)) {
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ((ioctl(bs-&amp;gt;fd, BINDER_VERSION, &amp;amp;vers) == -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;) ||&lt;span style=&quot;color: #000000;&quot;&gt;
+    (vers.protocol_version &lt;/span&gt;!=&lt;span style=&quot;color: #000000;&quot;&gt; BINDER_CURRENT_PROTOCOL_VERSION)) {
     fprintf(stderr,
-            &lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;binder: kernel driver version (%d) differs from user space version (%d)\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
+            &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;binder: kernel driver version (%d) differs from user space version (%d)\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
             vers.protocol_version, BINDER_CURRENT_PROTOCOL_VERSION);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;goto&lt;/span&gt;&lt;span style="color: #000000;"&gt; fail_open;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;goto&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; fail_open;
 }
 
-bs&lt;/span&gt;-&amp;gt;mapsize =&lt;span style="color: #000000;"&gt; mapsize;
-bs&lt;/span&gt;-&amp;gt;mapped = mmap(NULL, mapsize, PROT_READ, MAP_PRIVATE, bs-&amp;gt;fd, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (bs-&amp;gt;mapped ==&lt;span style="color: #000000;"&gt; MAP_FAILED) {
-    fprintf(stderr,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;binder: cannot map device (%s)\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
+bs&lt;/span&gt;-&amp;gt;mapsize =&lt;span style=&quot;color: #000000;&quot;&gt; mapsize;
+bs&lt;/span&gt;-&amp;gt;mapped = mmap(NULL, mapsize, PROT_READ, MAP_PRIVATE, bs-&amp;gt;fd, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (bs-&amp;gt;mapped ==&lt;span style=&quot;color: #000000;&quot;&gt; MAP_FAILED) {
+    fprintf(stderr,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;binder: cannot map device (%s)\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
             strerror(errno));
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;goto&lt;/span&gt;&lt;span style="color: #000000;"&gt; fail_map;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;goto&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; fail_map;
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; bs;</code></pre><p>}</p></span></pre><p></p>
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; bs;</code></pre><p>}</p></span></pre><p></p>
 </div>
 <span class="cnblogs_code_collapse">View Code</span></div>
-<div class="cnblogs_code" onclick="cnblogs_code_show('5c06b747-4566-4459-8bff-9b4c249774c5')"><img id="code_img_closed_5c06b747-4566-4459-8bff-9b4c249774c5" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_5c06b747-4566-4459-8bff-9b4c249774c5" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('5c06b747-4566-4459-8bff-9b4c249774c5',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div class="cnblogs_code" onclick="cnblogs_code_show('5c06b747-4566-4459-8bff-9b4c249774c5')"><img id="code_img_closed_5c06b747-4566-4459-8bff-9b4c249774c5" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_5c06b747-4566-4459-8bff-9b4c249774c5" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('5c06b747-4566-4459-8bff-9b4c249774c5',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
 <div id="cnblogs_code_open_5c06b747-4566-4459-8bff-9b4c249774c5" class="cnblogs_code_hide">
 <pre><span style="color: #0000ff;">void</span> binder_loop(<span style="color: #0000ff;">struct</span> binder_state *<span style="color: #000000;">bs, binder_handler func)
 {
@@ -260,34 +262,34 @@ bs&lt;/span&gt;-&amp;gt;mapped = mmap(NULL, mapsize, PROT_READ, MAP_PRIVATE, bs-
     </span><span style="color: #0000ff;">struct</span><span style="color: #000000;"> binder_write_read bwr;
     uint32_t readbuf[</span><span style="color: #800080;">32</span><span style="color: #000000;">];
 
-<pre><code>bwr.write_size &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-bwr.write_consumed &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-bwr.write_buffer &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+<pre><code>bwr.write_size &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+bwr.write_consumed &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+bwr.write_buffer &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 
-readbuf[&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;] =&lt;span style="color: #000000;"&gt; BC_ENTER_LOOPER;
-binder_write(bs, readbuf, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;&lt;span style="color: #000000;"&gt;(uint32_t));
+readbuf[&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;] =&lt;span style=&quot;color: #000000;&quot;&gt; BC_ENTER_LOOPER;
+binder_write(bs, readbuf, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(uint32_t));
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;&lt;span style="color: #000000;"&gt; (;;) {
-    bwr.read_size &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;&lt;span style="color: #000000;"&gt;(readbuf);
-    bwr.read_consumed &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    bwr.read_buffer &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (uintptr_t) readbuf;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (;;) {
+    bwr.read_size &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(readbuf);
+    bwr.read_consumed &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    bwr.read_buffer &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (uintptr_t) readbuf;
 
-    res &lt;/span&gt;= ioctl(bs-&amp;gt;fd, BINDER_WRITE_READ, &amp;amp;&lt;span style="color: #000000;"&gt;bwr);
+    res &lt;/span&gt;= ioctl(bs-&amp;gt;fd, BINDER_WRITE_READ, &amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;bwr);
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (res &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;binder_loop: ioctl failed (%s)\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, strerror(errno));
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;binder_loop: ioctl failed (%s)\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, strerror(errno));
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;解析消息&lt;/span&gt;
-    res = binder_parse(bs, &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;, (uintptr_t) readbuf, bwr.read_consumed, func);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (res == &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;binder_loop: unexpected reply?!\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;解析消息&lt;/span&gt;
+    res = binder_parse(bs, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, (uintptr_t) readbuf, bwr.read_consumed, func);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res == &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;binder_loop: unexpected reply?!\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (res &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;binder_loop: io error %d %s\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, res, strerror(errno));
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;binder_loop: io error %d %s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, res, strerror(errno));
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 }</code></pre><p>}</p></span></pre><p></p>
 </div>
@@ -295,7 +297,7 @@ binder_write(bs, readbuf, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;sizeo
 <div>binder_parse 解析接受到的消息&nbsp;</div>
 <div>binder_send_reply 接收到消息，并解析完消息后，binder将解析后的消息返回给ServiceManager</div>
 <div>
-<div class="cnblogs_code" onclick="cnblogs_code_show('4aebc7de-d31e-48f8-9dbc-8ae2582c5d95')"><img id="code_img_closed_4aebc7de-d31e-48f8-9dbc-8ae2582c5d95" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_4aebc7de-d31e-48f8-9dbc-8ae2582c5d95" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('4aebc7de-d31e-48f8-9dbc-8ae2582c5d95',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div class="cnblogs_code" onclick="cnblogs_code_show('4aebc7de-d31e-48f8-9dbc-8ae2582c5d95')"><img id="code_img_closed_4aebc7de-d31e-48f8-9dbc-8ae2582c5d95" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_4aebc7de-d31e-48f8-9dbc-8ae2582c5d95" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('4aebc7de-d31e-48f8-9dbc-8ae2582c5d95',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
 <div id="cnblogs_code_open_4aebc7de-d31e-48f8-9dbc-8ae2582c5d95" class="cnblogs_code_hide">
 <pre><span style="color: #0000ff;">void</span> binder_send_reply(<span style="color: #0000ff;">struct</span> binder_state *<span style="color: #000000;">bs,
                        </span><span style="color: #0000ff;">struct</span> binder_io *<span style="color: #000000;">reply,
@@ -309,26 +311,26 @@ binder_write(bs, readbuf, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;sizeo
         </span><span style="color: #0000ff;">struct</span><span style="color: #000000;"> binder_transaction_data txn;
     } __attribute__((packed)) data;
 
-<pre><code>data.cmd_free &lt;/span&gt;=&lt;span style="color: #000000;"&gt; BC_FREE_BUFFER;
-data.buffer &lt;/span&gt;=&lt;span style="color: #000000;"&gt; buffer_to_free;
-data.cmd_reply &lt;/span&gt;=&lt;span style="color: #000000;"&gt; BC_REPLY;
-data.txn.target.ptr &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-data.txn.cookie &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-data.txn.code &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (status) {
-    data.txn.flags &lt;/span&gt;=&lt;span style="color: #000000;"&gt; TF_STATUS_CODE;
-    data.txn.data_size &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;(&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-    data.txn.offsets_size &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    data.txn.data.ptr.buffer &lt;/span&gt;= (uintptr_t)&amp;amp;&lt;span style="color: #000000;"&gt;status;
-    data.txn.data.ptr.offsets &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    data.txn.flags &lt;/span&gt;= &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    data.txn.data_size &lt;/span&gt;= reply-&amp;gt;data - reply-&amp;gt;&lt;span style="color: #000000;"&gt;data0;
-    data.txn.offsets_size &lt;/span&gt;= ((&lt;span style="color: #0000ff;"&gt;char&lt;/span&gt;*) reply-&amp;gt;offs) - ((&lt;span style="color: #0000ff;"&gt;char&lt;/span&gt;*) reply-&amp;gt;&lt;span style="color: #000000;"&gt;offs0);
-    data.txn.data.ptr.buffer &lt;/span&gt;= (uintptr_t)reply-&amp;gt;&lt;span style="color: #000000;"&gt;data0;
-    data.txn.data.ptr.offsets &lt;/span&gt;= (uintptr_t)reply-&amp;gt;&lt;span style="color: #000000;"&gt;offs0;
+<pre><code>data.cmd_free &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; BC_FREE_BUFFER;
+data.buffer &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; buffer_to_free;
+data.cmd_reply &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; BC_REPLY;
+data.txn.target.ptr &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+data.txn.cookie &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+data.txn.code &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (status) {
+    data.txn.flags &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; TF_STATUS_CODE;
+    data.txn.data_size &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;(&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    data.txn.offsets_size &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    data.txn.data.ptr.buffer &lt;/span&gt;= (uintptr_t)&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;status;
+    data.txn.data.ptr.offsets &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    data.txn.flags &lt;/span&gt;= &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    data.txn.data_size &lt;/span&gt;= reply-&amp;gt;data - reply-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;data0;
+    data.txn.offsets_size &lt;/span&gt;= ((&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;*) reply-&amp;gt;offs) - ((&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;*) reply-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;offs0);
+    data.txn.data.ptr.buffer &lt;/span&gt;= (uintptr_t)reply-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;data0;
+    data.txn.data.ptr.offsets &lt;/span&gt;= (uintptr_t)reply-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;offs0;
 }
-binder_write(bs, &lt;/span&gt;&amp;amp;data, &lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;&lt;span style="color: #000000;"&gt;(data));</code></pre><p>}</p></span></pre><p></p>
+binder_write(bs, &lt;/span&gt;&amp;amp;data, &lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(data));</code></pre><p>}</p></span></pre><p></p>
 </div>
 <span class="cnblogs_code_collapse">View Code</span></div>
 <p>继续回到serviceManager里分析binder解析返回回来的服务消息</p>
@@ -346,120 +348,120 @@ binder_write(bs, &lt;/span&gt;&amp;amp;data, &lt;span style="color: #0000ff;"&gt
     uint32_t strict_policy;
     </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> allow_isolated;
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;ALOGI("target=%p code=%d pid=%d uid=%d\n",
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;      (void*) txn-&amp;gt;target.ptr, txn-&amp;gt;code, txn-&amp;gt;sender_pid, txn-&amp;gt;sender_euid);&lt;/span&gt;
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;ALOGI(&quot;target=%p code=%d pid=%d uid=%d\n&quot;,
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;      (void*) txn-&amp;gt;target.ptr, txn-&amp;gt;code, txn-&amp;gt;sender_pid, txn-&amp;gt;sender_euid);&lt;/span&gt;
 
-&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (txn-&amp;gt;target.ptr !=&lt;span style="color: #000000;"&gt; BINDER_SERVICE_MANAGER)
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (txn-&amp;gt;target.ptr !=&lt;span style=&quot;color: #000000;&quot;&gt; BINDER_SERVICE_MANAGER)
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (txn-&amp;gt;code ==&lt;span style="color: #000000;"&gt; PING_TRANSACTION)
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (txn-&amp;gt;code ==&lt;span style=&quot;color: #000000;&quot;&gt; PING_TRANSACTION)
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Equivalent to Parcel::enforceInterface(), reading the RPC
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; header with the strict mode policy mask and the interface name.
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Note that we ignore the strict_policy and don't propagate it
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; further (since we do no outbound RPCs anyway).&lt;/span&gt;
-strict_policy =&lt;span style="color: #000000;"&gt; bio_get_uint32(msg);
-s &lt;/span&gt;= bio_get_string16(msg, &amp;amp;&lt;span style="color: #000000;"&gt;len);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (s ==&lt;span style="color: #000000;"&gt; NULL) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Equivalent to Parcel::enforceInterface(), reading the RPC
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; header with the strict mode policy mask and the interface name.
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Note that we ignore the strict_policy and don&apos;t propagate it
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; further (since we do no outbound RPCs anyway).&lt;/span&gt;
+strict_policy =&lt;span style=&quot;color: #000000;&quot;&gt; bio_get_uint32(msg);
+s &lt;/span&gt;= bio_get_string16(msg, &amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;len);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (s ==&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;检查是否是servicemanager服务&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ((len != (&lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;(svcmgr_id) / &lt;span style="color: #800080;"&gt;2&lt;/span&gt;)) ||&lt;span style="color: #000000;"&gt;
-    memcmp(svcmgr_id, s, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;&lt;span style="color: #000000;"&gt;(svcmgr_id))) {
-    fprintf(stderr,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;invalid id %s\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, str8(s, len));
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;检查是否是servicemanager服务&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ((len != (&lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;(svcmgr_id) / &lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt;)) ||&lt;span style=&quot;color: #000000;&quot;&gt;
+    memcmp(svcmgr_id, s, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(svcmgr_id))) {
+    fprintf(stderr,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;invalid id %s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, str8(s, len));
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (sehandle &amp;amp;&amp;amp; selinux_status_updated() &amp;gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;struct&lt;/span&gt; selabel_handle *tmp_sehandle =&lt;span style="color: #000000;"&gt; selinux_android_service_context_handle();
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (tmp_sehandle) {
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (sehandle &amp;amp;&amp;amp; selinux_status_updated() &amp;gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt; selabel_handle *tmp_sehandle =&lt;span style=&quot;color: #000000;&quot;&gt; selinux_android_service_context_handle();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (tmp_sehandle) {
         selabel_close(sehandle);
-        sehandle &lt;/span&gt;=&lt;span style="color: #000000;"&gt; tmp_sehandle;
+        sehandle &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; tmp_sehandle;
     }
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;switch&lt;/span&gt;(txn-&amp;gt;&lt;span style="color: #000000;"&gt;code) {
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; SVC_MGR_GET_SERVICE:
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;检查服务，do_find_service 查找服务。&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; SVC_MGR_CHECK_SERVICE:
-    s &lt;/span&gt;= bio_get_string16(msg, &amp;amp;&lt;span style="color: #000000;"&gt;len);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (s ==&lt;span style="color: #000000;"&gt; NULL) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;(txn-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;code) {
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SVC_MGR_GET_SERVICE:
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;检查服务，do_find_service 查找服务。&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SVC_MGR_CHECK_SERVICE:
+    s &lt;/span&gt;= bio_get_string16(msg, &amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;len);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (s ==&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    handle &lt;/span&gt;= do_find_service(s, len, txn-&amp;gt;sender_euid, txn-&amp;gt;&lt;span style="color: #000000;"&gt;sender_pid);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;handle)
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    handle &lt;/span&gt;= do_find_service(s, len, txn-&amp;gt;sender_euid, txn-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;sender_pid);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;handle)
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     bio_put_ref(reply, handle);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;添加服务 do_add_service 获取服务 在do_add_service会检查是否具有权限&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; SVC_MGR_ADD_SERVICE:
-    s &lt;/span&gt;= bio_get_string16(msg, &amp;amp;&lt;span style="color: #000000;"&gt;len);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (s ==&lt;span style="color: #000000;"&gt; NULL) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;添加服务 do_add_service 获取服务 在do_add_service会检查是否具有权限&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SVC_MGR_ADD_SERVICE:
+    s &lt;/span&gt;= bio_get_string16(msg, &amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;len);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (s ==&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    handle &lt;/span&gt;=&lt;span style="color: #000000;"&gt; bio_get_ref(msg);
-    allow_isolated &lt;/span&gt;= bio_get_uint32(msg) ? &lt;span style="color: #800080;"&gt;1&lt;/span&gt; : &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (do_add_service(bs, s, len, handle, txn-&amp;gt;&lt;span style="color: #000000;"&gt;sender_euid,
-        allow_isolated, txn&lt;/span&gt;-&amp;gt;&lt;span style="color: #000000;"&gt;sender_pid))
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;查询服务&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; SVC_MGR_LIST_SERVICES: {
-    uint32_t n &lt;/span&gt;=&lt;span style="color: #000000;"&gt; bio_get_uint32(msg);
+    handle &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; bio_get_ref(msg);
+    allow_isolated &lt;/span&gt;= bio_get_uint32(msg) ? &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt; : &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (do_add_service(bs, s, len, handle, txn-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;sender_euid,
+        allow_isolated, txn&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;sender_pid))
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;查询服务&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SVC_MGR_LIST_SERVICES: {
+    uint32_t n &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; bio_get_uint32(msg);
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!svc_can_list(txn-&amp;gt;sender_pid, txn-&amp;gt;&lt;span style="color: #000000;"&gt;sender_euid)) {
-        ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;list_service() uid=%d - PERMISSION DENIED\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
-                txn&lt;/span&gt;-&amp;gt;&lt;span style="color: #000000;"&gt;sender_euid);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!svc_can_list(txn-&amp;gt;sender_pid, txn-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;sender_euid)) {
+        ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;list_service() uid=%d - PERMISSION DENIED\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
+                txn&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;sender_euid);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    si &lt;/span&gt;=&lt;span style="color: #000000;"&gt; svclist;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;while&lt;/span&gt; ((n-- &amp;gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;) &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; si)
-        si &lt;/span&gt;= si-&amp;gt;&lt;span style="color: #000000;"&gt;next;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (si) {
-        bio_put_string16(reply, si&lt;/span&gt;-&amp;gt;&lt;span style="color: #000000;"&gt;name);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    si &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; svclist;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;while&lt;/span&gt; ((n-- &amp;gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;) &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; si)
+        si &lt;/span&gt;= si-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;next;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (si) {
+        bio_put_string16(reply, si&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;name);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;default&lt;/span&gt;&lt;span style="color: #000000;"&gt;:
-    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;unknown code %d\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, txn-&amp;gt;&lt;span style="color: #000000;"&gt;code);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
+    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;unknown code %d\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, txn-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;code);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-bio_put_uint32(reply, &lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>}</p></span></pre><p></p>
+bio_put_uint32(reply, &lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p>进入 do_find_service&nbsp; do_add_service了解下做了什么事。</p>
-<div class="cnblogs_code" onclick="cnblogs_code_show('259cf340-561d-4ea7-9910-93cac3ea1148')"><img id="code_img_closed_259cf340-561d-4ea7-9910-93cac3ea1148" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_259cf340-561d-4ea7-9910-93cac3ea1148" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('259cf340-561d-4ea7-9910-93cac3ea1148',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div class="cnblogs_code" onclick="cnblogs_code_show('259cf340-561d-4ea7-9910-93cac3ea1148')"><img id="code_img_closed_259cf340-561d-4ea7-9910-93cac3ea1148" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_259cf340-561d-4ea7-9910-93cac3ea1148" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('259cf340-561d-4ea7-9910-93cac3ea1148',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
 <div id="cnblogs_code_open_259cf340-561d-4ea7-9910-93cac3ea1148" class="cnblogs_code_hide">
 <pre>uint32_t do_find_service(<span style="color: #0000ff;">const</span> uint16_t *<span style="color: #000000;">s, size_t len, uid_t uid, pid_t spid)
 {
     </span><span style="color: #0000ff;">struct</span> svcinfo *si =<span style="color: #000000;"> find_svc(s, len);
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!si || !si-&amp;gt;&lt;span style="color: #000000;"&gt;handle) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!si || !si-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;handle) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!si-&amp;gt;&lt;span style="color: #000000;"&gt;allow_isolated) {
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If this service doesn't allow access from isolated processes,
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; then check the uid to see if it is isolated.&lt;/span&gt;
-    uid_t appid = uid %&lt;span style="color: #000000;"&gt; AID_USER;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (appid &amp;gt;= AID_ISOLATED_START &amp;amp;&amp;amp; appid &amp;lt;=&lt;span style="color: #000000;"&gt; AID_ISOLATED_END) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!si-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;allow_isolated) {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If this service doesn&apos;t allow access from isolated processes,
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; then check the uid to see if it is isolated.&lt;/span&gt;
+    uid_t appid = uid %&lt;span style=&quot;color: #000000;&quot;&gt; AID_USER;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (appid &amp;gt;= AID_ISOLATED_START &amp;amp;&amp;amp; appid &amp;lt;=&lt;span style=&quot;color: #000000;&quot;&gt; AID_ISOLATED_END) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;svc_can_find(s, len, spid, uid)) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;svc_can_find(s, len, spid, uid)) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; si-&amp;gt;&lt;span style="color: #000000;"&gt;handle;</code></pre><p>}</p></span></pre><p></p>
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; si-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;handle;</code></pre><p>}</p></span></pre><p></p>
 </div>
 <span class="cnblogs_code_collapse">View Code</span></div>
-<div class="cnblogs_code" onclick="cnblogs_code_show('786c6178-2ad5-466d-b516-d8e38fe7b404')"><img id="code_img_closed_786c6178-2ad5-466d-b516-d8e38fe7b404" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_786c6178-2ad5-466d-b516-d8e38fe7b404" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('786c6178-2ad5-466d-b516-d8e38fe7b404',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
+<div class="cnblogs_code" onclick="cnblogs_code_show('786c6178-2ad5-466d-b516-d8e38fe7b404')"><img id="code_img_closed_786c6178-2ad5-466d-b516-d8e38fe7b404" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_786c6178-2ad5-466d-b516-d8e38fe7b404" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('786c6178-2ad5-466d-b516-d8e38fe7b404',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
 <div id="cnblogs_code_open_786c6178-2ad5-466d-b516-d8e38fe7b404" class="cnblogs_code_hide">
 <pre><span style="color: #0000ff;">int</span> do_add_service(<span style="color: #0000ff;">struct</span> binder_state *<span style="color: #000000;">bs,
                    </span><span style="color: #0000ff;">const</span> uint16_t *<span style="color: #000000;">s, size_t len,
@@ -468,56 +470,56 @@ bio_put_uint32(reply, &lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/spa
 {
     </span><span style="color: #0000ff;">struct</span> svcinfo *<span style="color: #000000;">si;
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;ALOGI("add_service('%s',%x,%s) uid=%d\n", str8(s, len), handle,
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;        allow_isolated ? "allow_isolated" : "!allow_isolated", uid);&lt;/span&gt;
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;ALOGI(&quot;add_service(&apos;%s&apos;,%x,%s) uid=%d\n&quot;, str8(s, len), handle,
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;        allow_isolated ? &quot;allow_isolated&quot; : &quot;!allow_isolated&quot;, uid);&lt;/span&gt;
 
-&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!handle || (len == &lt;span style="color: #800080;"&gt;0&lt;/span&gt;) || (len &amp;gt; &lt;span style="color: #800080;"&gt;127&lt;/span&gt;&lt;span style="color: #000000;"&gt;))
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!handle || (len == &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;) || (len &amp;gt; &lt;span style=&quot;color: #800080;&quot;&gt;127&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;))
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;检查是否有权限&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;svc_can_register(s, len, spid, uid)) {
-    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;add_service('%s',%x) uid=%d - PERMISSION DENIED\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;检查是否有权限&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;svc_can_register(s, len, spid, uid)) {
+    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;add_service(&apos;%s&apos;,%x) uid=%d - PERMISSION DENIED\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
          str8(s, len), handle, uid);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-si &lt;/span&gt;=&lt;span style="color: #000000;"&gt; find_svc(s, len);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (si) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (si-&amp;gt;&lt;span style="color: #000000;"&gt;handle) {
-        ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;add_service('%s',%x) uid=%d - ALREADY REGISTERED, OVERRIDE\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
+si &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; find_svc(s, len);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (si) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (si-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;handle) {
+        ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;add_service(&apos;%s&apos;,%x) uid=%d - ALREADY REGISTERED, OVERRIDE\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
              str8(s, len), handle, uid);
         svcinfo_death(bs, si);
     }
-    si&lt;/span&gt;-&amp;gt;handle =&lt;span style="color: #000000;"&gt; handle;
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    si &lt;/span&gt;= malloc(&lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;(*si) + (len + &lt;span style="color: #800080;"&gt;1&lt;/span&gt;) * &lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;&lt;span style="color: #000000;"&gt;(uint16_t));
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;si) {
-        ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;add_service('%s',%x) uid=%d - OUT OF MEMORY\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;,
+    si&lt;/span&gt;-&amp;gt;handle =&lt;span style=&quot;color: #000000;&quot;&gt; handle;
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    si &lt;/span&gt;= malloc(&lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;(*si) + (len + &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;) * &lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(uint16_t));
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;si) {
+        ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;add_service(&apos;%s&apos;,%x) uid=%d - OUT OF MEMORY\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
              str8(s, len), handle, uid);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    si&lt;/span&gt;-&amp;gt;handle =&lt;span style="color: #000000;"&gt; handle;
-    si&lt;/span&gt;-&amp;gt;len =&lt;span style="color: #000000;"&gt; len;
-    memcpy(si&lt;/span&gt;-&amp;gt;name, s, (len + &lt;span style="color: #800080;"&gt;1&lt;/span&gt;) * &lt;span style="color: #0000ff;"&gt;sizeof&lt;/span&gt;&lt;span style="color: #000000;"&gt;(uint16_t));
-    si&lt;/span&gt;-&amp;gt;name[len] = &lt;span style="color: #800000;"&gt;'&lt;/span&gt;&lt;span style="color: #800000;"&gt;\0&lt;/span&gt;&lt;span style="color: #800000;"&gt;'&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    si&lt;/span&gt;-&amp;gt;death.func = (&lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;*&lt;span style="color: #000000;"&gt;) svcinfo_death;
-    si&lt;/span&gt;-&amp;gt;death.ptr =&lt;span style="color: #000000;"&gt; si;
-    si&lt;/span&gt;-&amp;gt;allow_isolated =&lt;span style="color: #000000;"&gt; allow_isolated;
-    si&lt;/span&gt;-&amp;gt;next =&lt;span style="color: #000000;"&gt; svclist;
-    svclist &lt;/span&gt;=&lt;span style="color: #000000;"&gt; si;
+    si&lt;/span&gt;-&amp;gt;handle =&lt;span style=&quot;color: #000000;&quot;&gt; handle;
+    si&lt;/span&gt;-&amp;gt;len =&lt;span style=&quot;color: #000000;&quot;&gt; len;
+    memcpy(si&lt;/span&gt;-&amp;gt;name, s, (len + &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;) * &lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(uint16_t));
+    si&lt;/span&gt;-&amp;gt;name[len] = &lt;span style=&quot;color: #800000;&quot;&gt;&apos;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;\0&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&apos;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    si&lt;/span&gt;-&amp;gt;death.func = (&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;*&lt;span style=&quot;color: #000000;&quot;&gt;) svcinfo_death;
+    si&lt;/span&gt;-&amp;gt;death.ptr =&lt;span style=&quot;color: #000000;&quot;&gt; si;
+    si&lt;/span&gt;-&amp;gt;allow_isolated =&lt;span style=&quot;color: #000000;&quot;&gt; allow_isolated;
+    si&lt;/span&gt;-&amp;gt;next =&lt;span style=&quot;color: #000000;&quot;&gt; svclist;
+    svclist &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; si;
 }
 
 binder_acquire(bs, handle);
-binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style="color: #000000;"&gt;death);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>}</p></span></pre><p></p>
+binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;death);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>}</p></span></pre><p></p>
 </div>
 <span class="cnblogs_code_collapse">View Code</span></div>
 <h2>二. ServiceManager如何管理服务</h2>
 <p>&nbsp;从上面源码分析我们知道了ServiceManager利用binder通信机制来管理一系列服务。<br>&nbsp;上面源码的执行路径可以用下图所示：（注意，图中do_find_service7 应该是do_find_service.操作手误。）</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722114236180-75099312.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722114236180-75099312.png" alt></p>
 <p>&nbsp;</p>
 <p>　　代码分析抽象成逻辑分析，如下图所示：</p>
-<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722114323395-1692794298.png" alt=""></p>
+<p>　　　　　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180722114323395-1692794298.png" alt></p>
 
 </div>
 
@@ -543,11 +545,11 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -557,7 +559,7 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/07/22/Android源码分析十三ActivityManagerService服务分析/">
             
                 Android源码分析（十三）ActivityManagerService服务分析
@@ -568,7 +570,7 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/07/22/Serializable和Parcelable之序列化/">
             
                 Serializable和Parcelable之序列化
@@ -580,7 +582,7 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -645,7 +647,16 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析十二ServiceManager服务分析' || '2018/07/22/Android源码分析十二ServiceManager服务分析/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -852,7 +863,7 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -863,13 +874,5 @@ binder_link_to_death(bs, handle, &lt;/span&gt;&amp;amp;si-&amp;gt;&lt;span style
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析十二ServiceManager服务分析' || '2018/07/22/Android源码分析十二ServiceManager服务分析/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

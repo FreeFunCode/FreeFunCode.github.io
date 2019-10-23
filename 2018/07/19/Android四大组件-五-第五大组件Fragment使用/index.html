@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -152,7 +154,7 @@
 <p>    　　onDetach():与onAttach相对应，当Fragment与Activity关联被取消时调用.为Fragment生命周期中的最后一个方法，当该方法执行完后，Fragment与Activity不再有关联<br>    <br>    　　　　来自:https://blog.csdn.net/osle123/article/details/52756424</p>
 <h2>Fragment 与 Activity 生命周期交互:</h2>
 <p>一张图了解下:</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180719091746040-653406302.png" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180719091746040-653406302.png" alt></p>
 <p>执行代码过程了解下:</p>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #800080;">1</span>. -- fragmentTransaction.addToBackStack(<span style="color: #800000;">"</span><span style="color: #800000;">blank</span><span style="color: #800000;">"</span>);<span style="color: #008000;">//</span><span style="color: #008000;">加入回退栈  按两次返回按键</span>
@@ -208,10 +210,10 @@
 <pre><code>android.support.v4.app.FragmentManager fragmentManager;
 android.support.v4.app.FragmentTransaction fragmentTransaction;
 
-fragmentManager &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getSupportFragmentManager();
-fragmentTransaction &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getSupportFragmentManager().beginTransaction();
-fragmentTransaction.add(R.id.ll_fragment,fragment,&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;blank&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-fragmentTransaction.addToBackStack(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;blank&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+fragmentManager &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getSupportFragmentManager();
+fragmentTransaction &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getSupportFragmentManager().beginTransaction();
+fragmentTransaction.add(R.id.ll_fragment,fragment,&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;blank&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+fragmentTransaction.addToBackStack(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;blank&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
 </div>
@@ -235,11 +237,11 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -249,7 +251,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/07/21/AIDL介绍以及简单使用/">
             
                 AIDL介绍以及简单使用
@@ -260,7 +262,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/07/15/Android源码分析十一事件传递机制/">
             
                 Android 源码分析（十一） 事件传递机制
@@ -272,7 +274,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -337,7 +339,16 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Android四大组件-五-第五大组件Fragment使用' || '2018/07/19/Android四大组件-五-第五大组件Fragment使用/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -544,7 +555,7 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -555,13 +566,5 @@ fragmentTransaction.commit();&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="c
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: 'Android四大组件-五-第五大组件Fragment使用' || '2018/07/19/Android四大组件-五-第五大组件Fragment使用/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

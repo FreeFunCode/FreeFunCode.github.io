@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -144,13 +146,13 @@
 <div><div id="highlighter_101359" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">startService(intent);</code></div></div></td></tr></tbody></table></div></div>
 </div>
 <p>执行效果：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233222896-1009550225.png" alt=""></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233222896-1009550225.png" alt></p>
 <p>&nbsp;</p>
 <div class="cnblogs_Highlighter sh-gutter">
 <div><div id="highlighter_903563" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">Log.w(Tag, </code><code class="java string">"activity====停止服务"</code><code class="java plain">);</code></div><div class="line number2 index1 alt1"><code class="java plain">stopService(intent);</code></div></div></td></tr></tbody></table></div></div>
 </div>
 <p>执行效果：　　&nbsp;</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233310365-79628207.png" alt=""></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233310365-79628207.png" alt></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <h3>&nbsp;&nbsp; 2.bindService绑定.</h3>
@@ -164,14 +166,14 @@
 </div>
 <p>&nbsp;</p>
 <p>　　执行效果：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233328633-713560348.png" alt=""></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233328633-713560348.png" alt></p>
 <p>&nbsp;</p>
 <div class="cnblogs_Highlighter sh-gutter">
 <pre>Log.w(Tag, "activity====解绑服务");</pre>
 <div><div id="highlighter_661551" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">unbindService(conn);</code></div></div></td></tr></tbody></table></div></div>
 </div>
 <p>　　执行效果：</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233405981-2072704115.png" alt=""></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233405981-2072704115.png" alt></p>
 <p>&nbsp;</p>
 <p>　</p>
 <h3>&nbsp;&nbsp; 3.区别：</h3>
@@ -184,7 +186,7 @@
 <div><div id="highlighter_738099" class="syntaxhighlighter  java"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="java plain">Intent&nbsp;intent&nbsp;=&nbsp;</code><code class="java keyword">new</code>&nbsp;<code class="java plain">Intent();&nbsp;&nbsp;</code></div><div class="line number2 index1 alt1"><code class="java plain">intent.setAction(</code><code class="java string">"com.example.user.firstapp.FIRST_SERVICE"</code><code class="java plain">);&nbsp;&nbsp;</code></div><div class="line number3 index2 alt2"><code class="java plain">bindService(intent,coon,Service.BIND_AUTO_CREATE);&nbsp;&nbsp;&lt;br&gt;&lt;br&gt;startService(intent);</code></div></div></td></tr></tbody></table></div></div>
 </div>
 <p>　　</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233520935-1303352525.png" alt=""></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201805/612293-20180513233520935-1303352525.png" alt></p>
 <p>android 5.0上，报错：<span style="color: #ff0000; font-family: Trebuchet MS;">IllegalArgumentException: Service Intent must be explicit</span></p>
 <p><span style="text-decoration: underline;"><strong><span style="color: #313131; font-family: Trebuchet MS; text-decoration: underline;">原因是：Android5.0中service的intent一定要显性声明</span>！！！</strong></span></p>
 <p>&nbsp;</p>
@@ -214,11 +216,11 @@
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -228,7 +230,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/05/16/四大组件-三-BroadcastReceiver介绍/">
             
                 Android 四大组件 (三) BroadcastReceiver 介绍
@@ -239,7 +241,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/05/06/使用fiddler抓手机端http数据包/">
             
                 使用fiddler抓手机端http数据包
@@ -251,7 +253,7 @@
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -316,7 +318,16 @@
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: '四大组件-二-Service使用' || '2018/05/13/四大组件-二-Service使用/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -523,7 +534,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -534,13 +545,5 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: '四大组件-二-Service使用' || '2018/05/13/四大组件-二-Service使用/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

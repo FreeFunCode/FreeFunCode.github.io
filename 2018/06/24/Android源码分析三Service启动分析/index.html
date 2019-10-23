@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -132,7 +134,7 @@
 <a id="more"></a>
 
 <div id="cnblogs_post_body" class="blogpost-body ">
-    <p><img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180624141726420-1470284606.png" alt=""></p>
+    <p><img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180624141726420-1470284606.png" alt></p>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\content\Context.java</span>
 
@@ -150,7 +152,7 @@
 <li><p>mBase是ContextImpl的实例，</p>
 </li>
 <li><p>ContextWrapper类的startService方法最终通过ContextImpl类的startService方法来实现<br><span style="color: #008000;">*/</span><span style="color: #000000;"><br>  @Override<br>  </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ComponentName startService(Intent service) {</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mBase.startService(service);</code></pre><p>  }</p></li></ul></pre><p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mBase.startService(service);</code></pre><p>  }</p></li></ul></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\core\java\android\app\ContextImpl.java</span>
@@ -163,46 +165,46 @@
 
 <p>  </p></span><span style="color: #0000ff;">private</span> ComponentName startServiceCommon(Intent service, <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> requireForeground,<p></p>
 <pre><code>    UserHandle user) {
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;验证intent的有效性&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            validateServiceIntent(service);</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;准备离开应用程序进程，进入ActivityManagerService进程（意味着bundle的数据要在进程间传递）&lt;/span&gt;
-service.prepareToLeaveProcess(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;调用ActivityManagerProxy类的startService来实现启动服务的操作&amp;nbsp;&amp;nbsp;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    </p></span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;ActivityManagerProxy是一个Binder对象的远程接口，而这个Binder对象就是ActivityManagerService。</span><p></p>
-<pre><code>    ComponentName cn =&lt;span style="color: #000000;"&gt; ActivityManager.getService().startService(
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;验证intent的有效性&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            validateServiceIntent(service);</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;准备离开应用程序进程，进入ActivityManagerService进程（意味着bundle的数据要在进程间传递）&lt;/span&gt;
+service.prepareToLeaveProcess(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;调用ActivityManagerProxy类的startService来实现启动服务的操作&amp;nbsp;&amp;nbsp;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    </p></span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;ActivityManagerProxy是一个Binder对象的远程接口，而这个Binder对象就是ActivityManagerService。</span><p></p>
+<pre><code>    ComponentName cn =&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.getService().startService(
         mMainThread.getApplicationThread(), service, service.resolveTypeIfNeeded(
                     getContentResolver()), requireForeground,
                     getOpPackageName(), user.getIdentifier());
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (cn != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (cn.getPackageName().equals("!"&lt;span style="color: #000000;"&gt;)) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; SecurityException(
-                    &lt;/span&gt;"Not allowed to start service " +&lt;span style="color: #000000;"&gt; service
-                    &lt;/span&gt;+ " without permission " +&lt;span style="color: #000000;"&gt; cn.getClassName());
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (cn.getPackageName().equals("!!"&lt;span style="color: #000000;"&gt;)) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; SecurityException(
-                    &lt;/span&gt;"Unable to start service " +&lt;span style="color: #000000;"&gt; service
-                    &lt;/span&gt;+ ": " +&lt;span style="color: #000000;"&gt; cn.getClassName());
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (cn.getPackageName().equals("?"&lt;span style="color: #000000;"&gt;)) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; IllegalStateException(
-                    &lt;/span&gt;"Not allowed to start service " + service + ": " +&lt;span style="color: #000000;"&gt; cn.getClassName());
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn.getPackageName().equals(&quot;!&quot;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SecurityException(
+                    &lt;/span&gt;&quot;Not allowed to start service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service
+                    &lt;/span&gt;+ &quot; without permission &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; cn.getClassName());
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn.getPackageName().equals(&quot;!!&quot;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SecurityException(
+                    &lt;/span&gt;&quot;Unable to start service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service
+                    &lt;/span&gt;+ &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; cn.getClassName());
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (cn.getPackageName().equals(&quot;?&quot;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; IllegalStateException(
+                    &lt;/span&gt;&quot;Not allowed to start service &quot; + service + &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; cn.getClassName());
         }
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; cn;
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (RemoteException e) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt;&lt;span style="color: #000000;"&gt; e.rethrowFromSystemServer();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; cn;
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (RemoteException e) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; e.rethrowFromSystemServer();
 }</code></pre><p>  }</p>
 <p>  <span style="color: #008000;">/**</span><span style="color: #008000;"></span></p>
 <ul>
 <li><p>验证intent的有效性&nbsp;</p>
 </li>
 <li><p><span style="color: #008000;">*/</span><br><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> validateServiceIntent(Intent service) {<br>  </span><span style="color: #0000ff;">if</span> (service.getComponent() == <span style="color: #0000ff;">null</span> &amp;&amp; service.getPackage() == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;隐式启动判断，5.1之后不允许隐式启动服务&amp;nbsp;&amp;nbsp;&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (getApplicationInfo().targetSdkVersion &amp;gt;=&lt;span style="color: #000000;"&gt; Build.VERSION_CODES.LOLLIPOP) {
-    IllegalArgumentException ex &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; IllegalArgumentException(
-            &lt;/span&gt;"Service Intent must be explicit: " +&lt;span style="color: #000000;"&gt; service);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt;&lt;span style="color: #000000;"&gt; ex;
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    Log.w(TAG, &lt;/span&gt;"Implicit intents with startService are not safe: " +&lt;span style="color: #000000;"&gt; service
-            &lt;/span&gt;+ " " + Debug.getCallers(2, 3&lt;span style="color: #000000;"&gt;));
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;隐式启动判断，5.1之后不允许隐式启动服务&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (getApplicationInfo().targetSdkVersion &amp;gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Build.VERSION_CODES.LOLLIPOP) {
+    IllegalArgumentException ex &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; IllegalArgumentException(
+            &lt;/span&gt;&quot;Service Intent must be explicit: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ex;
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    Log.w(TAG, &lt;/span&gt;&quot;Implicit intents with startService are not safe: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service
+            &lt;/span&gt;+ &quot; &quot; + Debug.getCallers(2, 3&lt;span style=&quot;color: #000000;&quot;&gt;));
 }</code></pre><p>  }<br>}</p></li></ul></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -238,21 +240,21 @@ service.prepareToLeaveProcess(&lt;span style="color: #0000ff;"&gt;this&lt;/span&
   }
 
 <p>  </p></span><span style="color: #0000ff;">if</span> (callingPackage == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<p></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; IllegalArgumentException("callingPackage cannot be null"&lt;span style="color: #000000;"&gt;);</code></pre><p>  }</p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; IllegalArgumentException(&quot;callingPackage cannot be null&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);</code></pre><p>  }</p>
 <p>  </p></span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (DEBUG_SERVICE) Slog.v(TAG_SERVICE,<p></p>
-<pre><code>&lt;/span&gt;"*** startService: " + service + " type=" + resolvedType + " fg=" +&lt;span style="color: #000000;"&gt; requireForeground);</code></pre><p>  </p></span><span style="color: #0000ff;">synchronized</span>(<span style="color: #0000ff;">this</span><span style="color: #000000;">) {<p></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; callingPid =&lt;span style="color: #000000;"&gt; Binder.getCallingPid();
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; callingUid =&lt;span style="color: #000000;"&gt; Binder.getCallingUid();
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; origId =&lt;span style="color: #000000;"&gt; Binder.clearCallingIdentity();
+<pre><code>&lt;/span&gt;&quot;*** startService: &quot; + service + &quot; type=&quot; + resolvedType + &quot; fg=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; requireForeground);</code></pre><p>  </p></span><span style="color: #0000ff;">synchronized</span>(<span style="color: #0000ff;">this</span><span style="color: #000000;">) {<p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; callingPid =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.getCallingPid();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; callingUid =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.getCallingUid();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; origId =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.clearCallingIdentity();
 ComponentName res;
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    res &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mServices.startServiceLocked(caller, service,
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    res &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mServices.startServiceLocked(caller, service,
             resolvedType, callingPid, callingUid,
             requireForeground, callingPackage, userId);
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;finally&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;finally&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
     Binder.restoreCallingIdentity(origId);
 }
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; res;</code></pre><p>  }<br>}</p></span></pre><p></p>
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; res;</code></pre><p>  }<br>}</p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">android-8.0.0_r1\frameworks\base\services\core\java\com\android\server\am\ActiveServices.java</span>
@@ -264,390 +266,390 @@ ComponentName startServiceLocked(IApplicationThread caller, Intent service, Stri
           </span>+ " type=" + resolvedType + " args=" +<span style="color: #000000;"> service.getExtras());
 
 <p>  </p></span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> callerFg;<br>  </span><span style="color: #0000ff;">if</span> (caller != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<p></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; ProcessRecord callerApp =&lt;span style="color: #000000;"&gt; mAm.getRecordForAppLocked(caller);
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (callerApp == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; SecurityException(
-            &lt;/span&gt;"Unable to find app for caller " +&lt;span style="color: #000000;"&gt; caller
-            &lt;/span&gt;+ " (pid=" +&lt;span style="color: #000000;"&gt; callingPid
-            &lt;/span&gt;+ ") when starting service " +&lt;span style="color: #000000;"&gt; service);
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; ProcessRecord callerApp =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.getRecordForAppLocked(caller);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (callerApp == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SecurityException(
+            &lt;/span&gt;&quot;Unable to find app for caller &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; caller
+            &lt;/span&gt;+ &quot; (pid=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; callingPid
+            &lt;/span&gt;+ &quot;) when starting service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; service);
 }
-callerFg &lt;/span&gt;= callerApp.setSchedGroup !=&lt;span style="color: #000000;"&gt; ProcessList.SCHED_GROUP_BACKGROUND;</code></pre><p>  } </p></span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<p></p>
-<pre><code>callerFg &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>  }</p>
+callerFg &lt;/span&gt;= callerApp.setSchedGroup !=&lt;span style=&quot;color: #000000;&quot;&gt; ProcessList.SCHED_GROUP_BACKGROUND;</code></pre><p>  } </p></span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<p></p>
+<pre><code>callerFg &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>  }</p>
 
 
 
 
-<pre><code>&amp;nbsp;&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;调用retrieveServiceLocked方法解析service这个Intent，然后将解析结果放在res.record中。&amp;nbsp;&amp;nbsp;
-&amp;nbsp;&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;调用该方法后，为被调用者构造了对应的ServiceRecord对象，并保存到ActivityManagerService的成员变量mServiceMap中。&amp;nbsp;&lt;/span&gt;
-    ServiceLookupResult res =&lt;span style="color: #000000;"&gt;
+<pre><code>&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;调用retrieveServiceLocked方法解析service这个Intent，然后将解析结果放在res.record中。&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;调用该方法后，为被调用者构造了对应的ServiceRecord对象，并保存到ActivityManagerService的成员变量mServiceMap中。&amp;nbsp;&lt;/span&gt;
+    ServiceLookupResult res =&lt;span style=&quot;color: #000000;&quot;&gt;
         retrieveServiceLocked(service, resolvedType, callingPackage,
-                callingPid, callingUid, userId, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;, callerFg, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (res == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+                callingPid, callingUid, userId, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;, callerFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (res.record == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ComponentName("!", res.permission != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;
-                ? res.permission : "private to package"&lt;span style="color: #000000;"&gt;);
-    }
-
-    ServiceRecord r &lt;/span&gt;=&lt;span style="color: #000000;"&gt; res.record;
-
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;mAm.mUserController.exists(r.userId)) {
-        Slog.w(TAG, &lt;/span&gt;"Trying to start service with non-existent user! " +&lt;span style="color: #000000;"&gt; r.userId);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (res.record == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ComponentName(&quot;!&quot;, res.permission != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;
+                ? res.permission : &quot;private to package&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If this isn't a direct-to-foreground start, check our ability to kick off an
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; arbitrary service&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!r.startRequested &amp;amp;&amp;amp; !&lt;span style="color: #000000;"&gt;fgRequired) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Before going further -- if this app is not allowed to start services in the
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; background, then at this point we aren't going to let it period.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; allowed =&lt;span style="color: #000000;"&gt; mAm.getAppStartModeLocked(r.appInfo.uid, r.packageName,
-                r.appInfo.targetSdkVersion, callingPid, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (allowed !=&lt;span style="color: #000000;"&gt; ActivityManager.APP_START_MODE_NORMAL) {
-            Slog.w(TAG, &lt;/span&gt;"Background start not allowed: service "
-                    + service + " to " +&lt;span style="color: #000000;"&gt; r.name.flattenToShortString()
-                    &lt;/span&gt;+ " from pid=" + callingPid + " uid=" +&lt;span style="color: #000000;"&gt; callingUid
-                    &lt;/span&gt;+ " pkg=" +&lt;span style="color: #000000;"&gt; callingPackage);
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (allowed ==&lt;span style="color: #000000;"&gt; ActivityManager.APP_START_MODE_DELAYED) {
-                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; In this case we are silently disabling the app, to disrupt as
-                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; little as possible existing apps.&lt;/span&gt;
-                &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    ServiceRecord r &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; res.record;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mAm.mUserController.exists(r.userId)) {
+        Slog.w(TAG, &lt;/span&gt;&quot;Trying to start service with non-existent user! &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.userId);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If this isn&apos;t a direct-to-foreground start, check our ability to kick off an
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; arbitrary service&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!r.startRequested &amp;amp;&amp;amp; !&lt;span style=&quot;color: #000000;&quot;&gt;fgRequired) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Before going further -- if this app is not allowed to start services in the
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; background, then at this point we aren&apos;t going to let it period.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; allowed =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.getAppStartModeLocked(r.appInfo.uid, r.packageName,
+                r.appInfo.targetSdkVersion, callingPid, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (allowed !=&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.APP_START_MODE_NORMAL) {
+            Slog.w(TAG, &lt;/span&gt;&quot;Background start not allowed: service &quot;
+                    + service + &quot; to &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.name.flattenToShortString()
+                    &lt;/span&gt;+ &quot; from pid=&quot; + callingPid + &quot; uid=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; callingUid
+                    &lt;/span&gt;+ &quot; pkg=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; callingPackage);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (allowed ==&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.APP_START_MODE_DELAYED) {
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; In this case we are silently disabling the app, to disrupt as
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; little as possible existing apps.&lt;/span&gt;
+                &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
             }
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This app knows it is in the new model where this operation is not
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; allowed, so tell it what has happened.&lt;/span&gt;
-            UidRecord uidRec =&lt;span style="color: #000000;"&gt; mAm.mActiveUids.get(r.appInfo.uid);
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ComponentName("?", "app is in background uid " +&lt;span style="color: #000000;"&gt; uidRec);
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This app knows it is in the new model where this operation is not
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; allowed, so tell it what has happened.&lt;/span&gt;
+            UidRecord uidRec =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.mActiveUids.get(r.appInfo.uid);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ComponentName(&quot;?&quot;, &quot;app is in background uid &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; uidRec);
         }
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;权限检查&amp;nbsp;&lt;/span&gt;
-    NeededUriGrants neededGrants =&lt;span style="color: #000000;"&gt; mAm.checkGrantUriPermissionFromIntentLocked(
-            callingUid, r.packageName, service, service.getFlags(), &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;, r.userId);
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;权限检查&amp;nbsp;&lt;/span&gt;
+    NeededUriGrants neededGrants =&lt;span style=&quot;color: #000000;&quot;&gt; mAm.checkGrantUriPermissionFromIntentLocked(
+            callingUid, r.packageName, service, service.getFlags(), &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.userId);
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If permissions need a review before any of the app components can run,
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; we do not start the service and launch a review activity if the calling app
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; is in the foreground passing it a pending intent to start the service when
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; review is completed.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mAm.mPermissionReviewRequired) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;requestStartTargetPermissionsReviewIfNeededLocked(r, callingPackage,
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If permissions need a review before any of the app components can run,
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; we do not start the service and launch a review activity if the calling app
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; is in the foreground passing it a pending intent to start the service when
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; review is completed.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mAm.mPermissionReviewRequired) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;requestStartTargetPermissionsReviewIfNeededLocked(r, callingPackage,
                 callingUid, service, callerFg, userId)) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
         }
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (unscheduleServiceRestartLocked(r, callingUid, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;)) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_SERVICE) Slog.v(TAG_SERVICE, "START SERVICE WHILE RESTART PENDING: " +&lt;span style="color: #000000;"&gt; r);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (unscheduleServiceRestartLocked(r, callingUid, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;)) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_SERVICE) Slog.v(TAG_SERVICE, &quot;START SERVICE WHILE RESTART PENDING: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
     }
-    r.lastActivity &lt;/span&gt;=&lt;span style="color: #000000;"&gt; SystemClock.uptimeMillis();
-    r.startRequested &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    r.delayedStop &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    r.fgRequired &lt;/span&gt;=&lt;span style="color: #000000;"&gt; fgRequired;
-    r.pendingStarts.add(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ServiceRecord.StartItem(r, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;, r.makeNextStartId(),
+    r.lastActivity &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; SystemClock.uptimeMillis();
+    r.startRequested &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    r.delayedStop &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    r.fgRequired &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; fgRequired;
+    r.pendingStarts.add(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ServiceRecord.StartItem(r, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.makeNextStartId(),
             service, neededGrants, callingUid));
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; ServiceMap smap =&lt;span style="color: #000000;"&gt; getServiceMapLocked(r.userId);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; addToStarting = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!callerFg &amp;amp;&amp;amp; !fgRequired &amp;amp;&amp;amp; r.app == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;
-            &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; mAm.mUserController.hasStartedUserState(r.userId)) {
-        ProcessRecord proc &lt;/span&gt;= mAm.getProcessRecordLocked(r.processName, r.appInfo.uid, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (proc == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; || proc.curProcState &amp;gt;&lt;span style="color: #000000;"&gt; ActivityManager.PROCESS_STATE_RECEIVER) {
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If this is not coming from a foreground caller, then we may want
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; to delay the start if there are already other background services
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; that are starting.  This is to avoid process start spam when lots
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; of applications are all handling things like connectivity broadcasts.
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; We only do this for cached processes, because otherwise an application
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; can have assumptions about calling startService() for a service to run
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; in its own process, and for that process to not be killed before the
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; service is started.  This is especially the case for receivers, which
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; may start a service in onReceive() to do some additional work and have
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; initialized some global state as part of that.&lt;/span&gt;
-            &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_DELAYED_SERVICE) Slog.v(TAG_SERVICE, "Potential start delay of "
-                    + r + " in " +&lt;span style="color: #000000;"&gt; proc);
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.delayed) {
-                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This service is already scheduled for a delayed start; just leave
-                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; it still waiting.&lt;/span&gt;
-                &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, "Continuing to delay: " +&lt;span style="color: #000000;"&gt; r);
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; r.name;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; ServiceMap smap =&lt;span style=&quot;color: #000000;&quot;&gt; getServiceMapLocked(r.userId);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; addToStarting = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!callerFg &amp;amp;&amp;amp; !fgRequired &amp;amp;&amp;amp; r.app == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;
+            &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; mAm.mUserController.hasStartedUserState(r.userId)) {
+        ProcessRecord proc &lt;/span&gt;= mAm.getProcessRecordLocked(r.processName, r.appInfo.uid, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (proc == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; || proc.curProcState &amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.PROCESS_STATE_RECEIVER) {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If this is not coming from a foreground caller, then we may want
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; to delay the start if there are already other background services
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; that are starting.  This is to avoid process start spam when lots
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; of applications are all handling things like connectivity broadcasts.
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We only do this for cached processes, because otherwise an application
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; can have assumptions about calling startService() for a service to run
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; in its own process, and for that process to not be killed before the
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; service is started.  This is especially the case for receivers, which
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; may start a service in onReceive() to do some additional work and have
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; initialized some global state as part of that.&lt;/span&gt;
+            &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_SERVICE) Slog.v(TAG_SERVICE, &quot;Potential start delay of &quot;
+                    + r + &quot; in &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; proc);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayed) {
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This service is already scheduled for a delayed start; just leave
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; it still waiting.&lt;/span&gt;
+                &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;Continuing to delay: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; r.name;
             }
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (smap.mStartingBackground.size() &amp;gt;=&lt;span style="color: #000000;"&gt; mMaxStartingBackground) {
-                &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Something else is starting, delay!&lt;/span&gt;
-                Slog.i(TAG_SERVICE, "Delaying start of: " +&lt;span style="color: #000000;"&gt; r);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (smap.mStartingBackground.size() &amp;gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mMaxStartingBackground) {
+                &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Something else is starting, delay!&lt;/span&gt;
+                Slog.i(TAG_SERVICE, &quot;Delaying start of: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
                 smap.mDelayedStartList.add(r);
-                r.delayed &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; r.name;
+                r.delayed &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; r.name;
             }
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, "Not delaying: " +&lt;span style="color: #000000;"&gt; r);
-            addToStarting &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (proc.curProcState &amp;gt;=&lt;span style="color: #000000;"&gt; ActivityManager.PROCESS_STATE_SERVICE) {
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; We slightly loosen when we will enqueue this new service as a background
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; starting service we are waiting for, to also include processes that are
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; currently running other services or receivers.&lt;/span&gt;
-            addToStarting = &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
-                    &lt;/span&gt;"Not delaying, but counting as bg: " +&lt;span style="color: #000000;"&gt; r);
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_STARTS) {
-            StringBuilder sb &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; StringBuilder(128&lt;span style="color: #000000;"&gt;);
-            sb.append(&lt;/span&gt;"Not potential delay (state="&lt;span style="color: #000000;"&gt;).append(proc.curProcState)
-                    .append(&lt;/span&gt;' '&lt;span style="color: #000000;"&gt;).append(proc.adjType);
-            String reason &lt;/span&gt;=&lt;span style="color: #000000;"&gt; proc.makeAdjReason();
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (reason != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-                sb.append(&lt;/span&gt;' '&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;Not delaying: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+            addToStarting &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (proc.curProcState &amp;gt;=&lt;span style=&quot;color: #000000;&quot;&gt; ActivityManager.PROCESS_STATE_SERVICE) {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We slightly loosen when we will enqueue this new service as a background
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; starting service we are waiting for, to also include processes that are
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; currently running other services or receivers.&lt;/span&gt;
+            addToStarting = &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Not delaying, but counting as bg: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) {
+            StringBuilder sb &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; StringBuilder(128&lt;span style=&quot;color: #000000;&quot;&gt;);
+            sb.append(&lt;/span&gt;&quot;Not potential delay (state=&quot;&lt;span style=&quot;color: #000000;&quot;&gt;).append(proc.curProcState)
+                    .append(&lt;/span&gt;&apos; &apos;&lt;span style=&quot;color: #000000;&quot;&gt;).append(proc.adjType);
+            String reason &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; proc.makeAdjReason();
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (reason != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+                sb.append(&lt;/span&gt;&apos; &apos;&lt;span style=&quot;color: #000000;&quot;&gt;);
                 sb.append(reason);
             }
-            sb.append(&lt;/span&gt;"): "&lt;span style="color: #000000;"&gt;);
+            sb.append(&lt;/span&gt;&quot;): &quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
             sb.append(r.toString());
             Slog.v(TAG_SERVICE, sb.toString());
         }
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_STARTS) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (callerFg ||&lt;span style="color: #000000;"&gt; fgRequired) {
-            Slog.v(TAG_SERVICE, &lt;/span&gt;"Not potential delay (callerFg=" + callerFg + " uid="
-                    + callingUid + " pid=" + callingPid + " fgRequired=" + fgRequired + "): " +&lt;span style="color: #000000;"&gt; r);
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (r.app != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-            Slog.v(TAG_SERVICE, &lt;/span&gt;"Not potential delay (cur app=" + r.app + "): " +&lt;span style="color: #000000;"&gt; r);
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (callerFg ||&lt;span style=&quot;color: #000000;&quot;&gt; fgRequired) {
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Not potential delay (callerFg=&quot; + callerFg + &quot; uid=&quot;
+                    + callingUid + &quot; pid=&quot; + callingPid + &quot; fgRequired=&quot; + fgRequired + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.app != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Not potential delay (cur app=&quot; + r.app + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
             Slog.v(TAG_SERVICE,
-                    &lt;/span&gt;"Not potential delay (user " + r.userId + " not started): " +&lt;span style="color: #000000;"&gt; r);
+                    &lt;/span&gt;&quot;Not potential delay (user &quot; + r.userId + &quot; not started): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
         }
     }
 
-    ComponentName cmp &lt;/span&gt;=&lt;span style="color: #000000;"&gt; startServiceInnerLocked(smap, service, r, callerFg, addToStarting);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; cmp;
+    ComponentName cmp &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; startServiceInnerLocked(smap, service, r, callerFg, addToStarting);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; cmp;
 }
 
 ComponentName startServiceInnerLocked(ServiceMap smap, Intent service, ServiceRecord r,
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; callerFg, &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; addToStarting) &lt;span style="color: #0000ff;"&gt;throws&lt;/span&gt;&lt;span style="color: #000000;"&gt; TransactionTooLargeException {
-    ServiceState stracker &lt;/span&gt;=&lt;span style="color: #000000;"&gt; r.getTracker();
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (stracker != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        stracker.setStarted(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;, mAm.mProcessStats.getMemFactorLocked(), r.lastActivity);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; callerFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; addToStarting) &lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; TransactionTooLargeException {
+    ServiceState stracker &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; r.getTracker();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (stracker != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        stracker.setStarted(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, mAm.mProcessStats.getMemFactorLocked(), r.lastActivity);
     }
-    r.callStart &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;synchronized&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.stats.getBatteryStats()) {
+    r.callStart &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;synchronized&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.stats.getBatteryStats()) {
         r.stats.startRunningLocked();
     }
-    String error &lt;/span&gt;= bringUpServiceLocked(r, service.getFlags(), callerFg, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (error != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ComponentName("!!"&lt;span style="color: #000000;"&gt;, error);
+    String error &lt;/span&gt;= bringUpServiceLocked(r, service.getFlags(), callerFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (error != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ComponentName(&quot;!!&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, error);
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (r.startRequested &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; addToStarting) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; first = smap.mStartingBackground.size() == 0&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.startRequested &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; addToStarting) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; first = smap.mStartingBackground.size() == 0&lt;span style=&quot;color: #000000;&quot;&gt;;
         smap.mStartingBackground.add(r);
-        r.startingBgTimeout &lt;/span&gt;= SystemClock.uptimeMillis() +&lt;span style="color: #000000;"&gt; mAm.mConstants.BG_START_TIMEOUT;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_SERVICE) {
-            RuntimeException here &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("here"&lt;span style="color: #000000;"&gt;);
+        r.startingBgTimeout &lt;/span&gt;= SystemClock.uptimeMillis() +&lt;span style=&quot;color: #000000;&quot;&gt; mAm.mConstants.BG_START_TIMEOUT;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_SERVICE) {
+            RuntimeException here &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;here&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
             here.fillInStackTrace();
-            Slog.v(TAG_SERVICE, &lt;/span&gt;"Starting background (first=" + first + "): " +&lt;span style="color: #000000;"&gt; r, here);
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_STARTS) {
-            Slog.v(TAG_SERVICE, &lt;/span&gt;"Starting background (first=" + first + "): " +&lt;span style="color: #000000;"&gt; r);
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Starting background (first=&quot; + first + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r, here);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) {
+            Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Starting background (first=&quot; + first + &quot;): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
         }
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (first) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (first) {
             smap.rescheduleDelayedStartsLocked();
         }
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (callerFg ||&lt;span style="color: #000000;"&gt; r.fgRequired) {
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (callerFg ||&lt;span style=&quot;color: #000000;&quot;&gt; r.fgRequired) {
         smap.ensureNotStartingBackgroundLocked(r);
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; r.name;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; r.name;
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
 *1.创建进程：startProcessLocked
 *2.第一次启动Service：realStartServiceLocked
 *3.启动已有的Service：sendServiceArgsLocked
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; String bringUpServiceLocked(ServiceRecord r, &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; intentFlags, &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; execInFg,
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; whileRestarting, &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; permissionsReviewRequired)
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throws&lt;/span&gt;&lt;span style="color: #000000;"&gt; TransactionTooLargeException {
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Slog.i(TAG, "Bring up service:");
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;r.dump("  ");&lt;/span&gt;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; String bringUpServiceLocked(ServiceRecord r, &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; intentFlags, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; execInFg,
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; whileRestarting, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; permissionsReviewRequired)
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; TransactionTooLargeException {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Slog.i(TAG, &quot;Bring up service:&quot;);
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;r.dump(&quot;  &quot;);&lt;/span&gt;
 
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (r.app != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp; r.app.thread != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;启动Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;
-        sendServiceArgsLocked(r, execInFg, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.app != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; r.app.thread != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;启动Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+        sendServiceArgsLocked(r, execInFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!whileRestarting &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; mRestartingServices.contains(r)) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If waiting for a restart, then do nothing.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!whileRestarting &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; mRestartingServices.contains(r)) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If waiting for a restart, then do nothing.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_SERVICE) {
-        Slog.v(TAG_SERVICE, &lt;/span&gt;"Bringing up " + r + " " + r.intent + " fg=" +&lt;span style="color: #000000;"&gt; r.fgRequired);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_SERVICE) {
+        Slog.v(TAG_SERVICE, &lt;/span&gt;&quot;Bringing up &quot; + r + &quot; &quot; + r.intent + &quot; fg=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.fgRequired);
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; We are now bringing the service up, so no longer in the
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; restarting state.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mRestartingServices.remove(r)) {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We are now bringing the service up, so no longer in the
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; restarting state.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mRestartingServices.remove(r)) {
         clearRestartingIfNeededLocked(r);
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure this service is no longer considered delayed, we are starting it now.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.delayed) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, "REM FR DELAY LIST (bring up): " +&lt;span style="color: #000000;"&gt; r);
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure this service is no longer considered delayed, we are starting it now.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayed) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;REM FR DELAY LIST (bring up): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
         getServiceMapLocked(r.userId).mDelayedStartList.remove(r);
-        r.delayed &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        r.delayed &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure that the user who owns this service is started.  If not,
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; we don't want to allow it to run.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;mAm.mUserController.hasStartedUserState(r.userId)) {
-        String msg &lt;/span&gt;= "Unable to launch app "
-                + r.appInfo.packageName + "/"
-                + r.appInfo.uid + " for service "
-                + r.intent.getIntent() + ": user " + r.userId + " is stopped"&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure that the user who owns this service is started.  If not,
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; we don&apos;t want to allow it to run.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mAm.mUserController.hasStartedUserState(r.userId)) {
+        String msg &lt;/span&gt;= &quot;Unable to launch app &quot;
+                + r.appInfo.packageName + &quot;/&quot;
+                + r.appInfo.uid + &quot; for service &quot;
+                + r.intent.getIntent() + &quot;: user &quot; + r.userId + &quot; is stopped&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
         Slog.w(TAG, msg);
         bringDownServiceLocked(r);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; msg;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; msg;
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Service is now being launched, its package can't be stopped.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Service is now being launched, its package can&apos;t be stopped.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
         AppGlobals.getPackageManager().setPackageStoppedState(
-                r.packageName, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;, r.userId);
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (RemoteException e) {
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (IllegalArgumentException e) {
-        Slog.w(TAG, &lt;/span&gt;"Failed trying to unstop package "
-                + r.packageName + ": " +&lt;span style="color: #000000;"&gt; e);
+                r.packageName, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.userId);
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (RemoteException e) {
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (IllegalArgumentException e) {
+        Slog.w(TAG, &lt;/span&gt;&quot;Failed trying to unstop package &quot;
+                + r.packageName + &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; e);
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; isolated = (r.serviceInfo.flags&amp;amp;ServiceInfo.FLAG_ISOLATED_PROCESS) != 0&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; String procName =&lt;span style="color: #000000;"&gt; r.processName;
-    String hostingType &lt;/span&gt;= "service"&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; isolated = (r.serviceInfo.flags&amp;amp;ServiceInfo.FLAG_ISOLATED_PROCESS) != 0&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; String procName =&lt;span style=&quot;color: #000000;&quot;&gt; r.processName;
+    String hostingType &lt;/span&gt;= &quot;service&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
     ProcessRecord app;
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;isolated) {
-        app &lt;/span&gt;= mAm.getProcessRecordLocked(procName, r.appInfo.uid, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_MU) Slog.v(TAG_MU, "bringUpServiceLocked: appInfo.uid=" +&lt;span style="color: #000000;"&gt; r.appInfo.uid
-                    &lt;/span&gt;+ " app=" +&lt;span style="color: #000000;"&gt; app);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (app != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp; app.thread != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;isolated) {
+        app &lt;/span&gt;= mAm.getProcessRecordLocked(procName, r.appInfo.uid, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_MU) Slog.v(TAG_MU, &quot;bringUpServiceLocked: appInfo.uid=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.appInfo.uid
+                    &lt;/span&gt;+ &quot; app=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; app);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (app != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; app.thread != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
                 app.addPackage(r.appInfo.packageName, r.appInfo.versionCode, mAm.mProcessStats);
                 realStartServiceLocked(r, app, execInFg);
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (TransactionTooLargeException e) {
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt;&lt;span style="color: #000000;"&gt; e;
-            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (RemoteException e) {
-                Slog.w(TAG, &lt;/span&gt;"Exception when starting service " +&lt;span style="color: #000000;"&gt; r.shortName, e);
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (TransactionTooLargeException e) {
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; e;
+            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (RemoteException e) {
+                Slog.w(TAG, &lt;/span&gt;&quot;Exception when starting service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.shortName, e);
             }
 
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If a dead object exception was thrown -- fall through to
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; restart the application.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            }<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> If this service runs in an isolated process, then each time<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> we call startProcessLocked() we will get a new isolated<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> process, starting another process if we are currently waiting<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> for a previous process to come up.  To deal with this, we store<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> in the service any current isolated process it is running in or<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> waiting to have come up.</span><br>            app =<span style="color: #000000;"> r.isolatedProc;<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (WebViewZygote.isMultiprocessEnabled()<br>                    </span>&amp;&amp;<span style="color: #000000;"> r.serviceInfo.packageName.equals(WebViewZygote.getPackageName())) {<br>                hostingType </span>= “webview_service”<span style="color: #000000;">;<br>            }<br>        }</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Not running -- get it started, and enqueue this service record
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; to be executed when the app comes up.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (app == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp; !&lt;span style="color: #000000;"&gt;permissionsReviewRequired) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ((app=mAm.startProcessLocked(procName, r.appInfo, &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;, intentFlags,
-                hostingType, r.name, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;, isolated, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;)) == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-            String msg &lt;/span&gt;= "Unable to launch app "
-                    + r.appInfo.packageName + "/"
-                    + r.appInfo.uid + " for service "
-                    + r.intent.getIntent() + ": process is bad"&lt;span style="color: #000000;"&gt;;
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If a dead object exception was thrown -- fall through to
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; restart the application.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            }<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> If this service runs in an isolated process, then each time<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> we call startProcessLocked() we will get a new isolated<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> process, starting another process if we are currently waiting<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> for a previous process to come up.  To deal with this, we store<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> in the service any current isolated process it is running in or<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> waiting to have come up.</span><br>            app =<span style="color: #000000;"> r.isolatedProc;<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (WebViewZygote.isMultiprocessEnabled()<br>                    </span>&amp;&amp;<span style="color: #000000;"> r.serviceInfo.packageName.equals(WebViewZygote.getPackageName())) {<br>                hostingType </span>= “webview_service”<span style="color: #000000;">;<br>            }<br>        }</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Not running -- get it started, and enqueue this service record
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; to be executed when the app comes up.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (app == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; !&lt;span style=&quot;color: #000000;&quot;&gt;permissionsReviewRequired) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ((app=mAm.startProcessLocked(procName, r.appInfo, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, intentFlags,
+                hostingType, r.name, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, isolated, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;)) == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            String msg &lt;/span&gt;= &quot;Unable to launch app &quot;
+                    + r.appInfo.packageName + &quot;/&quot;
+                    + r.appInfo.uid + &quot; for service &quot;
+                    + r.intent.getIntent() + &quot;: process is bad&quot;&lt;span style=&quot;color: #000000;&quot;&gt;;
             Slog.w(TAG, msg);
             bringDownServiceLocked(r);
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; msg;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; msg;
         }
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (isolated) {
-            r.isolatedProc &lt;/span&gt;=&lt;span style="color: #000000;"&gt; app;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (isolated) {
+            r.isolatedProc &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; app;
         }
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;mPendingServices.contains(r)) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mPendingServices.contains(r)) {
         mPendingServices.add(r);
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.delayedStop) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Oh and hey we've already been asked to stop!&lt;/span&gt;
-        r.delayedStop = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.startRequested) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
-                    &lt;/span&gt;"Applying delayed stop (in bring up): " +&lt;span style="color: #000000;"&gt; r);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayedStop) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Oh and hey we&apos;ve already been asked to stop!&lt;/span&gt;
+        r.delayedStop = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.startRequested) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Applying delayed stop (in bring up): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
             stopServiceLocked(r);
         }
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
 * 完成了Service的创建、绑定、启动的调用
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; realStartServiceLocked(ServiceRecord r,
-        ProcessRecord app, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; execInFg) &lt;span style="color: #0000ff;"&gt;throws&lt;/span&gt;&lt;span style="color: #000000;"&gt; RemoteException {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (app.thread == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RemoteException();
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; realStartServiceLocked(ServiceRecord r,
+        ProcessRecord app, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; execInFg) &lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RemoteException {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (app.thread == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RemoteException();
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_MU)
-        Slog.v(TAG_MU, &lt;/span&gt;"realStartServiceLocked, ServiceRecord.uid = " +&lt;span style="color: #000000;"&gt; r.appInfo.uid
-                &lt;/span&gt;+ ", ProcessRecord.uid = " +&lt;span style="color: #000000;"&gt; app.uid);
-    r.app &lt;/span&gt;=&lt;span style="color: #000000;"&gt; app;
-    r.restartTime &lt;/span&gt;= r.lastActivity =&lt;span style="color: #000000;"&gt; SystemClock.uptimeMillis();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_MU)
+        Slog.v(TAG_MU, &lt;/span&gt;&quot;realStartServiceLocked, ServiceRecord.uid = &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r.appInfo.uid
+                &lt;/span&gt;+ &quot;, ProcessRecord.uid = &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; app.uid);
+    r.app &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; app;
+    r.restartTime &lt;/span&gt;= r.lastActivity =&lt;span style=&quot;color: #000000;&quot;&gt; SystemClock.uptimeMillis();
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; newService =&lt;span style="color: #000000;"&gt; app.services.add(r);
-    bumpServiceExecutingLocked(r, execInFg, &lt;/span&gt;"create"&lt;span style="color: #000000;"&gt;);
-    mAm.updateLruProcessLocked(app, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-    updateServiceForegroundLocked(r.app, &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; oomAdj= &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; newService =&lt;span style=&quot;color: #000000;&quot;&gt; app.services.add(r);
+    bumpServiceExecutingLocked(r, execInFg, &lt;/span&gt;&quot;create&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    mAm.updateLruProcessLocked(app, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    updateServiceForegroundLocked(r.app, &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; oomAdj= &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
     mAm.updateOomAdjLocked();
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; created = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (LOG_SERVICE_START_STOP) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; created = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (LOG_SERVICE_START_STOP) {
             String nameTerm;
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; lastPeriod = r.shortName.lastIndexOf('.'&lt;span style="color: #000000;"&gt;);
-            nameTerm &lt;/span&gt;= lastPeriod &amp;gt;= 0 ?&lt;span style="color: #000000;"&gt; r.shortName.substring(lastPeriod) : r.shortName;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; lastPeriod = r.shortName.lastIndexOf(&apos;.&apos;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            nameTerm &lt;/span&gt;= lastPeriod &amp;gt;= 0 ?&lt;span style=&quot;color: #000000;&quot;&gt; r.shortName.substring(lastPeriod) : r.shortName;
             EventLogTags.writeAmCreateService(
                     r.userId, System.identityHashCode(r), nameTerm, r.app.uid, r.app.pid);
         }
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;synchronized&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.stats.getBatteryStats()) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;synchronized&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.stats.getBatteryStats()) {
             r.stats.startLaunchedLocked();
         }
         mAm.notifyPackageUse(r.serviceInfo.packageName,
                              PackageManager.NOTIFY_PACKAGE_USE_SERVICE);
         app.forceProcessStateUpTo(ActivityManager.PROCESS_STATE_SERVICE);
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;RPC调用ActivityThread类中的方法创建Service&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            app.thread.scheduleCreateService(r, r.serviceInfo,<br>                    mAm.compatibilityInfoForPackageLocked(r.serviceInfo.applicationInfo),<br>                    app.repProcState);<br>            r.postNotification();<br>            created </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (DeadObjectException e) {<br>            Slog.w(TAG, </span>“Application dead when creating service “ +<span style="color: #000000;"> r);<br>            mAm.appDiedLocked(app);<br>            </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> e;<br>        } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">created) {<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;"> Keep the executeNesting count accurate.</span><br>                <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">boolean</span> inDestroying =<span style="color: #000000;"> mDestroyingServices.contains(r);<br>                serviceDoneExecutingLocked(r, inDestroying, inDestroying);</span></p>
-<pre><code>        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Cleanup.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (newService) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;RPC调用ActivityThread类中的方法创建Service&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            app.thread.scheduleCreateService(r, r.serviceInfo,<br>                    mAm.compatibilityInfoForPackageLocked(r.serviceInfo.applicationInfo),<br>                    app.repProcState);<br>            r.postNotification();<br>            created </span>= <span style="color: #0000ff;">true</span><span style="color: #000000;">;<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (DeadObjectException e) {<br>            Slog.w(TAG, </span>“Application dead when creating service “ +<span style="color: #000000;"> r);<br>            mAm.appDiedLocked(app);<br>            </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> e;<br>        } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">created) {<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;"> Keep the executeNesting count accurate.</span><br>                <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">boolean</span> inDestroying =<span style="color: #000000;"> mDestroyingServices.contains(r);<br>                serviceDoneExecutingLocked(r, inDestroying, inDestroying);</span></p>
+<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Cleanup.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (newService) {
             app.services.remove(r);
-            r.app &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+            r.app &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
         }
 
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Retry.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;inDestroying) {
-            scheduleServiceRestartLocked(r, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Retry.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;inDestroying) {
+            scheduleServiceRestartLocked(r, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
         }
     }
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.whitelistManager) {
-    app.whitelistManager &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.whitelistManager) {
+    app.whitelistManager &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }
 
-&amp;nbsp;&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;绑定该Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">        requestServiceBindingsLocked(r, execInFg);</span></p>
-<pre><code>    updateServiceClientActivitiesLocked(app, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;绑定该Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">        requestServiceBindingsLocked(r, execInFg);</span></p>
+<pre><code>    updateServiceClientActivitiesLocked(app, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; If the service is in the started state, and there are no
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; pending arguments, then fake up one so its onStartCommand() will
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; be called.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (r.startRequested &amp;amp;&amp;amp; r.callStart &amp;amp;&amp;amp; r.pendingStarts.size() == 0&lt;span style="color: #000000;"&gt;) {
-        r.pendingStarts.add(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ServiceRecord.StartItem(r, &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;, r.makeNextStartId(),
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, 0&lt;span style="color: #000000;"&gt;));
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; If the service is in the started state, and there are no
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; pending arguments, then fake up one so its onStartCommand() will
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; be called.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (r.startRequested &amp;amp;&amp;amp; r.callStart &amp;amp;&amp;amp; r.pendingStarts.size() == 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        r.pendingStarts.add(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ServiceRecord.StartItem(r, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, r.makeNextStartId(),
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, 0&lt;span style=&quot;color: #000000;&quot;&gt;));
     }
 
-    &amp;nbsp;&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;启动该Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;
-    sendServiceArgsLocked(r, execInFg, &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;启动该Service&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+    sendServiceArgsLocked(r, execInFg, &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.delayed) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, "REM FR DELAY LIST (new proc): " +&lt;span style="color: #000000;"&gt; r);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayed) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE, &quot;REM FR DELAY LIST (new proc): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
         getServiceMapLocked(r.userId).mDelayedStartList.remove(r);
-        r.delayed &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+        r.delayed &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.delayedStop) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Oh and hey we've already been asked to stop!&lt;/span&gt;
-        r.delayedStop = &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (r.startRequested) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
-                    &lt;/span&gt;"Applying delayed stop (from start): " +&lt;span style="color: #000000;"&gt; r);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.delayedStop) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Oh and hey we&apos;ve already been asked to stop!&lt;/span&gt;
+        r.delayedStop = &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (r.startRequested) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (DEBUG_DELAYED_STARTS) Slog.v(TAG_SERVICE,
+                    &lt;/span&gt;&quot;Applying delayed stop (from start): &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; r);
             stopServiceLocked(r);
         }
     }
@@ -662,40 +664,40 @@ ComponentName startServiceInnerLocked(ServiceMap smap, Intent service, ServiceRe
             s.info </span>=<span style="color: #000000;"> info;
             s.compatInfo </span>=<span style="color: #000000;"> compatInfo;
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;通过sendMessage方法向应用程序主线程MessageQueue中发送一个CREATE_SERVICE消息&lt;/span&gt;</code></pre><p><span style="color: #000000;">            sendMessage(H.CREATE_SERVICE, s);<br>        }</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;通过sendMessage方法向应用程序主线程MessageQueue中发送一个CREATE_SERVICE消息&lt;/span&gt;</code></pre><p><span style="color: #000000;">            sendMessage(H.CREATE_SERVICE, s);<br>        }</span></p>
 <p> </p></span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> handleMessage(Message msg) {<br>            </span><span style="color: #0000ff;">if</span> (DEBUG_MESSAGES) Slog.v(TAG, “&gt;&gt;&gt; handling: “ +<span style="color: #000000;"> codeToString(msg.what));<br>            </span><span style="color: #0000ff;">switch</span><span style="color: #000000;"> (msg.what) {<br>                ……..<p></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;case&lt;/span&gt;&lt;span style="color: #000000;"&gt; CREATE_SERVICE:
-        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, (&lt;/span&gt;"serviceCreate: " +&lt;span style="color: #000000;"&gt; String.valueOf(msg.obj)));</code></pre><p></p></span><span style="color: #008000;">//</span><span style="color: #008000;">    将Service的创建工作交给ActivityThread类的handleCreateService方法来完成</span><br><span style="color: #000000;">                    handleCreateService((CreateServiceData)msg.obj);<br>                    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;<p></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; CREATE_SERVICE:
+        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, (&lt;/span&gt;&quot;serviceCreate: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; String.valueOf(msg.obj)));</code></pre><p></p></span><span style="color: #008000;">//</span><span style="color: #008000;">    将Service的创建工作交给ActivityThread类的handleCreateService方法来完成</span><br><span style="color: #000000;">                    handleCreateService((CreateServiceData)msg.obj);<br>                    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>                    </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;<p></p>
 <pre><code>               ........
            }
 }</code></pre><p></p></span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> handleCreateService(CreateServiceData data) {<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;"> If we are getting ready to gc after going to the background, well<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;"> we are back active so skip it.</span><br><span style="color: #000000;">        unscheduleGcIdler();<p></p>
-<pre><code>LoadedApk packageInfo &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getPackageInfoNoCheck(
+<pre><code>LoadedApk packageInfo &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getPackageInfoNoCheck(
         data.info.applicationInfo, data.compatInfo);
-Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    java.lang.ClassLoader cl &lt;/span&gt;=&lt;span style="color: #000000;"&gt; packageInfo.getClassLoader();
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;data.info.name就是Service是类名，通过类加载器根据类名创建一个实例后强转为Service类的实例&amp;nbsp;&amp;nbsp;&lt;/span&gt;
-    service =&lt;span style="color: #000000;"&gt; (Service) cl.loadClass(data.info.name).newInstance();
-} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Exception e) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (!&lt;span style="color: #000000;"&gt;mInstrumentation.onException(service, e)) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
-            &lt;/span&gt;"Unable to instantiate service " +&lt;span style="color: #000000;"&gt; data.info.name
-            &lt;/span&gt;+ ": " +&lt;span style="color: #000000;"&gt; e.toString(), e);
+Service service &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    java.lang.ClassLoader cl &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; packageInfo.getClassLoader();
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;data.info.name就是Service是类名，通过类加载器根据类名创建一个实例后强转为Service类的实例&amp;nbsp;&amp;nbsp;&lt;/span&gt;
+    service =&lt;span style=&quot;color: #000000;&quot;&gt; (Service) cl.loadClass(data.info.name).newInstance();
+} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Exception e) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (!&lt;span style=&quot;color: #000000;&quot;&gt;mInstrumentation.onException(service, e)) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RuntimeException(
+            &lt;/span&gt;&quot;Unable to instantiate service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; data.info.name
+            &lt;/span&gt;+ &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; e.toString(), e);
     }
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (localLOGV) Slog.v(TAG, "Creating service " +&lt;span style="color: #000000;"&gt; data.info.name);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (localLOGV) Slog.v(TAG, &quot;Creating service &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; data.info.name);
 
-    ContextImpl context &lt;/span&gt;= ContextImpl.createAppContext(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;, packageInfo);
+    ContextImpl context &lt;/span&gt;= ContextImpl.createAppContext(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, packageInfo);
     context.setOuterContext(service);
 
-    Application app &lt;/span&gt;= packageInfo.makeApplication(&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;, mInstrumentation);
-    service.attach(context, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;, data.info.name, data.token, app,
+    Application app &lt;/span&gt;= packageInfo.makeApplication(&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, mInstrumentation);
+    service.attach(context, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, data.info.name, data.token, app,
             ActivityManager.getService());
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;&amp;nbsp;回调Service的onCreate()方法&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            service.onCreate();<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;mServices保存了应用程序进程中所有的Service，把Service添加到该变量中&nbsp;&nbsp;</span><br><span style="color: #000000;">            mServices.put(data.token, service);<br>            </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;通知ActivityManagerService，当前Service创建完成&nbsp;&nbsp;</span><br><span style="color: #000000;">                ActivityManager.getService().serviceDoneExecuting(<br>                        data.token, SERVICE_DONE_EXECUTING_ANON, </span>0, 0<span style="color: #000000;">);<br>            } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (RemoteException e) {<br>                </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> e.rethrowFromSystemServer();<br>            }<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Exception e) {<br>            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">mInstrumentation.onException(service, e)) {<br>                </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> RuntimeException(<br>                    </span>“Unable to create service “ +<span style="color: #000000;"> data.info.name<br>                    </span>+ “: “ +<span style="color: #000000;"> e.toString(), e);<br>            }<br>        }<br>    }</span></p></span></pre><p></p>
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp;回调Service的onCreate()方法&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code></pre><p><span style="color: #000000;">            service.onCreate();<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;mServices保存了应用程序进程中所有的Service，把Service添加到该变量中&nbsp;&nbsp;</span><br><span style="color: #000000;">            mServices.put(data.token, service);<br>            </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;通知ActivityManagerService，当前Service创建完成&nbsp;&nbsp;</span><br><span style="color: #000000;">                ActivityManager.getService().serviceDoneExecuting(<br>                        data.token, SERVICE_DONE_EXECUTING_ANON, </span>0, 0<span style="color: #000000;">);<br>            } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (RemoteException e) {<br>                </span><span style="color: #0000ff;">throw</span><span style="color: #000000;"> e.rethrowFromSystemServer();<br>            }<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (Exception e) {<br>            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">mInstrumentation.onException(service, e)) {<br>                </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span><span style="color: #000000;"> RuntimeException(<br>                    </span>“Unable to create service “ +<span style="color: #000000;"> data.info.name<br>                    </span>+ “: “ +<span style="color: #000000;"> e.toString(), e);<br>            }<br>        }<br>    }</span></p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
-<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180624170737100-200403851.png" alt=""></p>
+<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180624170737100-200403851.png" alt></p>
 </div>
     </div>
     <p class="post-meta">
@@ -717,11 +719,11 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -731,7 +733,7 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/07/01/Java基础面试题汇总/">
             
                 Java基础面试题汇总
@@ -742,7 +744,7 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/06/24/Android源码分析二Activity启动分析/">
             
                 Android 源码分析（二） Activity 启动分析
@@ -754,7 +756,7 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -819,7 +821,16 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析三Service启动分析' || '2018/06/24/Android源码分析三Service启动分析/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -1026,7 +1037,7 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -1037,13 +1048,5 @@ Service service &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析三Service启动分析' || '2018/06/24/Android源码分析三Service启动分析/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

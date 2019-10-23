@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -156,120 +158,120 @@
     };
 
 
-<pre><code>handler.sendEmptyMessage(&lt;/span&gt;1&lt;span style="color: #000000;"&gt;);
+<pre><code>handler.sendEmptyMessage(&lt;/span&gt;1&lt;span style=&quot;color: #000000;&quot;&gt;);
 
-handler.postDelayed(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Runnable() {
+handler.postDelayed(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Runnable() {
         @Override
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; run() {
-            handler.sendEmptyMessage(&lt;/span&gt;2&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; run() {
+            handler.sendEmptyMessage(&lt;/span&gt;2&lt;span style=&quot;color: #000000;&quot;&gt;);
 
-            Message msg &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Message();
-            msg.what &lt;/span&gt;= 3&lt;span style="color: #000000;"&gt;;
+            Message msg &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Message();
+            msg.what &lt;/span&gt;= 3&lt;span style=&quot;color: #000000;&quot;&gt;;
             handler.sendMessage(msg);
         }
-    }, &lt;/span&gt;1000&lt;span style="color: #000000;"&gt;);&lt;br&gt;
-Message msg2 &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Message();
-msg2.what &lt;/span&gt;= 4&lt;span style="color: #000000;"&gt;;
+    }, &lt;/span&gt;1000&lt;span style=&quot;color: #000000;&quot;&gt;);&lt;br&gt;
+Message msg2 &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Message();
+msg2.what &lt;/span&gt;= 4&lt;span style=&quot;color: #000000;&quot;&gt;;
 handler.sendMessage(msg2);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>输出结果:</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180707123135364-1224869612.png" alt=""></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180707123135364-1224869612.png" alt></p>
 <h2>二.源码分析</h2>
 <pre><span style="color: #000000;">从handler.sendMessage(msg)进去看看源码怎么调用的.<br></span></pre>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre>//<span style="color: #000000;">Handler.java
 
-<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Looper.prepare()方法初始化了一个Looper对象并关联在一个MessageQueue对象，并且一个线程中只有一个Looper对象，只有一个MessageQueue对象。
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Handler的构造方法则在Handler内部维护了当前线程的Looper对象&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; Handler(Callback callback, &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; async) {
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Looper.prepare()方法初始化了一个Looper对象并关联在一个MessageQueue对象，并且一个线程中只有一个Looper对象，只有一个MessageQueue对象。
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Handler的构造方法则在Handler内部维护了当前线程的Looper对象&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; Handler(Callback callback, &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; async) {
     ......
-    mLooper &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Looper.myLooper();
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (mLooper == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
-            &lt;/span&gt;"Can't create handler inside thread that has not called Looper.prepare()"&lt;span style="color: #000000;"&gt;);
+    mLooper &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Looper.myLooper();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (mLooper == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RuntimeException(
+            &lt;/span&gt;&quot;Can&apos;t create handler inside thread that has not called Looper.prepare()&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
     }
     ......
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; if we can get rid of this method, the handler need not remember its loop
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; we could instead export a getMessageQueue() method... &lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt;&lt;span style="color: #000000;"&gt; Looper getLooper() {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mLooper;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; if we can get rid of this method, the handler need not remember its loop
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; we could instead export a getMessageQueue() method... &lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Looper getLooper() {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mLooper;
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
  * Pushes a message onto the end of the message queue after all pending messages
- * before the current time. It will be received in {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; #handleMessage},
+ * before the current time. It will be received in {&lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@link&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; #handleMessage},
  * in the thread attached to this handler.
  *  
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; Returns true if the message was successfully placed in to the 
+ * &lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@return&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Returns true if the message was successfully placed in to the 
  *         message queue.  Returns false on failure, usually because the
  *         looper processing the message queue is exiting.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; sendMessage(Message msg)
+ &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; sendMessage(Message msg)
 {
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;参数 0 代表,无延迟.&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; sendMessageDelayed(msg, 0&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;参数 0 代表,无延迟.&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; sendMessageDelayed(msg, 0&lt;span style=&quot;color: #000000;&quot;&gt;);
 }
 
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+ &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
  * Enqueue a message into the message queue after all pending messages
  * before (current time + delayMillis). You will receive it in
- * {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; #handleMessage}, in the thread attached to this handler.
+ * {&lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@link&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; #handleMessage}, in the thread attached to this handler.
  *  
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; Returns true if the message was successfully placed in to the 
+ * &lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@return&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Returns true if the message was successfully placed in to the 
  *         message queue.  Returns false on failure, usually because the
  *         looper processing the message queue is exiting.  Note that a
  *         result of true does not mean the message will be processed -- if
  *         the looper is quit before the delivery time of the message
  *         occurs then the message will be dropped.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; sendMessageDelayed(Message msg, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; delayMillis)
+ &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; sendMessageDelayed(Message msg, &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; delayMillis)
 {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (delayMillis &amp;lt; 0&lt;span style="color: #000000;"&gt;) {
-        delayMillis &lt;/span&gt;= 0&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (delayMillis &amp;lt; 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        delayMillis &lt;/span&gt;= 0&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; sendMessageAtTime(msg, SystemClock.uptimeMillis() +&lt;span style="color: #000000;"&gt; delayMillis);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; sendMessageAtTime(msg, SystemClock.uptimeMillis() +&lt;span style=&quot;color: #000000;&quot;&gt; delayMillis);
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
  * Enqueue a message into the message queue after all pending messages
  * before the absolute time (in milliseconds) &amp;lt;var&amp;gt;uptimeMillis&amp;lt;/var&amp;gt;.
- * &amp;lt;b&amp;gt;The time-base is {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; android.os.SystemClock#uptimeMillis}.&amp;lt;/b&amp;gt;
+ * &amp;lt;b&amp;gt;The time-base is {&lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@link&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; android.os.SystemClock#uptimeMillis}.&amp;lt;/b&amp;gt;
  * Time spent in deep sleep will add an additional delay to execution.
- * You will receive it in {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; #handleMessage}, in the thread attached
+ * You will receive it in {&lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@link&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; #handleMessage}, in the thread attached
  * to this handler.
  * 
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@param&lt;/span&gt;&lt;span style="color: #008000;"&gt; uptimeMillis The absolute time at which the message should be
+ * &lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@param&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; uptimeMillis The absolute time at which the message should be
  *         delivered, using the
- *         {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; android.os.SystemClock#uptimeMillis} time-base.
+ *         {&lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@link&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; android.os.SystemClock#uptimeMillis} time-base.
  *         
- * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; Returns true if the message was successfully placed in to the 
+ * &lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@return&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Returns true if the message was successfully placed in to the 
  *         message queue.  Returns false on failure, usually because the
  *         looper processing the message queue is exiting.  Note that a
  *         result of true does not mean the message will be processed -- if
  *         the looper is quit before the delivery time of the message
  *         occurs then the message will be dropped.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; sendMessageAtTime(Message msg, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; uptimeMillis) {
-    MessageQueue queue &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mQueue;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (queue == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        RuntimeException e &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; RuntimeException(
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt; + " sendMessageAtTime() called with no mQueue"&lt;span style="color: #000000;"&gt;);
-        Log.w(&lt;/span&gt;"Looper"&lt;span style="color: #000000;"&gt;, e.getMessage(), e);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+ &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; sendMessageAtTime(Message msg, &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; uptimeMillis) {
+    MessageQueue queue &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mQueue;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (queue == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        RuntimeException e &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; RuntimeException(
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt; + &quot; sendMessageAtTime() called with no mQueue&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        Log.w(&lt;/span&gt;&quot;Looper&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, e.getMessage(), e);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; enqueueMessage(queue, msg, uptimeMillis);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; enqueueMessage(queue, msg, uptimeMillis);
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; enqueueMessage(MessageQueue queue, Message msg, &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; uptimeMillis) {
-    msg.target &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mAsynchronous) {
-        msg.setAsynchronous(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; enqueueMessage(MessageQueue queue, Message msg, &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; uptimeMillis) {
+    msg.target &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mAsynchronous) {
+        msg.setAsynchronous(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; queue.enqueueMessage(msg, uptimeMillis);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; queue.enqueueMessage(msg, uptimeMillis);
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;msg.target就是Handler对象本身；而这里的queue对象就是我们的Handler内部维护的Looper对象关联的MessageQueue对象.&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;msg.target就是Handler对象本身；而这里的queue对象就是我们的Handler内部维护的Looper对象关联的MessageQueue对象.&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <pre></pre>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">MessageQueue.java</span>
@@ -281,50 +283,50 @@ handler.sendMessage(msg2);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnbl
             </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> IllegalStateException(msg + " This message is already in use."<span style="color: #000000;">);
         }
 
-<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;synchronized&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mQuitting) {
-            IllegalStateException e &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; IllegalStateException(
-                    msg.target &lt;/span&gt;+ " sending message to a Handler on a dead thread"&lt;span style="color: #000000;"&gt;);
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;synchronized&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mQuitting) {
+            IllegalStateException e &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; IllegalStateException(
+                    msg.target &lt;/span&gt;+ &quot; sending message to a Handler on a dead thread&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
             Log.w(TAG, e.getMessage(), e);
             msg.recycle();
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
         }
 
         msg.markInUse();
-        msg.when &lt;/span&gt;=&lt;span style="color: #000000;"&gt; when;
-        Message p &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mMessages;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt;&lt;span style="color: #000000;"&gt; needWake;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (p == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; || when == 0 || when &amp;lt;&lt;span style="color: #000000;"&gt; p.when) {
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; New head, wake up the event queue if blocked.&lt;/span&gt;
-            msg.next =&lt;span style="color: #000000;"&gt; p;
-            mMessages &lt;/span&gt;=&lt;span style="color: #000000;"&gt; msg;
-            needWake &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mBlocked;
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Inserted within the middle of the queue.  Usually we don't have to wake
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; up the event queue unless there is a barrier at the head of the queue
-            &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; and the message is the earliest asynchronous message in the queue.&lt;/span&gt;
-            needWake = mBlocked &amp;amp;&amp;amp; p.target == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; msg.isAsynchronous();
+        msg.when &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; when;
+        Message p &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mMessages;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; needWake;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (p == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; || when == 0 || when &amp;lt;&lt;span style=&quot;color: #000000;&quot;&gt; p.when) {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; New head, wake up the event queue if blocked.&lt;/span&gt;
+            msg.next =&lt;span style=&quot;color: #000000;&quot;&gt; p;
+            mMessages &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; msg;
+            needWake &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mBlocked;
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Inserted within the middle of the queue.  Usually we don&apos;t have to wake
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; up the event queue unless there is a barrier at the head of the queue
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; and the message is the earliest asynchronous message in the queue.&lt;/span&gt;
+            needWake = mBlocked &amp;amp;&amp;amp; p.target == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; msg.isAsynchronous();
             Message prev;
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;&lt;span style="color: #000000;"&gt; (;;) {
-                prev &lt;/span&gt;=&lt;span style="color: #000000;"&gt; p;
-                p &lt;/span&gt;=&lt;span style="color: #000000;"&gt; p.next;
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (p == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; || when &amp;lt;&lt;span style="color: #000000;"&gt; p.when) {
-                    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;break&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (;;) {
+                prev &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; p;
+                p &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; p.next;
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (p == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; || when &amp;lt;&lt;span style=&quot;color: #000000;&quot;&gt; p.when) {
+                    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
                 }
-                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (needWake &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; p.isAsynchronous()) {
-                    needWake &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (needWake &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; p.isAsynchronous()) {
+                    needWake &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
                 }
             }
-            msg.next &lt;/span&gt;= p; &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; invariant: p == prev.next&lt;/span&gt;
-            prev.next =&lt;span style="color: #000000;"&gt; msg;
+            msg.next &lt;/span&gt;= p; &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; invariant: p == prev.next&lt;/span&gt;
+            prev.next =&lt;span style=&quot;color: #000000;&quot;&gt; msg;
         }
 
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; We can assume mPtr != 0 because mQuitting is false.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (needWake) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; We can assume mPtr != 0 because mQuitting is false.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (needWake) {
             nativeWake(mPtr);
         }
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">Looper.java</span>
@@ -339,46 +341,46 @@ handler.sendMessage(msg2);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnbl
         }
         </span><span style="color: #0000ff;">final</span> MessageQueue queue =<span style="color: #000000;"> me.mQueue;
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure the identity of this thread is that of the local process,
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; and keep track of what that identity token actually is.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Binder.clearCallingIdentity();<br>        </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">long</span> ident =<span style="color: #000000;"> Binder.clearCallingIdentity();</span></p>
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;Looper.loop()方法里起了一个死循环，不断的判断MessageQueue中的消息是否为空，如果为空则直接return掉，然后执行queue.next()方法：&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;&lt;span style="color: #000000;"&gt; (;;) {
-    Message msg &lt;/span&gt;= queue.next(); &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; might block&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (msg == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; No message indicates that the message queue is quitting.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure the identity of this thread is that of the local process,
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; and keep track of what that identity token actually is.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Binder.clearCallingIdentity();<br>        </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">long</span> ident =<span style="color: #000000;"> Binder.clearCallingIdentity();</span></p>
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Looper.loop()方法里起了一个死循环，不断的判断MessageQueue中的消息是否为空，如果为空则直接return掉，然后执行queue.next()方法：&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (;;) {
+    Message msg &lt;/span&gt;= queue.next(); &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; might block&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (msg == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; No message indicates that the message queue is quitting.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
     }
 
-    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; This must be in a local variable, in case a UI event sets the logger&lt;/span&gt;
-    &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; Printer logging =&lt;span style="color: #000000;"&gt; me.mLogging;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (logging != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        logging.println(&lt;/span&gt;"&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Dispatching to " + msg.target + " " +&lt;span style="color: #000000;"&gt;
-                msg.callback &lt;/span&gt;+ ": " +&lt;span style="color: #000000;"&gt; msg.what);
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; This must be in a local variable, in case a UI event sets the logger&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; Printer logging =&lt;span style=&quot;color: #000000;&quot;&gt; me.mLogging;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (logging != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        logging.println(&lt;/span&gt;&quot;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Dispatching to &quot; + msg.target + &quot; &quot; +&lt;span style=&quot;color: #000000;&quot;&gt;
+                msg.callback &lt;/span&gt;+ &quot;: &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; msg.what);
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; slowDispatchThresholdMs =&lt;span style="color: #000000;"&gt; me.mSlowDispatchThresholdMs;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; slowDispatchThresholdMs =&lt;span style=&quot;color: #000000;&quot;&gt; me.mSlowDispatchThresholdMs;
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; traceTag =&lt;span style="color: #000000;"&gt; me.mTraceTag;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (traceTag != 0 &amp;amp;&amp;amp;&lt;span style="color: #000000;"&gt; Trace.isTagEnabled(traceTag)) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; traceTag =&lt;span style=&quot;color: #000000;&quot;&gt; me.mTraceTag;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (traceTag != 0 &amp;amp;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt; Trace.isTagEnabled(traceTag)) {
         Trace.traceBegin(traceTag, msg.target.getTraceName(msg));
     }
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; start = (slowDispatchThresholdMs == 0) ? 0&lt;span style="color: #000000;"&gt; : SystemClock.uptimeMillis();
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; end;
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;msg.target就是Handler对象本身&lt;/span&gt;</code></pre><p><span style="color: #000000;">                msg.target.dispatchMessage(msg);<br>                end </span>= (slowDispatchThresholdMs == 0) ? 0<span style="color: #000000;"> : SystemClock.uptimeMillis();<br>            } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>                </span><span style="color: #0000ff;">if</span> (traceTag != 0<span style="color: #000000;">) {<br>                    Trace.traceEnd(traceTag);<br>                }<br>            }<br>            </span><span style="color: #0000ff;">if</span> (slowDispatchThresholdMs &gt; 0<span style="color: #000000;">) {<br>                </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">long</span> time = end -<span style="color: #000000;"> start;<br>                </span><span style="color: #0000ff;">if</span> (time &gt;<span style="color: #000000;"> slowDispatchThresholdMs) {<br>                    Slog.w(TAG, </span>“Dispatch took “ + time + “ms on “<br>                            + Thread.currentThread().getName() + “, h=” +<span style="color: #000000;"><br>                            msg.target </span>+ “ cb=” + msg.callback + “ msg=” +<span style="color: #000000;"> msg.what);<br>                }<br>            }</span></p>
-<pre><code>        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (logging != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-            logging.println(&lt;/span&gt;"&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; Finished to " + msg.target + " " +&lt;span style="color: #000000;"&gt; msg.callback);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; start = (slowDispatchThresholdMs == 0) ? 0&lt;span style=&quot;color: #000000;&quot;&gt; : SystemClock.uptimeMillis();
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; end;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;msg.target就是Handler对象本身&lt;/span&gt;</code></pre><p><span style="color: #000000;">                msg.target.dispatchMessage(msg);<br>                end </span>= (slowDispatchThresholdMs == 0) ? 0<span style="color: #000000;"> : SystemClock.uptimeMillis();<br>            } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>                </span><span style="color: #0000ff;">if</span> (traceTag != 0<span style="color: #000000;">) {<br>                    Trace.traceEnd(traceTag);<br>                }<br>            }<br>            </span><span style="color: #0000ff;">if</span> (slowDispatchThresholdMs &gt; 0<span style="color: #000000;">) {<br>                </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">long</span> time = end -<span style="color: #000000;"> start;<br>                </span><span style="color: #0000ff;">if</span> (time &gt;<span style="color: #000000;"> slowDispatchThresholdMs) {<br>                    Slog.w(TAG, </span>“Dispatch took “ + time + “ms on “<br>                            + Thread.currentThread().getName() + “, h=” +<span style="color: #000000;"><br>                            msg.target </span>+ “ cb=” + msg.callback + “ msg=” +<span style="color: #000000;"> msg.what);<br>                }<br>            }</span></p>
+<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (logging != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            logging.println(&lt;/span&gt;&quot;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; Finished to &quot; + msg.target + &quot; &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; msg.callback);
         }
 
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure that during the course of dispatching the
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; identity of the thread wasn't corrupted.&lt;/span&gt;
-        &lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;long&lt;/span&gt; newIdent =&lt;span style="color: #000000;"&gt; Binder.clearCallingIdentity();
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (ident !=&lt;span style="color: #000000;"&gt; newIdent) {
-            Log.wtf(TAG, &lt;/span&gt;"Thread identity changed from 0x"
-                    + Long.toHexString(ident) + " to 0x"
-                    + Long.toHexString(newIdent) + " while dispatching to "
-                    + msg.target.getClass().getName() + " "
-                    + msg.callback + " what=" +&lt;span style="color: #000000;"&gt; msg.what);
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure that during the course of dispatching the
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; identity of the thread wasn&apos;t corrupted.&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt; newIdent =&lt;span style=&quot;color: #000000;&quot;&gt; Binder.clearCallingIdentity();
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (ident !=&lt;span style=&quot;color: #000000;&quot;&gt; newIdent) {
+            Log.wtf(TAG, &lt;/span&gt;&quot;Thread identity changed from 0x&quot;
+                    + Long.toHexString(ident) + &quot; to 0x&quot;
+                    + Long.toHexString(newIdent) + &quot; while dispatching to &quot;
+                    + msg.target.getClass().getName() + &quot; &quot;
+                    + msg.callback + &quot; what=&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; msg.what);
         }
 
         msg.recycleUnchecked();
@@ -403,7 +405,7 @@ handler.sendMessage(msg2);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnbl
         }
     }
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;static&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; handleCallback(Message message) {
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;static&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; handleCallback(Message message) {
     message.callback.run();
 }
 &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
@@ -414,40 +416,40 @@ handler.sendMessage(msg2);&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnbl
         Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, </span>"ActivityThreadMain"<span style="color: #000000;">);
         SamplingProfilerIntegration.start();
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; CloseGuard defaults to true and can be quite spammy.  We
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; disable it here, but selectively enable it later (via
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; StrictMode) on debug builds, but using DropBox, not logs.&lt;/span&gt;
-CloseGuard.setEnabled(&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; CloseGuard defaults to true and can be quite spammy.  We
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; disable it here, but selectively enable it later (via
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; StrictMode) on debug builds, but using DropBox, not logs.&lt;/span&gt;
+CloseGuard.setEnabled(&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 
 Environment.initForCurrentUser();
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Set the reporter for event logging in libcore&lt;/span&gt;
-EventLogger.setReporter(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; EventLoggingReporter());
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Set the reporter for event logging in libcore&lt;/span&gt;
+EventLogger.setReporter(&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; EventLoggingReporter());
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Make sure TrustedCertificateStore looks in the right place for CA certificates&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;final&lt;/span&gt; File configDir =&lt;span style="color: #000000;"&gt; Environment.getUserConfigDirectory(UserHandle.myUserId());
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Make sure TrustedCertificateStore looks in the right place for CA certificates&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;final&lt;/span&gt; File configDir =&lt;span style=&quot;color: #000000;&quot;&gt; Environment.getUserConfigDirectory(UserHandle.myUserId());
 TrustedCertificateStore.setDefaultUserDirectory(configDir);
 
-Process.setArgV0(&lt;/span&gt;"&amp;lt;pre-initialized&amp;gt;"&lt;span style="color: #000000;"&gt;);
+Process.setArgV0(&lt;/span&gt;&quot;&amp;lt;pre-initialized&amp;gt;&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
 
 Looper.prepareMainLooper();
 
-ActivityThread thread &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; ActivityThread();
-thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+ActivityThread thread &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ActivityThread();
+thread.attach(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (sMainThreadHandler == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    sMainThreadHandler &lt;/span&gt;=&lt;span style="color: #000000;"&gt; thread.getHandler();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (sMainThreadHandler == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    sMainThreadHandler &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; thread.getHandler();
 }
 
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-    Looper.myLooper().setMessageLogging(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt;
-            LogPrinter(Log.DEBUG, &lt;/span&gt;"ActivityThread"&lt;span style="color: #000000;"&gt;));
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    Looper.myLooper().setMessageLogging(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+            LogPrinter(Log.DEBUG, &lt;/span&gt;&quot;ActivityThread&quot;&lt;span style=&quot;color: #000000;&quot;&gt;));
 }
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; End of event ActivityThreadMain.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">主线程启动就调用了loop().</span><br><span style="color: #000000;">        Looper.loop();</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("Main thread loop unexpectedly exited"&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; End of event ActivityThreadMain.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">主线程启动就调用了loop().</span><br><span style="color: #000000;">        Looper.loop();</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;Main thread loop unexpectedly exited&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
-<h2><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180707123851869-829464379.png" alt=""></h2>
+<h2><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180707123851869-829464379.png" alt></h2>
 <h2>三.总结:</h2>
 <p>一.Handler,Looper,MessageQue三者关系&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</p>
 <p>　　1.Looper：相当于消息的载体<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 　　1) 它的内部有一个消息队列，也就是MessageQueue，Handler发送的所有消息都会走向这个消息队里。<br><br>&nbsp;&nbsp;&nbsp;&nbsp; 　　2) 它的Looper.loop方法是一个死循环，不断的从消息队列MessageQueue中取出消息。如果有消息存在就处理该消息，否则就阻塞。<br><br>&nbsp;&nbsp; &nbsp;2.MessageQue：就是一个消息队列，可以向其中添加消息并处理消息。<br><br>&nbsp;&nbsp; &nbsp;3.Handler其实就是发送消息处理消息的封装。它与Looper相关联，也就是说在Handler的内部可以找到Looper，找到了Looper就找到了相应的消息队列。因此Handler发送的消息都会走向MessageQueue。<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </p>
@@ -475,11 +477,11 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -489,7 +491,7 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/07/07/Android源码分析五Zygote进程/">
             
                 Android 源码分析（五） Zygote 进程
@@ -500,7 +502,7 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/07/06/23种设计模式在Android中的应用/">
             
                 23种设计模式在Android中的应用
@@ -512,7 +514,7 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -577,7 +579,16 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析四Handler异步消息机制' || '2018/07/07/Android源码分析四Handler异步消息机制/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -784,7 +795,7 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -795,13 +806,5 @@ thread.attach(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析四Handler异步消息机制' || '2018/07/07/Android源码分析四Handler异步消息机制/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

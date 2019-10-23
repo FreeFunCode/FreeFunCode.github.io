@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -513,7 +515,7 @@
 </table>
 
 <p>二、了解了这些元字符后，我们就可以造车轱辘了！接下来介绍一些常用的正则表达式来做验证！！</p>
-<p><span style="color: #0000ff;">　整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span><br><span style="color: #0000ff;">　　整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span><br><span style="color: #0000ff;">　　只能输入数字：”^[0-9]<em>$”。</em></span><br><span style="color: #0000ff;">　　只能输入n位的数字：”^\d{n}$”。</span><br><span style="color: #0000ff;">　　只能输入至少n位的数字：”^\d{n,}$”。</span><br><span style="color: #0000ff;">　　只能输入m~n位的数字：。”^\d{m,n}$”</span><br><span style="color: #0000ff;">　　只能输入零和非零开头的数字：”^(0|[1-9][0-9])$”。</span><br><span style="color: #0000ff;">　　只能输入有两位小数的正实数：”^[0-9]+(.[0-9]{2})?$”。</span><br><span style="color: #0000ff;">　　只能输入有1<del>3位小数的正实数：”^[0-9]+(.[0-9]{1,3})?$”。</del></span><br><span style="color: #0000ff;">　　只能输入非零的正整数：”^+?[1-9][0-9]<em>$”。</em></span><br><span style="color: #0000ff;">　　只能输入非零的负整数：”^-[1-9][]0-9”$。</span><br><span style="color: #0000ff;">　　只能输入长度为3的字符：”^.{3}$”。</span><br><span style="color: #0000ff;">　　只能输入由26个英文字母组成的字符串：”^[A-Za-z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由26个大写英文字母组成的字符串：”^[A-Z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由26个小写英文字母组成的字符串：”^[a-z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由数字和26个英文字母组成的字符串：”^[A-Za-z0-9]+$”。</span><br><span style="color: #0000ff;">　　只能输入由数字、26个英文字母或者下划线组成的字符串：”^\w+$”。</span><br><span style="color: #0000ff;">　　验证用户密码：”^[a-zA-Z]\w{5,17}$”正确格式为：以字母开头，长度在618之间，只能包含字符、数字和下划线。</span><br><span style="color: #0000ff;">　　验证是否含有^%&amp;’’,;=?$"等字符：”[^%&amp;’’,;=?$\x22]+”。</span><br><span style="color: #0000ff;">　　只能输入汉字：”^[\u4e00-\u9fa5]{0,}$”</span><br><span style="color: #0000ff;">　　验证Email地址：”^\w+([-+.]\w+)<em>@\w+([-.]\w+)*.\w+([-.]\w+)</em>$”。</span><br><span style="color: #0000ff;">　　验证InternetURL：”^http://([\w-]+.)+[\w-]+(/[\w-./?%&amp;=]*)?$”。</span><br><span style="color: #0000ff;">　　验证电话号码：”^((\d{3,4}-)|\d{3.4}-)?\d{7,8}$”正确格式为：”XXX-XXXXXXX”、”XXXX- XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX”。</span><br><span style="color: #0000ff;">　　验证身份证号（15位或18位数字）：”^\d{15}|\d{18}$”。</span><br><span style="color: #0000ff;">　　验证一年的12个月：”^(0?[1-9]|1[0-2])$”正确格式为：”01”～”09”和”1”～”12”。</span><br><span style="color: #0000ff;">　　验证一个月的31天：”^((0?[1-9])|((1|2)[0-9])|30|31)$”正确格式为；”01”～”09”和”1”～”31”。整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span></p>
+<p><span style="color: #0000ff;">　整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span><br><span style="color: #0000ff;">　　整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span><br><span style="color: #0000ff;">　　只能输入数字：”^[0-9]<em>$”。</em></span><br><span style="color: #0000ff;">　　只能输入n位的数字：”^\d{n}$”。</span><br><span style="color: #0000ff;">　　只能输入至少n位的数字：”^\d{n,}$”。</span><br><span style="color: #0000ff;">　　只能输入m~n位的数字：。”^\d{m,n}$”</span><br><span style="color: #0000ff;">　　只能输入零和非零开头的数字：”^(0|[1-9][0-9])$”。</span><br><span style="color: #0000ff;">　　只能输入有两位小数的正实数：”^[0-9]+(.[0-9]{2})?$”。</span><br><span style="color: #0000ff;">　　只能输入有1<del>3位小数的正实数：”^[0-9]+(.[0-9]{1,3})?$”。</del></span><br><span style="color: #0000ff;">　　只能输入非零的正整数：”^+?[1-9][0-9]<em>$”。</em></span><br><span style="color: #0000ff;">　　只能输入非零的负整数：”^-[1-9][]0-9”$。</span><br><span style="color: #0000ff;">　　只能输入长度为3的字符：”^.{3}$”。</span><br><span style="color: #0000ff;">　　只能输入由26个英文字母组成的字符串：”^[A-Za-z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由26个大写英文字母组成的字符串：”^[A-Z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由26个小写英文字母组成的字符串：”^[a-z]+$”。</span><br><span style="color: #0000ff;">　　只能输入由数字和26个英文字母组成的字符串：”^[A-Za-z0-9]+$”。</span><br><span style="color: #0000ff;">　　只能输入由数字、26个英文字母或者下划线组成的字符串：”^\w+$”。</span><br><span style="color: #0000ff;">　　验证用户密码：”^[a-zA-Z]\w{5,17}$”正确格式为：以字母开头，长度在618之间，只能包含字符、数字和下划线。</span><br><span style="color: #0000ff;">　　验证是否含有^%&amp;’’,;=?$&quot;等字符：”[^%&amp;’’,;=?$\x22]+”。</span><br><span style="color: #0000ff;">　　只能输入汉字：”^[\u4e00-\u9fa5]{0,}$”</span><br><span style="color: #0000ff;">　　验证Email地址：”^\w+([-+.]\w+)<em>@\w+([-.]\w+)*.\w+([-.]\w+)</em>$”。</span><br><span style="color: #0000ff;">　　验证InternetURL：”^http://([\w-]+.)+[\w-]+(/[\w-./?%&amp;=]*)?$”。</span><br><span style="color: #0000ff;">　　验证电话号码：”^((\d{3,4}-)|\d{3.4}-)?\d{7,8}$”正确格式为：”XXX-XXXXXXX”、”XXXX- XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX”。</span><br><span style="color: #0000ff;">　　验证身份证号（15位或18位数字）：”^\d{15}|\d{18}$”。</span><br><span style="color: #0000ff;">　　验证一年的12个月：”^(0?[1-9]|1[0-2])$”正确格式为：”01”～”09”和”1”～”12”。</span><br><span style="color: #0000ff;">　　验证一个月的31天：”^((0?[1-9])|((1|2)[0-9])|30|31)$”正确格式为；”01”～”09”和”1”～”31”。整数或者小数：^[0-9]+.{0,1}[0-9]{0,2}$</span></p>
 </div>
     </div>
     <p class="post-meta">
@@ -535,11 +537,11 @@
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -549,7 +551,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2014/05/08/002-DateFormat/">
             
                 C#/JavaScript/SqlServer 对日期时间的操作整理汇总
@@ -560,7 +562,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2014/04/27/Hello-Hexo/">
             
                 Hello Hexo
@@ -572,7 +574,7 @@
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -637,7 +639,16 @@
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: '001-RegEx' || '2014/05/07/001-RegEx/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -844,7 +855,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -855,13 +866,5 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: '001-RegEx' || '2014/05/07/001-RegEx/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
