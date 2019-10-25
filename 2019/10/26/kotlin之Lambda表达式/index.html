@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>`Service`标签下的文章 | 网记本</title>
+    <title>kotlin之Lambda表达式 | 网记本</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
     <meta name="description" content="FreeFunCode网络记事本">
@@ -56,23 +56,23 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/tags/Service/index.html" class="item ">
+            <li rel="/2019/10/26/kotlin之Lambda表达式/index.html" class="item ">
                 <a href="/" title="日志" class="icon-home">&nbsp;日志</a>
             </li>
             
-            <li rel="/tags/Service/index.html" class="item ">
+            <li rel="/2019/10/26/kotlin之Lambda表达式/index.html" class="item ">
                 <a href="/photos/" title="相册" class="icon-files-empty">&nbsp;相册</a>
             </li>
             
-            <li rel="/tags/Service/index.html" class="item ">
+            <li rel="/2019/10/26/kotlin之Lambda表达式/index.html" class="item ">
                 <a href="/lab/" title="建站" class="icon-office">&nbsp;建站</a>
             </li>
             
-            <li rel="/tags/Service/index.html" class="item ">
+            <li rel="/2019/10/26/kotlin之Lambda表达式/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-profile">&nbsp;关于</a>
             </li>
             
-            <li rel="/tags/Service/index.html" class="item ">
+            <li rel="/2019/10/26/kotlin之Lambda表达式/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -119,76 +119,166 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 按标签分类 -->
-
-    <h3 class="widget-hd">
-        <strong>
-            
-                `Service`标签下的文章
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/Android/">Android</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://inote.fun/2018/05/13/四大组件-二-Service使用/">
-    		Android 四大组件 (二) Service 使用
-    	</a>
-    </h3>
-
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>kotlin之Lambda表达式</span></h3>
     </header>
-    <p class="post-meta">
+    <p class="post-meta text-center">
         huangguangzhi 发表于
-        <time datetime="2018-05-13T15:46:47.000Z">2018-05-13</time>
-        &nbsp;&nbsp;
+        <time datetime="2019-10-25T17:01:49.000Z">2019-10-26</time>
+    </p>
+    <div class="post-content">
+        <h1 id="kotlin之Lambda表达式"><a href="#kotlin之Lambda表达式" class="headerlink" title="kotlin之Lambda表达式"></a>kotlin之Lambda表达式</h1><blockquote>
+<p> Java8中引入，匿名函数。</p>
+<p> 普通的Lambda表达式类似对应kotlin普通函数的声明，而带接收者的lambda表达式则类似对应kotlin的扩展函数。</p>
+</blockquote>
+<h5 id="lambda的基本语法"><a href="#lambda的基本语法" class="headerlink" title="lambda的基本语法"></a>lambda的基本语法</h5><p><code>{ variable -&gt; body_of_function}</code> 示例：<code>{ x:Int, y:Int -&gt; x + y }</code></p>
+<p>lambda表达式始终用花括号包围，实参并没有用括号括起来。箭头把实参列表和lambda的函数体隔开</p>
+<a id="more"></a>
+
+<h5 id="lambda作为函数的参数传递"><a href="#lambda作为函数的参数传递" class="headerlink" title="lambda作为函数的参数传递"></a>lambda作为函数的参数传递</h5><p>示例：<code>val sum = { x: Int, y: Int -&gt; x + y }</code></p>
+<p>可以把lambda表达式存储在一个变量中，把这个变量当做普通函数对待，也可以直接写作函数参数。</p>
+<h5 id="lambda表达式的返回值"><a href="#lambda表达式的返回值" class="headerlink" title="lambda表达式的返回值"></a>lambda表达式的返回值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val isOddNumber = &#123; number: Int -&gt;</span><br><span class="line">        println(&quot;number is $number&quot;)</span><br><span class="line">        number % 2 == 1</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>lambda表达式返回值总是返回函数体内部最后一行表达式的值</p>
+<h5 id="invoke-方法"><a href="#invoke-方法" class="headerlink" title="invoke 方法"></a>invoke 方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123; </span><br><span class="line">     val add= &#123; </span><br><span class="line">         left: Int, right: Int </span><br><span class="line">         -&gt; </span><br><span class="line">         left + right </span><br><span class="line">     &#125; </span><br><span class="line">     println(add.invoke(2, 3)) </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个变量 add，赋值为一个 Lambda 表达式。Lambda 表达式用一对大括号括起来，后面先依次写下参数及其类型，如果没有就不写，接着写下 -&gt; ，这表明后面的是函数体了，函数体的最后一句的表达式结果就是 Lambda 表达式的返回值，比如这里的返回值就是参数求和的结果。后面我们用 () 的形式调用这个 Lambda 表达式，其实这个 () 对应的是 invoke 方法。</p>
+<h5 id="结合kotlin-扩展函数使用"><a href="#结合kotlin-扩展函数使用" class="headerlink" title="结合kotlin 扩展函数使用"></a>结合kotlin 扩展函数使用</h5><p><a href="https://inote.fun/2019/09/28/Kotlin%E4%B8%8Ejava%E5%AF%B9%E6%AF%94/">Kotlin与java对比</a></p>
+<hr>
+<p>注意：语法简化是把双刃剑，简化固然不错，使用简单方便，但是不能滥用，也需要考虑到代码的可读性.上图中Lambda化简成的最简单形式用it这种，一般在多个Lambda嵌套的时候不建议使用，严重造成代码可读性，到最后估计连开发者都不知道it指代什么了。</p>
+<p><img src="/images/kotlin_vs_java.png" alt="kotlinVSjava"></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Android/">Android</a>|<a class="cat-link" href="/categories/Android/kotlin/">kotlin</a>
+        </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/Service/" title="Service">Service</a>
+        <a href="/tags/kotlin/" title="kotlin">kotlin</a>
     
 
         </span>
     </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p><a href="https://www.cnblogs.com/bugzone/p/android_service.html" target="_blank" rel="noopener">点击查看原文</a></p>
-            
-            <p class="more">
-                <a href="https://inote.fun/2018/05/13/四大组件-二-Service使用/">阅读剩下更多</a>
-            </p>
-        </div>
-        
-	<div class="post-thumbnail" data-img="">
-<!--
-            <a href="https://inote.fun/2018/05/13/四大组件-二-Service使用/" title="Android 四大组件 (二) Service 使用">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图" >
-                
-            </a>
--->
-        </div>
-
-    </div>
 </article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
 
     
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2019/10/20/第一次买房经历/">
+            
+                第一次买房经历
+            
+        </a>
+    </span>
+    
+</div>
 
-    
-    <nav class="page-navigator">
-        <span class="page-number current">1</span>
-    </nav>
-    
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="暂时不支持评论，因为本站在国内，不在github。如果需要联系我，请关注我公众号吧，留言能看到！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'kotlin之Lambda表达式' || '2019/10/26/kotlin之Lambda表达式/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>

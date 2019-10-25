@@ -135,6 +135,78 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
+        <a class="cat-link" href="/categories/Android/">Android</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://inote.fun/2019/10/03/Android屏幕适配/">
+    		Android屏幕适配
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        huangguangzhi 发表于
+        <time datetime="2019-10-03T01:07:38.000Z">2019-10-03</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/屏幕适配/" title="屏幕适配">屏幕适配</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h1 id="Android屏幕适配方案"><a href="#Android屏幕适配方案" class="headerlink" title="Android屏幕适配方案"></a>Android屏幕适配方案</h1><blockquote>
+<p>先讲述一些屏幕适配相关概念，然后介绍下3种主要的适配方案以及优缺点。</p>
+</blockquote>
+<h3 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h3><h4 id="1-像素（px）"><a href="#1-像素（px）" class="headerlink" title="1. 像素（px）"></a>1. 像素（px）</h4><ul>
+<li>像素是手机屏幕的最小构成单元。<h4 id="2-分辨率-（px）"><a href="#2-分辨率-（px）" class="headerlink" title="2. 分辨率 （px）"></a>2. 分辨率 （px）</h4></li>
+<li>手机在横向、纵向上的像素点数总和，一般描述成 宽高 ，即横向像素点个数纵向像素点个数。</li>
+<li>例如：1080x1920，即宽度方向上有1080个像素点，在高度方向上有1920个像素点。<h4 id="3-屏幕尺寸（inch）"><a href="#3-屏幕尺寸（inch）" class="headerlink" title="3.屏幕尺寸（inch）"></a>3.屏幕尺寸（inch）</h4></li>
+<li>手机对角线的物理尺寸，单位 英寸（inch），一英寸大约2.54cm，</li>
+<li>例如：常见的尺寸有4.7寸、5寸、5.5寸、6寸<h4 id="4-屏幕像素密度-dpi"><a href="#4-屏幕像素密度-dpi" class="headerlink" title="4.屏幕像素密度 (dpi)"></a>4.屏幕像素密度 (dpi)</h4></li>
+<li>每英寸长度上像素点个数。”dot per inch”:</li>
+<li>例如每英寸内有160个像素点，则其像素密度为160dpi。<h5 id="以上四者之间关系"><a href="#以上四者之间关系" class="headerlink" title="以上四者之间关系"></a>以上四者之间关系</h5></li>
+<li>$ √(（宽px）²+（高px）²)  /  (屏幕尺寸inch) = (屏幕像素密度dpi) $ <h4 id="5-dp，dip，sp"><a href="#5-dp，dip，sp" class="headerlink" title="5. dp，dip，sp"></a>5. dp，dip，sp</h4></li>
+<li>dip和dp是一个意思，都是Density Independent Pixels的缩写，即密度无关像素。</li>
+<li>例如：在Android中，规定以160dpi为基准，1dip=1px，如果密度是320dpi，则1dip=2px，以此类推。</li>
+<li>android中的dp在渲染前会将dp转为px，计算公式：<br>$px = density * dp;$<br>$density = dpi / 160;$<br>$px = dp * (dpi / 160);$</li>
+<li>注意：dp与px不一定都是2倍的关系，与屏幕像素密度dpi有关。<h4 id="6-hdpi，mdpi，xhdpi，xxhdpi，xxxhdpi"><a href="#6-hdpi，mdpi，xhdpi，xxhdpi，xxxhdpi" class="headerlink" title="6. hdpi，mdpi，xhdpi，xxhdpi，xxxhdpi"></a>6. hdpi，mdpi，xhdpi，xxhdpi，xxxhdpi</h4></li>
+<li>用来修饰Android中的drawable文件夹及values文件夹，用来区分不同像素密度下的图片和dimen值。</li>
+<li>在设计图标时，对于五种主流的像素密度（mdpi、hdpi、xhdpi、xxhdpi 和 xxxhdpi）应按照 2:3:4:6:8 的比例进行缩放。</li>
+</ul>
+            
+            <p class="more">
+                <a href="https://inote.fun/2019/10/03/Android屏幕适配/">阅读剩下更多</a>
+            </p>
+        </div>
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2019/10/03/Android屏幕适配/" title="Android屏幕适配">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/3.jpg" alt="默认配图" >
+                
+            </a>
+-->
+        </div>
+
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
         <a class="cat-link" href="/categories/心情/">心情</a>
         
         <!-- 文章标题 -->
@@ -616,7 +688,7 @@
     
     <li>
         <a href="/categories/Android/">Android</a>
-        <span class="badge">(52)</span>
+        <span class="badge">(53)</span>
     </li>
     
     <li>
@@ -631,7 +703,7 @@
     
     <li>
         <a href="/categories/Android/kotlin/">kotlin</a>
-        <span class="badge">(2)</span>
+        <span class="badge">(3)</span>
     </li>
     
     <li>
@@ -717,6 +789,8 @@
   
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
+  
     <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
   
     <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
@@ -750,8 +824,6 @@
     <a class="tag-item" href="/tags/Android/" title="Android">Android (2)</a>
   
     <a class="tag-item" href="/tags/序列化/" title="序列化">序列化 (1)</a>
-  
-    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (1)</a>
   
     <a class="tag-item" href="/tags/mongodb/" title="mongodb">mongodb (1)</a>
   
