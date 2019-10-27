@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -108,7 +106,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -149,7 +147,7 @@
 <p>　　　　区别三：.class文件存在很多的冗余信息，dex工具会去除冗余信息，并把所有的.class文件整合到.dex文件中。减少了I/O操作，提高了类的查找速度</p>
 <p>　　　　</p>
 <p>　　　　一张图了解dvm主要做的事：</p>
-<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180709210031356-2049035324.png" alt></p>
+<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180709210031356-2049035324.png" alt=""></p>
 <p>　　　　参考：&nbsp;https://blog.csdn.net/u010355144/article/details/47682797</p>
 <h2>二.Dalvik启动过程</h2>
 <p>　　</p>
@@ -195,35 +193,35 @@
     </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> voldDecryptBuf[PROPERTY_VALUE_MAX];
     ...
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;
  * Initialize the VM.
  *
  * The JavaVM* is essentially per-process, and the JNIEnv* is per-thread.
  * If this call succeeds, the VM is ready, and we can start issuing
  * JNI calls.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (JNI_CreateJavaVM(pJavaVM, pEnv, &amp;amp;initArgs) &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;JNI_CreateJavaVM failed\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (JNI_CreateJavaVM(pJavaVM, pEnv, &amp;amp;initArgs) &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;JNI_CreateJavaVM failed\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;</code></pre><p>}</p>
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>}</p>
 <p></p></span><span style="color: #0000ff;">void</span> AndroidRuntime::start(<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>* className, <span style="color: #0000ff;">const</span> Vector&lt;String8&gt;&amp; options, <span style="color: #0000ff;">bool</span><span style="color: #000000;"> zygote)<br>{<p></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; start the virtual machine &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; start the virtual machine &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
 JniInvocation jni_invocation;
 jni_invocation.Init(NULL);
-JNIEnv&lt;/span&gt;*&lt;span style=&quot;color: #000000;&quot;&gt; env;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (startVm(&amp;amp;mJavaVM, &amp;amp;env, zygote) != &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+JNIEnv&lt;/span&gt;*&lt;span style="color: #000000;"&gt; env;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startVm(&amp;amp;mJavaVM, &amp;amp;env, zygote) != &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 }
 onVmCreated(env);
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;
  * Register android functions.
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (startReg(env) &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    ALOGE(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Unable to register all android natives\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startReg(env) &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Unable to register all android natives\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 }</code></pre><p>}<br><br><span style="color: #339966;">　　　　　//Dalvik虚拟机在Zygote进程中的启动过程，这个启动过程主要就是完成了以下四个事情：</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //1. 创建了一个Dalvik虚拟机实例；</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //2. 加载了Java核心类及其JNI方法；</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //3. 为主线程的设置了一个JNI环境；</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //4. 注册了Android核心类的JNI方法。</span><br></p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <p><strong>Zygote 启动Dalvik作用：</strong></p>
@@ -251,11 +249,11 @@ onVmCreated(env);
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -265,7 +263,7 @@ onVmCreated(env);
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/14/Android8-0新特性介绍以及注意事项/">
             
                 Android8.0新特性介绍以及注意事项
@@ -276,7 +274,7 @@ onVmCreated(env);
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/08/Android源码分析九Init启动分析/">
             
                 Android 源码分析（九） Init 启动分析
@@ -288,7 +286,7 @@ onVmCreated(env);
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -353,16 +351,7 @@ onVmCreated(env);
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析十Dalvik虚拟机创建过程' || '2018/07/09/Android源码分析十Dalvik虚拟机创建过程/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -574,7 +563,7 @@ onVmCreated(env);
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2012-2019
     
@@ -585,5 +574,13 @@ onVmCreated(env);
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析十Dalvik虚拟机创建过程' || '2018/07/09/Android源码分析十Dalvik虚拟机创建过程/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

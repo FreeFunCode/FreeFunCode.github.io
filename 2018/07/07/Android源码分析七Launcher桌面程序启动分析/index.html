@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -108,7 +106,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -139,7 +137,7 @@
 <h2>&nbsp; 二. Launcher 桌面程序启动</h2>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Launcher程序就是我们平时看到的桌面程序，它其实也是一个android应用程序，只不过这个应用程序是系统默认第一个启动的应用程序。</p>
 <p>　　首先了解下，Zygote进程是如何启动一个应用的。</p>
-<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180708235023116-19887742.png" alt></p>
+<p><img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180708235023116-19887742.png" alt=""></p>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteServer.java</span>
  <span style="color: #0000ff;">void</span> runSelectLoop(String abiList) <span style="color: #0000ff;">throws</span><span style="color: #000000;"> Zygote.MethodAndArgsCaller {
@@ -147,31 +145,31 @@
         ArrayList</span>&lt;ZygoteConnection&gt; peers = <span style="color: #0000ff;">new</span> ArrayList&lt;ZygoteConnection&gt;<span style="color: #000000;">();
 
 <pre><code>    fds.add(mServerSocket.getFileDescriptor());
-    peers.add(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    peers.add(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;while&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        StructPollfd[] pollFds &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; StructPollfd[fds.size()];
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = 0; i &amp;lt; pollFds.length; ++&lt;span style=&quot;color: #000000;&quot;&gt;i) {
-            pollFds[i] &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; StructPollfd();
-            pollFds[i].fd &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; fds.get(i);
-            pollFds[i].events &lt;/span&gt;= (&lt;span style=&quot;color: #0000ff;&quot;&gt;short&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) POLLIN;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;while&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        StructPollfd[] pollFds &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; StructPollfd[fds.size()];
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = 0; i &amp;lt; pollFds.length; ++&lt;span style="color: #000000;"&gt;i) {
+            pollFds[i] &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; StructPollfd();
+            pollFds[i].fd &lt;/span&gt;=&lt;span style="color: #000000;"&gt; fds.get(i);
+            pollFds[i].events &lt;/span&gt;= (&lt;span style="color: #0000ff;"&gt;short&lt;/span&gt;&lt;span style="color: #000000;"&gt;) POLLIN;
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-            Os.poll(pollFds, &lt;/span&gt;-1&lt;span style=&quot;color: #000000;&quot;&gt;);
-        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (ErrnoException ex) {
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; RuntimeException(&quot;poll failed&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+            Os.poll(pollFds, &lt;/span&gt;-1&lt;span style="color: #000000;"&gt;);
+        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ErrnoException ex) {
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; RuntimeException("poll failed"&lt;span style="color: #000000;"&gt;, ex);
         }
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = pollFds.length - 1; i &amp;gt;= 0; --&lt;span style=&quot;color: #000000;&quot;&gt;i) {
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ((pollFds[i].revents &amp;amp; POLLIN) == 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;continue&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt; (&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; i = pollFds.length - 1; i &amp;gt;= 0; --&lt;span style="color: #000000;"&gt;i) {
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; ((pollFds[i].revents &amp;amp; POLLIN) == 0&lt;span style="color: #000000;"&gt;) {
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;continue&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
             }
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (i == 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
-                ZygoteConnection newPeer &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; acceptCommandPeer(abiList);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (i == 0&lt;span style="color: #000000;"&gt;) {
+                ZygoteConnection newPeer &lt;/span&gt;=&lt;span style="color: #000000;"&gt; acceptCommandPeer(abiList);
                 peers.add(newPeer);
                 fds.add(newPeer.getFileDesciptor());
-            } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; done = peers.get(i).runOnce(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (done) {
+            } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; done = peers.get(i).runOnce(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+                &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (done) {
                     peers.remove(i);
                     fds.remove(i);
                 }
@@ -180,7 +178,7 @@
     }
 }</code></pre><p>}<br><br>　　/**<br>&nbsp;&nbsp;&nbsp;&nbsp; * Waits for and accepts a single command connection. Throws<br>&nbsp;&nbsp;&nbsp;&nbsp; * RuntimeException on failure.<br>&nbsp;&nbsp;&nbsp;&nbsp; */<br>&nbsp;&nbsp;&nbsp; private ZygoteConnection acceptCommandPeer(String abiList) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return createNewConnection(mServerSocket.accept(), abiList);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (IOException ex) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new RuntimeException(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; “IOException during accept()”, ex);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;<br>&nbsp;protected ZygoteConnection createNewConnection(LocalSocket socket, String abiList)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throws IOException {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return new ZygoteConnection(socket, abiList);<br>&nbsp;&nbsp;&nbsp; }<br></p></span></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
-<div class="cnblogs_code" onclick="cnblogs_code_show('b4582d4a-5eee-42a1-a93e-5858a6f4d479')"><img id="code_img_closed_b4582d4a-5eee-42a1-a93e-5858a6f4d479" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_b4582d4a-5eee-42a1-a93e-5858a6f4d479" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('b4582d4a-5eee-42a1-a93e-5858a6f4d479',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
+<div class="cnblogs_code" onclick="cnblogs_code_show('b4582d4a-5eee-42a1-a93e-5858a6f4d479')"><img id="code_img_closed_b4582d4a-5eee-42a1-a93e-5858a6f4d479" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_b4582d4a-5eee-42a1-a93e-5858a6f4d479" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('b4582d4a-5eee-42a1-a93e-5858a6f4d479',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
 <div id="cnblogs_code_open_b4582d4a-5eee-42a1-a93e-5858a6f4d479" class="cnblogs_code_hide">
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteConnection.java</span>
     <span style="color: #008000;">/**</span><span style="color: #008000;">
@@ -195,84 +193,84 @@
         </span><span style="color: #0000ff;">this</span>.abiList =<span style="color: #000000;"> abiList;
 
 <pre><code>    mSocketOutStream
-            &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; DataOutputStream(socket.getOutputStream());
+            &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; DataOutputStream(socket.getOutputStream());
 
-    mSocketReader &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; BufferedReader(
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; InputStreamReader(socket.getInputStream()), 256&lt;span style=&quot;color: #000000;&quot;&gt;);
+    mSocketReader &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; BufferedReader(
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; InputStreamReader(socket.getInputStream()), 256&lt;span style="color: #000000;"&gt;);
 
     mSocket.setSoTimeout(CONNECTION_TIMEOUT_MILLIS);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        peer &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mSocket.getPeerCredentials();
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (IOException ex) {
-        Log.e(TAG, &lt;/span&gt;&quot;Cannot read peer credentials&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ex;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        peer &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mSocket.getPeerCredentials();
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (IOException ex) {
+        Log.e(TAG, &lt;/span&gt;"Cannot read peer credentials"&lt;span style="color: #000000;"&gt;, ex);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt;&lt;span style="color: #000000;"&gt; ex;
     }
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
  * Reads one start command from the command socket. If successful,
- * a child is forked and a {&lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@link&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Zygote.MethodAndArgsCaller}
+ * a child is forked and a {&lt;/span&gt;&lt;span style="color: #808080;"&gt;@link&lt;/span&gt;&lt;span style="color: #008000;"&gt; Zygote.MethodAndArgsCaller}
  * exception is thrown in that child while in the parent process,
  * the method returns normally. On failure, the child is not
  * spawned and messages are printed to the log and stderr. Returns
  * a boolean status value indicating whether an end-of-file on the command
  * socket has been encountered.
  *
- * &lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@return&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; false if command socket should continue to be read from, or
+ * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@return&lt;/span&gt;&lt;span style="color: #008000;"&gt; false if command socket should continue to be read from, or
  * true if an end-of-file has been encountered.
- * &lt;/span&gt;&lt;span style=&quot;color: #808080;&quot;&gt;@throws&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Zygote.MethodAndArgsCaller trampoline to invoke main()
+ * &lt;/span&gt;&lt;span style="color: #808080;"&gt;@throws&lt;/span&gt;&lt;span style="color: #008000;"&gt; Zygote.MethodAndArgsCaller trampoline to invoke main()
  * method in child process
- &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;boolean&lt;/span&gt; runOnce(ZygoteServer zygoteServer) &lt;span style=&quot;color: #0000ff;&quot;&gt;throws&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Zygote.MethodAndArgsCaller {
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;boolean&lt;/span&gt; runOnce(ZygoteServer zygoteServer) &lt;span style="color: #0000ff;"&gt;throws&lt;/span&gt;&lt;span style="color: #000000;"&gt; Zygote.MethodAndArgsCaller {
 
     String args[];
-    Arguments parsedArgs &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    Arguments parsedArgs &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
     FileDescriptor[] descriptors;
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        args &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; readArgumentList();
-        descriptors &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mSocket.getAncillaryFileDescriptors();
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (IOException ex) {
-        Log.w(TAG, &lt;/span&gt;&quot;IOException on command socket &quot; +&lt;span style=&quot;color: #000000;&quot;&gt; ex.getMessage());
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        args &lt;/span&gt;=&lt;span style="color: #000000;"&gt; readArgumentList();
+        descriptors &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mSocket.getAncillaryFileDescriptors();
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (IOException ex) {
+        Log.w(TAG, &lt;/span&gt;"IOException on command socket " +&lt;span style="color: #000000;"&gt; ex.getMessage());
         closeSocket();
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (args == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; EOF reached.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            closeSocket();<br>            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;<br>        }</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; the stderr of the most recent request, if avail &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
-PrintStream newStderr &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (args == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; EOF reached.&lt;/span&gt;</code></pre><p><span style="color: #000000;">            closeSocket();<br>            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;<br>        }</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt; the stderr of the most recent request, if avail &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
+PrintStream newStderr &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (descriptors != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; descriptors.length &amp;gt;= 3&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    newStderr &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; PrintStream(
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; FileOutputStream(descriptors[2&lt;span style=&quot;color: #000000;&quot;&gt;]));
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (descriptors != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; &amp;amp;&amp;amp; descriptors.length &amp;gt;= 3&lt;span style="color: #000000;"&gt;) {
+    newStderr &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; PrintStream(
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; FileOutputStream(descriptors[2&lt;span style="color: #000000;"&gt;]));
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; pid = -1&lt;span style=&quot;color: #000000;&quot;&gt;;
-FileDescriptor childPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; pid = -1&lt;span style="color: #000000;"&gt;;
+FileDescriptor childPipeFd &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    parsedArgs &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Arguments(args);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    parsedArgs &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; Arguments(args);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (parsedArgs.abiListQuery) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; handleAbiListQuery();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (parsedArgs.abiListQuery) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; handleAbiListQuery();
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (parsedArgs.preloadDefault) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; handlePreload();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (parsedArgs.preloadDefault) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; handlePreload();
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (parsedArgs.preloadPackage != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; handlePreloadPackage(parsedArgs.preloadPackage,
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (parsedArgs.preloadPackage != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; handlePreloadPackage(parsedArgs.preloadPackage,
                 parsedArgs.preloadPackageLibs, parsedArgs.preloadPackageCacheKey);
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (parsedArgs.permittedCapabilities != 0 || parsedArgs.effectiveCapabilities != 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;throw&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; ZygoteSecurityException(&quot;Client may not specify capabilities: &quot; +
-                &quot;permitted=0x&quot; + Long.toHexString(parsedArgs.permittedCapabilities) +
-                &quot;, effective=0x&quot; +&lt;span style=&quot;color: #000000;&quot;&gt; Long.toHexString(parsedArgs.effectiveCapabilities));
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (parsedArgs.permittedCapabilities != 0 || parsedArgs.effectiveCapabilities != 0&lt;span style="color: #000000;"&gt;) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;throw&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; ZygoteSecurityException("Client may not specify capabilities: " +
+                "permitted=0x" + Long.toHexString(parsedArgs.permittedCapabilities) +
+                ", effective=0x" +&lt;span style="color: #000000;"&gt; Long.toHexString(parsedArgs.effectiveCapabilities));
     }
 
     applyUidSecurityPolicy(parsedArgs, peer);
@@ -281,74 +279,74 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
     applyDebuggerSystemProperty(parsedArgs);
     applyInvokeWithSystemProperty(parsedArgs);
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;[][] rlimits = &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;[][] rlimits = &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (parsedArgs.rlimits != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        rlimits &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; parsedArgs.rlimits.toArray(intArray2d);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (parsedArgs.rlimits != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        rlimits &lt;/span&gt;=&lt;span style="color: #000000;"&gt; parsedArgs.rlimits.toArray(intArray2d);
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;[] fdsToIgnore = &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;[] fdsToIgnore = &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (parsedArgs.invokeWith != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        FileDescriptor[] pipeFds &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Os.pipe2(O_CLOEXEC);
-        childPipeFd &lt;/span&gt;= pipeFds[1&lt;span style=&quot;color: #000000;&quot;&gt;];
-        serverPipeFd &lt;/span&gt;= pipeFds[0&lt;span style=&quot;color: #000000;&quot;&gt;];
-        Os.fcntlInt(childPipeFd, F_SETFD, &lt;/span&gt;0&lt;span style=&quot;color: #000000;&quot;&gt;);
-        fdsToIgnore &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;[] { childPipeFd.getInt$(), serverPipeFd.getInt$() };
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (parsedArgs.invokeWith != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        FileDescriptor[] pipeFds &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Os.pipe2(O_CLOEXEC);
+        childPipeFd &lt;/span&gt;= pipeFds[1&lt;span style="color: #000000;"&gt;];
+        serverPipeFd &lt;/span&gt;= pipeFds[0&lt;span style="color: #000000;"&gt;];
+        Os.fcntlInt(childPipeFd, F_SETFD, &lt;/span&gt;0&lt;span style="color: #000000;"&gt;);
+        fdsToIgnore &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt;[] { childPipeFd.getInt$(), serverPipeFd.getInt$() };
     }
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
      * In order to avoid leaking descriptors to the Zygote child,
      * the native code must close the two Zygote socket descriptors
      * in the child process before it switches from Zygote-root to
      * the UID and privileges of the application being launched.
      *
-     * In order to avoid &quot;bad file descriptor&quot; errors when the
+     * In order to avoid "bad file descriptor" errors when the
      * two LocalSocket objects are closed, the Posix file
      * descriptors are released via a dup2() call which closes
      * the socket and substitutes an open descriptor to /dev/null.
-     &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+     &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
 
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; [] fdsToClose = { -1, -1&lt;span style=&quot;color: #000000;&quot;&gt; };
+    &lt;span style="color: #0000ff;"&gt;int&lt;/span&gt; [] fdsToClose = { -1, -1&lt;span style="color: #000000;"&gt; };
 
-    FileDescriptor fd &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mSocket.getFileDescriptor();
+    FileDescriptor fd &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mSocket.getFileDescriptor();
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (fd != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        fdsToClose[&lt;/span&gt;0] =&lt;span style=&quot;color: #000000;&quot;&gt; fd.getInt$();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (fd != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        fdsToClose[&lt;/span&gt;0] =&lt;span style="color: #000000;"&gt; fd.getInt$();
     }
 
-    fd &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; zygoteServer.getServerSocketFileDescriptor();
+    fd &lt;/span&gt;=&lt;span style="color: #000000;"&gt; zygoteServer.getServerSocketFileDescriptor();
 
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (fd != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        fdsToClose[&lt;/span&gt;1] =&lt;span style=&quot;color: #000000;&quot;&gt; fd.getInt$();
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (fd != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+        fdsToClose[&lt;/span&gt;1] =&lt;span style="color: #000000;"&gt; fd.getInt$();
     }
 
-    fd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    fd &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 
-    pid &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Zygote.forkAndSpecialize(parsedArgs.uid, parsedArgs.gid, parsedArgs.gids,
+    pid &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Zygote.forkAndSpecialize(parsedArgs.uid, parsedArgs.gid, parsedArgs.gids,
             parsedArgs.debugFlags, rlimits, parsedArgs.mountExternal, parsedArgs.seInfo,
             parsedArgs.niceName, fdsToClose, fdsToIgnore, parsedArgs.instructionSet,
             parsedArgs.appDataDir);
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (ErrnoException ex) {
-    logAndPrintError(newStderr, &lt;/span&gt;&quot;Exception creating pipe&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (IllegalArgumentException ex) {
-    logAndPrintError(newStderr, &lt;/span&gt;&quot;Invalid zygote arguments&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (ZygoteSecurityException ex) {
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ErrnoException ex) {
+    logAndPrintError(newStderr, &lt;/span&gt;"Exception creating pipe"&lt;span style="color: #000000;"&gt;, ex);
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (IllegalArgumentException ex) {
+    logAndPrintError(newStderr, &lt;/span&gt;"Invalid zygote arguments"&lt;span style="color: #000000;"&gt;, ex);
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ZygoteSecurityException ex) {
     logAndPrintError(newStderr,
-            &lt;/span&gt;&quot;Zygote security policy prevents request: &quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
+            &lt;/span&gt;"Zygote security policy prevents request: "&lt;span style="color: #000000;"&gt;, ex);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (pid == 0&lt;span style=&quot;color: #000000;&quot;&gt;) {
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; in child&lt;/span&gt;</code></pre><p><span style="color: #000000;">                zygoteServer.closeServerSocket();<br>                IoUtils.closeQuietly(serverPipeFd);<br>                serverPipeFd </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br>                handleChildProc(parsedArgs, descriptors, childPipeFd, newStderr);</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; should never get here, the child is expected to either
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; throw Zygote.MethodAndArgsCaller or exec().&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; in parent...pid of &amp;lt; 0 means failure&lt;/span&gt;</code></pre><p><span style="color: #000000;">                IoUtils.closeQuietly(childPipeFd);<br>                childPipeFd </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br>                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> handleParentProc(pid, descriptors, serverPipeFd, parsedArgs);<br>            }<br>        } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>            IoUtils.closeQuietly(childPipeFd);<br>            IoUtils.closeQuietly(serverPipeFd);<br>        }<br>    }<br>    </span></p></span></pre><p></p>
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (pid == 0&lt;span style="color: #000000;"&gt;) {
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; in child&lt;/span&gt;</code></pre><p><span style="color: #000000;">                zygoteServer.closeServerSocket();<br>                IoUtils.closeQuietly(serverPipeFd);<br>                serverPipeFd </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br>                handleChildProc(parsedArgs, descriptors, childPipeFd, newStderr);</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; should never get here, the child is expected to either
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; throw Zygote.MethodAndArgsCaller or exec().&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; in parent...pid of &amp;lt; 0 means failure&lt;/span&gt;</code></pre><p><span style="color: #000000;">                IoUtils.closeQuietly(childPipeFd);<br>                childPipeFd </span>= <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br>                </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> handleParentProc(pid, descriptors, serverPipeFd, parsedArgs);<br>            }<br>        } </span><span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br>            IoUtils.closeQuietly(childPipeFd);<br>            IoUtils.closeQuietly(serverPipeFd);<br>        }<br>    }<br>    </span></p></span></pre><p></p>
 </div>
 <span class="cnblogs_code_collapse">View Code</span></div>
-<div class="cnblogs_code" onclick="cnblogs_code_show('24047af0-fb9d-4495-955a-61ae30e0b7ac')"><img id="code_img_closed_24047af0-fb9d-4495-955a-61ae30e0b7ac" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_24047af0-fb9d-4495-955a-61ae30e0b7ac" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('24047af0-fb9d-4495-955a-61ae30e0b7ac',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
+<div class="cnblogs_code" onclick="cnblogs_code_show('24047af0-fb9d-4495-955a-61ae30e0b7ac')"><img id="code_img_closed_24047af0-fb9d-4495-955a-61ae30e0b7ac" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_24047af0-fb9d-4495-955a-61ae30e0b7ac" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('24047af0-fb9d-4495-955a-61ae30e0b7ac',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
 <div id="cnblogs_code_open_24047af0-fb9d-4495-955a-61ae30e0b7ac" class="cnblogs_code_hide">
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">Zygote.java</span>
     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> forkAndSpecialize(<span style="color: #0000ff;">int</span> uid, <span style="color: #0000ff;">int</span> gid, <span style="color: #0000ff;">int</span>[] gids, <span style="color: #0000ff;">int</span><span style="color: #000000;"> debugFlags,
@@ -364,14 +362,14 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
         <span style="color: #0000ff;">if</span> (pid == 0<span style="color: #000000;">) {
             Trace.setTracingEnabled(</span><span style="color: #0000ff;">true</span><span style="color: #000000;">);
 
-<pre><code>        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Note that this event ends at the end of handleChildProc,&lt;/span&gt;
-        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, &quot;PostFork&quot;&lt;span style=&quot;color: #000000;&quot;&gt;);
+<pre><code>        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Note that this event ends at the end of handleChildProc,&lt;/span&gt;
+        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "PostFork"&lt;span style="color: #000000;"&gt;);
     }
     VM_HOOKS.postForkCommon();
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; pid;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; pid;
 }&lt;/span&gt;&lt;/pre&gt;</code></pre></span></pre></div>
 <span class="cnblogs_code_collapse">View Code</span></div>
-<div class="cnblogs_code" onclick="cnblogs_code_show('585017ee-5c61-4dd0-b78d-a900abceb71c')"><img id="code_img_closed_585017ee-5c61-4dd0-b78d-a900abceb71c" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt><img id="code_img_opened_585017ee-5c61-4dd0-b78d-a900abceb71c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('585017ee-5c61-4dd0-b78d-a900abceb71c',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt>
+<div class="cnblogs_code" onclick="cnblogs_code_show('585017ee-5c61-4dd0-b78d-a900abceb71c')"><img id="code_img_closed_585017ee-5c61-4dd0-b78d-a900abceb71c" class="code_img_closed" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt=""><img id="code_img_opened_585017ee-5c61-4dd0-b78d-a900abceb71c" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('585017ee-5c61-4dd0-b78d-a900abceb71c',event)" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="">
 <div id="cnblogs_code_open_585017ee-5c61-4dd0-b78d-a900abceb71c" class="cnblogs_code_hide">
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">ZygoteConnection.java</span>
     <span style="color: #008000;">/**</span><span style="color: #008000;">
@@ -398,26 +396,26 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
          </span><span style="color: #008000;">*/</span><span style="color: #000000;">
 
 <pre><code>closeSocket();
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (descriptors != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        Os.dup2(descriptors[&lt;/span&gt;0&lt;span style=&quot;color: #000000;&quot;&gt;], STDIN_FILENO);
-        Os.dup2(descriptors[&lt;/span&gt;1&lt;span style=&quot;color: #000000;&quot;&gt;], STDOUT_FILENO);
-        Os.dup2(descriptors[&lt;/span&gt;2&lt;span style=&quot;color: #000000;&quot;&gt;], STDERR_FILENO);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (descriptors != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        Os.dup2(descriptors[&lt;/span&gt;0&lt;span style="color: #000000;"&gt;], STDIN_FILENO);
+        Os.dup2(descriptors[&lt;/span&gt;1&lt;span style="color: #000000;"&gt;], STDOUT_FILENO);
+        Os.dup2(descriptors[&lt;/span&gt;2&lt;span style="color: #000000;"&gt;], STDERR_FILENO);
 
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (FileDescriptor fd: descriptors) {
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;for&lt;/span&gt;&lt;span style="color: #000000;"&gt; (FileDescriptor fd: descriptors) {
             IoUtils.closeQuietly(fd);
         }
-        newStderr &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; System.err;
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (ErrnoException ex) {
-        Log.e(TAG, &lt;/span&gt;&quot;Error reopening stdio&quot;&lt;span style=&quot;color: #000000;&quot;&gt;, ex);
+        newStderr &lt;/span&gt;=&lt;span style="color: #000000;"&gt; System.err;
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (ErrnoException ex) {
+        Log.e(TAG, &lt;/span&gt;"Error reopening stdio"&lt;span style="color: #000000;"&gt;, ex);
     }
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (parsedArgs.niceName != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (parsedArgs.niceName != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
     Process.setArgV0(parsedArgs.niceName);
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; End of the postFork event.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>        </span><span style="color: #0000ff;">if</span> (parsedArgs.invokeWith != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>            WrapperInit.execApplication(parsedArgs.invokeWith,<br>                    parsedArgs.niceName, parsedArgs.targetSdkVersion,<br>                    VMRuntime.getCurrentInstructionSet(),<br>                    pipeFd, parsedArgs.remainingArgs);<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            ZygoteInit.zygoteInit(parsedArgs.targetSdkVersion,<br>                    parsedArgs.remainingArgs, </span><span style="color: #0000ff;">null</span> <span style="color: #008000;">/*</span><span style="color: #008000;"> classLoader </span><span style="color: #008000;">*/</span><span style="color: #000000;">);<br>        }<br>    }</span></p></span></pre><p></p>
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; End of the postFork event.&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);<br>        </span><span style="color: #0000ff;">if</span> (parsedArgs.invokeWith != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>            WrapperInit.execApplication(parsedArgs.invokeWith,<br>                    parsedArgs.niceName, parsedArgs.targetSdkVersion,<br>                    VMRuntime.getCurrentInstructionSet(),<br>                    pipeFd, parsedArgs.remainingArgs);<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            ZygoteInit.zygoteInit(parsedArgs.targetSdkVersion,<br>                    parsedArgs.remainingArgs, </span><span style="color: #0000ff;">null</span> <span style="color: #008000;">/*</span><span style="color: #008000;"> classLoader </span><span style="color: #008000;">*/</span><span style="color: #000000;">);<br>        }<br>    }</span></p></span></pre><p></p>
 </div>
 <span class="cnblogs_code_collapse">View Code</span></div>
 <p>&nbsp;</p>
@@ -444,17 +442,17 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
 
 <p>}</p>
 <p></p></span><span style="color: #0000ff;">boolean</span> startHomeActivityLocked(<span style="color: #0000ff;">int</span><span style="color: #000000;"> userId, String reason) {<br>        </span><span style="color: #0000ff;">if</span> (mFactoryTest ==<span style="color: #000000;"> FactoryTest.FACTORY_TEST_LOW_LEVEL<br>                </span>&amp;&amp; mTopAction == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> We are running in factory test mode, but unable to find<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> the factory test app, so just sit around displaying the<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> error message and don’t try to start anything.</span><br>            <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;<br>        }<br>        Intent intent </span>=<span style="color: #000000;"> getHomeIntent();<br>        ActivityInfo aInfo </span>=<span style="color: #000000;"> resolveActivityInfo(intent, STOCK_PM_FLAGS, userId);<br>        </span><span style="color: #0000ff;">if</span> (aInfo != <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>            intent.setComponent(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> ComponentName(aInfo.applicationInfo.packageName, aInfo.name));<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> Don’t do this if the home app is currently being<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;"> instrumented.</span><br>            aInfo = <span style="color: #0000ff;">new</span><span style="color: #000000;"> ActivityInfo(aInfo);<br>            aInfo.applicationInfo </span>=<span style="color: #000000;"> getAppInfoForUser(aInfo.applicationInfo, userId);<br>            ProcessRecord app </span>=<span style="color: #000000;"> getProcessRecordLocked(aInfo.processName,<br>                    aInfo.applicationInfo.uid, </span><span style="color: #0000ff;">true</span><span style="color: #000000;">);<br>            </span><span style="color: #0000ff;">if</span> (app == <span style="color: #0000ff;">null</span> || app.instr == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {<br>                intent.setFlags(intent.getFlags() </span>|<span style="color: #000000;"> Intent.FLAG_ACTIVITY_NEW_TASK);<br>                </span><span style="color: #0000ff;">final</span> <span style="color: #0000ff;">int</span> resolvedUserId =<span style="color: #000000;"> UserHandle.getUserId(aInfo.applicationInfo.uid);<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;"> For ANR debugging to verify if the user activity is the one that actually<br>                </span><span style="color: #008000;">//</span><span style="color: #008000;"> launched.</span><br>                <span style="color: #0000ff;">final</span> String myReason = reason + “:” + userId + “:” +<span style="color: #000000;"> resolvedUserId;<br>                mActivityStarter.startHomeActivityLocked(intent, aInfo, myReason);<br>            }<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            Slog.wtf(TAG, </span>“No home screen found for “ + intent, <span style="color: #0000ff;">new</span><span style="color: #000000;"> Throwable());<br>        }<p></p>
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;true&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;true&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
 }
 
  Intent getHomeIntent() {
-    Intent intent &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; Intent(mTopAction, mTopData != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt; ? Uri.parse(mTopData) : &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    Intent intent &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; Intent(mTopAction, mTopData != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt; ? Uri.parse(mTopData) : &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     intent.setComponent(mTopComponent);
     intent.addFlags(Intent.FLAG_DEBUG_TRIAGED_MISSING);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (mFactoryTest !=&lt;span style=&quot;color: #000000;&quot;&gt; FactoryTest.FACTORY_TEST_LOW_LEVEL) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (mFactoryTest !=&lt;span style="color: #000000;"&gt; FactoryTest.FACTORY_TEST_LOW_LEVEL) {
         intent.addCategory(Intent.CATEGORY_HOME);
     }
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; intent;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; intent;
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
 <pre><span style="color: #008000;">//</span><span style="color: #008000;">ActivityStarter.java</span>
@@ -498,11 +496,11 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -512,7 +510,7 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/07/Android源码分析八Launcher桌面启动App过程/">
             
                 Android 源码分析（八） Launcher 桌面启动App过程
@@ -523,7 +521,7 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/07/Android源码分析六SystemServer进程/">
             
                 Android 源码分析（六） SystemServer 进程
@@ -535,7 +533,7 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -600,16 +598,7 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析七Launcher桌面程序启动分析' || '2018/07/07/Android源码分析七Launcher桌面程序启动分析/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -821,7 +810,7 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2012-2019
     
@@ -832,5 +821,13 @@ FileDescriptor serverPipeFd &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析七Launcher桌面程序启动分析' || '2018/07/07/Android源码分析七Launcher桌面程序启动分析/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

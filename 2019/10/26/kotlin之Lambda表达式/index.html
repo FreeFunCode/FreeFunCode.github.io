@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -108,7 +106,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -140,10 +138,10 @@
 
 <h5 id="lambda作为函数的参数传递"><a href="#lambda作为函数的参数传递" class="headerlink" title="lambda作为函数的参数传递"></a>lambda作为函数的参数传递</h5><p>示例：<code>val sum = { x: Int, y: Int -&gt; x + y }</code></p>
 <p>可以把lambda表达式存储在一个变量中，把这个变量当做普通函数对待，也可以直接写作函数参数。</p>
-<h5 id="lambda表达式的返回值"><a href="#lambda表达式的返回值" class="headerlink" title="lambda表达式的返回值"></a>lambda表达式的返回值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val isOddNumber = &#123; number: Int -&gt;</span><br><span class="line">        println(&quot;number is $number&quot;)</span><br><span class="line">        number % 2 == 1</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="lambda表达式的返回值"><a href="#lambda表达式的返回值" class="headerlink" title="lambda表达式的返回值"></a>lambda表达式的返回值</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val isOddNumber = { number: Int -&gt;</span><br><span class="line">        println("number is $number")</span><br><span class="line">        number % 2 == 1</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
 
 <p>lambda表达式返回值总是返回函数体内部最后一行表达式的值</p>
-<h5 id="invoke-方法"><a href="#invoke-方法" class="headerlink" title="invoke 方法"></a>invoke 方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123; </span><br><span class="line">     val add= &#123; </span><br><span class="line">         left: Int, right: Int </span><br><span class="line">         -&gt; </span><br><span class="line">         left + right </span><br><span class="line">     &#125; </span><br><span class="line">     println(add.invoke(2, 3)) </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="invoke-方法"><a href="#invoke-方法" class="headerlink" title="invoke 方法"></a>invoke 方法</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) { </span><br><span class="line">     val add= { </span><br><span class="line">         left: Int, right: Int </span><br><span class="line">         -&gt; </span><br><span class="line">         left + right </span><br><span class="line">     } </span><br><span class="line">     println(add.invoke(2, 3)) </span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
 
 <p>一个变量 add，赋值为一个 Lambda 表达式。Lambda 表达式用一对大括号括起来，后面先依次写下参数及其类型，如果没有就不写，接着写下 -&gt; ，这表明后面的是函数体了，函数体的最后一句的表达式结果就是 Lambda 表达式的返回值，比如这里的返回值就是参数求和的结果。后面我们用 () 的形式调用这个 Lambda 表达式，其实这个 () 对应的是 invoke 方法。</p>
 <h5 id="结合kotlin-扩展函数使用"><a href="#结合kotlin-扩展函数使用" class="headerlink" title="结合kotlin 扩展函数使用"></a>结合kotlin 扩展函数使用</h5><p><a href="https://inote.fun/2019/09/28/Kotlin%E4%B8%8Ejava%E5%AF%B9%E6%AF%94/">Kotlin与java对比</a></p>
@@ -171,11 +169,11 @@
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -185,7 +183,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2019/10/26/收藏网络资源分享/">
             
                 收藏网络资源分享
@@ -196,7 +194,7 @@
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2019/10/20/第一次买房经历/">
             
                 第一次买房经历
@@ -208,7 +206,7 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -273,16 +271,7 @@
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'kotlin之Lambda表达式' || '2019/10/26/kotlin之Lambda表达式/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -494,7 +483,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2012-2019
     
@@ -505,5 +494,13 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'kotlin之Lambda表达式' || '2019/10/26/kotlin之Lambda表达式/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

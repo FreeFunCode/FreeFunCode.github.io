@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -108,7 +106,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -141,12 +139,12 @@
 <h2>二.ContentProvider 常见的几个类：</h2>
 <h3>1.ContentResolver</h3>
 <p>&nbsp;&nbsp;&nbsp; Android为我们提供了ContentResolver来统一管理与不同ContentProvider间的操作。</p>
-<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180618030813309-221768442.png" alt></p>
+<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180618030813309-221768442.png" alt=""></p>
 <p>调用<code>getContentResolver()</code>来获得<code>ContentResolver。</code></p>
 <p>ContentResolver是如何来区别不同的ContentProvider的呢？这就涉及到URI（Uniform Resource Identifier）问题。</p>
 <h3>2.URI</h3>
 <p>ContentProvider中的URI有固定格式，如下图：</p>
-<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180618031542592-2054477058.png" alt></p>
+<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201806/612293-20180618031542592-2054477058.png" alt=""></p>
 <p><strong>　　Authority：</strong>授权信息，用以区别不同的ContentProvider；<br><strong>　　Path：</strong>表名，用以区分ContentProvider中不同的数据表；<br><strong>　　Id：</strong>Id号，用以区别表中的不同数据；</p>
 <p>&nbsp;</p>
 <h2>&nbsp;三.ContentProvider查询手机通讯录联系人信息示例：</h2>
@@ -176,11 +174,11 @@
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -190,7 +188,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/06/18/Android源码分析一开篇介绍/">
             
                 Android 源码分析（一） 开篇介绍
@@ -201,7 +199,7 @@
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/05/16/四大组件-三-BroadcastReceiver介绍/">
             
                 Android 四大组件 (三) BroadcastReceiver 介绍
@@ -213,7 +211,7 @@
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -278,16 +276,7 @@
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android四大组件-四-ContentProvider介绍' || '2018/06/18/Android四大组件-四-ContentProvider介绍/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -499,7 +488,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2012-2019
     
@@ -510,5 +499,13 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android四大组件-四-ContentProvider介绍' || '2018/06/18/Android四大组件-四-ContentProvider介绍/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -16,7 +14,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    <link rel="stylesheet" href="/css/style.css">
+    
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -32,9 +30,9 @@
 </script>
 
 
-</head>
-</html>
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
 <body class="home">
+
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -108,7 +106,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
             </div>
         </div>
     </section>
@@ -138,7 +136,7 @@
 <p>　　里面的<strong>上传下载功能使用队列的概念</strong>做了进一步封装，但是因为我使用的是旧库，对于android6.0运行时权限判断和android7.0私有文件权限设置没有处理。</p>
 <p>　　同上一篇随笔一样分析：<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/bugzone/p/okhttp-utils.html" target="_blank">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</a> 介绍下基本使用，加深自己对OkHttp的理解。</p>
 <h3>　　一.引入到自己项目后，先来对比下同上一篇介绍的okhttp-utils类库目录对比下：</h3>
-<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112723166-1670399309.png" alt></p>
+<p>　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180729112723166-1670399309.png" alt=""></p>
 <p>　　注意：途中下面红框标注部分的module:okhttputils-lib是本文介绍的OkHttpUtils类库，上面的module:okhttputils是<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/bugzone/p/okhttp-utils.html" target="_blank">Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍</a>介绍的框架类库。　　</p>
 <p>　　两个封装框架都有一个 <strong>OkHttpUtils 入口类。</strong></p>
 <p>&nbsp;</p>
@@ -175,16 +173,16 @@
             </span><span style="color: #008000;">/*</span><span style="color: #008000;">* 按照HTTP协议的默认缓存规则，例如有304响应头时缓存 </span><span style="color: #008000;">*/</span><span style="color: #000000;">
             DEFAULT,
 
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 不使用缓存 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 不使用缓存 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     NO_CACHE,
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 请求网络失败后，读取缓存 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 请求网络失败后，读取缓存 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     REQUEST_FAILED_READ_CACHE,
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 如果缓存不存在才请求网络，否则使用缓存 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 如果缓存不存在才请求网络，否则使用缓存 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     IF_NONE_CACHE_REQUEST,
 
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;* 先使用缓存，不管是否存在，仍然请求网络 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;* 先使用缓存，不管是否存在，仍然请求网络 &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
     FIRST_CACHE_THEN_REQUEST,
 }&lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h3>　　4.//批量上传文件</h3>
@@ -222,27 +220,27 @@
         mUploadInfo.setState(UploadManager.UPLOADING);
         postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;构建请求体,默认使用post请求上传&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">本质还是调用OkHttpUtils的post方法上传</span><br>            PostRequest postRequest =<span style="color: #000000;"> OkHttpUtils.post(mUploadInfo.getUrl());<br>            File resource </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> File(mUploadInfo.getResourcePath());<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (TextUtils.isEmpty(mUploadInfo.getFileName())) {<br>                mUploadInfo.setFileName(resource.getName());<br>            }<br>            postRequest.</span><span style="color: #0000ff;">params</span><span style="color: #000000;">(mUploadInfo.getKey(), resource, mUploadInfo.getFileName());<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">接口对接，数据回调</span><br>            postRequest.setCallback(<span style="color: #0000ff;">new</span><span style="color: #000000;"> MergeListener());<br>            response </span>=<span style="color: #000000;"> postRequest.execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mUploadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mUploadInfo.setState(UploadManager.ERROR);<br>            postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mUploadInfo;<br>        }</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (response.isSuccessful()) {
-        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;解析过程中抛出异常，一般为 json 格式错误，或者数据解析异常&lt;/span&gt;
-        &lt;span style=&quot;color: #0000ff;&quot;&gt;try&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-            T t &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (T) mUploadInfo.getListener().parseNetworkResponse(response);
-            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            mUploadInfo.setState(UploadManager.FINISH); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;上传成功&lt;/span&gt;
-            postMessage(t, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mUploadInfo;
-        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;catch&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (Exception e) {
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;构建请求体,默认使用post请求上传&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">本质还是调用OkHttpUtils的post方法上传</span><br>            PostRequest postRequest =<span style="color: #000000;"> OkHttpUtils.post(mUploadInfo.getUrl());<br>            File resource </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> File(mUploadInfo.getResourcePath());<br>            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (TextUtils.isEmpty(mUploadInfo.getFileName())) {<br>                mUploadInfo.setFileName(resource.getName());<br>            }<br>            postRequest.</span><span style="color: #0000ff;">params</span><span style="color: #000000;">(mUploadInfo.getKey(), resource, mUploadInfo.getFileName());<br>            </span><span style="color: #008000;">//</span><span style="color: #008000;">接口对接，数据回调</span><br>            postRequest.setCallback(<span style="color: #0000ff;">new</span><span style="color: #000000;"> MergeListener());<br>            response </span>=<span style="color: #000000;"> postRequest.execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mUploadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mUploadInfo.setState(UploadManager.ERROR);<br>            postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mUploadInfo;<br>        }</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (response.isSuccessful()) {
+        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;解析过程中抛出异常，一般为 json 格式错误，或者数据解析异常&lt;/span&gt;
+        &lt;span style="color: #0000ff;"&gt;try&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+            T t &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (T) mUploadInfo.getListener().parseNetworkResponse(response);
+            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            mUploadInfo.setState(UploadManager.FINISH); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;上传成功&lt;/span&gt;
+            postMessage(t, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mUploadInfo;
+        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;catch&lt;/span&gt;&lt;span style="color: #000000;"&gt; (Exception e) {
             e.printStackTrace();
-            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+            mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
             mUploadInfo.setState(UploadManager.ERROR);
-            postMessage(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;解析数据对象出错&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, e);
-            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mUploadInfo;
+            postMessage(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;解析数据对象出错&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;, e);
+            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mUploadInfo;
         }
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-        mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+        mUploadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
         mUploadInfo.setState(UploadManager.ERROR);
-        postMessage(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;数据返回失败&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mUploadInfo;
+        postMessage(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;数据返回失败&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mUploadInfo;
     }
 }    &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <h3>　　5.//批量下载文件</h3>
@@ -277,63 +275,63 @@
         mDownloadInfo.setState(DownloadManager.DOWNLOADING);
         postMessage(</span><span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);
 
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;构建下载文件路径，如果有设置，就用设置的，否者就自己创建&lt;/span&gt;
-String url =&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getUrl();
-String fileName &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getFileName();
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (TextUtils.isEmpty(fileName)) {
-    fileName &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; getUrlFileName(url);
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;构建下载文件路径，如果有设置，就用设置的，否者就自己创建&lt;/span&gt;
+String url =&lt;span style="color: #000000;"&gt; mDownloadInfo.getUrl();
+String fileName &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mDownloadInfo.getFileName();
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (TextUtils.isEmpty(fileName)) {
+    fileName &lt;/span&gt;=&lt;span style="color: #000000;"&gt; getUrlFileName(url);
     mDownloadInfo.setFileName(fileName);
 }
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (TextUtils.isEmpty(mDownloadInfo.getTargetPath())) {
-    File file &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(mDownloadInfo.getTargetFolder(), fileName);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (TextUtils.isEmpty(mDownloadInfo.getTargetPath())) {
+    File file &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(mDownloadInfo.getTargetFolder(), fileName);
     mDownloadInfo.setTargetPath(file.getAbsolutePath());
 }
 
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;检查手机上文件的有效性&lt;/span&gt;
-File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(mDownloadInfo.getTargetPath());
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;long&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; startPos;
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (file.length() !=&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getDownloadLength()) {
-    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;检查手机上文件的有效性&lt;/span&gt;
+File file = &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(mDownloadInfo.getTargetPath());
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;long&lt;/span&gt;&lt;span style="color: #000000;"&gt; startPos;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (file.length() !=&lt;span style="color: #000000;"&gt; mDownloadInfo.getDownloadLength()) {
+    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     mDownloadInfo.setState(DownloadManager.ERROR);
-    postMessage(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
-} &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
-    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;断点下载的情况&lt;/span&gt;
-    startPos =&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getDownloadLength();
+    postMessage(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
+} &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
+    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;断点下载的情况&lt;/span&gt;
+    startPos =&lt;span style="color: #000000;"&gt; mDownloadInfo.getDownloadLength();
 }
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;再次检查文件有效性，文件大小大于总文件大小&lt;/span&gt;
-&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (startPos &amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getTotalLength()) {
-    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;再次检查文件有效性，文件大小大于总文件大小&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startPos &amp;gt;&lt;span style="color: #000000;"&gt; mDownloadInfo.getTotalLength()) {
+    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     mDownloadInfo.setState(DownloadManager.ERROR);
-    postMessage(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
+    postMessage(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;断点文件异常，需要删除后重新下载&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
 }
-&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (startPos == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; startPos &amp;gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
-    mDownloadInfo.setProgress(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;1.0f&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startPos == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; startPos &amp;gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    mDownloadInfo.setProgress(&lt;/span&gt;&lt;span style="color: #800080;"&gt;1.0f&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     mDownloadInfo.setState(DownloadManager.FINISH);
-    postMessage(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
+    postMessage(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
 }
-&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;设置断点写文件&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ProgressRandomAccessFile randomAccessFile;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            randomAccessFile </span>= <span style="color: #0000ff;">new</span> ProgressRandomAccessFile(file, <span style="color: #800000;">“</span><span style="color: #800000;">rw</span><span style="color: #800000;">“</span><span style="color: #000000;">, startPos);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (FileNotFoundException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">没有找到已存在的断点文件</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        L.e(</span><span style="color: #800000;">“</span><span style="color: #800000;">startPos:</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">  path:</span><span style="color: #800000;">“</span> +<span style="color: #000000;"> mDownloadInfo.getTargetPath());</span></p>
-<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;构建请求体,默认使用get请求下载,设置断点头&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            response </span>= OkHttpUtils.<span style="color: #0000ff;">get</span>(url).headers(<span style="color: #800000;">“</span><span style="color: #800000;">RANGE</span><span style="color: #800000;">“</span>, <span style="color: #800000;">“</span><span style="color: #800000;">bytes=</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">-</span><span style="color: #800000;">“</span><span style="color: #000000;">).execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">获取流对象，准备进行读写文件</span><br>        <span style="color: #0000ff;">long</span> totalLength =<span style="color: #000000;"> response.body().contentLength();<br>        </span><span style="color: #0000ff;">if</span> (mDownloadInfo.getTotalLength() == <span style="color: #800080;">0</span><span style="color: #000000;">) {<br>            mDownloadInfo.setTotalLength(totalLength);<br>        }<br>        InputStream </span><span style="color: #0000ff;">is</span> =<span style="color: #000000;"> response.body().byteStream();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">读写文件流</span><br>        <span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            download(</span><span style="color: #0000ff;">is</span><span style="color: #000000;">, randomAccessFile);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">文件读写异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }</span></p>
-<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;循环结束走到这里，a.下载完成     b.暂停      c.判断是否下载出错&lt;/span&gt;
-    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (isCancelled()) {
-        L.e(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;state: 暂停&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; +&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getState());
-        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (isPause) mDownloadInfo.setState(DownloadManager.PAUSE); &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;暂停&lt;/span&gt;
-        &lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; mDownloadInfo.setState(DownloadManager.NONE);          &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;停止&lt;/span&gt;
-        postMessage(&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (file.length() == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; mDownloadInfo.getState() ==&lt;span style=&quot;color: #000000;&quot;&gt; DownloadManager.DOWNLOADING) {
-        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        mDownloadInfo.setState(DownloadManager.FINISH); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;下载完成&lt;/span&gt;
-        postMessage(&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (file.length() !=&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo.getDownloadLength()) {
-        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
-        mDownloadInfo.setState(DownloadManager.ERROR); &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;由于不明原因，文件保存有误&lt;/span&gt;
-        postMessage(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;未知原因&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;设置断点写文件&lt;/span&gt;</code></pre><p><span style="color: #000000;">        ProgressRandomAccessFile randomAccessFile;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            randomAccessFile </span>= <span style="color: #0000ff;">new</span> ProgressRandomAccessFile(file, <span style="color: #800000;">“</span><span style="color: #800000;">rw</span><span style="color: #800000;">“</span><span style="color: #000000;">, startPos);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (FileNotFoundException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">没有找到已存在的断点文件</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        L.e(</span><span style="color: #800000;">“</span><span style="color: #800000;">startPos:</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">  path:</span><span style="color: #800000;">“</span> +<span style="color: #000000;"> mDownloadInfo.getTargetPath());</span></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;构建请求体,默认使用get请求下载,设置断点头&lt;/span&gt;</code></pre><p><span style="color: #000000;">        Response response;<br>        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            response </span>= OkHttpUtils.<span style="color: #0000ff;">get</span>(url).headers(<span style="color: #800000;">“</span><span style="color: #800000;">RANGE</span><span style="color: #800000;">“</span>, <span style="color: #800000;">“</span><span style="color: #800000;">bytes=</span><span style="color: #800000;">“</span> + startPos + <span style="color: #800000;">“</span><span style="color: #800000;">-</span><span style="color: #800000;">“</span><span style="color: #000000;">).execute();<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">网络异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">获取流对象，准备进行读写文件</span><br>        <span style="color: #0000ff;">long</span> totalLength =<span style="color: #000000;"> response.body().contentLength();<br>        </span><span style="color: #0000ff;">if</span> (mDownloadInfo.getTotalLength() == <span style="color: #800080;">0</span><span style="color: #000000;">) {<br>            mDownloadInfo.setTotalLength(totalLength);<br>        }<br>        InputStream </span><span style="color: #0000ff;">is</span> =<span style="color: #000000;"> response.body().byteStream();<br>        </span><span style="color: #008000;">//</span><span style="color: #008000;">读写文件流</span><br>        <span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br>            download(</span><span style="color: #0000ff;">is</span><span style="color: #000000;">, randomAccessFile);<br>        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (IOException e) {<br>            e.printStackTrace();<br>            mDownloadInfo.setNetworkSpeed(</span><span style="color: #800080;">0</span><span style="color: #000000;">);<br>            mDownloadInfo.setState(DownloadManager.ERROR);<br>            postMessage(</span><span style="color: #800000;">“</span><span style="color: #800000;">文件读写异常</span><span style="color: #800000;">“</span><span style="color: #000000;">, e);<br>            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> mDownloadInfo;<br>        }</span></p>
+<pre><code>    &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;循环结束走到这里，a.下载完成     b.暂停      c.判断是否下载出错&lt;/span&gt;
+    &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (isCancelled()) {
+        L.e(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;state: 暂停&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt; +&lt;span style="color: #000000;"&gt; mDownloadInfo.getState());
+        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (isPause) mDownloadInfo.setState(DownloadManager.PAUSE); &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;暂停&lt;/span&gt;
+        &lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; mDownloadInfo.setState(DownloadManager.NONE);          &lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;停止&lt;/span&gt;
+        postMessage(&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (file.length() == mDownloadInfo.getTotalLength() &amp;amp;&amp;amp; mDownloadInfo.getState() ==&lt;span style="color: #000000;"&gt; DownloadManager.DOWNLOADING) {
+        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        mDownloadInfo.setState(DownloadManager.FINISH); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;下载完成&lt;/span&gt;
+        postMessage(&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (file.length() !=&lt;span style="color: #000000;"&gt; mDownloadInfo.getDownloadLength()) {
+        mDownloadInfo.setNetworkSpeed(&lt;/span&gt;&lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+        mDownloadInfo.setState(DownloadManager.ERROR); &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;由于不明原因，文件保存有误&lt;/span&gt;
+        postMessage(&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;未知原因&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
     }
-    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; mDownloadInfo;
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; mDownloadInfo;
 }    &lt;/span&gt;&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
 </div>
@@ -357,11 +355,11 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -371,7 +369,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br >
+        上一篇<br>
         <a href="/2018/07/30/Android开源框架四Afinal-Android里的ORM-IOC聚合型框架/">
             
                 Android 开源框架 ( 四 ) Afinal --- Android 里的 ORM IOC聚合型框架
@@ -382,7 +380,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 
     
     <span class="next fr">
-        下一篇<br >
+        下一篇<br>
         <a href="/2018/07/29/Android开源框架二基于OkHttp进一步封装的okhttp-utils介绍/">
             
                 Android 开源框架 ( 二 ) 基于OkHttp进一步封装的okhttp-utils介绍
@@ -394,7 +392,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 
 <!-- 文章评论 -->
 
-  <script src="/js/comment.js"></script>
+  
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -459,16 +457,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
     </section>
     -->
   </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍' || '2018/07/29/Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });
-  </script>
+  
 
 
             </div>
@@ -680,7 +669,7 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 
     <!-- 博客底部 -->
     <footer class="footer">
-    &copy;
+    ©
     
         2012-2019
     
@@ -691,5 +680,13 @@ File file = &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;sp
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-<script src="/js/main.js"></script>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍' || '2018/07/29/Android开源框架三基于OkHttp进一步封装的OkHttpUtils介绍/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
