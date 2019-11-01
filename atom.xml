@@ -107,6 +107,38 @@
   </entry>
   
   <entry>
+    <title>Android_Jetpack简介</title>
+    <link href="https://inote.fun/2019/11/01/Android%E4%B9%8BJetpack%E7%AE%80%E4%BB%8B/"/>
+    <id>https://inote.fun/2019/11/01/Android之Jetpack简介/</id>
+    <published>2019-11-01T12:39:40.000Z</published>
+    <updated>2019-11-01T14:33:51.704Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android之Jetpack简介"><a href="#Android之Jetpack简介" class="headerlink" title="Android之Jetpack简介"></a>Android之Jetpack简介</h1><blockquote><p> 2017 年的 Google IO 宣布 Kotlin 成为 Android 开发的官方语言。<br> 2018年谷歌I/O 发布了一系列辅助android开发者的实用工具，合称Jetpack，以帮助开发者构建出色的 Android 应用。</p></blockquote><h4 id="一-什么是Jetpack："><a href="#一-什么是Jetpack：" class="headerlink" title="一.什么是Jetpack："></a>一.什么是Jetpack：</h4><p> Jetpack 是一套库、工具和指南，可帮助开发者更轻松地编写优质应用。这些组件可帮助您遵循最佳做法、让您摆脱编写样板代码的工作并简化复杂任务，以便您将精力集中放在所需的代码上。<br>换言之，Google利用Jetpack将一些优秀的Android组件库进行了标准化。</p><h4 id="二-作用："><a href="#二-作用：" class="headerlink" title="二.作用："></a>二.作用：</h4><p>Android Jetpack 完美兼容 Kotlin 语言，利用 Android KTX 可大幅节省代码量。<br>Jetpack 包含与平台 API 解除捆绑的 androidx.* 软件包库。这意味着，它可以提供向后兼容性，且比 Android 平台的更新频率更高，以此确保您始终可以获取最新且最好的 Jetpack 组件版本。</p><ul><li>加速开发：组件可以单独采用（不过这些组件是为协同工作而构建的），同时利用 Kotlin 语言功能帮助您提高工作效率。</li><li>消除样板代码：Android Jetpack 可管理繁琐的 Activity（如后台任务、导航和生命周期管理）。以便您可以专注于如何让自己的应用出类拔萃。</li><li>构建高质量的强大应用：Jetpack 组件围绕现代化设计实践构建而成，具有向后兼容性，可以减少崩溃和内存泄漏。</li></ul><a id="more"></a><h4 id="三-Jetpack包含那些组件："><a href="#三-Jetpack包含那些组件：" class="headerlink" title="三.Jetpack包含那些组件："></a>三.Jetpack包含那些组件：</h4><p> Android Jetpack 组件覆盖以下 4 个方面：基础（Foundation）、架构（Architecture）、行为（Behavior） 、界面（UI）。</p><p><img src="/images/jetpact1.png" alt="jetpact1"></p><h5 id="Foundation"><a href="#Foundation" class="headerlink" title="Foundation"></a>Foundation</h5><p>包含：Android KTX，AppCompat, Auto, 检测, Multidex, 安全, 测试, TV，Wear OS by Google。</p><h6 id="Android-KTX"><a href="#Android-KTX" class="headerlink" title="Android KTX"></a>Android KTX</h6><p>Android KTX 是一组 Kotlin 扩展程序，属于 Android Jetpack 系列。它优化了供 Kotlin 使用的 Jetpack 和 Android 平台 API。Android KTX 旨在让您利用 Kotlin 语言功能（例如扩展函数/属性、lambda、命名参数和参数默认值），以更简洁、更愉悦、更惯用的方式使用 Kotlin 进行 Android 开发。Android KTX 不会向现有的 Android API 添加任何新功能。</p><h6 id="AppCompat"><a href="#AppCompat" class="headerlink" title="AppCompat"></a>AppCompat</h6><p>在较低版本的Android 系统上恰当地降级。AppCompat就是指v7 appcompat库。<br>此库添加了对操作栏用户界面设计模式的支持。这个库包括对Material Design用户界面实现的支持。也就是说，我们可以借助该库，对Material Design有更便捷和兼容性更好的实现。</p><h6 id="Auto"><a href="#Auto" class="headerlink" title="Auto"></a>Auto</h6><p>Android Auto 提供了适用于所有车辆的标准化界面和用户交互模式。作为设计者，您无需担心车辆特有的硬件差异（如屏幕分辨率、软件界面、旋钮和触摸式控件）。</p><h6 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h6><p>快速对基于 Kotlin 或 Java 的代码进行基准化分析。该库会处理预热，衡量代码性能，并将基准化分析结果输出到 Android Studio 控制台。由于这些步骤涉及停用调试功能以获得准确的性能结果，因此您不会将更改提交至源代码控制系统中。</p><h6 id="Multidex"><a href="#Multidex" class="headerlink" title="Multidex"></a>Multidex</h6><p>方法数超过 64K 的应用启用多 dex 文件（ 65,536 方法数限制）。</p><h5 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h5><p>包含：DataBind, Lifecycles, LiveData, Navigation, Paging, Room, ViewModel, WorkManager.</p><h6 id="DataBind"><a href="#DataBind" class="headerlink" title="DataBind"></a>DataBind</h6><p>可以使用声明性格式（而非程序化地）将布局中的界面组件绑定到应用中的数据源。<br>即：将布局组件与源数据绑定，使源数据变化的同时布局组件及时同步更新。</p><h6 id="Lifecycles"><a href="#Lifecycles" class="headerlink" title="Lifecycles"></a>Lifecycles</h6><p>用来管理和响应 Activity / Fragment 的生命周期的变化，帮助我们编写出更易于组织且通常更加轻量级的代码，让代码变得更易于维护。<br>Lifecycle 是一个类，它持有 Activity / Fragment 生命周期状态的信息，并允许其它对象观察此状态。</p><h6 id="LiveData"><a href="#LiveData" class="headerlink" title="LiveData"></a>LiveData</h6><p>LiveData是一个可观察的数据持有者类。与常规observable不同，LiveData是生命周期感知的。</p><h6 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h6><p>是指支持用户导航、进入和退出应用中不同内容片段的交互。Android Jetpack 的导航组件可帮助您实现导航，无论是简单的按钮点击，还是应用栏和抽屉式导航栏等更为复杂的模式，该组件均可应对。导航组件还通过遵循一套既定原则来确保一致且可预测的用户体验。</p><h6 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h6><p>逐步从您的数据源按需加载信息。<br>分页库。</p><h6 id="Room"><a href="#Room" class="headerlink" title="Room"></a>Room</h6><p>Room是Google为了简化旧式的SqlLite操作专门提供的一个SqlLite的ORM抽象层框架库。</p><h6 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h6><p> 是以生命周期的方式存储与管理UI相关数据。</p><h6 id="WorkManager"><a href="#WorkManager" class="headerlink" title="WorkManager"></a>WorkManager</h6><p>管理一些要在后台工作的任务, – 即使你的应用没启动也能保证任务能被执行。<br>例如：<br>向后端服务发送日志分析<br>定期与服务器同步应用程序数据</p><p><img src="/images/jetpact2.png" alt="jetpact2"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android之Jetpack简介&quot;&gt;&lt;a href=&quot;#Android之Jetpack简介&quot; class=&quot;headerlink&quot; title=&quot;Android之Jetpack简介&quot;&gt;&lt;/a&gt;Android之Jetpack简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt; 2017 年的 Google IO 宣布 Kotlin 成为 Android 开发的官方语言。&lt;br&gt; 2018年谷歌I/O 发布了一系列辅助android开发者的实用工具，合称Jetpack，以帮助开发者构建出色的 Android 应用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;一-什么是Jetpack：&quot;&gt;&lt;a href=&quot;#一-什么是Jetpack：&quot; class=&quot;headerlink&quot; title=&quot;一.什么是Jetpack：&quot;&gt;&lt;/a&gt;一.什么是Jetpack：&lt;/h4&gt;&lt;p&gt; Jetpack 是一套库、工具和指南，可帮助开发者更轻松地编写优质应用。这些组件可帮助您遵循最佳做法、让您摆脱编写样板代码的工作并简化复杂任务，以便您将精力集中放在所需的代码上。&lt;br&gt;换言之，Google利用Jetpack将一些优秀的Android组件库进行了标准化。&lt;/p&gt;
+&lt;h4 id=&quot;二-作用：&quot;&gt;&lt;a href=&quot;#二-作用：&quot; class=&quot;headerlink&quot; title=&quot;二.作用：&quot;&gt;&lt;/a&gt;二.作用：&lt;/h4&gt;&lt;p&gt;Android Jetpack 完美兼容 Kotlin 语言，利用 Android KTX 可大幅节省代码量。&lt;br&gt;Jetpack 包含与平台 API 解除捆绑的 androidx.* 软件包库。这意味着，它可以提供向后兼容性，且比 Android 平台的更新频率更高，以此确保您始终可以获取最新且最好的 Jetpack 组件版本。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加速开发：组件可以单独采用（不过这些组件是为协同工作而构建的），同时利用 Kotlin 语言功能帮助您提高工作效率。&lt;/li&gt;
+&lt;li&gt;消除样板代码：Android Jetpack 可管理繁琐的 Activity（如后台任务、导航和生命周期管理）。以便您可以专注于如何让自己的应用出类拔萃。&lt;/li&gt;
+&lt;li&gt;构建高质量的强大应用：Jetpack 组件围绕现代化设计实践构建而成，具有向后兼容性，可以减少崩溃和内存泄漏。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Jetpack" scheme="https://inote.fun/categories/Jetpack/"/>
+    
+    
+      <category term="Jetpack" scheme="https://inote.fun/tags/Jetpack/"/>
+    
+  </entry>
+  
+  <entry>
     <title>收藏网络资源分享</title>
     <link href="https://inote.fun/2019/10/26/%E6%94%B6%E8%97%8F%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
     <id>https://inote.fun/2019/10/26/收藏网络资源分享/</id>
@@ -528,31 +560,6 @@
     
     
       <category term="电影" scheme="https://inote.fun/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于职业生涯的想法</title>
-    <link href="https://inote.fun/2019/10/01/%E5%85%B3%E4%BA%8E%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E7%9A%84%E6%83%B3%E6%B3%95/"/>
-    <id>https://inote.fun/2019/10/01/关于职业生涯的想法/</id>
-    <published>2019-10-01T04:31:39.000Z</published>
-    <updated>2019-10-21T13:56:52.272Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="关于职业生涯的想法"><a href="#关于职业生涯的想法" class="headerlink" title="关于职业生涯的想法"></a>关于职业生涯的想法</h3><blockquote><p>一边看着国庆阅兵直播一边写写最近的一些想法。<br>最近因为香港问题，还有70年建国，网上很多爱国的段子，软件行业发展这么迅速，前提是中国高速发展的保障，此生不悔入华夏，来世还做中国人。我不是愤青，但是作为中国人真的很自豪。</p></blockquote><a id="more"></a><hr><p>前不久一篇文章：“一年前,我月薪两万被人叫老总,如今35岁在美团送外卖” 火爆互联网，更有衍生的段子，工程师的进阶之路：25岁软件工程师，28岁:高级软件工程师，32岁:架构师，35岁: 外卖员。</p><p>于自己：中年人，家里有娃要养，背负房贷，车贷，不敢随便动、不能随心选，因为稍微一随便就是牵一发而动全身。于公司：新人看潜力、“老人”看能力。互联网公司追求年轻化，35岁+需求量越来越少，但是当我们这批到35岁时候，程序员从业人数巨大，企业需求量能不能跟上，毕竟大把后浪等着拍你呢！能想想到的是，35岁+ 厮杀会比现在阶段更惨烈。</p><blockquote><p>35岁彷佛是一道坎，程序员职业生涯的分水岭，程序员生涯往上走理想的进阶无非两条路：<br>1.技术专家（架构师），2.管理。</p></blockquote><p>第一条路：技术专家。对于安卓来说，目前大部分公司很多技术专家层都是后端开发提升上来的，安卓端毕竟还是前端用户交互，核心业务数据还是在后端管理，换句话说，前端需要的技术专家远远少于后端，况且前端不仅仅是安卓，还包括ios，h5，react native等等种类繁多。相比之下，重要性不言而喻。总之最后能成功进阶到企业需要的技术专家，从概率讲，战场厮杀惨重。也需要考虑到35岁+，身体，思维活跃能否跟的上。小公司的技术专家，工作量也还是很大的，需要考虑加班承受力。</p><p>第二条路：程序员转管理层，这也是一条不错的路，但是需要训练自己不仅仅是专业技能，需要提升自己的管理技能。可以先从项目经理转型过渡。相比于第一个技术专家，正常来说厮杀会小点，风险也小点，因为对于我来说，技术栈是有风险的，工作7年，也见证过php，.net从兴盛到没落。像现在成立的一些互联网公司的技术栈与七年前的传统软件行业技术栈是不同的，尤其前端。2012年刚毕业，安卓才慢慢火起来，但是那时候苹果已经开始到达顶峰，我周边苹果用户量是超过安卓的；现在，我有感觉，我周边安卓用户超越了苹果。曾经的移动手机霸主，诺基亚早已宣布倒闭，前端这个行业日新月异，你不知道你现在精通的技术领域，不知道什么时候可能就没落了，保持持续学习，没有年轻人有活力和冲劲。转管理层是目前来看是比走技术领域发展方向要宽广，成本更小。</p><p>我之前看过这样一句话，大概意思，30岁之前如果在行业领域没有突出成就，应该就要转行了。如果30岁没有达到设定的技术高度，如果30岁后还把所有精力放到技术上，风险有点大，因为基本你不会再有什么突出成就了。也许有人会反驳我，程序员就应该搞技术研究，一直朝技术专家，架构师职业发展。这些话你说给公司听就行了，因为从投资角度出发，30岁后你要考虑提升自己的综合实力了，不仅仅是技术，反之我也不是说技术不重要了，只是说把精力需要适当从关注技术上，分散一部分精力提升自己的综合管理能力。</p><blockquote><p>技术是最后保障你有一口饭吃的基本，但是综合实力决定你能走多远，走多好。</p></blockquote><p>曾经，我对于新鲜的一些技术，都乐于尝鲜，也经常活跃各个网络技术博客论坛中。不知道什么时候态度有点转变了，不大愿意花时间去研究目前用不上的技术，除非对我很有诱惑力，也许是见多了新技术的层出不穷，也许是势利了。工作七年也接过几个熟人介绍的外包，心态有点转变。曾经因为兴趣爱好，非常乐于花时间去研究新技术，现在或许只有需求驱动，换句话说就是因为挣钱才会去研究一些项目中需要的技术。现在学习，工作，生活，心里都在考虑成本，值不值。因为程序员时间真的不够用，在现在很多公司996市场环境下，如果换算成时薪，工资真的不算高。程序员除去工作时间，留给自己的时间真的不多。</p><p>经常在想，还有半年时间后，我也要步入30岁了，30岁后的人生需要哪些技能才能让自己走的更远呢？</p><p>曾经对于存钱没有概念，存钱对我来说就是攒钱，不让自己乱挥霍，那就是存银行定期，也不愿花时间去研究什么基金和股票等等投资知识，因为本钱就那么多，即使年化率很高，好像最终的收益也没多多少，不疼不痒。现在观念转变，即使收益少，苍蝇蚊子也是肉，就当是给自己设定的目标去了解更多领域，提升自己各领域知识。</p><hr><p>接下来的半年，目标还是想在技术领域有所突破，越来越在其他领域投入更多时间，增加知识储备，提升综合实力。</p><p>思考良久，其实，都是扯废话，也没得出努力方向，30岁一切皆有可能。能做的只是继续提升自己，全面提升自己。</p><p>加油吧！中年人！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;关于职业生涯的想法&quot;&gt;&lt;a href=&quot;#关于职业生涯的想法&quot; class=&quot;headerlink&quot; title=&quot;关于职业生涯的想法&quot;&gt;&lt;/a&gt;关于职业生涯的想法&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;一边看着国庆阅兵直播一边写写最近的一些想法。&lt;br&gt;最近因为香港问题，还有70年建国，网上很多爱国的段子，软件行业发展这么迅速，前提是中国高速发展的保障，此生不悔入华夏，来世还做中国人。我不是愤青，但是作为中国人真的很自豪。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="心情" scheme="https://inote.fun/categories/%E5%BF%83%E6%83%85/"/>
-    
-    
-      <category term="职业生涯" scheme="https://inote.fun/tags/%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/"/>
     
   </entry>
   
