@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://inote.fun/"/>
-  <updated>2019-11-01T12:43:14.027Z</updated>
+  <updated>2019-11-01T14:47:33.906Z</updated>
   <id>https://inote.fun/</id>
   
   <author>
@@ -21,13 +21,19 @@
     <link href="https://inote.fun/2019/11/01/Jetpack%E4%B9%8BPaging%E4%BB%8B%E7%BB%8D/"/>
     <id>https://inote.fun/2019/11/01/Jetpack之Paging介绍/</id>
     <published>2019-11-01T12:43:14.000Z</published>
-    <updated>2019-11-01T12:43:14.027Z</updated>
+    <updated>2019-11-01T14:47:33.906Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="Jetpack" scheme="https://inote.fun/categories/Jetpack/"/>
+    
+      <category term="Paging" scheme="https://inote.fun/categories/Jetpack/Paging/"/>
+    
+    
+      <category term="Paging" scheme="https://inote.fun/tags/Paging/"/>
     
   </entry>
   
@@ -36,13 +42,19 @@
     <link href="https://inote.fun/2019/11/01/Jetpack%E4%B9%8BRoom%E4%BB%8B%E7%BB%8D/"/>
     <id>https://inote.fun/2019/11/01/Jetpack之Room介绍/</id>
     <published>2019-11-01T12:43:02.000Z</published>
-    <updated>2019-11-01T12:43:02.168Z</updated>
+    <updated>2019-11-01T14:47:40.030Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="Jetpack" scheme="https://inote.fun/categories/Jetpack/"/>
+    
+      <category term="Room" scheme="https://inote.fun/categories/Jetpack/Room/"/>
+    
+    
+      <category term="Room" scheme="https://inote.fun/tags/Room/"/>
     
   </entry>
   
@@ -51,13 +63,19 @@
     <link href="https://inote.fun/2019/11/01/Jetpack%E4%B9%8BViewModel%E4%BB%8B%E7%BB%8D/"/>
     <id>https://inote.fun/2019/11/01/Jetpack之ViewModel介绍/</id>
     <published>2019-11-01T12:42:50.000Z</published>
-    <updated>2019-11-01T12:42:50.467Z</updated>
+    <updated>2019-11-01T14:47:45.367Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="Jetpack" scheme="https://inote.fun/categories/Jetpack/"/>
+    
+      <category term="ViewModel" scheme="https://inote.fun/categories/Jetpack/ViewModel/"/>
+    
+    
+      <category term="ViewModel" scheme="https://inote.fun/tags/ViewModel/"/>
     
   </entry>
   
@@ -81,13 +99,19 @@
     <link href="https://inote.fun/2019/11/01/Jetpack%E4%B9%8BLifecycles%E4%BB%8B%E7%BB%8D/"/>
     <id>https://inote.fun/2019/11/01/Jetpack之Lifecycles介绍/</id>
     <published>2019-11-01T12:42:16.000Z</published>
-    <updated>2019-11-01T12:42:16.725Z</updated>
+    <updated>2019-11-01T14:47:04.841Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
+      <category term="Jetpack" scheme="https://inote.fun/categories/Jetpack/"/>
+    
+      <category term="Lifecycles" scheme="https://inote.fun/categories/Jetpack/Lifecycles/"/>
+    
+    
+      <category term="Lifecycles" scheme="https://inote.fun/tags/Lifecycles/"/>
     
   </entry>
   
@@ -96,13 +120,35 @@
     <link href="https://inote.fun/2019/11/01/Jetpack%E4%B9%8BAndroidx%E4%BB%8B%E7%BB%8D/"/>
     <id>https://inote.fun/2019/11/01/Jetpack之Androidx介绍/</id>
     <published>2019-11-01T12:41:33.000Z</published>
-    <updated>2019-11-01T12:41:33.151Z</updated>
+    <updated>2019-11-01T15:28:46.937Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Jetpack之Androidx介绍"><a href="#Jetpack之Androidx介绍" class="headerlink" title="Jetpack之Androidx介绍"></a>Jetpack之Androidx介绍</h1><h4 id="一-由来"><a href="#一-由来" class="headerlink" title="一. 由来"></a>一. 由来</h4><p>在Google I/O 2018上，Android团队宣布了AndroidX。</p><p> AndroidX 是对 android.support.* 包的整理后产物。由于之前的 support 包过于混乱，所以，Google 推出了AndroidX。</p><p>因此，AndroidX本质上其实就是对Android Support Library进行的一次升级。</p><p>自support v7:28开始，大部分support包都会迁移到androidx下。</p><h5 id="android-support-包介绍："><a href="#android-support-包介绍：" class="headerlink" title="android.support.*包介绍："></a>android.support.*包介绍：</h5><p>如果在低版本Android平台上开发一个应用程序，而应用程序又想使用高版本才拥有的功能，就需要使用Support库。</p><ul><li><p>Android Support v4: 这个包是为了照顾1.6及更高版本而设计的，这个包是使用最广泛的，eclipse新建工程时，都默认带有了。</p></li><li><p>Android Support v7: 这个包是为了考虑照顾2.1及以上版本而设计的，但不包含更低，故如果不考虑1.6,我们可以采用再加上这个包，另外注意，v7是要依赖v4这个包的，即：两个得同时被包含。</p></li><li><p>Android Support v13 : 这个包的设计是为了android 3.2及更高版本的，一般我们都不常用，平板开发中能用到。</p></li></ul><a id="more"></a><p><img src="/images/androidsupport.jpg" alt="AndroidSupportLibrary"></p><h4 id="二-基本概念"><a href="#二-基本概念" class="headerlink" title="二.基本概念"></a>二.基本概念</h4><p>AndroidX 是 Android 团队用于在 Jetpack 中开发、测试、打包和发布库以及对其进行版本控制的开源项目。</p><p>AndroidX 对原始 Android 支持库进行了重大改进。与支持库一样，AndroidX 与 Android 操作系统分开提供，并与各个 Android 版本向后兼容。AndroidX 完全取代了支持库，不仅提供同等的功能，而且提供了新的库。此外，AndroidX 还包括以下功能：</p><ul><li><p>AndroidX 中的所有软件包都使用一致的命名空间，以字符串 androidx 开头。支持库软件包已映射到对应的 androidx.* 软件包。有关所有旧类到新类以及旧编译工件到新编译工件的完整映射，请参阅软件包重构页面。</p></li><li><p>与支持库不同，AndroidX 软件包会单独维护和更新。androidx 软件包使用严格的语义版本控制，从版本 1.0.0 开始。您可以单独更新项目中的 AndroidX 库。</p></li><li><p>所有新支持库的开发工作都将在 AndroidX 库中进行。这包括维护原始支持库工件和引入新的 Jetpack 组件。</p></li></ul><hr><h4 id="三-使用-AndroidX"><a href="#三-使用-AndroidX" class="headerlink" title="三.使用 AndroidX"></a>三.使用 AndroidX</h4><p>如果要在新项目中使用 AndroidX，则需要将编译 SDK 设置为 Android 9.0（API 级别 28）或更高版本，并在 gradle.properties 文件中将以下两个 Android Gradle 插件标记设置为 true。</p><p><code>android.useAndroidX</code>：如果设置为 true，Android 插件会使用相应的 AndroidX 库，而非支持库。如果未指定，则该标记默认为 false。<br><code>android.enableJetifier</code>：如果设置为 true，Android 插件会重写其二进制文件，自动迁移现有的第三方库以使用 AndroidX。如果未指定，则该标记默认为 false。</p><h5 id="迁移到AndroidX"><a href="#迁移到AndroidX" class="headerlink" title="迁移到AndroidX"></a>迁移到AndroidX</h5><p>AndroidX 会将原始支持库 API 软件包映射到 androidx 命名空间。只有软件包和 Maven 工件名称发生了变化；类、方法和字段名称没有改变。</p><h6 id="使用-Android-Studio-迁移现有项目"><a href="#使用-Android-Studio-迁移现有项目" class="headerlink" title="使用 Android Studio 迁移现有项目"></a>使用 Android Studio 迁移现有项目</h6><p>借助 Android Studio 3.2 及更高版本，您可以通过从菜单栏中依次选择<code>Refactor &gt; Migrate to AndroidX</code>，快速迁移现有项目以使用 AndroidX。</p><p>如果您有任何尚未迁移至 AndroidX 命名空间的 Maven 依赖项，那么当您在<code>gradle.properties</code> 文件中将以下两个标记设置为 true 时，Android Studio 编译系统也会为您迁移这些依赖项：</p><p><code>android.useAndroidX=true</code><br><code>android.enableJetifier=true</code></p><p>要迁移未使用任何第三方库但带有需要转换的依赖项的现有项目，可以将 android.useAndroidX 标记设置为 true，并将 android.enableJetifier 标记设置为 false。</p>]]></content>
     
     <summary type="html">
+    
+      &lt;h1 id=&quot;Jetpack之Androidx介绍&quot;&gt;&lt;a href=&quot;#Jetpack之Androidx介绍&quot; class=&quot;headerlink&quot; title=&quot;Jetpack之Androidx介绍&quot;&gt;&lt;/a&gt;Jetpack之Androidx介绍&lt;/h1&gt;&lt;h4 id=&quot;一-由来&quot;&gt;&lt;a href=&quot;#一-由来&quot; class=&quot;headerlink&quot; title=&quot;一. 由来&quot;&gt;&lt;/a&gt;一. 由来&lt;/h4&gt;&lt;p&gt;在Google I/O 2018上，Android团队宣布了AndroidX。&lt;/p&gt;
+&lt;p&gt; AndroidX 是对 android.support.* 包的整理后产物。由于之前的 support 包过于混乱，所以，Google 推出了AndroidX。&lt;/p&gt;
+&lt;p&gt;因此，AndroidX本质上其实就是对Android Support Library进行的一次升级。&lt;/p&gt;
+&lt;p&gt;自support v7:28开始，大部分support包都会迁移到androidx下。&lt;/p&gt;
+&lt;h5 id=&quot;android-support-包介绍：&quot;&gt;&lt;a href=&quot;#android-support-包介绍：&quot; class=&quot;headerlink&quot; title=&quot;android.support.*包介绍：&quot;&gt;&lt;/a&gt;android.support.*包介绍：&lt;/h5&gt;&lt;p&gt;如果在低版本Android平台上开发一个应用程序，而应用程序又想使用高版本才拥有的功能，就需要使用Support库。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Android Support v4: 这个包是为了照顾1.6及更高版本而设计的，这个包是使用最广泛的，eclipse新建工程时，都默认带有了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Android Support v7: 这个包是为了考虑照顾2.1及以上版本而设计的，但不包含更低，故如果不考虑1.6,我们可以采用再加上这个包，另外注意，v7是要依赖v4这个包的，即：两个得同时被包含。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Android Support v13 : 这个包的设计是为了android 3.2及更高版本的，一般我们都不常用，平板开发中能用到。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
     
+      <category term="Jetpack" scheme="https://inote.fun/categories/Jetpack/"/>
+    
+      <category term="Androidx" scheme="https://inote.fun/categories/Jetpack/Androidx/"/>
+    
+    
+      <category term="Androidx" scheme="https://inote.fun/tags/Androidx/"/>
     
   </entry>
   
