@@ -133,6 +133,66 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
+        <a class="cat-link" href="/categories/知识点/">知识点</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://inote.fun/2019/11/02/初识区块链/">
+    		初识区块链
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        huangguangzhi 发表于
+        <time datetime="2019-11-02T06:19:44.000Z">2019-11-02</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/区块链/" title="区块链">区块链</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h1 id="初识区块链"><a href="#初识区块链" class="headerlink" title="初识区块链"></a>初识区块链</h1><p><img src="/images/%E5%8C%BA%E5%9D%97%E9%93%BE1.jpg" alt="区块链"> </p>
+<blockquote>
+<p>中央政治局第十八次集体学习时强调：区块链技术的集成应用在新的技术革新和产业变革中起着重要作用。</p>
+</blockquote>
+<p>近几日，区块链概念股起飞，巨量资金出入，应了雷布斯的那句话“风来了，猪都起飞了”。</p>
+<p>之前对区块链没什么概念，但是，接触过炒虚拟币app，比如也是最近被查封的“趣步”，将虚拟糖果作为货币在市场中，类比如股票进行交易。之前也接过类似的软件需求，其实，虚拟币或者说空气币，每天的价格都是人为的后台设置每天都会递增，这样给用户造成每天都在涨的错觉，这样用户会有早买早升值的心理。运营这种空气币的人，很多都有好几个群，大家一起炒。运营人主要赚第一笔钱，同样群里人基本都知道这就是空气币，他们也是赚刚开始的那一笔钱，当泡沫越来越大，玩的人越来越多，风险就高了。赚钱的那一批人这时候就退场，最后一批入场的人则成为了“韭菜”。</p>
+<p>最近区块链又火了，对于我们普通人来说，是好事。越了解它，它就不会那么神秘。越来越透明，就不会被各种利用区块链发行虚拟货币、炒作空气币，打着区块链旗号非法集资的组织诈骗。</p>
+            
+            <p class="more">
+                <a href="https://inote.fun/2019/11/02/初识区块链/">阅读剩下更多</a>
+            </p>
+        </div>
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2019/11/02/初识区块链/" title="初识区块链">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/2.jpg" alt="默认配图" >
+                
+            </a>
+-->
+        </div>
+
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
         <a class="cat-link" href="/categories/Jetpack/">Jetpack</a>
         
         <!-- 文章标题 -->
@@ -549,85 +609,6 @@
 </article>
 
     
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/Android/">Android</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://inote.fun/2019/10/19/Android-kotlin-coroutine协程的概念/">
-    		Android-kotlin-coroutine协程的概念
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        huangguangzhi 发表于
-        <time datetime="2019-10-19T08:40:15.000Z">2019-10-19</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/coroutine协程/" title="coroutine协程">coroutine协程</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h1 id="Android-kotlin-coroutine协程的概念"><a href="#Android-kotlin-coroutine协程的概念" class="headerlink" title="Android-kotlin-coroutine协程的概念"></a>Android-kotlin-coroutine协程的概念</h1><h4 id="一-进程，线程，协程-概念"><a href="#一-进程，线程，协程-概念" class="headerlink" title="一. 进程，线程，协程 概念"></a>一. 进程，线程，协程 概念</h4><h5 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h5><ul>
-<li><p>进程是资源分配的最小单位，线程是程序执行的最小单位。</p>
-</li>
-<li><p>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</p>
-<blockquote>
-<p>为了加大一个应用可使用的内存通过多进程来获取多份内存空间<br>通过给四大组件指定android:process属性可以轻易开启多进程</p>
-</blockquote>
-</li>
-<li><p>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC-跨进程通信)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</p>
-<blockquote>
-<p>跨进程通信方式有：</p>
-<p> 1. 通过Intent(Bundle)附加extras来传递信息</p>
-<p> 2. 通过共享文件来共享数据</p>
-<p> 3. 采用Binder方式来是想跨进程通信</p>
-<p> 4. 采用ContentProvider</p>
-<p> 5. 采用socket</p>
-</blockquote>
-</li>
-<li><p>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</p>
-<blockquote>
-<p>延申到android崩溃同样道理。</p>
-<p>app中大量Web页面的使用容易导致App内存占用巨大，存在内存泄露，崩溃率高等问题，WebView独立进程的使用是解决Android WebView相关问题的一个合理的方案。</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="/images/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.jpg" alt="进程与线程"></p>
-            
-            <p class="more">
-                <a href="https://inote.fun/2019/10/19/Android-kotlin-coroutine协程的概念/">阅读剩下更多</a>
-            </p>
-        </div>
-        
-	<div class="post-thumbnail" data-img="">
-<!--
-            <a href="https://inote.fun/2019/10/19/Android-kotlin-coroutine协程的概念/" title="Android-kotlin-coroutine协程的概念">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图" >
-                
-            </a>
--->
-        </div>
-
-    </div>
-</article>
-
-    
 
     
     <nav class="page-navigator">
@@ -654,13 +635,13 @@
     </li>
     
     <li>
-        <a href="/categories/Android/">Android</a>
-        <span class="badge">(53)</span>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
     </li>
     
     <li>
-        <a href="/categories/后端/CSharp/">CSharp</a>
-        <span class="badge">(14)</span>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(53)</span>
     </li>
     
     <li>
@@ -669,13 +650,13 @@
     </li>
     
     <li>
-        <a href="/categories/Android/开源框架/">开源框架</a>
-        <span class="badge">(17)</span>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
     </li>
     
     <li>
-        <a href="/categories/Android/kotlin/">kotlin</a>
-        <span class="badge">(3)</span>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
     </li>
     
     <li>
@@ -684,22 +665,17 @@
     </li>
     
     <li>
-        <a href="/categories/Android/知识点/">知识点</a>
-        <span class="badge">(18)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/GitHub/">GitHub</a>
-        <span class="badge">(5)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/后端/JAVA/">JAVA</a>
-        <span class="badge">(1)</span>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
     </li>
     
     <li>
         <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -729,13 +705,18 @@
     </li>
     
     <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
         <a href="/categories/心情/">心情</a>
         <span class="badge">(12)</span>
     </li>
     
     <li>
         <a href="/categories/知识点/">知识点</a>
-        <span class="badge">(1)</span>
+        <span class="badge">(2)</span>
     </li>
     
     <li>
@@ -768,25 +749,23 @@
   
     <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
   
-    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
-  
     <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
   
     <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
   
     <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
   
-    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
-  
     <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
   
     <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
   
-    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
   
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
   
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
@@ -802,41 +781,43 @@
   
     <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
     <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
   
-    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
   
-    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
-  
-    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
   
-    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
-  
     <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
     <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
   
     <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
   
     <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
-  
     <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
-    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
   
     <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
     <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
