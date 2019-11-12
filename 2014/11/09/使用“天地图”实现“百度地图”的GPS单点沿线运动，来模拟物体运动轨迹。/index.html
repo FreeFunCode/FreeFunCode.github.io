@@ -1,0 +1,614 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。 | 网记本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
+    <meta name="description" content="FreeFunCode网络记事本">
+
+    
+    <link rel="alternative" href="/atom.xml" title="网记本" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?3771b2566860fea0de20c35742671f53";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+<body class="home">
+
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">网记本</span>
+                    <span class="description">网络记事本-huangguangzhi</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/index.html" class="item ">
+                <a href="/" title="日志" class="icon-home">&nbsp;日志</a>
+            </li>
+            
+            <li rel="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/index.html" class="item ">
+                <a href="/photos/" title="相册" class="icon-files-empty">&nbsp;相册</a>
+            </li>
+            
+            <li rel="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/index.html" class="item ">
+                <a href="/lab/" title="建站" class="icon-office">&nbsp;建站</a>
+            </li>
+            
+            <li rel="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-profile">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="" target="_blank">good good study ,day day up!</a>
+                        |
+                    
+                        <a href="" target="_blank">利用碎片化时间挖掘知识深度！</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" class="juejin" target="_blank"><b>■</b> 稀土掘金</a>
+                    
+                        <a href="https://weibo.com/230689567" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        huangguangzhi 发表于
+        <time datetime="2014-11-09T09:10:29.000Z">2014-11-09</time>
+    </p>
+    <div class="post-content">
+        <p><a href="https://www.cnblogs.com/bugzone/p/baidumap.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<a id="more"></a>
+
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>&nbsp;&nbsp;&nbsp;<strong> 一 . </strong>最近在弄智能调度系统，就需要在地图上实现模拟车辆的某一个时间段的运动轨迹。</p>
+<p>&nbsp;&nbsp;&nbsp; 百度地图已经有了这个Demo的示例。附上GPS-单点沿线运动Demo链接：<a href="http://developer.baidu.com/map/jsdemo.htm#c2_5" target="_blank">http://developer.baidu.com/map/jsdemo.htm#c2_5</a></p>
+<p>&nbsp;&nbsp;&nbsp; <strong>二 .&nbsp;</strong>在这个Demo上进行改造的百度地图如下图所示：</p>
+<p>&nbsp;&nbsp;&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/091701438787623.gif" alt=""></p>
+<p>&nbsp;&nbsp;&nbsp; 百度地图实现代码如下：</p>
+<p>&nbsp;&nbsp;&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="Content-Type"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="text/html; charset=utf-8"</span> <span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="viewport"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="initial-scale=1.0, user-scalable=no"</span> <span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">style </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/css"</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #800000;">
+        body, html,#allmap </span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">width</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 100%</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">height</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> 100%</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">overflow</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;"> hidden</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">margin</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">0</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">font-family</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">"微软雅黑"</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #000000;">}</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="http://api.map.baidu.com/api?v=2.0&amp;ak=TUaQdFgQ4GTsZjGGRCHWDCsx"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>百度地图--单个标注点沿线的轨迹运动<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="allmap"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;"> 百度地图API功能</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> curve;
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> map </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Map(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">allmap</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);
+    map.centerAndZoom(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Point(</span><span style="background-color: #f5f5f5; color: #000000;">116.403694</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.91582</span><span style="background-color: #f5f5f5; color: #000000;">), </span><span style="background-color: #f5f5f5; color: #000000;">12</span><span style="background-color: #f5f5f5; color: #000000;">);
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> myIcon </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Icon(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">http://developer.baidu.com/map/jsdemo/img/Mario.png</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Size(</span><span style="background-color: #f5f5f5; color: #000000;">32</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #000000;">70</span><span style="background-color: #f5f5f5; color: #000000;">), {    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">小车图片</span>
+        <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">offset: new BMap.Size(0, -5),    //相当于CSS精灵</span>
+<span style="background-color: #f5f5f5; color: #000000;">        imageOffset: </span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Size(</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">)    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">图片的偏移量。为了是图片底部中心对准坐标点。</span>
+<span style="background-color: #f5f5f5; color: #000000;">      });
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> points;
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> ps</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">[];
+    ps.push(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Point(</span><span style="background-color: #f5f5f5; color: #000000;">116.306533</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.890581</span><span style="background-color: #f5f5f5; color: #000000;">));
+    ps.push(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Point(</span><span style="background-color: #f5f5f5; color: #000000;">116.403694</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.91582</span><span style="background-color: #f5f5f5; color: #000000;">));
+    ps.push(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Point(</span><span style="background-color: #f5f5f5; color: #000000;">116.475558</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.962733</span><span style="background-color: #f5f5f5; color: #000000;">));
+    ps.push(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Point(</span><span style="background-color: #f5f5f5; color: #000000;">116.555472</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.916706</span><span style="background-color: #f5f5f5; color: #000000;">));
+    ps.push(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMap.Point(</span><span style="background-color: #f5f5f5; color: #000000;">116.529025</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.869762</span><span style="background-color: #f5f5f5; color: #000000;">));
+
+
+<pre><code>window.run &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt; &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;function&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; (){
+    &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;var&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; pts &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; ps;    &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;//&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;通过驾车实例，获得一系列点的数组&lt;/span&gt;
+        &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;var&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; paths &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; pts.length;    &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;//&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;获得有几个点&lt;/span&gt;
+        &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;var&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; carMk &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt; &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; BMap.Marker(pts[&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;0&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;],{icon:myIcon});
+        map.addOverlay(carMk);
+        points &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; [pts[&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;0&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;],pts[&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;1&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;]];
+            curve &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt; &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; BMapLib.CurveLine(points, {strokeColor:&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;"&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;blue&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;"&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;, strokeWeight:&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;3&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;, strokeOpacity:&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;0.5&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;}); &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;//&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;创建弧线对象                &lt;/span&gt;</code></pre><p><span style="background-color: #f5f5f5; color: #000000;">                map.addOverlay(curve); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">添加到地图中</span><br><span style="background-color: #f5f5f5; color: #000000;">                carMk.setPosition(pts[</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">]);<br>            i</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">;<br>            </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> resetMkPoint(i){<br>                points </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> [pts[i</span><span style="background-color: #f5f5f5; color: #000000;">-</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">],pts[i]];<br>                curve </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> BMapLib.CurveLine(points, {strokeColor:</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">blue</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">, strokeWeight:</span><span style="background-color: #f5f5f5; color: #000000;">3</span><span style="background-color: #f5f5f5; color: #000000;">, strokeOpacity:</span><span style="background-color: #f5f5f5; color: #000000;">0.5</span><span style="background-color: #f5f5f5; color: #000000;">}); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">创建弧线对象                </span><br><span style="background-color: #f5f5f5; color: #000000;">                map.addOverlay(curve); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">添加到地图中</span><br><span style="background-color: #f5f5f5; color: #000000;">                carMk.setPosition(pts[i]);<br>                </span><span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;">(i </span><span style="background-color: #f5f5f5; color: #000000;">&lt;</span><span style="background-color: #f5f5f5; color: #000000;"> paths){<br>                    setTimeout(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){<br>                        i</span><span style="background-color: #f5f5f5; color: #000000;">++</span><span style="background-color: #f5f5f5; color: #000000;">;<br>                        resetMkPoint(i);<br>                    },</span><span style="background-color: #f5f5f5; color: #000000;">500</span><span style="background-color: #f5f5f5; color: #000000;">);<br>                }<br>            }<br>            setTimeout(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){<br>                resetMkPoint(</span><span style="background-color: #f5f5f5; color: #000000;">2</span><span style="background-color: #f5f5f5; color: #000000;">);<br>            },</span><span style="background-color: #f5f5f5; color: #000000;">500</span><span style="background-color: #f5f5f5; color: #000000;">)<br>    }<br>    setTimeout(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){<br>        run();<br>    },</span><span style="background-color: #f5f5f5; color: #000000;">100</span><span style="background-color: #f5f5f5; color: #000000;">);<br></span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></p></span></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;&nbsp;&nbsp; 参考百度地图代码，使用天地图来模拟的页面效果。如下图所示：</p>
+<p>&nbsp; <img src="https://images0.cnblogs.com/blog/612293/201411/091704057682676.gif" alt=""></p>
+<p>&nbsp;天地图实现代码如下：</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="keywords"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="天地图"</span><span style="color: #ff0000;"> charset</span><span style="color: #0000ff;">="utf-8"</span><span style="color: #0000ff;">/&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>天地图－地图API－范例－画线<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="http://api.tianditu.com/js/maps.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="button"</span><span style="color: #ff0000;"> onclick</span><span style="color: #0000ff;">="goRun()"</span><span style="color: #0000ff;">&gt;</span>Click Me!<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="mapDiv"</span><span style="color: #ff0000;"> style</span><span style="color: #0000ff;">="position:absolute;width:100%; height:90%"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span> 
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">language</span><span style="color: #0000ff;">="javascript"</span><span style="color: #0000ff;">&gt;</span> 
+    <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> map,zoom </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #000000;">11</span><span style="background-color: #f5f5f5; color: #000000;">,points,line; 
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> myIcon </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TIcon(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">http://api.tianditu.com/img/map/markerA.png</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TSize(</span><span style="background-color: #f5f5f5; color: #000000;">19</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">27</span><span style="background-color: #f5f5f5; color: #000000;">),{anchor:</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TPixel(</span><span style="background-color: #f5f5f5; color: #000000;">9</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">27</span><span style="background-color: #f5f5f5; color: #000000;">)});
+    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">初始化地图对象 </span>
+<span style="background-color: #f5f5f5; color: #000000;">    map</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TMap(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">mapDiv</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">); 
+    </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">设置显示地图的中心点和级别 </span>
+<span style="background-color: #f5f5f5; color: #000000;">    map.centerAndZoom(</span><span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TLngLat(</span><span style="background-color: #f5f5f5; color: #000000;">116.403694</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">39.91582</span><span style="background-color: #f5f5f5; color: #000000;">),zoom); 
+
+<pre><code>points &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; []; 
+points.push(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; TLngLat(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;116.306533&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;,&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;39.890581&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;));
+    points.push(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; TLngLat(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;116.403694&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;,&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;39.91582&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;));
+    points.push(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; TLngLat(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;116.475558&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;,&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;39.962733&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;));
+    points.push(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; TLngLat(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;116.555472&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;,&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;39.916706&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;));
+points.push(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; TLngLat(&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;116.529025&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;,&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;39.869762&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;));
+
+&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;function&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; goRun(){
+    &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;var&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; pts &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; points;    &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;//&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;通过驾车实例，获得一系列点的数组&lt;/span&gt;
+        &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;var&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; paths &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; pts.length;    &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;//&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;获得有几个点&lt;/span&gt;
+        &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;var&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; carMk &lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;=&lt;/span&gt; &lt;span style="background-color: #f5f5f5; color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt; TMarker(pts[&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;0&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #000000;"&gt;],{icon:myIcon});&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;//&lt;/span&gt;&lt;span style="background-color: #f5f5f5; color: #008000;"&gt;地图添加自定义标识&lt;/span&gt;</code></pre><p><span style="background-color: #f5f5f5; color: #000000;">            points </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> [pts[</span><span style="background-color: #f5f5f5; color: #000000;">0</span><span style="background-color: #f5f5f5; color: #000000;">],pts[</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">]];<br>            line </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TPolyline(points, {strokeColor:</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">blue</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">, strokeWeight:</span><span style="background-color: #f5f5f5; color: #000000;">3</span><span style="background-color: #f5f5f5; color: #000000;">, strokeOpacity:</span><span style="background-color: #f5f5f5; color: #000000;">0.5</span><span style="background-color: #f5f5f5; color: #000000;">}); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">创建线对象</span><br><span style="background-color: #f5f5f5; color: #000000;">            map.addOverLay(carMk);<br>            map.addOverLay(line); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">添加到地图中</span><br><span style="background-color: #f5f5f5; color: #000000;">            carMk.setLngLat(pts[</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">]);<br>            </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;"> resetMkPoint(i){<br>                carMk.setLngLat(pts[i]);<br>                points </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> [pts[i</span><span style="background-color: #f5f5f5; color: #000000;">-</span><span style="background-color: #f5f5f5; color: #000000;">1</span><span style="background-color: #f5f5f5; color: #000000;">],pts[i]];<br>                line </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">new</span><span style="background-color: #f5f5f5; color: #000000;"> TPolyline(points, {strokeColor:</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">blue</span><span style="background-color: #f5f5f5; color: #000000;">“</span><span style="background-color: #f5f5f5; color: #000000;">, strokeWeight:</span><span style="background-color: #f5f5f5; color: #000000;">3</span><span style="background-color: #f5f5f5; color: #000000;">, strokeOpacity:</span><span style="background-color: #f5f5f5; color: #000000;">0.5</span><span style="background-color: #f5f5f5; color: #000000;">}); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">创建线对象</span><br><span style="background-color: #f5f5f5; color: #000000;">                map.addOverLay(line); </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">添加到地图中</span><br>                <span style="background-color: #f5f5f5; color: #0000ff;">if</span><span style="background-color: #f5f5f5; color: #000000;">(i </span><span style="background-color: #f5f5f5; color: #000000;">&lt;</span><span style="background-color: #f5f5f5; color: #000000;"> paths){<br>                    setTimeout(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){<br>                        i</span><span style="background-color: #f5f5f5; color: #000000;">++</span><span style="background-color: #f5f5f5; color: #000000;">;<br>                        resetMkPoint(i);<br>                    },</span><span style="background-color: #f5f5f5; color: #000000;">500</span><span style="background-color: #f5f5f5; color: #000000;">);<br>                }<br>            }<br>            setTimeout(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){<br>                resetMkPoint(</span><span style="background-color: #f5f5f5; color: #000000;">2</span><span style="background-color: #f5f5f5; color: #000000;">);<br>            },</span><span style="background-color: #f5f5f5; color: #000000;">500</span><span style="background-color: #f5f5f5; color: #000000;">)</span></p>
+<pre><code>}</code></pre><p></p></span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><br><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;<strong>三 .&nbsp;</strong>总结。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 天地图与百度地图的代码很相似，天地图的功能，基本可以通过百度地图代码来改造，虽然天地图示例Demo没有百度地图全面，但是通过百度地图对比来开发，基本的功能实现不难。</p>
+</div>
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/后端/">后端</a>|<a class="cat-link" href="/categories/后端/CSharp/">CSharp</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/地图/" title="地图">地图</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2014/11/20/推荐三款使用社会化评论插件/">
+            
+                推荐三款使用社会化评论插件
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2014/11/08/Arcgis-地图-服务器安装配置/">
+            
+                Arcgis-地图-服务器安装配置
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="暂时不支持评论，因为本站在国内，不在github。如果需要联系我，请关注我公众号吧，留言能看到！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(21)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/">Jetpack</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Paging/">Paging</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Room/">Room</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/心情/">心情</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/知识点/">知识点</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/PHP/">PHP</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/设计模式/">设计模式</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
+  
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
+  
+    <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+  
+    <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
+  
+    <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+  
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
+  
+    <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
+  
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
+  
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
+  
+    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+  
+    <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
+  
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+  
+    <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" title="稀土掘金">稀土掘金</a>
+        </li>
+    
+        <li>
+            <a href="https://www.cnblogs.com/bugzone" target="_blank" title="博客园">博客园</a>
+        </li>
+    
+        <li>
+            <a href="https://weibo.com/230689567" target="_blank" title="新浪微博">新浪微博</a>
+        </li>
+    
+        <li>
+            <a href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" title="简书">简书</a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    ©
+    
+        2012-2019
+    
+
+    <a href="/">FreeFunCode</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: '使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。' || '2014/11/09/使用“天地图”实现“百度地图”的GPS单点沿线运动，来模拟物体运动轨迹。/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

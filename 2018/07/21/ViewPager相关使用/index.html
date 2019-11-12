@@ -1,0 +1,578 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>ViewPager相关使用 | 网记本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
+    <meta name="description" content="FreeFunCode网络记事本">
+
+    
+    <link rel="alternative" href="/atom.xml" title="网记本" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?3771b2566860fea0de20c35742671f53";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+<body class="home">
+
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">网记本</span>
+                    <span class="description">网络记事本-huangguangzhi</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/07/21/ViewPager相关使用/index.html" class="item ">
+                <a href="/" title="日志" class="icon-home">&nbsp;日志</a>
+            </li>
+            
+            <li rel="/2018/07/21/ViewPager相关使用/index.html" class="item ">
+                <a href="/photos/" title="相册" class="icon-files-empty">&nbsp;相册</a>
+            </li>
+            
+            <li rel="/2018/07/21/ViewPager相关使用/index.html" class="item ">
+                <a href="/lab/" title="建站" class="icon-office">&nbsp;建站</a>
+            </li>
+            
+            <li rel="/2018/07/21/ViewPager相关使用/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-profile">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/07/21/ViewPager相关使用/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="" target="_blank">good good study ,day day up!</a>
+                        |
+                    
+                        <a href="" target="_blank">利用碎片化时间挖掘知识深度！</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" class="juejin" target="_blank"><b>■</b> 稀土掘金</a>
+                    
+                        <a href="https://weibo.com/230689567" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>ViewPager相关使用</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        huangguangzhi 发表于
+        <time datetime="2018-07-21T15:59:41.000Z">2018-07-21</time>
+    </p>
+    <div class="post-content">
+        <p><a href="https://www.cnblogs.com/bugzone/p/viewpager.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<a id="more"></a>
+
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h2>一.ViewPager+Fragment 预加载</h2>
+<p>&nbsp;ViewPager的预加载，是指ViewPager的内部加载数据机制，它会默认至少预加载一个相邻的ViewPager内的Fragment页数据。<br>&nbsp;<br>&nbsp;如果设置 viewpager.setOffscreenPageLimit(0); 会发现没有效果。<br>&nbsp;可以查看ViewPager.java源码我们知道，ViewPager默认必须预加载一个相邻页面的数据。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> ViewPager extends ViewGroup {
+    ...
+    </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">static</span> final <span style="color: #0000ff;">int</span> DEFAULT_OFFSCREEN_PAGES = <span style="color: #800080;">1</span><span style="color: #000000;">;
+    ...
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">*
+     * Set the number of pages that should be retained to either side of the
+     * current page in the view hierarchy in an idle state. Pages beyond this
+     * limit will be recreated from the adapter when needed.
+     *
+     * &lt;p&gt;This is offered as an optimization. If you know in advance the number
+     * of pages you will need to support or have lazy-loading mechanisms in place
+     * on your pages, tweaking this setting can have benefits in perceived smoothness
+     * of paging animations and interaction. If you have a small number of pages (3-4)
+     * that you can keep active all at once, less time will be spent in layout for
+     * newly created view subtrees as the user pages back and forth.&lt;/p&gt;
+     *
+     * &lt;p&gt;You should keep this limit low, especially if your pages have complex layouts.
+     * This setting defaults to 1.&lt;/p&gt;
+     *
+     * @param limit How many pages will be kept offscreen in an idle state.
+     </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span> setOffscreenPageLimit(<span style="color: #0000ff;">int</span><span style="color: #000000;"> limit) {
+        </span><span style="color: #0000ff;">if</span> (limit &lt;<span style="color: #000000;"> DEFAULT_OFFSCREEN_PAGES) {
+            Log.w(TAG, </span><span style="color: #800000;">"</span><span style="color: #800000;">Requested offscreen page limit </span><span style="color: #800000;">"</span> + limit + <span style="color: #800000;">"</span><span style="color: #800000;"> too small; defaulting to </span><span style="color: #800000;">"</span> +<span style="color: #000000;">
+                    DEFAULT_OFFSCREEN_PAGES);
+            limit </span>=<span style="color: #000000;"> DEFAULT_OFFSCREEN_PAGES;
+        }
+        </span><span style="color: #0000ff;">if</span> (limit !=<span style="color: #000000;"> mOffscreenPageLimit) {
+            mOffscreenPageLimit </span>=<span style="color: #000000;"> limit;
+            populate();
+        }
+    }
+    ...
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<div>&nbsp; &nbsp; 如果确实有时候非要相邻的Fragment页面需要实时显示的时候就要刷新数据，我们可以使用Fragment里的一个方法。<br>&nbsp; &nbsp; 重写 public void setUserVisibleHint(boolean isVisibleToUser) {...} 来处理请求刷新数据。</div>
+<div>&nbsp; &nbsp; 当然也有很多其他方法来解决页面立即刷新问题，比如：利用EventBus监听事件刷新，或者FragmentManager来控制Fragment响应事件的触发更新等等。</div>
+<div>&nbsp;</div>
+<div>
+<div>
+<h2>二.FragmentStatePagerAdapter 和 FragmentPagerAdapter</h2>
+<br>&nbsp;&nbsp;&nbsp;&nbsp; ViewPager 经常和 Fragment 一起使用，并且提供了专门的 FragmentPagerAdapter 和 FragmentStatePagerAdapter 类供 Fragment 中的 ViewPager 使用。</div>
+<div>
+<h4>&nbsp;1.FragmentStatePagerAdapter</h4>
+Implementation of PagerAdapter that uses a Fragment to manage each page. This class also handles saving and restoring of fragment's state. <br>&nbsp;&nbsp;&nbsp; This version of the pager is more useful when there are a large number of pages, working more like a list view. <br>&nbsp;When pages are not visible to the user, their entire fragment may be destroyed, only keeping the saved state of that fragment.<br>&nbsp;This allows the pager to hold on to much less memory associated with each visited page as compared to FragmentPagerAdapter at the cost of potentially more overhead when switching between pages. <br>&nbsp;&nbsp;&nbsp; When using FragmentPagerAdapter the host ViewPager must have a valid ID set.<br>&nbsp;&nbsp;&nbsp; Subclasses only need to implement getItem(int) and getCount() to have a working adapter. </div>
+<div>&nbsp;</div>
+<div>&nbsp; &nbsp;&nbsp; 从FragmentStatePagerAdapter的Api可知。<strong>当ViewPager管理的页面有大量数据时候，也就是如果viewpager管理的页面是一个ListView时候，推荐使用FragmentStatePagerAdapter</strong>。这是因为FragmentStatePagerAdapter在页面不可见的时候，会销毁这个Fragment。所以FragmentStatePagerAdapter比FragmentPagerAdapter占用内存更小。<br>
+<h4> 2.FragmentPagerAdapter</h4>
+&nbsp;Implementation of PagerAdapter that represents each page as a Fragment that is persistently kept in the fragment manager as long as the user can return to the page. <br>&nbsp;This version of the pager is best for use when there are a handful of typically more static fragments to be paged through, such as a set of tabs. The fragment of each page the user visits will be kept in memory, <br>&nbsp;though its view hierarchy may be destroyed when not visible. This can result in using a significant amount of memory since fragment instances can hold on to an arbitrary amount of state. <br>&nbsp;For larger sets of pages, consider FragmentStatePagerAdapter. <br>&nbsp;When using FragmentPagerAdapter the host ViewPager must have a valid ID set.<br>&nbsp;Subclasses only need to implement getItem(int) and getCount() to have a working adapter. <br>&nbsp;<br>&nbsp;从FragmentPagerAdapter的Api也同样了解到，当页面有大量数据加载的时候推荐使用FragmentStatePagerAdapter，FragmentPagerAdapter 创建的 fragment 永远不会被销毁，一般用于<strong>只有少量固定的 fragment 时，可以选择 FragmentPagerAdapter</strong>。<br>&nbsp;<br><br>&nbsp;最后说一点，在内存优化上，<strong>RecyclerView要比ViewPager优秀</strong>些。推荐大家优先考虑使用RecyclerView 实现。</div>
+</div>
+</div>
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Android/">Android</a>|<a class="cat-link" href="/categories/Android/知识点/">知识点</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/ViewPager/" title="ViewPager">ViewPager</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/07/22/Serializable和Parcelable之序列化/">
+            
+                Serializable和Parcelable之序列化
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/07/21/AIDL介绍以及简单使用/">
+            
+                AIDL介绍以及简单使用
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="暂时不支持评论，因为本站在国内，不在github。如果需要联系我，请关注我公众号吧，留言能看到！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(21)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/">Jetpack</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Paging/">Paging</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Room/">Room</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/心情/">心情</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/知识点/">知识点</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/PHP/">PHP</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/设计模式/">设计模式</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
+  
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
+  
+    <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+  
+    <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
+  
+    <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+  
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
+  
+    <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
+  
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
+  
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
+  
+    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+  
+    <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
+  
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+  
+    <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" title="稀土掘金">稀土掘金</a>
+        </li>
+    
+        <li>
+            <a href="https://www.cnblogs.com/bugzone" target="_blank" title="博客园">博客园</a>
+        </li>
+    
+        <li>
+            <a href="https://weibo.com/230689567" target="_blank" title="新浪微博">新浪微博</a>
+        </li>
+    
+        <li>
+            <a href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" title="简书">简书</a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    ©
+    
+        2012-2019
+    
+
+    <a href="/">FreeFunCode</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'ViewPager相关使用' || '2018/07/21/ViewPager相关使用/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

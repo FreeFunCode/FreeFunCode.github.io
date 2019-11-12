@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Kotlin与java对比 | 网记本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
+    <meta name="description" content="FreeFunCode网络记事本">
+
+    
+    <link rel="alternative" href="/atom.xml" title="网记本" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?3771b2566860fea0de20c35742671f53";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+<body class="home">
+
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">网记本</span>
+                    <span class="description">网络记事本-huangguangzhi</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2019/09/28/Kotlin与java对比/index.html" class="item ">
+                <a href="/" title="日志" class="icon-home">&nbsp;日志</a>
+            </li>
+            
+            <li rel="/2019/09/28/Kotlin与java对比/index.html" class="item ">
+                <a href="/photos/" title="相册" class="icon-files-empty">&nbsp;相册</a>
+            </li>
+            
+            <li rel="/2019/09/28/Kotlin与java对比/index.html" class="item ">
+                <a href="/lab/" title="建站" class="icon-office">&nbsp;建站</a>
+            </li>
+            
+            <li rel="/2019/09/28/Kotlin与java对比/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-profile">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2019/09/28/Kotlin与java对比/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="" target="_blank">good good study ,day day up!</a>
+                        |
+                    
+                        <a href="" target="_blank">利用碎片化时间挖掘知识深度！</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" class="juejin" target="_blank"><b>■</b> 稀土掘金</a>
+                    
+                        <a href="https://weibo.com/230689567" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Kotlin与java对比</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        huangguangzhi 发表于
+        <time datetime="2019-09-28T09:48:07.000Z">2019-09-28</time>
+    </p>
+    <div class="post-content">
+        <p><a href="https://juejin.im/post/5d8f2aa4e51d4577ea077ead" target="_blank" rel="noopener">点击查看原文</a></p>
+<h2 id="Kotlin与java对比"><a href="#Kotlin与java对比" class="headerlink" title="Kotlin与java对比"></a>Kotlin与java对比</h2><blockquote>
+<p>最近因为工作关系，需要迭代维护公司现有kotlin客服聊天的项目。之前一直使用java，对于kotlin还是比较陌生的。<br>使用kotlin一段时间后，感触还是有点。kotlin比java真是太简洁了，一段代码，刚开始可能按java语法习惯编写，然后根据ide的提示，一步一步优化，缩减代码量，最后发现，代码量的差距很大。最后剩下的代码可能就只剩下了业务逻辑了。<br>kotlin结合mvvm架构，项目非常简洁。<br>kotlin是基于jvm编程语言，同java一样可以编译成class字节码文件。同java之间可以相互调用。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><hr>
+<h4 id="1-定义函数"><a href="#1-定义函数" class="headerlink" title="1.定义函数"></a>1.定义函数</h4><p>java：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public String retrunStr(String str){</span><br><span class="line">        return str;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>kotlin：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun returnStr(str: String): String {</span><br><span class="line">        return str</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="2-定义变量"><a href="#2-定义变量" class="headerlink" title="2.定义变量"></a>2.定义变量</h4><p>java：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public String str1;</span><br><span class="line">public static final String str2 = "HelloWorld";</span><br></pre></td></tr></tbody></table></figure>
+
+<p>kotlin：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str1: String? = null</span><br><span class="line">val str2 = "HelloWorld"</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="3-空置判断-：-和"><a href="#3-空置判断-：-和" class="headerlink" title="3. 空置判断 ：? 和 !!"></a>3. 空置判断 ：? 和 !!</h4><p>java：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">?</span><br><span class="line">public String retrunStr2(String str) {</span><br><span class="line">        if (str != null) {</span><br><span class="line">            return str1;</span><br><span class="line">        } else {</span><br><span class="line">            return "";</span><br><span class="line">        }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">!!</span><br><span class="line">public void toLowerStr(String str) {</span><br><span class="line">        try {</span><br><span class="line">            str.toLowerCase();</span><br><span class="line">        } catch (NullPointerException e) {</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>kotlin：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">?</span><br><span class="line">fun retrunStr2(str: String?): String {</span><br><span class="line">        return str ?: ""</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">!!</span><br><span class="line">fun toLowerStr(str: String) {</span><br><span class="line">        str!!.toLowerCase()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="4-for循环"><a href="#4-for循环" class="headerlink" title="4.for循环"></a>4.for循环</h4><p>java：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public void test() {</span><br><span class="line">        List&lt;String&gt; arr = Arrays.asList("java", "kotlin");</span><br><span class="line">        for (int i = 0; i &lt; arr.size(); i++) {</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; arr.size(); i++) {</span><br><span class="line">            System.out.println(arr.get(i));</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        for (Iterator it = arr.iterator(); it.hasNext(); ) {</span><br><span class="line">            System.out.println(it);</span><br><span class="line">        }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>kotlin：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">fun test() {</span><br><span class="line">        val arr = Arrays.asList("java", "kotlin")</span><br><span class="line">        for (i in arr.indices) {</span><br><span class="line">            println(i)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        for (i in arr.indices) {</span><br><span class="line">            println(arr[i])</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        val it = arr.iterator()</span><br><span class="line">        while (it.hasNext()) {</span><br><span class="line">            println(it)</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        for(item in arr){</span><br><span class="line">            println(item)</span><br><span class="line">        }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="5-when-表达式"><a href="#5-when-表达式" class="headerlink" title="5.when 表达式"></a>5.when 表达式</h4><p>java：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public void test1() {</span><br><span class="line">        int item = 3;</span><br><span class="line">        switch (item) {</span><br><span class="line">            case 1:</span><br><span class="line">                System.out.println(1);</span><br><span class="line">                break;</span><br><span class="line">            case 2:</span><br><span class="line">                System.out.println(2);</span><br><span class="line">                break;</span><br><span class="line">            case 3:</span><br><span class="line">                System.out.println(3);</span><br><span class="line">                break;</span><br><span class="line">            default:</span><br><span class="line">                System.out.println(0);</span><br><span class="line">        }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>kotlin：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fun test1() {</span><br><span class="line">        val item = 3</span><br><span class="line">        when (item) {</span><br><span class="line">            1 -&gt; println(1)</span><br><span class="line">            2 -&gt; println(2)</span><br><span class="line">            3 -&gt; println(3)</span><br><span class="line">            else -&gt; println(0)</span><br><span class="line">        }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="标准函数"><a href="#标准函数" class="headerlink" title="标准函数"></a>标准函数</h3><hr>
+<h4 id="1-let"><a href="#1-let" class="headerlink" title="1.let"></a>1.let</h4><blockquote>
+<p>let 扩展函数是一个作用域函数，当你需要去定义一个变量在一个特定的作用域范围内，可以使用let函数。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object.let{</span><br><span class="line">   it.todo()//在函数体内使用it替代object对象去访问其公有的属性和方法</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">java示例:</span><br><span class="line">------------</span><br><span class="line">	public static final void main(@NotNull String[] args) {</span><br><span class="line">        Intrinsics.checkParameterIsNotNull(args, "args");</span><br><span class="line">        String var2 = "testLet";</span><br><span class="line">        System.out.println(var2.length());//输出 7</span><br><span class="line">        int result = 1000;</span><br><span class="line">        System.out.println(result); //输出 1000</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">kotlin示例:</span><br><span class="line">------------</span><br><span class="line">	fun main(args: Array&lt;String&gt;) {</span><br><span class="line">        val result = "testLet".let {</span><br><span class="line">            println(it.length) //输出 7</span><br><span class="line">            1000 //在函数块内可以通过 it 指代该对象。</span><br><span class="line">        }</span><br><span class="line">        //返回值为函数块的最后一行或指定return表达式。1000</span><br><span class="line">        println(result) //输出1000</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="2-with"><a href="#2-with" class="headerlink" title="2.with"></a>2.with</h4><blockquote>
+<p>with 将某对象作为函数的参数，在函数块内可以通过 this 指代该对象。返回值为函数块的最后一行或指定return表达式。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">with(object){</span><br><span class="line">  //todo</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">java示例:</span><br><span class="line">------------</span><br><span class="line">	public final void main(@NotNull String[] args) {</span><br><span class="line">        Intrinsics.checkParameterIsNotNull(args, "args");</span><br><span class="line">        User user = new User("Kotlin", 1, "1111111");</span><br><span class="line">        System.out.println("my name is " + user.getName() + ", I am " + user.getAge() + " years old, my phone number is " + user.getPhoneNum());</span><br><span class="line">        //输出 my name is Kotlin, I am 1 years old, my phone number is 1111111</span><br><span class="line">        int result = 1000;</span><br><span class="line">        System.out.println("result: " + result); //输出 1000</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">	private class User {</span><br><span class="line">        String name;</span><br><span class="line">        Integer age;</span><br><span class="line">        String phoneNum;</span><br><span class="line"></span><br><span class="line">        public User(String name, int age, String phoneNum) {</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        public String getName() {</span><br><span class="line">            return name;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        public Integer getAge() {</span><br><span class="line">            return age;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        public String getPhoneNum() {</span><br><span class="line">            return phoneNum;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">kotlin示例:</span><br><span class="line">------------</span><br><span class="line">	 fun main(args: Array&lt;String&gt;) {</span><br><span class="line">        val user = User("Kotlin", 3, "1111111")</span><br><span class="line">        val result = with(user) {</span><br><span class="line">	        //这里this 指 user,this可以省略</span><br><span class="line">            println("my name is $this.name, I am $age years old, my phone number is $phoneNum")</span><br><span class="line">            //输出 my name is Kotlin, I am 1 years old, my phone number is 1111111</span><br><span class="line">            1000</span><br><span class="line">        }</span><br><span class="line">        //返回值为函数块的最后一行或指定return表达式。1000</span><br><span class="line">        println("result: $result")//输出 1000</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">	class User(name: String, age: Int, phoneNum: String) {</span><br><span class="line">        var name: String</span><br><span class="line">            get() {</span><br><span class="line">                return name</span><br><span class="line">            }</span><br><span class="line">            set(value) {}</span><br><span class="line"></span><br><span class="line">        var age: Int</span><br><span class="line">            get() {</span><br><span class="line">                return age</span><br><span class="line">            }</span><br><span class="line">            set(value) {}</span><br><span class="line"></span><br><span class="line">        var phoneNum: String</span><br><span class="line">            get() {</span><br><span class="line">                return phoneNum</span><br><span class="line">            }</span><br><span class="line">            set(value) {}</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="3-run"><a href="#3-run" class="headerlink" title="3.run"></a>3.run</h4><blockquote>
+<p>run 函数实际上可以说是let和with两个函数的结合体，run函数只接收一个lambda函数为参数，以闭包形式返回，返回值为最后一行的值或者指定的return的表达式。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object.run{</span><br><span class="line">	//todo</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">java示例:</span><br><span class="line">------------</span><br><span class="line">    public final void main(@NotNull String[] args) {</span><br><span class="line">        Intrinsics.checkParameterIsNotNull(args, "args");</span><br><span class="line">        User user = new User("Kotlin", 1, "1111111");</span><br><span class="line">        System.out.println("my name is " + user.getName() + ", I am " + user.getAge() + " years old, my phone number is " + user.getPhoneNum());</span><br><span class="line">        int result = 1000;</span><br><span class="line">        System.out.println("result: " + result);//输出 1000</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">kotlin示例:</span><br><span class="line">------------</span><br><span class="line">    fun main(args: Array&lt;String&gt;) {</span><br><span class="line">        val user = User("Kotlin", 1, "1111111")</span><br><span class="line">        val result = user.run {</span><br><span class="line">	        //这里this 指 user,this可以省略.</span><br><span class="line">            println("my name is $this.name, I am $age years old, my phone number is $phoneNum")</span><br><span class="line">            1000</span><br><span class="line">        }</span><br><span class="line">        //返回值为最后一行的值或者指定的return的表达式 1000</span><br><span class="line">        println("result: $result")//输出 1000</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="4-apply"><a href="#4-apply" class="headerlink" title="4.apply"></a>4.apply</h4><blockquote>
+<p>apply 函数和run函数很像，唯一不同点就是它们各自返回的值不一样，run函数是以闭包形式返回最后一行代码的值，而apply函数的返回的是传入对象的本身。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object.apply{</span><br><span class="line">	//todo</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">java示例:</span><br><span class="line">------------</span><br><span class="line">    public final void main(String[] args) {</span><br><span class="line">        User user = new User("Kotlin", 1, "1111111");</span><br><span class="line">        String var5 = "my name is " + user.getName() + ", I am " + user.getAge() + " years old, my phone number is " + user.getPhoneNum();</span><br><span class="line">        System.out.println(var5);</span><br><span class="line">        String var3 = "result: " + user;</span><br><span class="line">        System.out.println(var3); //打印 user对象</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">kotlin示例:</span><br><span class="line">------------</span><br><span class="line">    fun main(args: Array&lt;String&gt;) {</span><br><span class="line">        val user = User("Kotlin", 1, "1111111")</span><br><span class="line">        val result = user.apply {</span><br><span class="line">	        //这里this 指 user,this可以省略.</span><br><span class="line">            println("my name is $this.name, I am $age years old, my phone number is $phoneNum")</span><br><span class="line">            1000</span><br><span class="line">        }</span><br><span class="line">        //apply函数的返回的是传入对象的本身 user</span><br><span class="line">        println("result: $result") //打印 user对象</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h4 id="5-also"><a href="#5-also" class="headerlink" title="5.also"></a>5.also</h4><blockquote>
+<p>also 函数的结构实际上和let很像唯一的区别就是返回值的不一样，let是以闭包的形式返回，返回函数体内最后一行的值，如果最后一行为空就返回一个Unit类型的默认值。而also函数返回的则是传入对象的本身。</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object.also{</span><br><span class="line">	//todo</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">java示例:</span><br><span class="line">------------</span><br><span class="line">    public void main(String[] args) {</span><br><span class="line">        String var1 = "test";</span><br><span class="line">        System.out.println(var1.length());//输出 4</span><br><span class="line">        System.out.println(var1);//输出 test</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">kotlin示例:</span><br><span class="line">------------</span><br><span class="line">    fun main(args: Array&lt;String&gt;) {</span><br><span class="line">        val result = "test".also {</span><br><span class="line">	        //it 指的是 "test"</span><br><span class="line">            println(it.length) //输出 4</span><br><span class="line">            1000</span><br><span class="line">        }</span><br><span class="line">        //also函数返回的是传入对象的本身 "test"</span><br><span class="line">        println(result) //输出 test</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="函数小结：let-with-run-apply-also函数区别"><a href="#函数小结：let-with-run-apply-also函数区别" class="headerlink" title="函数小结：let,with,run,apply,also函数区别"></a>函数小结：let,with,run,apply,also函数区别</h3><table>
+<thead>
+<tr>
+<th align="left">函数名</th>
+<th align="left">使用方法</th>
+<th align="left">it,this对象</th>
+<th align="left">返回值</th>
+<th align="center">是否是扩展函数</th>
+<th align="left">适用的场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">let</td>
+<td align="left">object.let{ it.xxx }</td>
+<td align="left">it指代当前对象</td>
+<td align="left">闭包形式返回</td>
+<td align="center">是</td>
+<td align="left">适用于处理不为null的操作场景</td>
+</tr>
+<tr>
+<td align="left">with</td>
+<td align="left">with(object){ xxx }</td>
+<td align="left">this指代当前对象或者省略</td>
+<td align="left">闭包形式返回</td>
+<td align="center">否</td>
+<td align="left">适用于调用同一个类的多个方法时，可以省去类名重复，直接调用类的方法即可，经常用于Android中RecyclerView中onBinderViewHolder中，数据model的属性映射到UI上</td>
+</tr>
+<tr>
+<td align="left">run</td>
+<td align="left">object.run{ xxx }</td>
+<td align="left">this指代当前对象或者省略</td>
+<td align="left">闭包形式返回</td>
+<td align="center">是</td>
+<td align="left">适用于let,with函数任何场景。</td>
+</tr>
+<tr>
+<td align="left">apply</td>
+<td align="left">object.apply{ xxx }</td>
+<td align="left">this指代当前对象或者省略</td>
+<td align="left">返回this</td>
+<td align="center">是</td>
+<td align="left">1、适用于run函数的任何场景，一般用于初始化一个对象实例的时候，操作对象属性，并最终返回这个对象。<br>2、动态inflate出一个XML的View的时候需要给View绑定数据也会用到.<br>3、一般可用于多个扩展函数链式调用 <br>4、数据model多层级包裹判空处理的问题</td>
+</tr>
+<tr>
+<td align="left">also</td>
+<td align="left">object.also{ xxx }</td>
+<td align="left">it指代当前对象</td>
+<td align="left">返回it</td>
+<td align="center">是</td>
+<td align="left">适用于let函数的任何场景，一般可用于多个扩展函数链式调用</td>
+</tr>
+</tbody></table>
+<p>参考文章：<a href="https://blog.csdn.net/u013064109/article/details/78786646" target="_blank" rel="noopener">Kotlin系列之let、with、run、apply、also函数的使用</a></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Android/">Android</a>|<a class="cat-link" href="/categories/Android/kotlin/">kotlin</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/kotlin/" title="kotlin">kotlin</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2019/09/30/mac搭建hexo环境/">
+            
+                mac搭建hexo环境
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2019/09/28/巴比龙电影观后感/">
+            
+                《巴比龙》电影观后感
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="暂时不支持评论，因为本站在国内，不在github。如果需要联系我，请关注我公众号吧，留言能看到！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(21)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/">Jetpack</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Paging/">Paging</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Room/">Room</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/心情/">心情</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/知识点/">知识点</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/PHP/">PHP</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/设计模式/">设计模式</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
+  
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
+  
+    <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+  
+    <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
+  
+    <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+  
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
+  
+    <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
+  
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
+  
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
+  
+    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+  
+    <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
+  
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+  
+    <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" title="稀土掘金">稀土掘金</a>
+        </li>
+    
+        <li>
+            <a href="https://www.cnblogs.com/bugzone" target="_blank" title="博客园">博客园</a>
+        </li>
+    
+        <li>
+            <a href="https://weibo.com/230689567" target="_blank" title="新浪微博">新浪微博</a>
+        </li>
+    
+        <li>
+            <a href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" title="简书">简书</a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    ©
+    
+        2012-2019
+    
+
+    <a href="/">FreeFunCode</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Kotlin与java对比' || '2019/09/28/Kotlin与java对比/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

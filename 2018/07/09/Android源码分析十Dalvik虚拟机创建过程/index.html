@@ -1,0 +1,621 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Android 源码分析（十） Dalvik 虚拟机创建过程 | 网记本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
+    <meta name="description" content="FreeFunCode网络记事本">
+
+    
+    <link rel="alternative" href="/atom.xml" title="网记本" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?3771b2566860fea0de20c35742671f53";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+<body class="home">
+
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">网记本</span>
+                    <span class="description">网络记事本-huangguangzhi</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/index.html" class="item ">
+                <a href="/" title="日志" class="icon-home">&nbsp;日志</a>
+            </li>
+            
+            <li rel="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/index.html" class="item ">
+                <a href="/photos/" title="相册" class="icon-files-empty">&nbsp;相册</a>
+            </li>
+            
+            <li rel="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/index.html" class="item ">
+                <a href="/lab/" title="建站" class="icon-office">&nbsp;建站</a>
+            </li>
+            
+            <li rel="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-profile">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/07/09/Android源码分析十Dalvik虚拟机创建过程/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="" target="_blank">good good study ,day day up!</a>
+                        |
+                    
+                        <a href="" target="_blank">利用碎片化时间挖掘知识深度！</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" class="juejin" target="_blank"><b>■</b> 稀土掘金</a>
+                    
+                        <a href="https://weibo.com/230689567" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Android 源码分析（十） Dalvik 虚拟机创建过程</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        huangguangzhi 发表于
+        <time datetime="2018-07-09T13:04:17.000Z">2018-07-09</time>
+    </p>
+    <div class="post-content">
+        <p><a href="https://www.cnblogs.com/bugzone/p/dalvik.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<a id="more"></a>
+
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <h2>一. 介绍Dalvik</h2>
+<p>　　1.java的运行需要JVM,同样android中使用了java语言，也需要一个VM。针对手机处理器和内存等硬件资源不足而推出来的一款VM，为android运行提供环境，叫DVM。</p>
+<p>　　2.Dalvik虚拟机允许多个instance的存在。实际上android中的每一个app都是运行在自己VM实例之中(沙盒)。每一个VM实例在linux中又是一个单独的进程，所以可以认为是同一个概念。运行在自己的DVM进程之中，不同的app不会相互干扰，且不会因为一个DVM的崩溃导致所有的app进程都崩溃。这点来说，<strong>Android dvm的进程和Linux的进程, 应用程序的进程 概念类似。</strong></p>
+<p><strong>　　3.与<span style="color: #333300;"><strong><span style="font-family: Microsoft YaHei;">JVM的区别：</span></strong></span></strong></p>
+<p><strong><span style="color: #333300;"><strong><span style="font-family: Microsoft YaHei;">　　　　</span></strong></span></strong><span style="color: #333300;"><span style="font-family: Microsoft YaHei;">1.基于架构的不同。JVM是基于栈的架构，而DVM是基于寄存器架构。</span></span></p>
+<p><span style="color: #333300;"><span style="font-family: Microsoft YaHei;">　　　　2.jvm运行的是字节码文件，而dvm运行自己定义的dex文件格式。</span></span></p>
+<p><span style="color: #333300;"><span style="font-family: Microsoft YaHei;">　　　　　　<span style="font-size: small;">JVM编译过程 java-&gt;class-&gt;jar</span><br><span style="font-size: small;">　　　　　　 DVM编译过程java-&gt;class-&gt;dex</span></span></span></p>
+<p><span style="color: #333300;"><span style="font-family: Microsoft YaHei;"><span style="font-size: small;">　　　　总结dvm与jvm区别：</span></span></span><span style="color: #333300;"><span style="font-family: Microsoft YaHei;"><span style="font-size: small;">　　　　　</span></span></span></p>
+<p>　　　　区别一：dvm执行的是.dex格式文件&nbsp; jvm执行的是.class文件&nbsp;&nbsp; android程序编译完之后生产.class文件，然后，dex工具会把.class文件处理成.dex文件，然后把资源文件和.dex文件等打包成.apk文件。apk就是android package的意思。 jvm执行的是.class文件。</p>
+<p>&nbsp;</p>
+<p>　　　　区别二:dvm是基于寄存器的虚拟机&nbsp; 而jvm执行是基于虚拟栈的虚拟机。寄存器存取速度比栈快的多，dvm可以根据硬件实现最大的优化，比较适合移动设备。</p>
+<p>&nbsp;</p>
+<p>　　　　区别三：.class文件存在很多的冗余信息，dex工具会去除冗余信息，并把所有的.class文件整合到.dex文件中。减少了I/O操作，提高了类的查找速度</p>
+<p>　　　　</p>
+<p>　　　　一张图了解dvm主要做的事：</p>
+<p>　　　　<img src="https://images2018.cnblogs.com/blog/612293/201807/612293-20180709210031356-2049035324.png" alt=""></p>
+<p>　　　　参考：&nbsp;https://blog.csdn.net/u010355144/article/details/47682797</p>
+<h2>二.Dalvik启动过程</h2>
+<p>　　</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">AndroidRuntime.cpp</span>
+<span style="color: #0000ff;">int</span> AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, <span style="color: #0000ff;">bool</span><span style="color: #000000;"> zygote)
+{
+    JavaVMInitArgs initArgs;
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> propBuf[PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> stackTraceFileBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xstacktracefile:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> jniOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjniopts:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> heapstartsizeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xms</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> heapsizeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xmx</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> heapgrowthlimitOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-XX:HeapGrowthLimit=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> heapminfreeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-XX:HeapMinFree=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> heapmaxfreeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-XX:HeapMaxFree=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> usejitOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xusejit:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> jitmaxsizeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjitmaxsize:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> jitinitialsizeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjitinitialsize:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> jitthresholdOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjitthreshold:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> useJitProfilesOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjitsaveprofilinginfo:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> jitprithreadweightOptBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjitprithreadweight:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> jittransitionweightOptBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xjittransitionweight:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> gctypeOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xgc:</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> backgroundgcOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-XX:BackgroundGC=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> heaptargetutilizationOptsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-XX:HeapTargetUtilization=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> cachePruneBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xzygote-max-boot-retry=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatXmsImageFlagsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xms</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatXmxImageFlagsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xmx</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatXmsFlagsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xms</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatXmxFlagsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-Xmx</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatCompilerFilterBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">--compiler-filter=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatImageCompilerFilterBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">--compiler-filter=</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatThreadsBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-j</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oatThreadsImageBuf[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">-j</span><span style="color: #800000;">"</span>)-<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> dex2oat_isa_variant_key[PROPERTY_KEY_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oat_isa_variant[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">--instruction-set-variant=</span><span style="color: #800000;">"</span>) -<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> dex2oat_isa_features_key[PROPERTY_KEY_MAX];
+    </span><span style="color: #0000ff;">char</span> dex2oat_isa_features[<span style="color: #0000ff;">sizeof</span>(<span style="color: #800000;">"</span><span style="color: #800000;">--instruction-set-features=</span><span style="color: #800000;">"</span>) -<span style="color: #800080;">1</span> +<span style="color: #000000;"> PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> dex2oatFlagsBuf[PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> dex2oatImageFlagsBuf[PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> extraOptsBuf[PROPERTY_VALUE_MAX];
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> voldDecryptBuf[PROPERTY_VALUE_MAX];
+    ...
+
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+ * Initialize the VM.
+ *
+ * The JavaVM* is essentially per-process, and the JNIEnv* is per-thread.
+ * If this call succeeds, the VM is ready, and we can start issuing
+ * JNI calls.
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (JNI_CreateJavaVM(pJavaVM, pEnv, &amp;amp;initArgs) &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;JNI_CreateJavaVM failed\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; -&lt;span style="color: #800080;"&gt;1&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+}
+
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;;</code></pre><p>}</p>
+<p></p></span><span style="color: #0000ff;">void</span> AndroidRuntime::start(<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>* className, <span style="color: #0000ff;">const</span> Vector&lt;String8&gt;&amp; options, <span style="color: #0000ff;">bool</span><span style="color: #000000;"> zygote)<br>{<p></p>
+<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt; start the virtual machine &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;&lt;span style="color: #000000;"&gt;
+JniInvocation jni_invocation;
+jni_invocation.Init(NULL);
+JNIEnv&lt;/span&gt;*&lt;span style="color: #000000;"&gt; env;
+&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startVm(&amp;amp;mJavaVM, &amp;amp;env, zygote) != &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+}
+onVmCreated(env);
+
+&lt;/span&gt;&lt;span style="color: #008000;"&gt;/*&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+ * Register android functions.
+ &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
+&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (startReg(env) &amp;lt; &lt;span style="color: #800080;"&gt;0&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
+    ALOGE(&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;Unable to register all android natives\n&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
+}</code></pre><p>}<br><br><span style="color: #339966;">　　　　　//Dalvik虚拟机在Zygote进程中的启动过程，这个启动过程主要就是完成了以下四个事情：</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //1. 创建了一个Dalvik虚拟机实例；</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //2. 加载了Java核心类及其JNI方法；</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //3. 为主线程的设置了一个JNI环境；</span><br><span style="color: #339966;">&nbsp; &nbsp; &nbsp; &nbsp; //4. 注册了Android核心类的JNI方法。</span><br></p></span></pre><p></p>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>Zygote 启动Dalvik作用：</strong></p>
+<p>　　1. Zygote进程为Android系统准备好了一个Dalvik虚拟机实例，以后Zygote进程在创建Android应用程序进程的时候，就可以将它自身的Dalvik虚拟机实例复制到新创建Android应用程序进程中去，从而加快了Android应用程序进程的启动过程。</p>
+<p><br>　　2.Java核心类和Android核心类（位于dex文件中），以及它们的JNI方法（位于so文件中），都是以内存映射的方式来读取的，因此，Zygote进程在创建Android应用程序进程的时候，除了可以将自身的Dalvik虚拟机实例复制到新创建的Android应用程序进程之外，还可以与新创建的Android应用程序进程共享Java核心类和Android核心类，以及它们的JNI方法，这样就可以节省内存消耗。</p>
+<p><br>　　3.Zygote进程为了加快Android应用程序进程的启动过程，牺牲了自己的启动速度，因为它需要加载大量的Java核心类，以及注册大量的Android核心类JNI方法。Dalvik虚拟机在加载Java核心类的时候，还需要对它们进行验证以及优化，这些通常都是比较耗时的。又由于Zygote进程是由init进程启动的，也就是说Zygote进程在是开机的时候进行启动的，因此，Zygote进程的牺牲是比较大的。不过毕竟我们在玩手机的时候，很少会关机，也就是很少开机，因此，牺牲Zygote进程的启动速度是值得的，换来的是Android应用程序的快速启动。</p>
+</div>
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Android/">Android</a>|<a class="cat-link" href="/categories/Android/安卓源码/">安卓源码</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/安卓源码/" title="安卓源码">安卓源码</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/07/14/Android8-0新特性介绍以及注意事项/">
+            
+                Android8.0新特性介绍以及注意事项
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/07/08/Android源码分析九Init启动分析/">
+            
+                Android 源码分析（九） Init 启动分析
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="暂时不支持评论，因为本站在国内，不在github。如果需要联系我，请关注我公众号吧，留言能看到！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(21)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/">Jetpack</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Paging/">Paging</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Room/">Room</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/心情/">心情</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/知识点/">知识点</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/PHP/">PHP</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/设计模式/">设计模式</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
+  
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
+  
+    <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+  
+    <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
+  
+    <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+  
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
+  
+    <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
+  
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
+  
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
+  
+    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+  
+    <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
+  
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+  
+    <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" title="稀土掘金">稀土掘金</a>
+        </li>
+    
+        <li>
+            <a href="https://www.cnblogs.com/bugzone" target="_blank" title="博客园">博客园</a>
+        </li>
+    
+        <li>
+            <a href="https://weibo.com/230689567" target="_blank" title="新浪微博">新浪微博</a>
+        </li>
+    
+        <li>
+            <a href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" title="简书">简书</a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    ©
+    
+        2012-2019
+    
+
+    <a href="/">FreeFunCode</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析十Dalvik虚拟机创建过程' || '2018/07/09/Android源码分析十Dalvik虚拟机创建过程/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

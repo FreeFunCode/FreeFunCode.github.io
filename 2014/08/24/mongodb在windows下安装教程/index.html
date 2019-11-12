@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>mongodb在windows下安装教程 | 网记本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="freefuncode, huangguangzhi, Android, Kotlin, 网络记事本, 网记本, inote.fun">
+    <meta name="description" content="FreeFunCode网络记事本">
+
+    
+    <link rel="alternative" href="/atom.xml" title="网记本" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?3771b2566860fea0de20c35742671f53";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+<body class="home">
+
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">网记本</span>
+                    <span class="description">网络记事本-huangguangzhi</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2014/08/24/mongodb在windows下安装教程/index.html" class="item ">
+                <a href="/" title="日志" class="icon-home">&nbsp;日志</a>
+            </li>
+            
+            <li rel="/2014/08/24/mongodb在windows下安装教程/index.html" class="item ">
+                <a href="/photos/" title="相册" class="icon-files-empty">&nbsp;相册</a>
+            </li>
+            
+            <li rel="/2014/08/24/mongodb在windows下安装教程/index.html" class="item ">
+                <a href="/lab/" title="建站" class="icon-office">&nbsp;建站</a>
+            </li>
+            
+            <li rel="/2014/08/24/mongodb在windows下安装教程/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-profile">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2014/08/24/mongodb在windows下安装教程/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="" target="_blank">good good study ,day day up!</a>
+                        |
+                    
+                        <a href="" target="_blank">利用碎片化时间挖掘知识深度！</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" class="juejin" target="_blank"><b>■</b> 稀土掘金</a>
+                    
+                        <a href="https://weibo.com/230689567" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>mongodb在windows下安装教程</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        huangguangzhi 发表于
+        <time datetime="2014-08-23T18:10:01.000Z">2014-08-24</time>
+    </p>
+    <div class="post-content">
+        <p><a href="https://www.cnblogs.com/bugzone/p/mongod.html" target="_blank" rel="noopener">点击查看原文</a></p>
+<a id="more"></a>
+
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p><span style="color: #ff0000;"><strong>原文来自：http://www.cnblogs.com/lecaf/archive/2013/08/23/mongodb.html</strong></span></p>
+<p><span style="color: #ff0000;"><strong>红字为本人加</strong></span></p>
+<p><strong>一、首先安装mongodb</strong></p>
+<p>1.下载地址：<a href="http://www.mongodb.org/downloads" target="_blank" rel="noopener">http://www.mongodb.org/downloads</a></p>
+<p>2.解压缩到自己想要安装的目录，比如d:\mongodb</p>
+<p>3.创建文件夹d:\mongodb\data\db、d:\mongodb\data\log，分别用来安装db和日志文件，在log文件夹下创建一个日志文件MongoDB.log，即d:\mongodb\data\log\MongoDB.log</p>
+<p>4.运行cmd.exe进入dos命令界面，执行下列命令</p>
+<p>　　&gt; cd d:\mongodb\bin</p>
+<p>　　&gt; d:\mongodb\bin&gt;mongod -dbpath "d:\mongodb\data\db"</p>
+<p><img src="https://images0.cnblogs.com/blog/203292/201308/21110329-868b0d1fb023479f9a605fc8353515f2.png" alt=""></p>
+<p>　看到类似的信息，则说明启动成功，默认MongoDB监听的端口是27017，mysql的是3306</p>
+<p>5.测试连接<span style="color: #ff0000;">（这一步可以放到第6步后测试，因为安装后默认是关闭的.....需要手动启动下 NET START MongoDB）</span></p>
+<p>　新开一个cmd窗口，进入mongodb的bin目录，输入mongo或者mongo.exe，出现如下信息说明测试通过，此时我们已经进入了test这个数据库，如何进入其他数据库下面会说。</p>
+<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/21111025-91a3b6a9bde844688300928f0a9ea26f.png" alt=""></p>
+<p>　输入exit或者ctrl+C可退出。</p>
+<p>&nbsp;6.当mongod.exe被关闭时，mongo.exe 就无法连接到数据库了，因此每次想使用mongodb数据库都要开启mongod.exe程序，所以比较麻烦，此时我们可以将<span style="line-height: 1.5;">MongoDB安装为windows服务</span></p>
+<p><span style="line-height: 1.5;">　还是运行cmd，进入bin文件夹，执行下列命令</span></p>
+<p><span style="line-height: 1.5;">　&gt; d:\mongodb\bin&gt;mongod --dbpath "d:\mongodb\data\db" --logpath "d:\mongodb\data\log\MongoDB.log" --install --serviceName "MongoDB"</span></p>
+<p>　这里MongoDB.log就是开始建立的日志文件，--serviceName "MongoDB" 服务名为MongoDB</p>
+<p>　接着启动mongodb服务</p>
+<p>　&gt;&nbsp;d:\mongodb\bin&gt;NET START MongoDB</p>
+<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/21161507-c374a9f43c1c4c75aeb9cc4ff83ef463.jpg" alt=""></p>
+<p>　打开任务管理器，可以看到进程已经启动</p>
+<p>7.关闭服务和删除进程</p>
+<p>　&gt; d:\mongodb\bin&gt;NET&nbsp;stop MongoDB&nbsp;&nbsp; (关闭服务)</p>
+<p>　&gt; d:\mongodb\bin&gt;mongod --dbpath "d:\mongodb\data\db" --logpath "d:\mongodb\data\log\MongoDB.log" --remove --serviceName "MongoDB"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (删除，注意不是--install了）</p>
+<p>&nbsp;</p>
+<p><strong>二、使用mongodb</strong></p>
+<p>1.常用的命令</p>
+<ul>
+<li>show dbs &nbsp; &nbsp;显示数据库列表</li>
+<li>use dbname &nbsp; &nbsp;进入dbname数据库，大小写敏感，没有这个数据库也不要紧</li>
+<li>show collections &nbsp; &nbsp;显示数据库中的集合，相当于表格</li>
+</ul>
+<p>2.创建&amp;新增</p>
+<ul>
+<li>db.users.save({"name":"lecaf"}) &nbsp; &nbsp;<em>创建了名为users的集合，并新增了一条{"name":"lecaf"}的数据</em></li>
+<li>db.users.insert({"name":"ghost", "age":10}) &nbsp; &nbsp;<em>在users集合中插入一条新数据，，如果没有users这个集合，mongodb会自动创建</em></li>
+<li>save()和insert()也存在着些许区别：若新增的数据主键已经存在，insert()会不做操作并提示错误，而save() 则更改原来的内容为新内容。</li>
+<ul>
+<li>存在数据：{ _id : 1, " name " : " n1 "} ，_id是主键</li>
+<li>insert({ _id : 1, " name " : " n2 " }) &nbsp; &nbsp;<em>会提示错误</em></li>
+<li>save({ _id : 1, " name " : " n2 " })<em> &nbsp; &nbsp; 会把 n1 改为 &nbsp;n2 ，有update的作用。</em></li>
+</ul>
+</ul>
+<p>3.删除</p>
+<ul>
+<li>db.users.remove() &nbsp; &nbsp;<em>删除users集合下所有数据</em></li>
+<li>db.users.remove({"name": "lecaf"}) &nbsp; &nbsp;<em>删除users集合下name=lecaf的数据</em></li>
+<li>db.users.drop()或db.runCommand({"drop","users"}) &nbsp; &nbsp;<em>删除集合users</em></li>
+<li>db.runCommand({"dropDatabase": 1}) &nbsp; <em>&nbsp;删除当前数据库</em></li>
+</ul>
+<p>4.查找</p>
+<ul>
+<li>db.users.find() &nbsp; &nbsp;<em>查找users集合中所有数据</em></li>
+<li>db.users.findOne() &nbsp; &nbsp;<em>查找users集合中的第一条数据</em></li>
+</ul>
+<p>5.修改</p>
+<ul>
+<li>db.users.update({"name":"lecaf"}, {"age":10}) &nbsp; &nbsp;<em>修改name=lecaf的数据为age=10，第一个参数是查找条件，第二个参数是修改内容，除了主键，其他内容会被第二个参数的内容替换，主键不能修改，如图</em></li>
+</ul>
+<p>　<img src="https://images0.cnblogs.com/blog/203292/201308/22143209-cddea033063e480bb1bd4cc5dfdf9f4e.jpg" alt=""></p>
+<p><strong>三、高级应用</strong></p>
+<p>1.条件查找</p>
+<ul>
+<li>db.collection.find({ "key" : value }) &nbsp; &nbsp;查找key=value的数据</li>
+<li>db.collection.find({ "key" : { $gt: value }&nbsp;}) &nbsp; &nbsp;key &gt; value</li>
+<li>db.collection.find({ "key" :&nbsp;{ $lt: value }&nbsp;}) &nbsp; &nbsp;key &lt; value</li>
+<li>db.collection.find({ "key" :&nbsp;{ $gte: value }&nbsp;}) &nbsp; &nbsp;key &gt;= value</li>
+<li>db.collection.find({ "key" :&nbsp;{&nbsp;$lte: value }&nbsp;}) &nbsp; &nbsp;key &lt;= value</li>
+<li>db.collection.find({ "key" :&nbsp;{ $gt: value1 , $lt: value2&nbsp;}&nbsp;}) &nbsp; &nbsp;value1 &lt; key &lt;value2</li>
+<li>db.collection.find({ "key" :&nbsp;{&nbsp;$ne: value }&nbsp;}) &nbsp; &nbsp;key &lt;&gt; value</li>
+<li>db.collection.find({ "key"&nbsp;: { $mod : [ 10 , 1 ] } }) &nbsp; &nbsp;取模运算，条件相当于key % 10 == 1 即key除以10余数为1的</li>
+<li>db.collection.find({&nbsp;"key"&nbsp;: { $nin: [ 1, 2, 3 ] } }) &nbsp; &nbsp;不属于，条件相当于key的值不属于[ 1, 2, 3 ]中任何一个</li>
+<li>db.collection.find({&nbsp;"key"&nbsp;: { $in: [ 1, 2, 3 ] } }) &nbsp; &nbsp;属于，条件相当于key等于[ 1, 2, 3 ]中任何一个</li>
+<li>db.collection.find({ "key"&nbsp;: { $size: 1 } }) &nbsp; &nbsp;$size 数量、尺寸，条件相当于key的值的数量是1（key必须是数组，一个值的情况不能算是数量为1的数组）</li>
+<li>db.collection.find({ "key"&nbsp;: { $exists : true|false } }) &nbsp; &nbsp;$exists 字段存在，true返回存在字段key的数据，false返回不存在字度key的数据</li>
+<li>db.collection.find({ "key": /^val.*val$/i }) &nbsp; &nbsp;正则，类似like；“i”忽略大小写，“m”支持多行</li>
+<li>db.collection.find({ $or : [{a : 1}, {b : 2} ] }) &nbsp; &nbsp;$or或 （注意：MongoDB 1.5.3后版本可用），符合条件a=1的或者符合条件b=2的数据都会查询出来</li>
+<li>db.collection.find({ "key": value , $or : [{ a : 1 } , { b : 2 }] }) &nbsp; &nbsp;符合条件key=value&nbsp;，同时符合其他两个条件中任意一个的数据</li>
+<li>db.collection.find({ "key.subkey" :value }) &nbsp; &nbsp;内嵌对象中的值匹配，注意："key.subkey"必须加引号</li>
+<li>db.collection.find({ "key": { $not : /^val.*val$/i&nbsp;} }) &nbsp; &nbsp;这是一个与其他查询条件组合使用的操作符，不会单独使用。上述查询条件得到的结果集加上$not之后就能获得相反的集合。</li>
+</ul>
+<p>2.排序</p>
+<ul>
+<li>db.collection.find().sort({ "key1" : -1 ,"key2" : 1 }) &nbsp; &nbsp;这里的1代表升序，-1代表降序</li>
+</ul>
+<p>3.其他</p>
+<ul>
+<li>db.collection.find().limit(5) &nbsp; &nbsp;控制返回结果数量，如果参数是0，则当作没有约束，limit()将不起作用</li>
+<li>db.collection.find().skip(5) &nbsp; &nbsp;控制返回结果跳过多少数量，如果参数是0，则当作没有约束，skip()将不起作用，或者说跳过了0条</li>
+<li>db.collection.find().skip(5).limit(5) &nbsp; &nbsp;可用来做分页，跳过5条数据再取5条数据</li>
+<li>db.collection.find().count(true) &nbsp; &nbsp;count()返回结果集的条数</li>
+<li>db.collection.find().skip(5).limit(5).count(true) &nbsp; &nbsp;在加入skip()和limit()这两个操作时，要获得实际返回的结果数，需要一个参数true，否则返回的是符合查询条件的结果总</li>
+</ul>
+</div>
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/前端/">前端</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/mongodb/" title="mongodb">mongodb</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2014/08/24/GitHub在windows上代码管理教程/">
+            
+                GitHub在windows上代码管理教程
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2014/08/24/nodejs在windows平台下搭建部署环境教程/">
+            
+                nodejs在windows平台下搭建部署环境教程
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="暂时不支持评论，因为本站在国内，不在github。如果需要联系我，请关注我公众号吧，留言能看到！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(21)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(53)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/CSharp/">CSharp</a>
+        <span class="badge">(14)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/">Jetpack</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(18)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/开源框架/">开源框架</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/GitHub/">GitHub</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/JAVA/">JAVA</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Paging/">Paging</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Room/">Room</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/心情/">心情</a>
+        <span class="badge">(12)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/知识点/">知识点</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/PHP/">PHP</a>
+        <span class="badge">(6)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/设计模式/">设计模式</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
+  
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
+  
+    <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
+  
+    <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+  
+    <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
+  
+    <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+  
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
+  
+    <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
+  
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
+  
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
+  
+    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
+  
+    <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
+  
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+  
+    <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
+  
+    <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
+  
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+  
+    <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+  
+    <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+  
+    <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://juejin.im/user/5ceb7d54f265da1b8466c2f5/posts" target="_blank" title="稀土掘金">稀土掘金</a>
+        </li>
+    
+        <li>
+            <a href="https://www.cnblogs.com/bugzone" target="_blank" title="博客园">博客园</a>
+        </li>
+    
+        <li>
+            <a href="https://weibo.com/230689567" target="_blank" title="新浪微博">新浪微博</a>
+        </li>
+    
+        <li>
+            <a href="https://www.jianshu.com/u/ba21180e6aab" target="_blank" title="简书">简书</a>
+        </li>
+    
+        <li>
+            <a href="https://github.com/freefuncode/" target="_blank" title="GitHub">GitHub</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    ©
+    
+        2012-2019
+    
+
+    <a href="/">FreeFunCode</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+
+
+<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
+    container: 'comments',
+    label: 'mongodb在windows下安装教程' || '2014/08/24/mongodb在windows下安装教程/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
