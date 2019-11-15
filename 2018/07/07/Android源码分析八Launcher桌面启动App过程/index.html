@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -148,46 +150,46 @@
     ......
 
 <pre><code>@Override
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; startActivity(Intent intent) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;.startActivity(intent, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; startActivity(Intent intent) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;.startActivity(intent, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
 }
 ......
  @Override
-&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; startActivity(Intent intent, @Nullable Bundle options) {
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (options != &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-        startActivityForResult(intent, &lt;/span&gt;-1&lt;span style="color: #000000;"&gt;, options);
-    } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; Note we want to go through this call for compatibility with
-        &lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; applications that may have overridden the method.&lt;/span&gt;
-        startActivityForResult(intent, -1&lt;span style="color: #000000;"&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; startActivity(Intent intent, @Nullable Bundle options) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (options != &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+        startActivityForResult(intent, &lt;/span&gt;-1&lt;span style=&quot;color: #000000;&quot;&gt;, options);
+    } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; Note we want to go through this call for compatibility with
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; applications that may have overridden the method.&lt;/span&gt;
+        startActivityForResult(intent, -1&lt;span style=&quot;color: #000000;&quot;&gt;);
     }
 }
 ......
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;/**&lt;/span&gt;&lt;span style="color: #008000;"&gt;
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/**&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
  * Adapter which shows the set of activities that can be performed for a given intent.
- &lt;/span&gt;&lt;span style="color: #008000;"&gt;*/&lt;/span&gt;
-&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;class&lt;/span&gt; ActivityAdapter &lt;span style="color: #0000ff;"&gt;extends&lt;/span&gt; BaseAdapter &lt;span style="color: #0000ff;"&gt;implements&lt;/span&gt;&lt;span style="color: #000000;"&gt; Filterable {
+ &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;class&lt;/span&gt; ActivityAdapter &lt;span style=&quot;color: #0000ff;&quot;&gt;extends&lt;/span&gt; BaseAdapter &lt;span style=&quot;color: #0000ff;&quot;&gt;implements&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; Filterable {
     ......
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;public&lt;/span&gt; View getView(&lt;span style="color: #0000ff;"&gt;int&lt;/span&gt;&lt;span style="color: #000000;"&gt; position, View convertView, ViewGroup parent) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;public&lt;/span&gt; View getView(&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; position, View convertView, ViewGroup parent) {
         View view;
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (convertView == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-            view &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mInflater.inflate(
-                    com.android.internal.R.layout.activity_list_item_2, parent, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;false&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
-        } &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;else&lt;/span&gt;&lt;span style="color: #000000;"&gt; {
-            view &lt;/span&gt;=&lt;span style="color: #000000;"&gt; convertView;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (convertView == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            view &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mInflater.inflate(
+                    com.android.internal.R.layout.activity_list_item_2, parent, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        } &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+            view &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; convertView;
         }
         bindView(view, mActivitiesList.get(position));
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;return&lt;/span&gt;&lt;span style="color: #000000;"&gt; view;
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; view;
     }
 
-    &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;private&lt;/span&gt; &lt;span style="color: #0000ff;"&gt;void&lt;/span&gt;&lt;span style="color: #000000;"&gt; bindView(View view, ListItem item) {
-        TextView text &lt;/span&gt;=&lt;span style="color: #000000;"&gt; (TextView) view;
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; bindView(View view, ListItem item) {
+        TextView text &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; (TextView) view;
         text.setText(item.label);
-        &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt;&lt;span style="color: #000000;"&gt; (mShowIcons) {
-            &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;if&lt;/span&gt; (item.icon == &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;) {
-                item.icon &lt;/span&gt;=&lt;span style="color: #000000;"&gt; mIconResizer.createIconThumbnail(item.resolveInfo.loadIcon(getPackageManager()));
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (mShowIcons) {
+            &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (item.icon == &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+                item.icon &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; mIconResizer.createIconThumbnail(item.resolveInfo.loadIcon(getPackageManager()));
             }
-            text.setCompoundDrawablesWithIntrinsicBounds(item.icon, &lt;/span&gt;&lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;, &lt;span style="color: #0000ff;"&gt;null&lt;/span&gt;&lt;span style="color: #000000;"&gt;);
+            text.setCompoundDrawablesWithIntrinsicBounds(item.icon, &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;null&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
         }
     }
     ......
@@ -200,20 +202,20 @@
     android:layout_height</span>="match_parent"
     &gt;
 
-<pre><code>&amp;lt;&lt;span style="color: #000000;"&gt;ListView
-    android:id&lt;/span&gt;="@android:id/list"&lt;span style="color: #000000;"&gt;
-    android:layout_width&lt;/span&gt;="match_parent"&lt;span style="color: #000000;"&gt;
-    android:layout_height&lt;/span&gt;="match_parent"
+<pre><code>&amp;lt;&lt;span style=&quot;color: #000000;&quot;&gt;ListView
+    android:id&lt;/span&gt;=&quot;@android:id/list&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:layout_width&lt;/span&gt;=&quot;match_parent&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:layout_height&lt;/span&gt;=&quot;match_parent&quot;
     /&amp;gt;
 
-&amp;lt;&lt;span style="color: #000000;"&gt;TextView
-    android:id&lt;/span&gt;="@android:id/empty"&lt;span style="color: #000000;"&gt;
-    android:layout_width&lt;/span&gt;="match_parent"&lt;span style="color: #000000;"&gt;
-    android:layout_height&lt;/span&gt;="match_parent"&lt;span style="color: #000000;"&gt;
-    android:gravity&lt;/span&gt;="center"&lt;span style="color: #000000;"&gt;
-    android:text&lt;/span&gt;="@string/activity_list_empty"&lt;span style="color: #000000;"&gt;
-    android:visibility&lt;/span&gt;="gone"&lt;span style="color: #000000;"&gt;
-    android:textAppearance&lt;/span&gt;="?android:attr/textAppearanceMedium"
+&amp;lt;&lt;span style=&quot;color: #000000;&quot;&gt;TextView
+    android:id&lt;/span&gt;=&quot;@android:id/empty&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:layout_width&lt;/span&gt;=&quot;match_parent&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:layout_height&lt;/span&gt;=&quot;match_parent&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:gravity&lt;/span&gt;=&quot;center&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:text&lt;/span&gt;=&quot;@string/activity_list_empty&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:visibility&lt;/span&gt;=&quot;gone&quot;&lt;span style=&quot;color: #000000;&quot;&gt;
+    android:textAppearance&lt;/span&gt;=&quot;?android:attr/textAppearanceMedium&quot;
     /&amp;gt;</code></pre><p>&lt;/FrameLayout&gt;</p></pre><p></p>
 <div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
 <div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div>
@@ -250,11 +252,11 @@
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -264,7 +266,7 @@
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/07/08/Android源码分析九Init启动分析/">
             
                 Android 源码分析（九） Init 启动分析
@@ -275,7 +277,7 @@
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/07/07/Android源码分析七Launcher桌面程序启动分析/">
             
                 Android 源码分析（七） Launcher 桌面程序启动分析
@@ -287,7 +289,7 @@
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -352,7 +354,16 @@
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Android源码分析八Launcher桌面启动App过程' || '2018/07/07/Android源码分析八Launcher桌面启动App过程/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -372,7 +383,7 @@
     
     <li>
         <a href="/categories/Android/">Android</a>
-        <span class="badge">(53)</span>
+        <span class="badge">(54)</span>
     </li>
     
     <li>
@@ -386,8 +397,8 @@
     </li>
     
     <li>
-        <a href="/categories/Android/知识点/">知识点</a>
-        <span class="badge">(18)</span>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
     </li>
     
     <li>
@@ -401,8 +412,8 @@
     </li>
     
     <li>
-        <a href="/categories/Android/安卓源码/">安卓源码</a>
-        <span class="badge">(15)</span>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(19)</span>
     </li>
     
     <li>
@@ -416,12 +427,7 @@
     </li>
     
     <li>
-        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -436,16 +442,6 @@
     </li>
     
     <li>
-        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/Androidx/">Androidx</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
         <a href="/categories/心情/">心情</a>
         <span class="badge">(12)</span>
     </li>
@@ -453,6 +449,21 @@
     <li>
         <a href="/categories/知识点/">知识点</a>
         <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
     </li>
     
     <li>
@@ -483,79 +494,79 @@
   
     <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
   
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
     <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
   
     <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
   
-    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
-  
-    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
-  
     <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
   
-    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
   
     <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
   
     <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
   
-    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
-  
     <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
     <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
-    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
-  
     <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
   
-    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
-  
-    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
   
     <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
   
     <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
   
     <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
   
     <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
   
-    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
-  
-    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
-  
-    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
   
     <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
   
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
     <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
   
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/JPush/" title="JPush">JPush (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
 </div>
     </section>
@@ -599,7 +610,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -610,13 +621,5 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: 'Android源码分析八Launcher桌面启动App过程' || '2018/07/07/Android源码分析八Launcher桌面启动App过程/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

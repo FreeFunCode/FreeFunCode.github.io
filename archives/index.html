@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -127,6 +129,63 @@
             
         </strong>
     </h3>
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/Android/">Android</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://inote.fun/2019/11/14/踩坑-极光推送JPush自定义提示音/">
+    		踩坑:极光推送JPush自定义提示音
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        huangguangzhi 发表于
+        <time datetime="2019-11-14T01:31:05.000Z">2019-11-14</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/JPush/" title="JPush">JPush</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p><a href="http://docs.jiguang.cn/jpush/client/Android/android_3m/" target="_blank" rel="noopener">3 分钟快速使用 JPush Android Demo</a></p>
+<p><a href="https://www.jiguang.cn/jpush2/#/app/d56d184d10358b1a12fd7d7d/push_form/custom" target="_blank" rel="noopener">选择应用，发送自定义消息</a></p>
+<p>项目引入JPush：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">api &apos;cn.jiguang.sdk:jpush:3.3.4&apos;</span><br><span class="line">api &apos;cn.jiguang.sdk:jcore:2.1.2&apos;</span><br></pre></td></tr></table></figure>
+            
+            <p class="more">
+                <a href="https://inote.fun/2019/11/14/踩坑-极光推送JPush自定义提示音/">阅读剩下更多</a>
+            </p>
+        </div>
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2019/11/14/踩坑-极光推送JPush自定义提示音/" title="踩坑:极光推送JPush自定义提示音">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/4.jpg" alt="默认配图" >
+                
+            </a>
+-->
+        </div>
+
+    </div>
+</article>
+
     
         <!-- 文章列表 item -->
 <article class="post">
@@ -609,10 +668,89 @@
 </article>
 
     
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/Android/">Android</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="https://inote.fun/2019/10/19/Android-kotlin-coroutine协程的概念/">
+    		Android-kotlin-coroutine协程的概念
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        huangguangzhi 发表于
+        <time datetime="2019-10-19T08:40:15.000Z">2019-10-19</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/coroutine协程/" title="coroutine协程">coroutine协程</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h1 id="Android-kotlin-coroutine协程的概念"><a href="#Android-kotlin-coroutine协程的概念" class="headerlink" title="Android-kotlin-coroutine协程的概念"></a>Android-kotlin-coroutine协程的概念</h1><h4 id="一-进程，线程，协程-概念"><a href="#一-进程，线程，协程-概念" class="headerlink" title="一. 进程，线程，协程 概念"></a>一. 进程，线程，协程 概念</h4><h5 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h5><ul>
+<li><p>进程是资源分配的最小单位，线程是程序执行的最小单位。</p>
+</li>
+<li><p>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</p>
+<blockquote>
+<p>为了加大一个应用可使用的内存通过多进程来获取多份内存空间<br>通过给四大组件指定android:process属性可以轻易开启多进程</p>
+</blockquote>
+</li>
+<li><p>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC-跨进程通信)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</p>
+<blockquote>
+<p>跨进程通信方式有：</p>
+<p> 1. 通过Intent(Bundle)附加extras来传递信息</p>
+<p> 2. 通过共享文件来共享数据</p>
+<p> 3. 采用Binder方式来是想跨进程通信</p>
+<p> 4. 采用ContentProvider</p>
+<p> 5. 采用socket</p>
+</blockquote>
+</li>
+<li><p>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</p>
+<blockquote>
+<p>延申到android崩溃同样道理。</p>
+<p>app中大量Web页面的使用容易导致App内存占用巨大，存在内存泄露，崩溃率高等问题，WebView独立进程的使用是解决Android WebView相关问题的一个合理的方案。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/images/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.jpg" alt="进程与线程"></p>
+            
+            <p class="more">
+                <a href="https://inote.fun/2019/10/19/Android-kotlin-coroutine协程的概念/">阅读剩下更多</a>
+            </p>
+        </div>
+        
+	<div class="post-thumbnail" data-img="">
+<!--
+            <a href="https://inote.fun/2019/10/19/Android-kotlin-coroutine协程的概念/" title="Android-kotlin-coroutine协程的概念">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/[object Object]thumbnail/9.jpg" alt="默认配图" >
+                
+            </a>
+-->
+        </div>
+
+    </div>
+</article>
+
+    
 
     
     <nav class="page-navigator">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">…</span><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/2/">后一页</a>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/11/">11</a><a class="extend next" rel="next" href="/archives/page/2/">后一页</a>
     </nav>
     
 
@@ -634,7 +772,7 @@
     
     <li>
         <a href="/categories/Android/">Android</a>
-        <span class="badge">(53)</span>
+        <span class="badge">(54)</span>
     </li>
     
     <li>
@@ -648,8 +786,8 @@
     </li>
     
     <li>
-        <a href="/categories/Android/知识点/">知识点</a>
-        <span class="badge">(18)</span>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
     </li>
     
     <li>
@@ -663,8 +801,8 @@
     </li>
     
     <li>
-        <a href="/categories/Android/安卓源码/">安卓源码</a>
-        <span class="badge">(15)</span>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(19)</span>
     </li>
     
     <li>
@@ -678,12 +816,7 @@
     </li>
     
     <li>
-        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -698,16 +831,6 @@
     </li>
     
     <li>
-        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/Androidx/">Androidx</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
         <a href="/categories/心情/">心情</a>
         <span class="badge">(12)</span>
     </li>
@@ -715,6 +838,21 @@
     <li>
         <a href="/categories/知识点/">知识点</a>
         <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
     </li>
     
     <li>
@@ -745,79 +883,79 @@
   
     <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
   
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
     <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
   
     <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
   
-    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
-  
-    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
-  
     <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
   
-    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
   
     <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
   
     <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
   
-    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
-  
     <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
     <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
-    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
-  
     <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
   
-    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
-  
-    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
   
     <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
   
     <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
   
     <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
   
     <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
   
-    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
-  
-    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
-  
-    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
   
     <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
   
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
     <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
   
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/JPush/" title="JPush">JPush (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
 </div>
     </section>
@@ -861,7 +999,7 @@
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -872,6 +1010,5 @@
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

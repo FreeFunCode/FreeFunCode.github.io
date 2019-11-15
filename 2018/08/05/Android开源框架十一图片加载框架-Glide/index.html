@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0">
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
@@ -14,7 +16,7 @@
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     
-    
+    <link rel="stylesheet" href="/css/style.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -30,9 +32,9 @@
 </script>
 
 
-<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+</head>
+</html>
 <body class="home">
-
     <!--[if lt IE 9]>
     <div class="browsehappy">
         当前网页 <strong>不支持</strong>
@@ -106,7 +108,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/user.png" alt="avatar" title="FreeFunCode">
+                <img src="/img/user.png" alt="avatar" title="FreeFunCode" >
             </div>
         </div>
     </section>
@@ -164,39 +166,39 @@
 <pre><span style="color: #008000;">　　//</span><span style="color: #008000;">（1）加载网络图片</span>
     Glide.with(<span style="color: #0000ff;">this</span>).load(<span style="color: #800000;">"</span><span style="color: #800000;">http://img1.imgtn.bdimg.com/it/u=2615772929,948758168&amp;fm=21&amp;gp=0.jpg</span><span style="color: #800000;">"</span><span style="color: #000000;">).into(ivGlide1);
 
-<pre><code>&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;（2）加载资源图片&lt;/span&gt;
-Glide.with(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).load(R.drawable.atguigu_logo).into(ivGlide2);
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;（2）加载资源图片&lt;/span&gt;
+Glide.with(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).load(R.drawable.atguigu_logo).into(ivGlide2);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;（3）加载本地图片&lt;/span&gt;
-String path = Environment.getExternalStorageDirectory() + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/meinv1.jpg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-File file &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(path);
-Uri uri &lt;/span&gt;=&lt;span style="color: #000000;"&gt; Uri.fromFile(file);
-Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).load(uri).into(ivGlide3);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;（3）加载本地图片&lt;/span&gt;
+String path = Environment.getExternalStorageDirectory() + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/meinv1.jpg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+File file &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(path);
+Uri uri &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; Uri.fromFile(file);
+Glide.with(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).load(uri).into(ivGlide3);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; （4）加载网络gif&lt;/span&gt;
-String gifUrl = &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;http://b.hiphotos.baidu.com/zhidao/pic/item/faedab64034f78f066abccc57b310a55b3191c67.jpg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).load(gifUrl).placeholder(R.mipmap.ic_launcher).into(ivGlide4);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; （4）加载网络gif&lt;/span&gt;
+String gifUrl = &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;http://b.hiphotos.baidu.com/zhidao/pic/item/faedab64034f78f066abccc57b310a55b3191c67.jpg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+Glide.with(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).load(gifUrl).placeholder(R.mipmap.ic_launcher).into(ivGlide4);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt; （5）加载资源gif&lt;/span&gt;
-Glide.with(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).load(R.drawable.loading).asGif().placeholder(R.mipmap.ic_launcher).into(ivGlide5);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; （5）加载资源gif&lt;/span&gt;
+Glide.with(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).load(R.drawable.loading).asGif().placeholder(R.mipmap.ic_launcher).into(ivGlide5);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;（6）加载本地gif&lt;/span&gt;
-String gifPath = Environment.getExternalStorageDirectory() + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/meinv2.jpg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-File gifFile &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(gifPath);
-Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).load(gifFile).placeholder(R.mipmap.ic_launcher).into(ivGlide6);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;（6）加载本地gif&lt;/span&gt;
+String gifPath = Environment.getExternalStorageDirectory() + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/meinv2.jpg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+File gifFile &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(gifPath);
+Glide.with(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).load(gifFile).placeholder(R.mipmap.ic_launcher).into(ivGlide6);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;（7）加载本地小视频和快照&lt;/span&gt;
-String videoPath = Environment.getExternalStorageDirectory() + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/video.mp4&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-File videoFile &lt;/span&gt;= &lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(videoPath);
-Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;&lt;span style="color: #000000;"&gt;).load(Uri.fromFile(videoFile)).placeholder(R.mipmap.ic_launcher).into(ivGlide7);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;（7）加载本地小视频和快照&lt;/span&gt;
+String videoPath = Environment.getExternalStorageDirectory() + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/video.mp4&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+File videoFile &lt;/span&gt;= &lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(videoPath);
+Glide.with(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).load(Uri.fromFile(videoFile)).placeholder(R.mipmap.ic_launcher).into(ivGlide7);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;（8）设置缩略图比例,然后，先加载缩略图，再加载原图&lt;/span&gt;
-String urlPath = Environment.getExternalStorageDirectory() + &lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #800000;"&gt;/meinv1.jpg&lt;/span&gt;&lt;span style="color: #800000;"&gt;"&lt;/span&gt;&lt;span style="color: #000000;"&gt;;
-Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).load(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt; File(urlPath)).thumbnail(&lt;span style="color: #800080;"&gt;0.1f&lt;/span&gt;&lt;span style="color: #000000;"&gt;).centerCrop().placeholder(R.mipmap.ic_launcher).into(ivGlide8);
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;（8）设置缩略图比例,然后，先加载缩略图，再加载原图&lt;/span&gt;
+String urlPath = Environment.getExternalStorageDirectory() + &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;/meinv1.jpg&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+Glide.with(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;).load(&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt; File(urlPath)).thumbnail(&lt;span style=&quot;color: #800080;&quot;&gt;0.1f&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;).centerCrop().placeholder(R.mipmap.ic_launcher).into(ivGlide8);
 
-&lt;/span&gt;&lt;span style="color: #008000;"&gt;//&lt;/span&gt;&lt;span style="color: #008000;"&gt;（9）先建立一个缩略图对象，然后，先加载缩略图，再加载原图&lt;/span&gt;
-DrawableRequestBuilder thumbnailRequest = Glide.with(&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).load(&lt;span style="color: #0000ff;"&gt;new&lt;/span&gt;&lt;span style="color: #000000;"&gt; File(urlPath));
-Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).load(Uri.fromFile(videoFile)).thumbnail(thumbnailRequest).centerCrop().placeholder(R.mipmap.ic_launcher).into(ivGlide9);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;（9）先建立一个缩略图对象，然后，先加载缩略图，再加载原图&lt;/span&gt;
+DrawableRequestBuilder thumbnailRequest = Glide.with(&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;).load(&lt;span style=&quot;color: #0000ff;&quot;&gt;new&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; File(urlPath));
+Glide.with(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;this&lt;/span&gt;).load(Uri.fromFile(videoFile)).thumbnail(thumbnailRequest).centerCrop().placeholder(R.mipmap.ic_launcher).into(ivGlide9);&lt;/pre&gt;</code></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码" target="_blank" rel="noopener"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></span></pre></div>
 <p>&nbsp;</p>
 </div>
     </div>
@@ -219,11 +221,11 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
   <div class="article-share clearfix text-center">
     <div class="share-area">
       <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title + '&amp;language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
       <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&amp;title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&amp;desc=Jelon个人博客&amp;title=' + document.title + '&amp;callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&amp;name=' + document.title + '&amp;text=' + document.title);" class="share-icon douban"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
 
@@ -233,7 +235,7 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
 <div class="article-nav clearfix">
     
     <span class="prev fl">
-        上一篇<br>
+        上一篇<br >
         <a href="/2018/08/05/Android开源框架十二图片加载框架-Fresco/">
             
                 Android 开源框架 ( 十二 ) 图片加载框架---Fresco
@@ -244,7 +246,7 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
 
     
     <span class="next fr">
-        下一篇<br>
+        下一篇<br >
         <a href="/2018/08/05/Android开源框架十图片加载框架-Picasso/">
             
                 Android 开源框架 ( 十 ) 图片加载框架---Picasso
@@ -256,7 +258,7 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
 
 <!-- 文章评论 -->
 
-  
+  <script src="/js/comment.js"></script>
   <div id="comments" class="comment">
     <!--
     <div class="sign-bar">
@@ -321,7 +323,16 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     </section>
     -->
   </div>
-  
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'Android开源框架十一图片加载框架-Glide' || '2018/08/05/Android开源框架十一图片加载框架-Glide/',
+    owner: 'FreeFunCode',
+    repo: 'FreeFunCode.github.io',
+    clientId: 'f59edbb15c434fe50f63',
+    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
+  });
+  </script>
 
 
             </div>
@@ -341,7 +352,7 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     
     <li>
         <a href="/categories/Android/">Android</a>
-        <span class="badge">(53)</span>
+        <span class="badge">(54)</span>
     </li>
     
     <li>
@@ -355,8 +366,8 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     </li>
     
     <li>
-        <a href="/categories/Android/知识点/">知识点</a>
-        <span class="badge">(18)</span>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
     </li>
     
     <li>
@@ -370,8 +381,8 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     </li>
     
     <li>
-        <a href="/categories/Android/安卓源码/">安卓源码</a>
-        <span class="badge">(15)</span>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(19)</span>
     </li>
     
     <li>
@@ -385,12 +396,7 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     </li>
     
     <li>
-        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -405,16 +411,6 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     </li>
     
     <li>
-        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/Androidx/">Androidx</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
         <a href="/categories/心情/">心情</a>
         <span class="badge">(12)</span>
     </li>
@@ -422,6 +418,21 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
     <li>
         <a href="/categories/知识点/">知识点</a>
         <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/LiveData/">LiveData</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
     </li>
     
     <li>
@@ -452,79 +463,79 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
   
     <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
   
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
+  
     <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
   
     <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
   
-    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
-  
-    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
-  
     <a class="tag-item" href="/tags/屏幕适配/" title="屏幕适配">屏幕适配 (1)</a>
   
-    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
+    <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
   
     <a class="tag-item" href="/tags/开源框架/" title="开源框架">开源框架 (17)</a>
   
     <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
   
-    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
-  
     <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
+    <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
     <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
-    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
-  
     <a class="tag-item" href="/tags/LiveData/" title="LiveData">LiveData (1)</a>
   
-    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
-  
-    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+    <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
   
     <a class="tag-item" href="/tags/ViewModel/" title="ViewModel">ViewModel (1)</a>
   
     <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
   
-    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
-  
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+    <a class="tag-item" href="/tags/Paging/" title="Paging">Paging (1)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
+    <a class="tag-item" href="/tags/Room/" title="Room">Room (1)</a>
+  
+    <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
+  
+    <a class="tag-item" href="/tags/线程切换/" title="线程切换">线程切换 (1)</a>
   
     <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
   
     <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
   
-    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
-  
-    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
-    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
-  
-    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
+    <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
   
     <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (1)</a>
   
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+    <a class="tag-item" href="/tags/BroadcastReceiver/" title="BroadcastReceiver">BroadcastReceiver (1)</a>
   
-    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
-  
-    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
-  
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+    <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
   
     <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
   
-    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
+    <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
+  
+    <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
+  
+    <a class="tag-item" href="/tags/JPush/" title="JPush">JPush (1)</a>
+  
+    <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+  
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+  
+    <a class="tag-item" href="/tags/c/" title="c#">c# (1)</a>
   
 </div>
     </section>
@@ -568,7 +579,7 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
 
     <!-- 博客底部 -->
     <footer class="footer">
-    ©
+    &copy;
     
         2012-2019
     
@@ -579,13 +590,5 @@ Glide.with(&lt;/span&gt;&lt;span style="color: #0000ff;"&gt;this&lt;/span&gt;).l
 
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
-
-
-<script type="text/javascript" src="/bundle.js"></script><script type="text/javascript">JELON.Comment({
-    container: 'comments',
-    label: 'Android开源框架十一图片加载框架-Glide' || '2018/08/05/Android开源框架十一图片加载框架-Glide/',
-    owner: 'FreeFunCode',
-    repo: 'FreeFunCode.github.io',
-    clientId: 'f59edbb15c434fe50f63',
-    clientSecret: '5ad8f05641605b384357bd325058c4cddd58b93b'
-  });</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+<script src="/js/main.js"></script>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
