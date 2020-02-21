@@ -146,7 +146,16 @@
 <hr>
 <h5 id="2-第二个问题：后台应用不能通过startService启动服务。"><a href="#2-第二个问题：后台应用不能通过startService启动服务。" class="headerlink" title="2.第二个问题：后台应用不能通过startService启动服务。"></a>2.第二个问题：后台应用不能通过startService启动服务。</h5><p>抛出的异常信息：<code>Not allowed to start service Intent XXX : app is in background uid UidRecord</code></p>
 <p> *<em>分析源码： *</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">		&lt;!--检测当前app是否允许后台启动--&gt;</span><br><span class="line">        final int allowed = mAm.getAppStartModeLocked(r.appInfo.uid, r.packageName,</span><br><span class="line">                r.appInfo.targetSdkVersion, callingPid, false, false, forcedStandby);</span><br><span class="line">                &lt;!--如果不允许  Background start not allowed--&gt;</span><br><span class="line">        if (allowed != ActivityManager.APP_START_MODE_NORMAL) &#123;</span><br><span class="line">            ...</span><br><span class="line">            &lt;!--返回 ? 告诉客户端现在处于后台启动状态，禁止你--&gt;</span><br><span class="line">            return new ComponentName(&quot;?&quot;, &quot;app is in background uid &quot; + uidRec);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">		 &lt;!--返回值是？的情况下就是后台启动service的异常--&gt;</span><br><span class="line">		 if (cn.getPackageName().equals(&quot;?&quot;)) &#123;</span><br><span class="line">			throw new IllegalStateException(</span><br><span class="line">					&quot;Not allowed to start service &quot; + service + &quot;: &quot; + cn.getClassName());</span><br><span class="line">		&#125;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">-----</span><br><span class="line"></span><br><span class="line">### 二.解决方案(startForeground &amp; notification)：</span><br><span class="line"></span><br><span class="line">回收优先级：前台进程&lt;可视进程&lt;服务进程&lt;后台进程&lt;内容供应根节点&lt;空进程</span><br><span class="line"></span><br><span class="line">开启前台Service，会在通知栏显示</span><br><span class="line">通过**notification**方式 如音乐播放</span><br><span class="line"></span><br><span class="line">**kotlin代码片段：**</span><br><span class="line"></span><br><span class="line">&gt; 启动/停止服务</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">if (!CallingStateListener.isCallingStateListener()) &#123;</span><br><span class="line">                if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">                    startForegroundService(Intent(this, CallingStateListener::class.java))</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    startService(Intent(this, CallingStateListener::class.java))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">//关闭监听电话状态服务</span><br><span class="line">        if (CallingStateListener.isCallingStateListener()) &#123;</span><br><span class="line">            stopService(Intent(this, CallingStateListener::class.java))</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--检测当前app是否允许后台启动--&gt;</span><br><span class="line">      final int allowed = mAm.getAppStartModeLocked(r.appInfo.uid, r.packageName,</span><br><span class="line">              r.appInfo.targetSdkVersion, callingPid, false, false, forcedStandby);</span><br><span class="line">              &lt;!--如果不允许  Background start not allowed--&gt;</span><br><span class="line">      if (allowed != ActivityManager.APP_START_MODE_NORMAL) &#123;</span><br><span class="line">          ...</span><br><span class="line">          &lt;!--返回 ? 告诉客户端现在处于后台启动状态，禁止你--&gt;</span><br><span class="line">          return new ComponentName(&quot;?&quot;, &quot;app is in background uid &quot; + uidRec);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"> &lt;!--返回值是？的情况下就是后台启动service的异常--&gt;</span><br><span class="line"> if (cn.getPackageName().equals(&quot;?&quot;)) &#123;</span><br><span class="line">	throw new IllegalStateException(</span><br><span class="line">			&quot;Not allowed to start service &quot; + service + &quot;: &quot; + cn.getClassName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="二-解决方案-startForeground-amp-notification-："><a href="#二-解决方案-startForeground-amp-notification-：" class="headerlink" title="二.解决方案(startForeground &amp; notification)："></a>二.解决方案(startForeground &amp; notification)：</h3><p>回收优先级：前台进程&lt;可视进程&lt;服务进程&lt;后台进程&lt;内容供应根节点&lt;空进程</p>
+<p>开启前台Service，会在通知栏显示<br>通过<strong>notification</strong>方式 如音乐播放</p>
+<p><strong>kotlin代码片段：</strong></p>
+<blockquote>
+<p>启动/停止服务</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if (!CallingStateListener.isCallingStateListener()) &#123;</span><br><span class="line">                if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">                    startForegroundService(Intent(this, CallingStateListener::class.java))</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    startService(Intent(this, CallingStateListener::class.java))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">//关闭监听电话状态服务</span><br><span class="line">        if (CallingStateListener.isCallingStateListener()) &#123;</span><br><span class="line">            stopService(Intent(this, CallingStateListener::class.java))</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>service 类</p>
@@ -300,11 +309,6 @@
     </li>
     
     <li>
-        <a href="/categories/Android/">Android</a>
-        <span class="badge">(55)</span>
-    </li>
-    
-    <li>
         <a href="/categories/心情/">心情</a>
         <span class="badge">(13)</span>
     </li>
@@ -315,13 +319,13 @@
     </li>
     
     <li>
-        <a href="/categories/Jetpack/">Jetpack</a>
-        <span class="badge">(7)</span>
+        <a href="/categories/Android/">Android</a>
+        <span class="badge">(55)</span>
     </li>
     
     <li>
-        <a href="/categories/Android/知识点/">知识点</a>
-        <span class="badge">(19)</span>
+        <a href="/categories/Jetpack/">Jetpack</a>
+        <span class="badge">(7)</span>
     </li>
     
     <li>
@@ -330,13 +334,18 @@
     </li>
     
     <li>
-        <a href="/categories/Android/kotlin/">kotlin</a>
-        <span class="badge">(3)</span>
+        <a href="/categories/Android/安卓源码/">安卓源码</a>
+        <span class="badge">(15)</span>
     </li>
     
     <li>
-        <a href="/categories/Android/安卓源码/">安卓源码</a>
-        <span class="badge">(15)</span>
+        <a href="/categories/Android/知识点/">知识点</a>
+        <span class="badge">(19)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Android/kotlin/">kotlin</a>
+        <span class="badge">(3)</span>
     </li>
     
     <li>
@@ -345,27 +354,7 @@
     </li>
     
     <li>
-        <a href="/categories/Jetpack/Room/">Room</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
         <a href="/categories/后端/JAVA/">JAVA</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/Androidx/">Androidx</a>
-        <span class="badge">(1)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
         <span class="badge">(1)</span>
     </li>
     
@@ -380,8 +369,28 @@
     </li>
     
     <li>
+        <a href="/categories/Jetpack/Room/">Room</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/ViewModel/">ViewModel</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
         <a href="/categories/知识点/">知识点</a>
         <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Androidx/">Androidx</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Jetpack/Lifecycles/">Lifecycles</a>
+        <span class="badge">(1)</span>
     </li>
     
     <li>
@@ -408,19 +417,19 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
-  
     <a class="tag-item" href="/tags/日期格式化/" title="日期格式化">日期格式化 (1)</a>
   
-    <a class="tag-item" href="/tags/service保活/" title="service保活">service保活 (1)</a>
+    <a class="tag-item" href="/tags/Linq/" title="Linq">Linq (1)</a>
+  
+    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
   
     <a class="tag-item" href="/tags/职业生涯/" title="职业生涯">职业生涯 (2)</a>
+  
+    <a class="tag-item" href="/tags/service保活/" title="service保活">service保活 (1)</a>
   
     <a class="tag-item" href="/tags/coroutine协程/" title="coroutine协程">coroutine协程 (1)</a>
   
     <a class="tag-item" href="/tags/view绘制/" title="view绘制">view绘制 (1)</a>
-  
-    <a class="tag-item" href="/tags/visualStudio/" title="visualStudio">visualStudio (2)</a>
   
     <a class="tag-item" href="/tags/Jetpack/" title="Jetpack">Jetpack (1)</a>
   
@@ -432,13 +441,15 @@
   
     <a class="tag-item" href="/tags/安卓源码/" title="安卓源码">安卓源码 (15)</a>
   
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+  
     <a class="tag-item" href="/tags/地图/" title="地图">地图 (2)</a>
   
-    <a class="tag-item" href="/tags/面试/" title="面试">面试 (2)</a>
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
   
     <a class="tag-item" href="/tags/IIS/" title="IIS">IIS (2)</a>
   
-    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (4)</a>
+    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
   
     <a class="tag-item" href="/tags/Lifecycles/" title="Lifecycles">Lifecycles (1)</a>
   
@@ -452,23 +463,21 @@
   
     <a class="tag-item" href="/tags/SqlServer/" title="SqlServer">SqlServer (1)</a>
   
-    <a class="tag-item" href="/tags/Androidx/" title="Androidx">Androidx (1)</a>
-  
     <a class="tag-item" href="/tags/ViewPager/" title="ViewPager">ViewPager (1)</a>
+  
+    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
   
     <a class="tag-item" href="/tags/增量更新/" title="增量更新">增量更新 (1)</a>
   
     <a class="tag-item" href="/tags/kotlin/" title="kotlin">kotlin (2)</a>
   
-    <a class="tag-item" href="/tags/XMLHttpRequest/" title="XMLHttpRequest">XMLHttpRequest (1)</a>
-  
     <a class="tag-item" href="/tags/电影/" title="电影">电影 (4)</a>
+  
+    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/fiddler/" title="fiddler">fiddler (1)</a>
   
     <a class="tag-item" href="/tags/副业/" title="副业">副业 (1)</a>
-  
-    <a class="tag-item" href="/tags/心情/" title="心情">心情 (1)</a>
   
     <a class="tag-item" href="/tags/Activity/" title="Activity">Activity (1)</a>
   
@@ -476,15 +485,15 @@
   
     <a class="tag-item" href="/tags/网盘资源/" title="网盘资源">网盘资源 (1)</a>
   
-    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
-  
     <a class="tag-item" href="/tags/职业发展/" title="职业发展">职业发展 (1)</a>
   
-    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
+    <a class="tag-item" href="/tags/购房/" title="购房">购房 (1)</a>
+  
+    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
   
     <a class="tag-item" href="/tags/图片保存/" title="图片保存">图片保存 (1)</a>
   
-    <a class="tag-item" href="/tags/跳槽/" title="跳槽">跳槽 (2)</a>
+    <a class="tag-item" href="/tags/习惯/" title="习惯">习惯 (1)</a>
   
 </div>
     </section>
